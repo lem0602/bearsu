@@ -135,7 +135,7 @@
             line-height: 1.4;
         }
 
-        .recipe_card{
+        .recipe_card {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -145,43 +145,43 @@
             margin-bottom: 48px;
         }
 
-        .recipe_pic{
+        .recipe_pic {
             padding-right: 24px;
         }
 
-        .recipe_pic img{
-            aspect-ratio:4 / 3;
+        .recipe_pic img {
+            aspect-ratio: 4 / 3;
             width: 387px;
             border-radius: 20px;
         }
 
-        .recipe_content .tittle h2{
+        .recipe_content .tittle h2 {
             font-size: 1.5rem;
             margin-bottom: 0px;
             color: #333333;
         }
 
-        .recipe_content .right .fa-clock{
+        .recipe_content .right .fa-clock {
             color: #005F5F;
             font-size: 1.5rem;
         }
 
-        .recipe_content .right p{
+        .recipe_content .right p {
             color: #005F5F;
             font-size: 1rem;
         }
 
-        .recipe_content .right .fa-bookmark{
+        .recipe_content .right .fa-bookmark {
             color: #333333;
             font-size: 2rem;
         }
 
-        .recipe_card .author p{
+        .recipe_card .author p {
             font-size: 0.9rem;
             color: #333333;
         }
 
-        .recipe_card .describe h3{
+        .recipe_card .describe h3 {
             font-size: 1.25rem;
             line-height: 1.6;
             display: -webkit-box;
@@ -191,7 +191,7 @@
             color: #333333;
         }
 
-        .recipe_card .describe h4{
+        .recipe_card .describe h4 {
             font-size: 1rem;
             display: -webkit-box;
             -webkit-line-clamp: 1;
@@ -200,13 +200,31 @@
             color: #333333;
         }
 
-        .recipe_card .btn a{
+        .recipe_card .btn a {
             color: #FFF6E9;
             background-color: #005F5F;
             padding: 8px 35px;
             border-radius: 8px;
             box-shadow: #333333 3px 3px;
             text-decoration: none;
+        }
+
+        .page-link{
+            background-color: #005F5F;
+            border: none;
+            color: #FFF6E9;
+        }
+
+        .page-link:hover{
+            background-color: #FFF6E9;
+        }
+
+        .page-item:first-child .page-link{
+            border-radius: 8px 0px 0px 8px;
+        }
+
+        .page-item:last-child .page-link{
+            border-radius: 0px 8px 8px 0px;
         }
 
         footer {
@@ -319,7 +337,7 @@
                         <div class="describe">
                             <h3>花椰菜豐富的膳食纖維有助於促進腸胃蠕動，促進排便順暢、代謝體內的老廢物質。尤其綠花椰菜是十字花科的蔬菜，有強大的抗氧化成分，含有維生素A、B群、C、E，以及鉀、硒、槲皮素、類胡蘿蔔素、硫代配醣體、蘿蔔硫素等，可以強化視力、預防高血壓、提升免疫力、抗氧化，同時減少胃炎及罹患癌症的機率。
                                 家人或小孩不太敢吃花椰菜嗎？ 可試試這道焗烤雙花～若本來就喜歡吃花椰菜，那就更要試試這道菜....</h3>
-                                <h4>食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉</h4>
+                            <h4>食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉</h4>
                         </div>
                         <div class="btn d-flex justify-content-end p-0">
                             <a href="">了解更多</a>
@@ -327,6 +345,27 @@
                     </div>
                 </div>
 
+                <div class="col-12 d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa-solid fa-angle-left"></i></span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
 
