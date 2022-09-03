@@ -36,7 +36,6 @@
             position: sticky;
             top: 32px;
             transform: translateY(32px);
-            height: 0px;
             z-index: 999;
             margin-right: 30px;
             width: 150px;
@@ -233,6 +232,12 @@
             font-size: 7rem;
         }
 
+        .card_carousel{
+            height: 370px;
+            contain: paint;
+            margin-bottom: 100px;
+        }
+
         .card {
             height: 350px;
             width: 350px;
@@ -280,9 +285,6 @@
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
             padding: 11px 0px;
-            position: absolute;
-            bottom: -470px;
-            width: 100%;
         }
 
         footer p {
@@ -304,9 +306,9 @@
             </div>
         </div>
     </div>
-    <div class="main_wrap d-flex justify-content-between">
+    <div class="main_wrap d-flex justify-content-between position-relative">
         <div class="nav_left">
-            <a href=""><img src="images/logo.png" alt=""></a>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
         <div class="container">
             <div class="row main">
@@ -458,51 +460,7 @@
                     <img src="images/index_main_experience.png" alt="">
                 </div>
 
-                <!-- <div class="col-12 d-flex justify-content-between">
-                    <div class="card justify-content-between">
-                        <div class="card_top">
-                            <h2>課程淺顯易懂的教學，讓初學者也可快速進入料理的世界。</h2>
-                        </div>
-                        <div class="card_down d-flex align-items-center">
-                            <div class="mug_shot mr-3">
-                                <img src="images/mug_shot_01.png" alt="">
-                            </div>
-                            <div class="name">
-                                <h2>袁建平</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card justify-content-between">
-                        <div class="card_top">
-                            <h2>課程平價又豐富，喜歡素食但無做菜經驗的我，簡單又容易上手。</h2>
-                        </div>
-                        <div class="card_down d-flex align-items-center">
-                            <div class="mug_shot mr-3">
-                                <img src="images/mug_shot_02.png" alt="">
-                            </div>
-                            <div class="name">
-                                <h2>張士朋</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card justify-content-between">
-                        <div class="card_top">
-                            <h2>不用繁瑣的烹煮過程，透過用心準備的料理課程，素食食材也可以變成一道道的美食。</h2>
-                        </div>
-                        <div class="card_down d-flex align-items-center">
-                            <div class="mug_shot mr-3">
-                                <img src="images/mug_shot_03.png" alt="">
-                            </div>
-                            <div class="name">
-                                <h2>楊日輝</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <div class="col-12">
+                <div class="col-12 card_carousel">
                     <ul id="c" class="pl-0">
 
                         <li>
@@ -605,13 +563,13 @@
 
         <div class="nav_right">
             <ul class="d-flex flex-column">
-                <a href="">
+                <a href="index.html">
                     <li class="li_top">首頁</li>
                 </a>
                 <a href="">
                     <li>廚藝教室</li>
                 </a>
-                <a href="">
+                <a href="solarterms.html">
                     <li>節氣食補</li>
                 </a>
                 <a href="">

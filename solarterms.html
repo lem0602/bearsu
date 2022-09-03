@@ -19,13 +19,13 @@
         }
 
         .solarterms_wrap {
-            overflow: hidden;
+            contain: paint;
         }
 
         .nav_left {
             position: sticky;
-            top: 32px;
-            transform: translateY(32px);
+            top: 12px;
+            transform: translateY(12px);
             height: 0px;
             z-index: 999;
             margin-left: 50px;
@@ -37,9 +37,8 @@
 
         .nav_right {
             position: sticky;
-            top: 32px;
-            transform: translateY(32px);
-            height: 0px;
+            top: 12px;
+            transform: translateY(12px);
             z-index: 999;
             margin-right: 30px;
             width: 150px;
@@ -152,9 +151,9 @@
 </head>
 
 <body>
-    <div class="solarterms_wrap d-flex justify-content-between">
+    <div class="solarterms_wrap d-flex justify-content-between position-relative">
         <div class="nav_left">
-            <a href=""><img src="images/logo.png" alt=""></a>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
@@ -229,13 +228,13 @@
 
         <div class="nav_right">
             <ul class="d-flex flex-column">
-                <a href="">
+                <a href="index.html">
                     <li class="li_top">首頁</li>
                 </a>
                 <a href="">
                     <li>廚藝教室</li>
                 </a>
-                <a href="">
+                <a href="solarterms.html">
                     <li>節氣食補</li>
                 </a>
                 <a href="">
