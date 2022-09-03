@@ -135,6 +135,27 @@
             line-height: 1.4;
         }
 
+        .filter_section {
+            margin-top: 48px;
+            padding: 0px;
+        }
+
+        .filter {
+            background-color: #FFF6E9;
+            border: 2px solid #333333;
+            border-radius: 8px;
+            color: #005F5F;
+            padding: 4px 14px;
+            /* appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none; */
+            margin-right: 24px;
+        }
+
+        .filter:focus {
+            outline: none
+        }
+
         .recipe_card {
             border-radius: 20px;
             border: 2px solid #333333;
@@ -210,31 +231,31 @@
             transition: .3s;
         }
 
-        .recipe_card .btn a:hover{
-            box-shadow:none;
+        .recipe_card .btn a:hover {
+            box-shadow: none;
             transform: translate(3px, 3px);
         }
 
-        .page{
+        .page {
             margin-top: 48px;
         }
 
-        .page-link{
+        .page-link {
             background-color: #005F5F;
             border: none;
             color: #FFF6E9;
             transition: .3s;
         }
 
-        .page-link:hover{
+        .page-link:hover {
             background-color: #FFF6E9;
         }
 
-        .page-item:first-child .page-link{
+        .page-item:first-child .page-link {
             border-radius: 8px 0px 0px 8px;
         }
 
-        .page-item:last-child .page-link{
+        .page-item:last-child .page-link {
             border-radius: 0px 8px 8px 0px;
         }
 
@@ -325,6 +346,61 @@
                         <area shape="poly" coords="441,288,617,110,647,144,670,182,453,307" href="javascript:void(0);"
                             class="solarterms_card_23 circle">
                     </map>
+                </div>
+
+                <div class="col-12 filter_section">
+                    <select class="season_filter filter">
+                        <option >季節分類</option>
+                        <option>春季</option>
+                        <option>夏季</option>
+                        <option>秋季</option>
+                        <option>冬季</option>
+                    </select>
+
+                    <select class="solarterms_filter filter">
+                        <option >節氣分類</option>
+                        <option>立春</option>
+                        <option>雨水</option>
+                        <option>驚蟄</option>
+                        <option>春分</option>
+                        <option>清明</option>
+                        <option>穀雨</option>
+                        <option>立夏</option>
+                        <option>小滿</option>
+                        <option>芒種</option>
+                        <option>夏至</option>
+                        <option>小暑</option>
+                        <option>大暑</option>
+                        <option>立秋</option>
+                        <option>處暑</option>
+                        <option>白露</option>
+                        <option>秋分</option>
+                        <option>寒露</option>
+                        <option>霜降</option>
+                        <option>立冬</option>
+                        <option>小雪</option>
+                        <option>大雪</option>
+                        <option>冬至</option>
+                        <option>小寒</option>
+                        <option>大寒</option>
+                    </select>
+
+                    <select class="su_filter filter">
+                        <option >素食分類</option>
+                        <option>全素</option>
+                        <option>蛋素</option>
+                        <option>五辛素</option>
+                        <option>奶素</option>
+                        <option>蛋奶素</option>
+                    </select>
+
+                    <select class="time_filter filter">
+                        <option >烹飪時間</option>
+                        <option>15分鐘</option>
+                        <option>30分鐘</option>
+                        <option>45分鐘</option>
+                        <option>60分鐘以上</option>
+                    </select>
                 </div>
 
                 <div class="col-12 recipe_card d-flex">
@@ -622,7 +698,7 @@
                         <ul class="pagination">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true"><i class="fa-solid fa-angle-left"></i></span>
+                                    <span aria-hidden="true"><i class="fa-solid fa-angle-left" aria-hidden="true"></i></span>
                                 </a>
                             </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -672,6 +748,16 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
     <script>
         $('.solarterms_card_0').click(function () {
             $('.solarterms_introduce .middle').empty()
