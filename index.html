@@ -15,6 +15,8 @@
     <style>
         body {
             background: #6DD0CD;
+            position: relative;
+            min-height: 100vh;
         }
 
         .nav_left {
@@ -261,10 +263,26 @@
             color: #005F5F;
         }
 
+        ul>li {
+            width: 33.333%;
+            list-style-type: none;
+            position: absolute;
+            padding: 17px;
+            opacity: 0;
+            transition: 1s opacity;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
         footer {
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
             padding: 11px 0px;
+            position: absolute;
+            bottom: -470px;
+            width: 100%;
         }
 
         footer p {
@@ -440,7 +458,7 @@
                     <img src="images/index_main_experience.png" alt="">
                 </div>
 
-                <div class="col-12 d-flex justify-content-between">
+                <!-- <div class="col-12 d-flex justify-content-between">
                     <div class="card justify-content-between">
                         <div class="card_top">
                             <h2>課程淺顯易懂的教學，讓初學者也可快速進入料理的世界。</h2>
@@ -482,6 +500,104 @@
                             </div>
                         </div>
                     </div>
+                </div> -->
+
+                <div class="col-12">
+                    <ul id="c" class="pl-0">
+
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程淺顯易懂的教學，讓初學者也可快速進入料理的世界。</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_01.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>袁建平</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程平價又豐富，喜歡素食但無做菜經驗的我，簡單又容易上手。</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_02.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>張士朋</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>不用繁瑣的烹煮過程，透過用心準備的料理課程，素食食材也可以變成一道道的美食。</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_03.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>楊日輝</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程淺顯易懂的教學，讓初學者也可快速進入料理的世界。</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_01.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>袁建平</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程平價又豐富，喜歡素食但無做菜經驗的我，簡單又容易上手。</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_02.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>張士朋</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>不用繁瑣的烹煮過程，透過用心準備的料理課程，素食食材也可以變成一道道的美食。</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_03.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>楊日輝</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
 
             </div>
@@ -515,7 +631,40 @@
         <p>Copyright © 2022 BearSu. All rights reserved.</p>
     </footer>
 
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var timer = 4000;
+
+        var i = 0;
+        var max = $('#c > li').length;
+
+        $("#c > li").eq(i).addClass('active').css('left', '0');
+        $("#c > li").eq(i + 1).addClass('active').css('left', '33.333%');
+        $("#c > li").eq(i + 2).addClass('active').css('left', '66.666%');
+
+        setInterval(function () {
+
+            $("#c > li").removeClass('active');
+
+            $("#c > li").eq(i).css('transition-delay', '0.25s');
+            $("#c > li").eq(i + 1).css('transition-delay', '0.5s');
+            $("#c > li").eq(i + 2).css('transition-delay', '0.75s');
+
+            if (i < max - 3) {
+                i = i + 3;
+            }
+
+            else {
+                i = 0;
+            }
+
+            $("#c > li").eq(i).css('left', '0').addClass('active').css('transition-delay', '1.25s');
+            $("#c > li").eq(i + 1).css('left', '33.333%').addClass('active').css('transition-delay', '1.5s');
+            $("#c > li").eq(i + 2).css('left', '66.666%').addClass('active').css('transition-delay', '1.75s');
+
+        }, timer);
+    </script>
 </body>
 
 </html>
