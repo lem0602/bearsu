@@ -105,20 +105,6 @@
             margin-bottom: 48px;
         }
 
-        .btn_right {
-            position: sticky;
-            top: 12px;
-            transform: translateY(12px);
-            z-index: 999;
-            margin-right: 30px;
-            width: 150px;
-            height: 400px;
-            border-radius: 100px;
-            border: 2px solid #FFF6E9;
-            background-color: #005F5F;
-            overflow: hidden;
-        }
-
         .course_title h1 {
             font-size: 3.5rem;
             color: #005F5F;
@@ -223,6 +209,52 @@
         .course_card .btn:hover {
             box-shadow: none;
             transform: translate(3px, 3px);
+        }
+
+        .course_menu {
+            position: sticky;
+            top: 12px;
+            transform: translateY(12px);
+            z-index: 999;
+            height: 520px;
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: #333333 3px 3px;
+            padding: 24px;
+        }
+
+        .course_menu_wrap{
+            width: 100%;
+        }
+
+        .date_filter{
+            background-color: #FFF6E9;
+            border: 2px solid #333333;
+            border-radius: 8px;
+            color: #005F5F;
+            padding: 4px;
+        }
+
+        .date_filter:focus {
+            outline: none
+        }
+
+        .course_menu h2{
+            font-size: 1.5rem;
+            color:#333333;
+            padding-bottom: 24px;
+            text-align: center;
+        }
+
+        .course_menu p{
+            border-bottom: 2px solid #005F5F;
+            padding-top: 24px;
+            color: #333333;
+        }
+
+        .course_menu label{
+            color: 333333;
         }
 
         .page-link {
@@ -603,28 +635,35 @@
                         </div>
                     </div>
                     
-                    <div class="col-3 btn_right">
-                            <ul class="d-flex flex-column">
-                                <a href="index.html">
-                                    <li class="li_top">首頁</li>
-                                </a>
-                                <a href="course.html">
-                                    <li>廚藝教室</li>
-                                </a>
-                                <a href="solarterms.html">
-                                    <li>節氣食補</li>
-                                </a>
-                                <a href="map.html">
-                                    <li>素食地圖</li>
-                                </a>
-                                <a href="article.html">
-                                    <li>相關文章</li>
-                                </a>
-                                <div class="icon d-flex justify-content-center pt-3">
-                                    <a href=""><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-                                    <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
-                                </div>
-                            </ul>
+                    <div class="col-3 course_menu d-flex justify-content-center align-items-center">
+                        <div class="course_menu_wrap">
+                            <h2>篩選條件</h2>
+                            <select class="date_filter">
+                                <option >選擇課程日期</option>
+                                <option>10月21日(五) 19:00-21:00</option>
+                                <option>11月18日(五) 19:00-21:00</option>
+                                <option>10月22日(六) 10:30-12:30</option>
+                                <option>11月19日(六) 10:30-12:30</option>
+                            </select>
+                            <p>素食分類</p>
+                            <input type="radio" name="su">
+                            <label for="">全素</label><br>
+                            <input type="radio" name="su">
+                            <label for="">蛋素</label><br>
+                            <input type="radio" name="su">
+                            <label for="">五辛素</label><br>
+                            <input type="radio" name="su">
+                            <label for="">奶素</label><br>
+                            <input type="radio" name="su">
+                            <label for="">蛋奶素</label>
+                            <p>價格</p>
+                            <input type="radio" name="price">
+                            <label for="">$800 以下</label><br>
+                            <input type="radio" name="price">
+                            <label for="">$800 ~ $1500</label><br>
+                            <input type="radio" name="price">
+                            <label for="">$1500 以上</label>
+                        </div>
                     </div>
                 </div>        
 
