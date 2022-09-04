@@ -88,20 +88,36 @@
             margin-bottom: 48px;
         }
 
-        .course_innerwrap{
-            margin-top: 48px;
-        }
-
-        .course_cards{
+        .course_cards {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
             box-shadow: #333333 3px 3px;
+            padding: 24px;
+            width: 805px;
         }
 
-        .course_recipe_pic{
+        .course_recipe_pic {
+            aspect-ratio: 16 / 10;
+            width: 755px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .course_cards h3 {
+            font-size: 1.25rem;
+            color: #333333;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .classroom {
+            margin-bottom: 24px;
+        }
+
+        .classroom img {
             aspect-ratio: 4 / 3;
-            width: 422px;
+            width: 360px;
             border-radius: 20px;
         }
 
@@ -109,7 +125,7 @@
             position: sticky;
             top: 32px;
             z-index: 999;
-            height: 520px;
+            height: 615px;
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -117,37 +133,65 @@
             padding: 24px;
         }
 
-        .course_menu_wrap{
-            width: 100%;
+        .course_menu h2 {
+            font-size: 1.5rem;
+            color: #005F5F;
+            padding-bottom: 24px;
         }
 
-        .date_filter{
+        .course_menu .fa-bookmark {
+            color: #333333;
+            font-size: 2rem;
+        }
+
+        .solarterms_card{
+            padding-bottom: 24px;
+        }
+
+        .solarterms_card img {
+            width: 150px;
+        }
+
+        .date_filter {
             background-color: #FFF6E9;
             border: 2px solid #333333;
             border-radius: 8px;
             color: #005F5F;
             padding: 4px;
+            margin-bottom: 24px;
         }
 
         .date_filter:focus {
             outline: none
         }
 
-        .course_menu h2{
-            font-size: 1.5rem;
-            color:#333333;
-            padding-bottom: 24px;
-            text-align: center;
+        .course_menu label {
+            color: #333333;
         }
 
         .course_menu p{
-            border-bottom: 2px solid #005F5F;
-            padding-top: 24px;
+            font-size: 1rem;
             color: #333333;
         }
 
-        .course_menu label{
-            color: #333333;
+        .course_menu .number{
+            color: #005F5F;
+        }
+
+        .course_menu .btn a {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 8px 35px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .course_menu .btn a:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
         }
 
         footer {
@@ -172,44 +216,67 @@
         </div>
 
         <div class="container">
-            <div class="row course_innerwrap">
+            <div class="row course_innerwrap justify-content-between">
 
-                
-                    <div class="col-9 course_cards">
-                        <img src="images/course_01.jpg" alt="" class="course_recipe_pic">
+
+                <div class="col-fix course_cards justify-content-center">
+                    <img src="images/course_01.jpg" alt="" class="course_recipe_pic">
+                    <h3>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                    </h3>
+                    <div class="classroom d-flex justify-content-between">
+                        <img src="images/course_00_01.jpg" alt="">
+                        <img src="images/course_00_02.jpg" alt="">
                     </div>
-                    
-                    <div class="col-3 course_menu d-flex justify-content-center align-items-center">
-                        <div class="course_menu_wrap">
-                            <h2>篩選條件</h2>
-                            <select class="date_filter">
-                                <option >選擇課程日期</option>
-                                <option>10月21日(五) 19:00-21:00</option>
-                                <option>11月18日(五) 19:00-21:00</option>
-                                <option>10月22日(六) 10:30-12:30</option>
-                                <option>11月19日(六) 10:30-12:30</option>
-                            </select>
-                            <p>素食分類</p>
-                            <input type="radio" name="su">
-                            <label for="">全素</label><br>
-                            <input type="radio" name="su">
-                            <label for="">蛋素</label><br>
-                            <input type="radio" name="su">
-                            <label for="">五辛素</label><br>
-                            <input type="radio" name="su">
-                            <label for="">奶素</label><br>
-                            <input type="radio" name="su">
-                            <label for="">蛋奶素</label>
-                            <p>價格</p>
-                            <input type="radio" name="price">
-                            <label for="">$800 以下</label><br>
-                            <input type="radio" name="price">
-                            <label for="">$800 ~ $1500</label><br>
-                            <input type="radio" name="price">
-                            <label for="">$1500 以上</label>
-                        </div>
+                    <p>注意事項: <br>
+                        1.因教室空間有限，並有爐火、刀具等需謹慎操作之用品，為安全起見，僅開放給報名學員進場。<br>
+                        2.參與本活動時，視同同意公開展示本人之肖像，得使用於本活動之相關網路社群貼文使用。”熊齋”有權保存該照片、資料或影片作為系統資料存檔，僅作為內部結案與簡報使用。<br>
+                        3.參與本活動時，視為同意接受本活動所有內容及細則之規範；倘有違反本活動相關注意規範，並對於任何破壞本活動之行為保留法律追訴權。<br>
+                        4.本活動主辦單位保留擴大、修改、取消、終止本活動以及更改活動內容的權利，無法做出個別通知或解釋，僅於合理時間內盡速公布相關訊息於本活動網站，活動參加者需接受上列之規定，方可參加此活動，其他未盡事宜悉依主辦單位相關規定或解釋，並得隨時補充公告於活動網站。<br>
+
+                        開課日前八天取消 ► 可全額退費或保留費用六十天內使用（自完成訂單日起計）。<br>
+                        開課日前七天至前四天內取消 ►
+                        退還當次課程報名費用之80%，且就”熊齋”原先為準備課程所需食材之購買費用，因取消而產生食材浪費，故尚需另外收取課程原價30%食材購買費用，並於退費時一併扣除。<br>
+                        開課日前三天至課程當日取消 ► 恕不接受退費或保留費用。<br>
+
+                        例： 8/8（週六）的課程，最晚於7/31（週五）可全額退費或保留費用。<br>
+                        8/8（週六）的課程，8/1（週六）的18:00前來電告知取消，退還當次課程報名費用之80%，並另收取課程原價30%食材購買費用。<br>
+                        8/8（週六）的課程，若於8/5（週三）的18:00來電或來信告知欲取消，恕不接受退費或保留費用。<br>
+
+                        * 若因學員個人因素取消課程，退費部分之跨行手續費需由學員自行負擔。<br>
+                        * 若”熊齋”因不可抗力之因素取消課程，將全額退費或保留費用（自完成訂單日起計六十天內使用），跨行手續費將由窩廚房負擔。</p>
+                </div>
+
+                <div class="col-3 course_menu">
+
+                    <div class="course_menu_tittle d-flex justify-content-between">
+                        <h2>地瓜餅 (奶素)</h2>
+                        <i class="fa-regular fa-bookmark"></i>
                     </div>
-                       
+
+                    <div class="solarterms_card d-flex justify-content-center">
+                        <img src="images/solarterms_card_14.png" alt="" class=" m-auto">
+                    </div>
+
+                    <select class="date_filter">
+                        <option>選擇課程日期</option>
+                        <option>10月21日(五) 19:00-21:00</option>
+                        <option>11月18日(五) 19:00-21:00</option>
+                    </select>
+
+                    <div class="course_menu_people d-flex justify-content-between">
+                        <p>剩餘人數</p>
+                        <p class="number">10人</p>
+                    </div>
+
+                    <div class="course_menu_price d-flex justify-content-between">
+                        <p>課程價格</p>
+                        <p class="number">$1,200</p>
+                    </div>
+
+                    <div class="btn d-flex justify-content-center">
+                        <a href="">加入購物車</a>
+                    </div>
+                </div>
 
             </div>
         </div>
