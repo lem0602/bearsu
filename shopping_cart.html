@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="favicon.png">
+    <style>
+        body {
+            background: url(images/all_bg.png) no-repeat center center / cover fixed;
+            background-color: #6DD0CD;
+        }
+
+        .nav_left {
+            position: sticky;
+            top: 32px;
+            transform: translateY(12px);
+            height: 0px;
+            z-index: 999;
+            margin-left: 50px;
+        }
+
+        .nav_left img {
+            width: 120px;
+        }
+
+        .nav_right {
+            position: sticky;
+            top: 32px;
+            transform: translateY(12px);
+            z-index: 999;
+            margin-right: 30px;
+            width: 150px;
+            height: 400px;
+            border-radius: 100px;
+            border: 2px solid #FFF6E9;
+            background-color: #005F5F;
+            overflow: hidden;
+        }
+
+        .nav_right ul {
+            padding: 0px;
+            margin: 0px;
+            font-size: 1.2rem;
+            height: 400px;
+        }
+
+        .nav_right li {
+            list-style-type: none;
+            color: #FFF6E9;
+            text-align: center;
+            padding: 15px 0px;
+            transition: .5s;
+            border-bottom: 2px dashed #FFF6E9;
+        }
+
+        .nav_right .li_top {
+            padding-top: 35px;
+        }
+
+        .nav_right li:hover {
+            color: #005F5F;
+            background-color: #FFF6E9;
+        }
+
+        .nav_right a:hover {
+            text-decoration: none;
+        }
+
+        .nav_right .icon a {
+            color: #FFF6E9;
+            transition: .5s;
+        }
+
+        .nav_right .icon a:hover {
+            transform: scale(1.2);
+        }
+
+        .shopping_cart {
+            margin: 48px 0px;
+        }
+
+        .step {
+            margin-bottom: 48px;
+        }
+
+        .line {
+            height: 2px;
+            width: 91px;
+            border: 2px solid #333333;
+        }
+
+        .step h1 {
+            font-size: 2rem;
+            color: #005F5F;
+            background-color: #FFF6E9;
+            padding: 8px 32px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+        }
+
+        .step .active {
+            color: #FFF6E9;
+            background-color: #005F5F;
+        }
+
+        .course_card {
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: #333333 3px 3px;
+            padding: 24px;
+            margin-bottom: 48px;
+        }
+
+        .course_card img {
+            aspect-ratio: 16 / 10;
+            width: 260px;
+            border-radius: 20px;
+        }
+
+        .course_card h2 {
+            font-size: 1.5rem;
+            color: #333333;
+            border-bottom: 1px solid #333333;
+            margin-bottom: 16px;
+        }
+
+        .course_card h4 {
+            font-size: 1rem;
+            color: #333333;
+            margin-bottom: 16px;
+        }
+
+        .course_card p {
+            font-size: 0.9rem;
+            color: #333333;
+        }
+
+        .course_card .btn a {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 8px 35px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .course_card .btn a:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
+        .course_card .fa-bookmark {
+            color: #005F5F;
+            font-size: 2rem;
+        }
+
+        .total {
+            border-top: 2px solid #333333;
+            padding-top: 48px;
+        }
+
+        .total h2 {
+            font-size: 1.5rem;
+            color: #333333;
+        }
+
+        .btn_section .btn_left {
+            padding: 8px 35px;
+            background-color: #FFF6E9;
+            color: #005F5F;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            margin-right: 16px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn_section .btn_right {
+            padding: 8px 35px;
+            background-color: #005F5F;
+            color: #FFF6E9;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn_section .btn_left:hover,
+        .btn_section .btn_right:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
+        footer {
+            background-color: #005F5F;
+            box-shadow: 0px -3px 0px #333333;
+            padding: 11px 0px;
+        }
+
+        footer p {
+            color: #FFF6E9;
+            font-size: 1rem;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course_wrap d-flex justify-content-between position-relative">
+        <div class="nav_left">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="container">
+            <div class="row shopping_cart">
+                <div class="col-12">
+                    <div class="step d-flex justify-content-between align-items-center">
+                        <div class="line"></div>
+                        <h1 class="active">STEP 1.<br>確認訂單資訊</h1>
+                        <div class="line"></div>
+                        <h1 class="">STEP 2.<br>選擇付款方式</h1>
+                        <div class="line"></div>
+                        <h1 class="">STEP 3.<br>確認結帳</h1>
+                        <div class="line"></div>
+                    </div>
+                    <div class="course_card d-flex justify-content-between align-items-center">
+                        <img src="images/course_01.jpg" alt="">
+                        <div class="tittle">
+                            <h2>地瓜餅 (奶素)</h2>
+                            <h4>課程時間</h4>
+                            <p>10月21日(五) 19:00-21:00</p>
+                        </div>
+                        <div class="price">
+                            <h4>價格</h4>
+                            <h4>$1,200</h4>
+                        </div>
+                        <div class="btn">
+                            <a href="">取消品項</a>
+                        </div>
+                        <i class="fa-solid fa-bookmark"></i>
+                    </div>
+                    <div class="course_card d-flex justify-content-between align-items-center">
+                        <img src="images/course_01.jpg" alt="">
+                        <div class="tittle">
+                            <h2>地瓜餅 (奶素)</h2>
+                            <h4>課程時間</h4>
+                            <p>10月21日(五) 19:00-21:00</p>
+                        </div>
+                        <div class="price">
+                            <h4>價格</h4>
+                            <h4>$1,200</h4>
+                        </div>
+                        <div class="btn">
+                            <a href="">取消品項</a>
+                        </div>
+                        <i class="fa-solid fa-bookmark"></i>
+                    </div>
+                    <div class="course_card d-flex justify-content-between align-items-center">
+                        <img src="images/course_01.jpg" alt="">
+                        <div class="tittle">
+                            <h2>地瓜餅 (奶素)</h2>
+                            <h4>課程時間</h4>
+                            <p>10月21日(五) 19:00-21:00</p>
+                        </div>
+                        <div class="price">
+                            <h4>價格</h4>
+                            <h4>$1,200</h4>
+                        </div>
+                            <div class="btn">
+                                <a href="">取消品項</a>
+                            </div>
+                        <i class="fa-solid fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="col-12 total d-flex justify-content-end">
+                    <h2 class="pr-4">訂單總計</h2>
+                    <h2>$3,600</h2>
+                </div>
+                <div class="col-12 btn_section d-flex justify-content-center">
+                    <a href="" class="btn_left">繼續購物</a>
+                    <a href="" class="btn_right">確認訂單</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav_right">
+            <ul class="d-flex flex-column">
+                <a href="index.html">
+                    <li class="li_top">首頁</li>
+                </a>
+                <a href="course.html">
+                    <li>廚藝教室</li>
+                </a>
+                <a href="solarterms.html">
+                    <li>節氣食補</li>
+                </a>
+                <a href="map.html">
+                    <li>素食地圖</li>
+                </a>
+                <a href="article.html">
+                    <li>相關文章</li>
+                </a>
+                <div class="icon d-flex justify-content-center pt-3">
+                    <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
+                    <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>Copyright © 2022 BearSu. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
