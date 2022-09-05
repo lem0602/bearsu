@@ -96,17 +96,17 @@
             margin: 48px 0px;
         }
 
-        .step {
+        .step_wrap .step {
             margin-bottom: 48px;
         }
 
-        .line {
+        .step_wrap .line {
             height: 2px;
             width: 30px;
             border: 2px solid #333333;
         }
 
-        .step h1 {
+        .step_wrap .step h1 {
             font-size: 2rem;
             color: #005F5F;
             background-color: #FFF6E9;
@@ -118,7 +118,7 @@
             font-weight: 700;
         }
 
-        .step .active {
+        .step_wrap .step .active {
             color: #FFF6E9;
             background-color: #005F5F;
         }
@@ -183,14 +183,25 @@
         }
 
         .total {
-            border-top: 2px solid #333333;
-            padding: 48px 0px;
+            margin-bottom: 48px;
+        }
+
+        .total .line{
+            height: 2px;
+            width: calc(100% - 232px);
+            border: 2px solid #333333;
         }
 
         .total h2 {
             font-size: 1.5rem;
-            color: #333333;
             font-weight: 700;
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            text-align: center;
         }
 
         .btn_section .btn_left {
@@ -249,7 +260,7 @@
 
         <div class="container">
             <div class="row shopping_cart">
-                <div class="col-12">
+                <div class="col-12 step_wrap">
                     <div class="step d-flex justify-content-between align-items-center">
                         <h1 class="active">STEP 1.確認訂單資訊</h1>
                         <div class="line"></div>
@@ -306,9 +317,9 @@
                         <i class="fa-solid fa-bookmark"></i>
                     </div>
                 </div>
-                <div class="col-12 total d-flex justify-content-end">
-                    <h2 class="pr-4">訂單總計</h2>
-                    <h2>$3,600</h2>
+                <div class="col-12 total d-flex justify-content-end align-items-center">
+                    <div class="line"></div>
+                    <h2>訂單總計 $3,600</h2>
                 </div>
                 <div class="col-12 btn_section d-flex justify-content-center">
                     <a href="course.html" class="btn_left">繼續購物</a>
