@@ -97,7 +97,8 @@
 
         .recipe_title,
         .recipe_info,
-        .recipe_list {
+        .recipe_list,
+        .message_card {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -139,7 +140,7 @@
 
         .recipe_info .top {
             border-bottom: 1px solid #333333;
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
 
         .recipe_info .top .left {
@@ -148,7 +149,7 @@
 
         .recipe_info .middle {
             border-bottom: 2px solid #333333;
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
 
         .recipe_info h2 {
@@ -179,16 +180,16 @@
             margin-bottom: 0px;
         }
 
-        .recipe_list_wrap{
+        .recipe_list_wrap {
             border-bottom: 1px solid #333333;
-            padding: 36px 0px;
+            padding: 32px 0px;
         }
 
-        .recipe_list_wrap:first-child{
+        .recipe_list_wrap:first-child {
             padding-top: 0px;
         }
 
-        .recipe_list_wrap:last-child{
+        .recipe_list_wrap:last-child {
             border-bottom: none;
             padding-bottom: 0px;
         }
@@ -213,6 +214,55 @@
             font-size: 1.5rem;
             color: #333333;
             font-weight: 700;
+        }
+
+        .message_card h2 {
+            font-size: 1.5rem;
+            color: #333333;
+            font-weight: 700;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 32px;
+        }
+
+        .message_card_innrwrap {
+            margin-top: 36px;
+        }
+
+        .message_card .mug_shot img {
+            width: 100px;
+            border-radius: 100%;
+            margin-right: 32px;
+        }
+
+        .message_card textarea {
+            border-radius: 20px;
+            padding: 12px;
+        }
+
+        .message_card textarea:focus{
+            outline: none;
+        }
+
+        .message_card .btn_section{
+            margin-top: 32px;
+        }
+
+        .message_card .btn_section input{
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 8px 35px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .message_card .btn_section input:hover{
+            box-shadow: none;
+            transform: translate(3px, 3px);
         }
 
         footer {
@@ -381,6 +431,20 @@
                             <h1>8</h1>
                             <h2>烤至金黃色、灑上羅勒葉（可有可無）就可以上菜嘍。</h2>
                         </div>
+                    </div>
+                </div>
+                <div class="col-12 message_card">
+                    <h2>留言</h2>
+                    <div class="message_card_innrwrap d-flex ">
+                        <div class="mug_shot">
+                            <img src="images/mug_shot_01.png" alt="">
+                        </div>
+                        <div class="input_section w-100">
+                            <textarea name="" id="" cols="111" rows="3" placeholder="加入討論 (最多可輸入 200 字)"></textarea>
+                        </div>
+                    </div>
+                    <div class="btn_section d-flex justify-content-end">
+                        <input type="submit" value="留言">
                     </div>
                 </div>
             </div>
