@@ -12,7 +12,15 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
         body {
             background: url(images/all_bg.png) no-repeat center center / cover fixed;
             background-color: #6DD0CD;
@@ -48,7 +56,6 @@
         .nav_right ul {
             padding: 0px;
             margin: 0px;
-            font-size: 1.2rem;
             height: 400px;
         }
 
@@ -59,6 +66,8 @@
             padding: 15px 0px;
             transition: .5s;
             border-bottom: 2px dashed #FFF6E9;
+            font-size: 1.25rem;
+            font-weight: 500;
         }
 
         .nav_right .li_top {
@@ -93,7 +102,7 @@
 
         .line {
             height: 2px;
-            width: 91px;
+            width: 30px;
             border: 2px solid #333333;
         }
 
@@ -101,11 +110,12 @@
             font-size: 2rem;
             color: #005F5F;
             background-color: #FFF6E9;
-            padding: 8px 32px;
+            padding: 12px 24px;
             border-radius: 8px;
             border: 2px solid #333333;
             box-shadow: #333333 3px 3px;
             text-align: center;
+            font-weight: 700;
         }
 
         .step .active {
@@ -134,17 +144,20 @@
             color: #333333;
             border-bottom: 1px solid #333333;
             margin-bottom: 16px;
+            font-weight: 700;
         }
 
         .course_card h4 {
             font-size: 1rem;
             color: #333333;
             margin-bottom: 16px;
+            font-weight: 500;
         }
 
         .course_card p {
             font-size: 0.9rem;
             color: #333333;
+            font-weight: 500;
         }
 
         .total {
@@ -156,6 +169,7 @@
         .total h2 {
             font-size: 1.5rem;
             color: #333333;
+            font-weight: 700;
         }
 
         .order_man_card {
@@ -177,6 +191,7 @@
         .order_man_card h2 {
             font-size: 1.5rem;
             color: #FFF6E9;
+            font-weight: 700;
         }
 
         .order_man_card .list_tittle {
@@ -187,6 +202,7 @@
             font-size: 1rem;
             color: #333333;
             line-height: 1.8;
+            font-weight: 500;
         }
 
         .order_man_card .list_info h4 {
@@ -200,6 +216,7 @@
         .creadit_card_tittle h1 {
             font-size: 2rem;
             color: #005F5F;
+            font-weight: 700;
         }
 
         .creadit_card_info {
@@ -215,6 +232,7 @@
             font-size: 1.25rem;
             color: #333333;
             margin-bottom: 16px;
+            font-weight: 500;
         }
 
         .input_wrap {
@@ -264,6 +282,8 @@
             margin-right: 16px;
             text-decoration: none;
             transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .btn_section .btn_right {
@@ -275,6 +295,8 @@
             box-shadow: #333333 3px 3px;
             text-decoration: none;
             transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .btn_section .btn_left:hover,
