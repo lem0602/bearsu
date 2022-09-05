@@ -24,7 +24,6 @@
         body {
             background: url(images/all_bg.png) no-repeat center center / cover fixed;
             background-color: #6DD0CD;
-            height: 1vh;
         }
 
         .nav_left {
@@ -92,9 +91,8 @@
         .nav_right .icon a:hover {
             transform: scale(1.2);
         }
-
-        .shopping_finish{
-            margin-top: 96px;
+        .shopping_finish_wrap {
+            height: 100vh;
         }
 
         .shopping_finish h1 {
@@ -146,22 +144,22 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-between position-relative">
+    <div class="d-flex justify-content-between">
         <div class="nav_left">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
-        <div class="container">
+        <div class="container shopping_finish_wrap d-flex justify-content-center align-items-center">
             <div class="row shopping_finish">
-                    <div class="col-12 text-center">
-                        <h1>結帳完成<br>
-                            請收Email</h1>
-                        <img src="images/mascot_04.png" alt="">
-                    </div>
+                <div class="col-12 text-center">
+                    <h1>結帳完成<br>
+                        請收Email</h1>
+                    <img src="images/mascot_04.png" alt="">
+                </div>
 
-                    <div class="col-12 btn_section d-flex justify-content-center">
-                        <a href="index.html" class="btn">返回首頁</a>
-                    </div>
+                <div class="col-12 btn_section d-flex justify-content-center">
+                    <a href="index.html" class="btn">返回首頁</a>
+                </div>
             </div>
         </div>
 
