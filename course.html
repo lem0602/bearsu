@@ -81,23 +81,6 @@
             transform: scale(1.2);
         }
 
-        .filter {
-            background-color: #FFF6E9;
-            border: 2px solid #333333;
-            border-radius: 8px;
-            color: #005F5F;
-            padding: 4px;
-            /* appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none; */
-            margin-right: 24px;
-            margin-bottom: 48px;
-        }
-
-        .filter:focus {
-            outline: none
-        }
-
         .course_wrap {
             margin-top: 48px;
             margin-bottom: 48px;
@@ -114,7 +97,7 @@
             height: 350px;
         }
 
-        .course_innerwrap{
+        .course_innerwrap {
             margin-top: 48px;
         }
 
@@ -212,7 +195,7 @@
             position: sticky;
             top: 32px;
             z-index: 999;
-            height: 520px;
+            height: 580px;
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -220,36 +203,43 @@
             padding: 24px;
         }
 
-        .course_menu_wrap{
+        .course_menu_wrap {
             width: 100%;
         }
 
-        .date_filter{
+        .filter {
             background-color: #FFF6E9;
             border: 2px solid #333333;
             border-radius: 8px;
             color: #005F5F;
             padding: 4px;
+            /* appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none; */
         }
 
-        .date_filter:focus {
+        .filter:focus {
             outline: none
         }
 
-        .course_menu h2{
+        .course_filter{
+            margin-bottom: 24px;
+        }
+
+        .course_menu h2 {
             font-size: 1.5rem;
-            color:#333333;
+            color: #333333;
             padding-bottom: 24px;
             text-align: center;
         }
 
-        .course_menu p{
+        .course_menu p {
             border-bottom: 2px solid #005F5F;
             padding-top: 24px;
             color: #333333;
         }
 
-        .course_menu label{
+        .course_menu label {
             color: #333333;
         }
 
@@ -302,340 +292,358 @@
 
                 <div class="course_innerwrap d-flex justify-content-between">
                     <div class="col-9 course_cards">
-                        <div class="filter_section">
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="course_card d-flex">
+                            <div class="course_pic d-flex justify-content-center align-items-center">
+                                <img src="images/course_01.jpg" alt="">
+                            </div>
+                            <div class="course_content d-flex flex-column justify-content-between">
+                                <div class="title d-flex justify-content-between align-items-center">
+                                    <div class="left d-flex align-items-center">
+                                        <h2>地瓜餅 (奶素)</h2> <br>
+                                    </div>
+                                    <div class="right d-flex align-items-center">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="describe">
+                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                    </h4>
+                                </div>
+                                <div class="price d-flex align-items-center">
+                                    <h5>課程價格</h5>
+                                    <h2>1,200</h2>
+                                </div>
+                                <div class="time">
+                                    <h5>開課時間</h5>
+                                    <h4>10月21日(五) 19:00-21:00<br>
+                                        11月18日(五) 19:00-21:00</h4>
+                                </div>
+                                <a href="course_details.html" class="btn_wrap">
+                                    <div class="btn d-flex justify-content-center p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-fix course_menu d-flex justify-content-center align-items-center">
+                        <div class="course_menu_wrap">
+                            <h2>篩選條件</h2>
                             <select class="course_filter filter">
                                 <option>推薦排序</option>
                                 <option>開課日期</option>
                                 <option>價格由低至高</option>
                                 <option>價格由高至低</option>
                             </select>
-                        </div>
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div class="right d-flex align-items-center">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <a href="course_details.html" class="btn_wrap"><div class="btn d-flex justify-content-center p-0">
-                                    了解更多
-                                </div></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-fix course_menu d-flex justify-content-center align-items-center">
-                        <div class="course_menu_wrap">
-                            <h2>篩選條件</h2>
-                            <select class="date_filter">
-                                <option >選擇課程日期</option>
+                            <select class="date_filter filter">
+                                <option>選擇課程日期</option>
                                 <option>10月21日(五) 19:00-21:00</option>
                                 <option>11月18日(五) 19:00-21:00</option>
                                 <option>10月22日(六) 10:30-12:30</option>
@@ -658,10 +666,10 @@
                             <input type="radio" name="price">
                             <label for="">$800 ~ $1500</label><br>
                             <input type="radio" name="price">
-                            <label for="">$1500 以上</label>
+                            <label for="" class="mb-0">$1500 以上</label>
                         </div>
                     </div>
-                </div>        
+                </div>
 
                 <div class="col-12 d-flex justify-content-center page">
                     <nav aria-label="Page navigation example">
