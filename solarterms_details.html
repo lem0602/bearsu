@@ -85,7 +85,9 @@
             margin: 48px 0px;
         }
 
-        .recipe_title {
+        .recipe_title,
+        .recipe_info,
+        .recipe_list {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -94,7 +96,7 @@
             margin-top: 48px;
         }
 
-        .recipe_title h1{
+        .recipe_title h1 {
             font-size: 2rem;
             color: #333333;
             margin-bottom: 24px;
@@ -116,11 +118,85 @@
             margin-bottom: 24px;
         }
 
-        .recipe_title .down h3{
+        .recipe_title .down h3 {
             font-size: 1.25rem;
             color: #333333;
             margin-top: 24px;
             line-height: 1.6;
+        }
+
+        .recipe_info .top {
+            border-bottom: 1px solid #333333;
+            margin-bottom: 36px;
+        }
+
+        .recipe_info .top .left {
+            border-right: 1px solid #333333;
+        }
+
+        .recipe_info .middle {
+            border-bottom: 2px solid #333333;
+            margin-bottom: 36px;
+        }
+
+        .recipe_info h2 {
+            font-size: 1.5rem;
+            color: #333333;
+        }
+
+        .recipe_info h3 {
+            font-size: 1.25rem;
+            color: #333333;
+        }
+
+        .recipe_info .down .left {
+            padding-right: 45px;
+        }
+
+        .recipe_info .down .right {
+            padding-left: 45px;
+        }
+
+        .recipe_info .down {
+            margin-bottom: 20px;
+        }
+
+        .recipe_info .down:last-child {
+            margin-bottom: 0px;
+        }
+
+        .recipe_list_wrap{
+            border-bottom: 1px solid #333333;
+            padding: 36px 0px;
+        }
+
+        .recipe_list_wrap:first-child{
+            padding-top: 0px;
+        }
+
+        .recipe_list_wrap:last-child{
+            border-bottom: none;
+            padding-bottom: 0px;
+        }
+
+        .recipe_list .left {
+            margin-right: 32px;
+        }
+
+        .recipe_list img {
+            aspect-ratio: 4 / 3;
+            width: 500px;
+            border-radius: 20px;
+        }
+
+        .recipe_list h1 {
+            font-size: 2rem;
+            color: #333333;
+        }
+
+        .recipe_list h2 {
+            font-size: 1.5rem;
+            color: #333333;
         }
 
         footer {
@@ -162,7 +238,135 @@
                             家人或小孩不太敢吃花椰菜嗎？ 可試試這道焗烤雙花～若本來就喜歡吃花椰菜，那就更要試試這道菜....</h3>
                     </div>
                 </div>
-
+                <div class="col-12 recipe_info">
+                    <div class="top d-flex">
+                        <div class="left text-center w-50">
+                            <h2>份量</h2>
+                            <h2>3 人份</h2>
+                        </div>
+                        <div class="right text-center w-50">
+                            <h2>時間</h2>
+                            <h2>10 分鐘</h2>
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <h2>食材</h2>
+                    </div>
+                    <div class="down d-flex">
+                        <div class="left d-flex w-50 justify-content-between">
+                            <h3>青花椰菜</h3>
+                            <h3>1顆</h3>
+                        </div>
+                        <div class="right d-flex w-50 justify-content-between">
+                            <h3>白花椰菜</h3>
+                            <h3>半顆</h3>
+                        </div>
+                    </div>
+                    <div class="down d-flex">
+                        <div class="left d-flex w-50 justify-content-between">
+                            <h3>香蒜粒</h3>
+                            <h3>適量</h3>
+                        </div>
+                        <div class="right d-flex w-50 justify-content-between">
+                            <h3>雙色焗烤乳酪絲</h3>
+                            <h3>適量</h3>
+                        </div>
+                    </div>
+                    <div class="down d-flex">
+                        <div class="left d-flex w-50 justify-content-between">
+                            <h3>海鹽</h3>
+                            <h3>適量</h3>
+                        </div>
+                        <div class="right d-flex w-50 justify-content-between">
+                            <h3>橄欖油</h3>
+                            <h3>適量</h3>
+                        </div>
+                    </div>
+                    <div class="down d-flex">
+                        <div class="left d-flex w-50 justify-content-between">
+                            <h3>蘿勒葉</h3>
+                            <h3>適量</h3>
+                        </div>
+                        <div class="right d-flex w-50 justify-content-between">
+                            <h3></h3>
+                            <h3></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 recipe_list">
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_01.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>1</h1>
+                            <h2>雙花菜洗淨，切成適當大小備用。</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_02.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>2</h1>
+                            <h2>鍋中倒入米量杯2杯的水、適量鹽巴和橄欖油稍拌勻，加熱至滾。</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_03.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>3</h1>
+                            <h2>水滾後加入雙花菜翻拌幾下。</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_04.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>4</h1>
+                            <h2>蓋鍋蓋，用中火稍悶約20秒。（如果切的比較小塊時間可縮短至約15秒）開蓋再拌炒幾下至熟，關火撈至烤盤。</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_05.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>5</h1>
+                            <h2>依口味喜好均勻的灑上適量海鹽和適量香蒜粒（香蒜粒可加可不加）。</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_06.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>6</h1>
+                            <h2>鋪上滿滿、厚厚的焗烤乳酪絲。</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_07.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>7</h1>
+                            <h2>放入預熱好的烤箱，上下火、220度、3分鐘。（烤箱火力、大小、烤盤距離不同，請依實際調整時間和溫度）</h2>
+                        </div>
+                    </div>
+                    <div class="recipe_list_wrap d-flex">
+                        <div class="left">
+                            <img src="images/solarterms_01_08.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1>8</h1>
+                            <h2>烤至金黃色、灑上羅勒葉（可有可無）就可以上菜嘍。</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
