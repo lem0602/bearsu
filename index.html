@@ -98,8 +98,17 @@
             letter-spacing: 5px;
             font-weight: 700;
             line-height: 2;
-            margin-top: 150px;
-            margin-bottom: 150px;
+            margin: 150px 0px;
+        }
+
+        .bigtittle h3 {
+            color: #333333;
+            text-align: center;
+            font-size: 1.25rem;
+            letter-spacing: 5px;
+            font-weight: 700;
+            line-height: 2;
+            margin: 150px 0px;
         }
 
         .main .circle {
@@ -241,7 +250,7 @@
             font-weight: 700;
         }
 
-        .card_carousel{
+        .card_carousel {
             height: 370px;
             margin-bottom: 100px;
         }
@@ -312,21 +321,28 @@
     <div class="container-fluid px-0">
         <div class="row mx-0">
             <div class="col px-0">
-                <img src="images/index_main_pic.png" alt="" class="w-100">
+                <img src="images/index_main_pic.png" alt="" class="w-100 d-none d-md-block d-lg-block">
+                <img src="images/index_main_pic_s.png" alt="" class="w-100 d-md-none d-lg-none">
             </div>
         </div>
     </div>
-    <div class="main_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+    <div class="main_wrap d-flex justify-content-between position-relative overflow-hidden">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
         <div class="container">
             <div class="row main">
 
-                <div class="col-12 bigtittle">
+                <div class="col-12 bigtittle d-none d-md-block d-lg-block">
                     <h1>『熊齋』源自台語『最知道』諧音，<br>
                         代表我們是最懂素食文化的網站。讓吃素與追求健康生活的你，<br>
                         更容易取得豐富的素食資訊。</h1>
+                </div>
+                <div class="col-12 bigtittle d-md-none d-lg-none">
+                    <h3>『熊齋』源自台語『最知道』諧音，<br>
+                        代表我們是最懂素食文化的網站。<br>
+                        讓吃素與追求健康生活的你，<br>
+                        更容易取得豐富的素食資訊。</h3>
                 </div>
 
                 <div class="col-2">
@@ -571,7 +587,7 @@
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
