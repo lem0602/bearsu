@@ -22,7 +22,7 @@
         }
 
         body {
-            background: url(images/all_bg.png) no-repeat center center / cover fixed;
+            background: url(images/all_bg.png) no-repeat center bottom / cover fixed;
             background-color: #6DD0CD;
         }
 
@@ -796,6 +796,10 @@
                         <img src="images/solarterms_card_1.png" alt="">
                     </div>
                         <h2>萬物生長好時機,多吃綠色食物,有益肝氣升發。</h2>`)
+                        if ($(window).width() > 767) {
+                $("body").css("background-image", 'url(images/solarterms_bg_1.jpg)');
+                $("body").css("background-color", 'transparent');
+            }            
         })
 
         $('.solarterms_card_2').click(function () {
@@ -804,6 +808,10 @@
                         <img src="images/solarterms_card_2.png" alt="">
                     </div>
                         <h2>冬眠而起醒脾胃,多吃富含植物性蛋白質的食物。</h2>`)
+                        if ($(window).width() > 767) {
+                $("body").css("background-image", 'url(images/solarterms_bg_2.jpg)');
+                $("body").css("background-color", 'transparent');
+            }    
         })
 
         $('.solarterms_card_3').click(function () {
@@ -812,6 +820,10 @@
                         <img src="images/solarterms_card_3.png" alt="">
                     </div>
                         <h2>維持人體陰陽平衡狀態,避免寒性食物損傷脾胃。</h2>`)
+                        if ($(window).width() > 767) {
+                $("body").css("background-image", 'url(images/solarterms_bg_3.jpg)');
+                $("body").css("background-color", 'transparent');
+            }
         })
 
         $('.solarterms_card_4').click(function () {
