@@ -27,6 +27,10 @@
             min-height: 100vh;
         }
 
+        .main_wrap{
+            contain: paint;
+        }
+
         .nav_left {
             position: sticky;
             top: 32px;
@@ -409,7 +413,8 @@
             font-weight: 500;
         }
 
-        .c>li {
+        @media screen and (min-width:768px) {
+        ul>li {
             width: 33.333%;
             list-style-type: none;
             position: absolute;
@@ -417,6 +422,7 @@
             opacity: 0;
             transition: 1s opacity;
         }
+    }
 
         .active {
             opacity: 1;
@@ -428,39 +434,39 @@
             margin-bottom: 100px;
         }
 
-        .card {
-            height: 350px;
-            width: 350px;
+        .mobile_card_carousel .card {
+            height: 400px;
+            width: 150px;
             background-color: #FFF6E9;
             border-radius: 12px;
             border: 2px solid #333333;
             box-shadow: 2px 2px 0px #333333;
             margin-bottom: 100px;
-            padding: 24px;
+            padding: 12px;
         }
 
-        .card_top h2 {
-            font-size: 1.5rem;
+        .mobile_card_carousel .card_top h2 {
+            font-size: 1.1rem;
             font-weight: 700;
             line-height: 1.6;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: #333333;
             text-align: justify;
         }
 
-        .card_down .mug_shot img {
+        .mobile_card_carousel .card_down .mug_shot img {
             width: 90px;
             height: 90px;
         }
 
-        .card_down .name h2 {
-            font-size: 1.5rem;
+        .mobile_card_carousel .card_down .name h2 {
+            font-size: 1rem;
             color: #005F5F;
             font-weight: 500;
         }
 
         ul>li {
-            width: 33.333%;
+            width: 50%;
             list-style-type: none;
             position: absolute;
             padding: 17px;
@@ -499,7 +505,7 @@
             </div>
         </div>
     </div>
-    <div class="main_wrap d-flex justify-content-between position-relative overflow-hidden">
+    <div class="main_wrap d-flex justify-content-between position-relative">
         <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
@@ -773,7 +779,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_01.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>袁建平</h2>
                                     </div>
                                 </div>
@@ -788,7 +794,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_02.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>張士朋</h2>
                                     </div>
                                 </div>
@@ -803,7 +809,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_03.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>楊日輝</h2>
                                     </div>
                                 </div>
@@ -819,7 +825,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_04.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>蘇慧文</h2>
                                     </div>
                                 </div>
@@ -834,7 +840,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_05.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>紀幼蘭</h2>
                                     </div>
                                 </div>
@@ -849,7 +855,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_06.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>陳玳雅</h2>
                                     </div>
                                 </div>
@@ -860,8 +866,8 @@
                 </div>
 
                 <!-- --------------mobile start--------------- -->
-                <div class="col-12 mobile_card_carousel">
-                    <ul id="cm" class="pl-0">
+                <div class="col-12 mobile_card_carousel d-md-none d-lg-none">
+                    <ul id="cm" class="pl-0 ">
 
                         <li>
                             <div class="card d-flex flex-column justify-content-between">
@@ -872,7 +878,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_01.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name  text-center">
                                         <h2>袁建平</h2>
                                     </div>
                                 </div>
@@ -887,7 +893,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_02.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>張士朋</h2>
                                     </div>
                                 </div>
@@ -902,7 +908,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_03.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>楊日輝</h2>
                                     </div>
                                 </div>
@@ -918,7 +924,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_04.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>蘇慧文</h2>
                                     </div>
                                 </div>
@@ -933,7 +939,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_05.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>紀幼蘭</h2>
                                     </div>
                                 </div>
@@ -948,7 +954,7 @@
                                     <div class="mug_shot mr-3">
                                         <img src="images/mug_shot_06.png" alt="">
                                     </div>
-                                    <div class="name">
+                                    <div class="name text-center">
                                         <h2>陳玳雅</h2>
                                     </div>
                                 </div>
