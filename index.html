@@ -105,7 +105,7 @@
             color: #333333;
             text-align: center;
             font-size: 1.25rem;
-            letter-spacing: 5px;
+            letter-spacing: 1px;
             font-weight: 700;
             line-height: 2;
             margin: 150px 0px;
@@ -214,14 +214,110 @@
             height: 300px;
         }
 
+        .mobile_title h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .mobile_circle {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: #333333 3px 3px;
+            margin: 32px 0px;
+        }
+
+        .mobile_circle1 img {
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mobile_circle2 img {
+            height: 160px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mobile_circle3 img {
+            height: 160px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mobile_describ h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #F2AD31;
+            -webkit-text-stroke: 3px #333333;
+            margin-bottom: 0px;
+        }
+
+        .mobile_describ p {
+            font-size: 0.9rem;
+            color: #333333;
+            margin-bottom: 0px;
+            font-weight: 500;
+            padding: 0px 14px;
+        }
+
+        .mobile_circle_s p {
+            color: #333333;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0px;
+            text-decoration: none;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: #333333 3px 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .5s;
+        }
+
+        .mobile_circle_s p:hover {
+            background-color: #F2AD31;
+        }
+
+        .mobile_circle_s a {
+            text-decoration: none;
+        }
+
+        .mobile_describ_section2 {
+            margin: 150px 0px;
+        }
+
         .own img {
             height: 100px;
         }
 
         .main_own,
         .main_experience {
-            margin-top: 150px;
-            margin-bottom: 50px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        @media screen and (min-width:768px) {
+
+            .main_own,
+            .main_experience {
+                margin-top: 150px;
+                margin-bottom: 50px;
+            }
         }
 
         .mascot_left,
@@ -250,7 +346,84 @@
             font-weight: 700;
         }
 
+        .mobile_own .title img, .mobile_experience .title img {
+            width: 320px;
+            margin-top: 150px;
+            margin-bottom: 50px;
+        }
+
+        .mobile_have_restaurant_wrap{
+            margin-bottom: 50px;
+        }
+
+        .mobile_mascot_left img,.mobile_mascot_right img {
+            height: 200px;
+        }
+
+        .mobile_have_restaurant img, .mobile_have_recipe img {
+            height: 250px;
+        }
+
+        .mobile_have_restaurant h1,.mobile_have_recipe h1 {
+            position: absolute;
+            color: white;
+            top: 10%;
+            left: 26%;
+            font-size: 5rem;
+            font-weight: 700;
+        }
+
         .card_carousel {
+            height: 370px;
+            margin-bottom: 100px;
+        }
+
+        .card_carousel .card {
+            height: 350px;
+            width: 350px;
+            background-color: #FFF6E9;
+            border-radius: 12px;
+            border: 2px solid #333333;
+            box-shadow: 2px 2px 0px #333333;
+            margin-bottom: 100px;
+            padding: 24px;
+        }
+
+        .card_carousel .card_top h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.6;
+            letter-spacing: 3px;
+            color: #333333;
+            text-align: justify;
+        }
+
+        .card_carousel .card_down .mug_shot img {
+            width: 90px;
+            height: 90px;
+        }
+
+        .card_carousel .card_down .name h2 {
+            font-size: 1.5rem;
+            color: #005F5F;
+            font-weight: 500;
+        }
+
+        .c>li {
+            width: 33.333%;
+            list-style-type: none;
+            position: absolute;
+            padding: 17px;
+            opacity: 0;
+            transition: 1s opacity;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        /* -----------mobile start-------------------- */
+        .mobile_card_carousel {
             height: 370px;
             margin-bottom: 100px;
         }
@@ -276,7 +449,6 @@
         }
 
         .card_down .mug_shot img {
-
             width: 90px;
             height: 90px;
         }
@@ -299,6 +471,7 @@
         .active {
             opacity: 1;
         }
+        /* ------------------mobile end------------------ */
 
         footer {
             background-color: #005F5F;
@@ -345,7 +518,7 @@
                         更容易取得豐富的素食資訊。</h3>
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 d-none d-md-block d-lg-block">
                     <div class="describe d-flex flex-column align-items-center">
                         <div class="describ_top">
                             <h1>01</h1>
@@ -357,13 +530,13 @@
                 </div>
 
                 <div class="col-8 d-flex justify-content-center">
-                    <div class="circle">
+                    <div class="circle d-none d-md-block d-lg-block">
                         <img src="images/index_mascot_1.png" alt="" class="mascot mascot1">
                     </div>
                 </div>
 
                 <div class="col-2 tittle d-flex flex-column align-items-center justify-content-between">
-                    <div class="tittle_top">
+                    <div class="tittle_top d-none d-md-block d-lg-block">
                         <h1>廚藝教室 - 簡單做、開心吃</h1>
                     </div>
                     <div class="tittle_center">
@@ -371,10 +544,10 @@
                     </div>
                     <a href="#">
                         <div class="tittle_down d-flex flex-column align-items-center">
-                            <div class="dashed mb-3">
+                            <div class="dashed mb-3 d-none d-md-block d-lg-block">
 
                             </div>
-                            <div class="s_circle"><a href="course.html">
+                            <div class="s_circle d-none d-md-block d-lg-block"><a href="course.html">
                                     <p>詳細<br> 資訊</p>
                                 </a>
                             </div>
@@ -383,11 +556,11 @@
                 </div>
 
                 <div class="col-12 d-flex justify-content-center">
-                    <div class="line">
+                    <div class="line d-none d-md-block d-lg-block">
                     </div>
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 d-none d-md-block d-lg-block">
                     <div class="describe d-flex flex-column align-items-center">
                         <div class="describ_top">
                             <h1>02</h1>
@@ -399,23 +572,23 @@
                 </div>
 
                 <div class="col-8 d-flex justify-content-center">
-                    <div class="circle">
+                    <div class="circle d-none d-md-block d-lg-block">
                         <img src="images/index_mascot_2.png" alt="" class="mascot mascot2">
                     </div>
                 </div>
 
                 <div class="col-2 tittle d-flex flex-column align-items-center justify-content-between">
-                    <div class="tittle_top">
+                    <div class="tittle_top d-none d-md-block d-lg-block">
                         <h1>食譜 - 廿四節氣食材</h1>
                     </div>
                     <div class="tittle_center">
 
                     </div>
                     <div class="tittle_down d-flex flex-column align-items-center">
-                        <div class="dashed mb-3">
+                        <div class="dashed mb-3 d-none d-md-block d-lg-block">
                         </div>
 
-                        <div class="s_circle"><a href="solarterms.html">
+                        <div class="s_circle d-none d-md-block d-lg-block"><a href="solarterms.html">
                                 <p>詳細<br> 資訊</p>
                             </a>
                         </div>
@@ -423,11 +596,11 @@
                 </div>
 
                 <div class="col-12 d-flex justify-content-center">
-                    <div class="line">
+                    <div class="line d-none d-md-block d-lg-block">
                     </div>
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 d-none d-md-block d-lg-block">
                     <div class="describe d-flex flex-column align-items-center">
                         <div class="describ_top">
                             <h1>03</h1>
@@ -439,54 +612,156 @@
                 </div>
 
                 <div class="col-8 d-flex justify-content-center">
-                    <div class="circle">
+                    <div class="circle d-none d-md-block d-lg-block">
                         <img src="images/index_mascot_3.png" alt="" class="mascot mascot3">
                     </div>
                 </div>
 
                 <div class="col-2 tittle d-flex flex-column align-items-center justify-content-between">
-                    <div class="tittle_top">
+                    <div class="tittle_top d-none d-md-block d-lg-block">
                         <h1>地圖 – 全台素食資訊</h1>
                     </div>
                     <div class="tittle_center">
 
                     </div>
                     <div class="tittle_down d-flex flex-column align-items-center">
-                        <div class="dashed mb-3">
+                        <div class="dashed mb-3 d-none d-md-block d-lg-block">
                         </div>
 
-                        <div class="s_circle"><a href="map.html">
+                        <div class="s_circle d-none d-md-block d-lg-block"><a href="map.html">
                                 <p>詳細<br> 資訊</p>
                             </a>
                         </div>
                     </div></a>
                 </div>
 
+                <!-- ----------mobile start-------------- -->
+                <div class="mobile_describ_section1 d-md-none d-lg-none">
+                    <div class="col-12 mobile_title">
+                        <h1>廚藝教室 - 簡單做、開心吃</h1>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="mobile_circle mobile_circle1">
+                            <img src="images/index_mascot_1.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 mobile_describ d-flex align-items-center justify-content-between">
+                        <h1>01</h1>
+                        <p>提供平價素食料理課程，實現輕鬆下廚、享樂生活的完美生活提案。</p>
+                        <div class="mobile_circle_s">
+                            <a href="course.html">
+                                <P>詳細<br>資訊</P>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile_describ_section2 d-md-none d-lg-none">
+                    <div class="col-12 mobile_title">
+                        <h1>食譜 - 廿四節氣食材</h1>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="mobile_circle mobile_circle2">
+                            <img src="images/index_mascot_2.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 mobile_describ d-flex align-items-center justify-content-between">
+                        <h1>02</h1>
+                        <p>結合廿四節氣的養生原則與方法，運用中醫進補食材概念，讓大家選對食物，吃出健康。</p>
+                        <div class="mobile_circle_s">
+                            <a href="solarterms.html">
+                                <P>詳細<br>資訊</P>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile_describ_section3 d-md-none d-lg-none">
+                    <div class="col-12 mobile_title">
+                        <h1>地圖 – 全台素食資訊</h1>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="mobile_circle mobile_circle3">
+                            <img src="images/index_mascot_3.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 mobile_describ d-flex align-items-center justify-content-between">
+                        <h1>03</h1>
+                        <p>提供全台素食餐廳，擁有詳細的素食分類，讓吃素變得簡單又方便。</p>
+                        <div class="mobile_circle_s">
+                            <a href="map.html">
+                                <P>詳細<br>資訊</P>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ----------mobile end-------------- -->
+
                 <div class="col-12 own d-flex justify-content-center main_own">
-                    <img src="images/index_main_own.png" alt="">
+                    <img src="images/index_main_own.png" alt="" class="d-none d-md-block d-lg-block">
                 </div>
 
                 <div class="col-3 d-flex justify-content-lg-start align-items-end">
-                    <img src="images/mascot_left.png" alt="" class="mascot_left">
+                    <img src="images/mascot_left.png" alt="" class="mascot_left d-none d-md-block d-lg-block">
                 </div>
                 <div class="col-3 d-flex justify-content-center have_restaurant_wrap">
-                    <h1>60</h1>
-                    <img src="images/have_restaurant.png" alt="" class="have_restaurant">
+                    <h1 class="d-none d-md-block d-lg-block">60</h1>
+                    <img src="images/have_restaurant.png" alt="" class="have_restaurant d-none d-md-block d-lg-block">
 
                 </div>
                 <div class="col-3 d-flex justify-content-center have_recipe_wrap">
-                    <h1>50</h1>
-                    <img src="images/have_recipe.png" alt="" class="have_recipe">
+                    <h1 class="d-none d-md-block d-lg-block">50</h1>
+                    <img src="images/have_recipe.png" alt="" class="have_recipe d-none d-md-block d-lg-block">
                 </div>
                 <div class="col-3 d-flex justify-content-end align-items-end">
-                    <img src="images/mascot_right.png" alt="" class="mascot_right">
+                    <img src="images/mascot_right.png" alt="" class="mascot_right d-none d-md-block d-lg-block">
                 </div>
 
+                <!-- ----------mobile start-------------- -->
+                <div class="mobile_own col-12 d-flex justify-content-center d-md-none d-lg-none">
+                    <div class="title">
+                        <img src="images/index_main_own.png" alt="">
+                    </div>
+                </div>
+                <div class="d-flex align-items-end mobile_have_restaurant_wrap w-100 d-md-none d-lg-none">
+                    <div class="col-6 mobile_mascot_left d-flex justify-content-center">
+                        <img src="images/mascot_left.png" alt="">
+                    </div>
+                    <div class="col-6 mobile_have_restaurant d-flex justify-content-center">
+                        <h1>60</h1>
+                        <img src="images/have_restaurant.png" alt="">
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-end mobile_have_recipe_wrap w-100 d-md-none d-lg-none">
+                    <div class="col-6 mobile_have_recipe d-flex justify-content-center">
+                        <h1>50</h1>
+                        <img src="images/have_recipe.png" alt="">
+                    </div>
+                    <div class="col-6 mobile_mascot_right d-flex justify-content-center">
+                        <img src="images/mascot_right.png" alt="">
+                    </div>
+                </div>
+                <!-- ----------mobile end-------------- -->
                 <div class="col-12 own d-flex justify-content-center main_experience">
-                    <img src="images/index_main_experience.png" alt="">
+                    <img src="images/index_main_experience.png" alt="" class="d-none d-md-block d-lg-block">
                 </div>
 
-                <div class="col-12 card_carousel">
+                 <!-- ----------mobile start-------------- -->
+                <div class="mobile_experience col-12 d-flex justify-content-center d-md-none d-lg-none">
+                    <div class="title">
+                        <img src="images/index_main_experience.png" alt="">
+                    </div>
+                </div>
+                 <!-- ----------mobile end-------------- -->
+
+                <div class="col-12 card_carousel d-none d-md-block d-lg-block">
                     <ul id="c" class="pl-0">
 
                         <li>
@@ -584,6 +859,106 @@
                     </ul>
                 </div>
 
+                <!-- --------------mobile start--------------- -->
+                <div class="col-12 mobile_card_carousel">
+                    <ul id="cm" class="pl-0">
+
+                        <li>
+                            <div class="card d-flex flex-column justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程淺顯易懂的教學，學習做料理的樂趣～讓初學者也可快速進入料理的世界～💗每一堂我都好想學⋯！！</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_01.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>袁建平</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card d-flex flex-column justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程平價又豐富，喜歡素食但無做菜經驗的我，簡單又容易上手。覺得小朋友也會會非常喜歡！老師很細心跟有耐心❤️</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_02.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>張士朋</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card d-flex flex-column justify-content-between">
+                                <div class="card_top">
+                                    <h2>不用繁瑣的烹煮過程，透過用心準備的料理課程，素食食材也可以變成一道道的美食。覺得超棒的呀！</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_03.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>楊日輝</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="card d-flex flex-column justify-content-between">
+                                <div class="card_top">
+                                    <h2>今天的課程是石老師教學的。謝謝他不藏私的教學，還分享很多好吃的店給我😗做料理真的太好玩了～</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_04.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>蘇慧文</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card d-flex flex-column justify-content-between">
+                                <div class="card_top">
+                                    <h2>課程很豐富、有趣!湯頭的熬煮跟食材的前置作業，都是好吃的關鍵！學起來過年可以做一個豪華版的了!</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_05.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>紀幼蘭</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card justify-content-between">
+                                <div class="card_top">
+                                    <h2>學習自己喜歡吃的菜色是最開心的事。每個人做來都有自己獨特的味道！這也是做料理最好玩的地方～</h2>
+                                </div>
+                                <div class="card_down d-flex align-items-center">
+                                    <div class="mug_shot mr-3">
+                                        <img src="images/mug_shot_06.png" alt="">
+                                    </div>
+                                    <div class="name">
+                                        <h2>陳玳雅</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- --------------mobile end--------------- -->
+
             </div>
         </div>
 
@@ -648,6 +1023,35 @@
             $("#c > li").eq(i + 2).css('left', '66.666%').addClass('active').css('transition-delay', '1.75s');
 
         }, timer);
+
+        // -------mobile start--------
+        var timermobile = 4000;
+
+        var j = 0;
+        var maxmobile = $('#cm > li').length;
+
+        $("#cm > li").eq(j).addClass('active').css('left', '0');
+        $("#cm > li").eq(j + 1).addClass('active').css('left', '50%');
+
+        setInterval(function () {
+
+            $("#cm > li").removeClass('active');
+
+            $("#cm > li").eq(j).css('transition-delay', '0.25s');
+            $("#cm > li").eq(j + 1).css('transition-delay', '0.5s');
+
+            if (j < maxmobile - 2) {
+                j = j + 2;
+            }
+
+            else {
+                j = 0;
+            }
+
+            $("#cm > li").eq(j).css('left', '0').addClass('active').css('transition-delay', '1.25s');
+            $("#cm > li").eq(j + 1).css('left', '50%').addClass('active').css('transition-delay', '1.5s');
+
+        }, timermobile);
     </script>
 </body>
 
