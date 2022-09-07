@@ -108,6 +108,61 @@
         }
 
         /* ------------mobile start------------ */
+        .mobile_course_filter_wrap {
+            position: sticky;
+            top: 32px;
+            z-index: 9999;
+            margin-top: 48px;
+        }
+
+        .mobile_course_filter {
+            background-color: #005F5F;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            font-size: 2rem;
+            color: #FFF6E9;
+            padding: 4px 12px;
+        }
+
+        .modal-content {
+            background-color: transparent;
+            border: none;
+        }
+
+        .mobile_close_btn {
+            background-color: #333333;
+            border: none;
+            color: #FFF6E9;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled).active,
+        .btn-primary:not(:disabled):not(.disabled):active,
+        .show>.btn-primary.dropdown-toggle {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            border-color: transparent;
+        }
+
+        .btn-primary.focus,
+        .btn-primary:focus {
+            box-shadow: none;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled).active:focus,
+        .btn-primary:not(:disabled):not(.disabled):active:focus,
+        .show>.btn-primary.dropdown-toggle:focus {
+            box-shadow: none;
+        }
+
         .mobile_course_title img {
             height: 300px;
             margin-bottom: 32px;
@@ -121,7 +176,7 @@
         }
 
         .course_innerwrap {
-            margin-top: 48px;
+            margin-top: 12px;
         }
 
         .course_card {
@@ -132,6 +187,7 @@
             padding: 16px;
             margin-bottom: 48px;
         }
+
 
         .course_pic img {
             aspect-ratio: 4 / 3;
@@ -216,6 +272,10 @@
         }
 
         @media screen and (min-width:768px) {
+            .course_innerwrap {
+                margin-top: 48px;
+            }
+
             .course_pic {
                 padding-right: 24px;
             }
@@ -367,6 +427,60 @@
                     class="col-12 mobile_course_title  justify-content-center align-items-center d-md-none d-lg-none text-center">
                     <img src="images/mascot_01.png" alt="">
                     <h1>廚藝教室</h1>
+                </div>
+
+                <div class="col-12 d-flex justify-content-end mobile_course_filter_wrap">
+                    <button type="button" class="btn btn-primary mobile_course_filter d-md-none d-lg-none"
+                        data-toggle="modal" data-target=".bd-example-modal-sm"><i
+                            class="fa-solid fa-filter"></i></button>
+
+                    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                        aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="course_menu d-flex justify-content-center align-items-center">
+                                    <div class="course_menu_wrap">
+                                        <h2>篩選條件</h2>
+                                        <select class="course_filter filter">
+                                            <option>推薦排序</option>
+                                            <option>開課日期</option>
+                                            <option>價格由低至高</option>
+                                            <option>價格由高至低</option>
+                                        </select>
+                                        <select class="date_filter filter">
+                                            <option>選擇課程日期</option>
+                                            <option>10月21日(五) 19:00-21:00</option>
+                                            <option>11月18日(五) 19:00-21:00</option>
+                                            <option>10月22日(六) 10:30-12:30</option>
+                                            <option>11月19日(六) 10:30-12:30</option>
+                                        </select>
+                                        <p>素食分類</p>
+                                        <input type="radio" name="su" class="radio">
+                                        <label for="">全素</label><br>
+                                        <input type="radio" name="su" class="radio">
+                                        <label for="">蛋素</label><br>
+                                        <input type="radio" name="su" class="radio">
+                                        <label for="">五辛素</label><br>
+                                        <input type="radio" name="su" class="radio">
+                                        <label for="">奶素</label><br>
+                                        <input type="radio" name="su" class="radio">
+                                        <label for="">蛋奶素</label>
+                                        <p>價格</p>
+                                        <input type="radio" name="price" class="radio">
+                                        <label for="">$800 以下</label><br>
+                                        <input type="radio" name="price" class="radio">
+                                        <label for="">$800 ~ $1500</label><br>
+                                        <input type="radio" name="price" class="radio">
+                                        <label for="" class="mb-0">$1500 以上</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary mobile_close_btn"
+                                        data-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- ------------------mobile end----------- -->
 
