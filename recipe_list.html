@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>熊齋</title>
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- google 字體  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="icon" href="./favicon.png" type="image/x-icon" />
+
+        <link rel="stylesheet" href="./css/reset.css" />
+
+        <link rel="stylesheet" href="./css/all-setup.css" />
+
+        <link rel="stylesheet" href="./css/recipe.css" />
+    </head>
+    <body>
+        <section id="recipe-header">
+            <!-- nav 列表 -->
+            <div class="mobile-nav-bar">
+                <div class="mobile-logo">
+                    <img src="./images/logo_horizontal.png" alt="" />
+                </div>
+                <div class="mobile-nav-button">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
+            <!-- nav 下拉式選單 -->
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#">廚藝教室</a></li>
+                    <li><a href="#">節氣食補</a></li>
+                    <li><a href="#">素食地圖</a></li>
+                    <li><a href="#">相關文章</a></li>
+                    <li>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- <input type="checkbox" id="ham-menu" />
+            <label for="ham-menu">
+                <div class="hide-des">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </div>
+            </label>
+            <div class="full-page-green"></div>
+            <div class="ham-menu">
+                <ul class="centre-text bold-text">
+                    <li>主頁</li>
+                    <li>廚藝教室</li>
+                    <li>節氣食補</li>
+                    <li>素食地圖</li>
+                    <li>相關文章</li>
+                    <li>會員</li>
+                    <li>購物車</li>
+                </ul>
+            </div> -->
+        </section>
+
+        <section id="recipe-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="recipe-title-box">
+                            <img src="./images/mascot-09.png" alt="" />
+                            <h1>相關文章</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recipe-filter">
+            <div class="container">
+                <div class="row">
+                    <div class="classification">
+                        <div class="filter-recipe">
+                            <h1>食譜</h1>
+                        </div>
+                        <div class="filter-article">
+                            <h1>文章</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recipe-dropdown">
+            <div class="nav">
+                <ul class="drop-down-menu">
+                    <li class="drop-down-filter-title">
+                        <a>
+                            <h5>素食分類</h5>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a>五辛素</a>
+                            </li>
+                            <li>
+                                <a>蛋素</a>
+                            </li>
+                            <li>
+                                <a>全素</a>
+                            </li>
+                            <li>
+                                <a>奶素</a>
+                            </li>
+                            <li>
+                                <a>蛋奶素</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="drop-down-filter-title">
+                        <a>
+                            <h5>烹飪時間</h5>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a>
+                                    <h5>15</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <h5>30</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <h5>45</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <h5>60</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <h5>120以上</h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <button class="write-btn">
+                        <h5>寫食譜</h5>
+                        <div class="icon">
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </button>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 內容資訊 -->
+        <section id="recipe-main">
+            <div class="recipe-container">
+                <div class="recipe-list">
+                    <div class="recipe-content">
+                        <div class="recipe-img">
+                            <img src="./images/recipe-01.png" alt="" />
+                        </div>
+                        <h1>木耳炒甜豆 (五辛素)</h1>
+                        <p>by 史萊姆</p>
+                        <div class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            <h4>10分</h4>
+                        </div>
+                        <h4 class="introduction">
+                            清甜的什錦蔬菜，吃得到滿滿營養！
+                            一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。
+                            適合全家大小食用,唯痛風患者要避食黑木耳。
+                        </h4>
+                        <div class="recipe-btn">
+                            <button>
+                                <h4>了解更多</h4>
+                            </button>
+                            <div class="bookmark">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-content">
+                        <div class="recipe-img">
+                            <img src="./images/recipe-01.png" alt="" />
+                        </div>
+                        <h1>木耳炒甜豆 (五辛素)</h1>
+                        <p>by 史萊姆</p>
+                        <div class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            <h4>10分</h4>
+                        </div>
+                        <h4 class="introduction">
+                            清甜的什錦蔬菜，吃得到滿滿營養！
+                            一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。
+                            適合全家大小食用,唯痛風患者要避食黑木耳。
+                        </h4>
+                        <div class="recipe-btn">
+                            <button>
+                                <h4>了解更多</h4>
+                            </button>
+                            <div class="bookmark">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-content">
+                        <div class="recipe-img">
+                            <img src="./images/recipe-01.png" alt="" />
+                        </div>
+                        <h1>木耳炒甜豆 (五辛素)</h1>
+                        <p>by 史萊姆</p>
+                        <div class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            <h4>10分</h4>
+                        </div>
+                        <h4 class="introduction">
+                            清甜的什錦蔬菜，吃得到滿滿營養！
+                            一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。
+                            適合全家大小食用,唯痛風患者要避食黑木耳。
+                        </h4>
+                        <div class="recipe-btn">
+                            <button>
+                                <h4>了解更多</h4>
+                            </button>
+                            <div class="bookmark">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-content">
+                        <div class="recipe-img">
+                            <img src="./images/recipe-01.png" alt="" />
+                        </div>
+                        <h1>木耳炒甜豆 (五辛素)</h1>
+                        <p>by 史萊姆</p>
+                        <div class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            <h4>10分</h4>
+                        </div>
+                        <h4 class="introduction">
+                            清甜的什錦蔬菜，吃得到滿滿營養！
+                            一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。
+                            適合全家大小食用,唯痛風患者要避食黑木耳。
+                        </h4>
+                        <div class="recipe-btn">
+                            <button>
+                                <h4>了解更多</h4>
+                            </button>
+                            <div class="bookmark">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pagination">
+            <div class="container">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a
+                                class="page-link"
+                                tabindex="-1"
+                                aria-disabled="true"
+                            >
+                                <i class="fa-solid fa-angle-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link">1</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <section id="footer">
+            <footer>
+                <p>&copy;2022 BearSu. All rights reserved.</p>
+            </footer>
+        </section>
+    </body>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $("ul.drop-down-menu li:active > ul").click(function () {
+            $this.css("display", "block");
+        });
+    </script>
+</html>
