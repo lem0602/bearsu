@@ -60,6 +60,10 @@ body {
 }
 
 /* 食譜 食材  */
+.recipe-detail-ingredients {
+    margin-bottom: 48px;
+}
+
 .ingredients-box {
     width: 100%;
     background-color: var(--mybeige);
@@ -95,3 +99,39 @@ body {
     margin-bottom: 0;
 }
 
+/* step */
+.step-box {
+    width: 100%;
+    background-color: var(--mybeige);
+    padding: 36px 16px;
+    border: 2px solid var(--mydarkgreen);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.step {
+    border-bottom: 1px solid var(--myblack);
+    margin-bottom: 24px;
+}
+
+.step-img {
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.step-txt {
+    margin-bottom: 24px;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    border-top: 2px solid var(--myblack);
+    background-color: var(--mydarkgreen);
+    color: var(--mybeige);
+}
