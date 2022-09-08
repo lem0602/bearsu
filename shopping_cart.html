@@ -130,6 +130,35 @@
             background-color: #005F5F;
         }
 
+        /* -------mobile step start--------- */
+        .mobile_step{
+            margin-bottom: 32px;
+        }
+
+        .mobile_step h1{
+            font-size: 2rem;
+            color: #005F5F;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background-color: #FFF6E9;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+        }
+
+        .mobile_step p{
+            color: #333333;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .mobile_step .active{
+            color: #FFF6E9;
+            background-color: #005F5F;
+        }
+
+        /* -------mobile step end--------- */
         .course_card {
             border-radius: 20px;
             border: 2px solid #333333;
@@ -158,10 +187,8 @@
         .course_card h2 {
             font-size: 1rem;
             color: #333333;
-            border-bottom: 1px solid #333333;
             margin-bottom: 12px;
             font-weight: 700;
-            display: inline-block;
         }
 
         .course_card h4 {
@@ -307,6 +334,20 @@
                         <h1 class="">STEP 2.選擇付款方式</h1>
                         <div class="line"></div>
                         <h1 class="">STEP 3.確認結帳</h1>
+                    </div>
+                    <div class="mobile_step d-block d-md-none d-lg-none d-flex justify-content-between">
+                        <div class="step1 d-flex flex-column align-items-center">
+                            <h1 class="active">1</h1>
+                            <p>訂單資訊</p>
+                        </div>
+                        <div class="step2 d-flex flex-column align-items-center">
+                            <h1>2</h1>
+                            <p>選擇付款方式</p>
+                        </div>
+                        <div class="step3 d-flex flex-column align-items-center">
+                            <h1>3</h1>
+                            <p>確認結帳</p>
+                        </div>
                     </div>
                     <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
