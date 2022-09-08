@@ -126,21 +126,31 @@
             border: 2px solid #333333;
             background-color: #FFF6E9;
             box-shadow: #333333 3px 3px;
-            padding: 24px;
+            padding: 12px;
             margin-bottom: 48px;
+            position: relative;
         }
 
         .course_card img {
-            aspect-ratio: 16 / 10;
-            width: 260px;
-            border-radius: 20px;
+            aspect-ratio: 1 / 1;
+            width: 100px;
+            border-radius: 10px;
+            margin-right: 12px;
+        }
+
+        .course_card .fa-xmark{
+            font-size: 1.6rem;
+            color: #005F5F;
+            position: absolute;
+            right: 16px;
+            top:4px;
         }
 
         .course_card h2 {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #333333;
             border-bottom: 1px solid #333333;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             font-weight: 700;
             display: inline-block;
         }
@@ -156,6 +166,25 @@
             font-size: 0.9rem;
             color: #333333;
             font-weight: 500;
+            margin-bottom: 0px;
+        }
+
+        @media screen and (min-width:768px) {
+            .course_card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+            .course_card {
+                padding: 24px;
+            }
+
+            .course_card img {
+                aspect-ratio: 16 / 10;
+                width: 260px;
+                border-radius: 20px;
+                margin-right: 32px;
+            }
         }
 
         .course_card .btn a {
@@ -185,7 +214,7 @@
             margin-bottom: 48px;
         }
 
-        .total .line{
+        .total .line {
             height: 2px;
             width: calc(100% - 232px);
             border: 2px solid #333333;
@@ -240,6 +269,9 @@
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
             padding: 11px 0px;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
         }
 
         footer p {
@@ -253,71 +285,87 @@
 
 <body>
     <div class="shopping_cart_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
             <div class="row shopping_cart">
                 <div class="col-12 step_wrap">
-                    <div class="step d-flex justify-content-between align-items-center">
+                    <div class="step d-md-flex d-lg-flex justify-content-between align-items-center d-none">
                         <h1 class="active">STEP 1.確認訂單資訊</h1>
                         <div class="line"></div>
                         <h1 class="">STEP 2.選擇付款方式</h1>
                         <div class="line"></div>
                         <h1 class="">STEP 3.確認結帳</h1>
                     </div>
-                    <div class="course_card d-flex justify-content-between align-items-center">
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="tittle">
-                            <h2>地瓜餅 (奶素)</h2>
-                            <h4>課程時間</h4>
-                            <p>10月21日(五) 19:00-21:00</p>
-                        </div>
-                        <div class="price">
-                            <h4>價格</h4>
-                            <h4>$1,200</h4>
-                        </div>
-                        <div class="btn">
-                            <a href="">取消品項</a>
-                        </div>
-                        <i class="fa-solid fa-bookmark"></i>
-                    </div>
-                    <div class="course_card d-flex justify-content-between align-items-center">
-                        <img src="images/course_01.jpg" alt="">
-                        <div class="tittle">
-                            <h2>地瓜餅 (奶素)</h2>
-                            <h4>課程時間</h4>
-                            <p>10月21日(五) 19:00-21:00</p>
-                        </div>
-                        <div class="price">
-                            <h4>價格</h4>
-                            <h4>$1,200</h4>
-                        </div>
-                        <div class="btn">
-                            <a href="">取消品項</a>
-                        </div>
-                        <i class="fa-solid fa-bookmark"></i>
-                    </div>
-                    <div class="course_card d-flex justify-content-between align-items-center">
-                        <img src="images/course_01.jpg" alt="">
-                        <div class="tittle">
-                            <h2>地瓜餅 (奶素)</h2>
-                            <h4>課程時間</h4>
-                            <p>10月21日(五) 19:00-21:00</p>
-                        </div>
-                        <div class="price">
-                            <h4>價格</h4>
-                            <h4>$1,200</h4>
-                        </div>
-                            <div class="btn">
+                        <div class="d-md-flex w-100 justify-content-between align-items-center">
+                            <i class="fa-solid fa-xmark d-md-none d-lg-none"></i>
+                            <div class="tittle">
+                                <h2>地瓜餅 (奶素)</h2>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
+                                <p>10月21日(五) 19:00-21:00</p>
+                            </div>
+                            <div class="price d-flex justify-content-between align-items-end">
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
+                                <i class="fa-solid fa-bookmark d-block d-md-none"></i>
+                            </div>
+                            <div class="btn d-none d-md-block d-lg-block">
                                 <a href="">取消品項</a>
                             </div>
-                        <i class="fa-solid fa-bookmark"></i>
+                            <i class="fa-solid fa-bookmark d-none d-md-block d-lg-block"></i>
+                        </div>
                     </div>
+                    
+                    <div class="course_card d-flex align-items-center w-100">
+                        <img src="images/course_01.jpg" alt="">
+                        <div class="d-md-flex w-100 justify-content-between align-items-center">
+                            <i class="fa-solid fa-xmark d-md-none d-lg-none"></i>
+                            <div class="tittle">
+                                <h2>地瓜餅 (奶素)</h2>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
+                                <p>10月21日(五) 19:00-21:00</p>
+                            </div>
+                            <div class="price d-flex justify-content-between align-items-end">
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
+                                <i class="fa-solid fa-bookmark d-block d-md-none"></i>
+                            </div>
+                            <div class="btn d-none d-md-block d-lg-block">
+                                <a href="">取消品項</a>
+                            </div>
+                            <i class="fa-solid fa-bookmark d-none d-md-block d-lg-block"></i>
+                        </div>
+                    </div>
+
+                    <div class="course_card d-flex align-items-center w-100">
+                        <img src="images/course_01.jpg" alt="">
+                        <div class="d-md-flex w-100 justify-content-between align-items-center">
+                            <i class="fa-solid fa-xmark d-md-none d-lg-none"></i>
+                            <div class="tittle">
+                                <h2>地瓜餅 (奶素)</h2>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
+                                <p>10月21日(五) 19:00-21:00</p>
+                            </div>
+                            <div class="price d-flex justify-content-between align-items-end">
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
+                                <i class="fa-solid fa-bookmark d-block d-md-none"></i>
+                            </div>
+                            <div class="btn d-none d-md-block d-lg-block">
+                                <a href="">取消品項</a>
+                            </div>
+                            <i class="fa-solid fa-bookmark d-none d-md-block d-lg-block"></i>
+                        </div>
+                    </div>
+                    
                 </div>
-                <div class="col-12 total d-flex justify-content-end align-items-center">
-                    <div class="line"></div>
+                <div
+                    class="col-12 total d-flex justify-content-center justify-content-md-end justify-content-lg-end align-items-center">
+                    <div class="line d-none d-md-block d-lg-block"></div>
                     <h2>訂單總計 $3,600</h2>
                 </div>
                 <div class="col-12 btn_section d-flex justify-content-center">
@@ -327,7 +375,7 @@
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
