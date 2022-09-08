@@ -37,32 +37,55 @@
         <link rel="stylesheet" href="./css/all-setup.css" />
 
         <link rel="stylesheet" href="./css/recipe_list.css" />
+
+        <link rel="stylesheet" href="./css/mobile-nav.css">
     </head>
     <body>
-        <section id="recipe-header">
-            <!-- nav 列表 -->
-            <div class="mobile-nav-bar">
-                <div class="mobile-logo">
-                    <img src="./images/logo_horizontal.png" alt="" />
-                </div>
-                <div class="mobile-nav-button">
-                    <i class="fa-solid fa-bars"></i>
+        <!-- mobile-nav -->
+        <section id="recipe-detail-nav">
+            <div class="page">
+                <header tabindex="0">
+                    <div class="logo-img">
+                        <img src="./images/logo_horizontal.png" alt="">
+                    </div>
+                </header>
+                <div id="nav-container">
+                    <div class="bg"></div>
+                    <!-- nav icon  -->
+                    <div class="btn-box">
+                        <div class="button" tabindex="0">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </div>
+                    </div>
+
+                    <!-- nav list -->
+                    <div id="nav-content" tabindex="0">
+                        <ul>
+                            <li>
+                                <a href="#0"><h3>首頁</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>廚藝教室</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>節氣食補</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>素食地圖</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>相關文章</h3></a>
+                            </li>
+                            <li class="small">
+                                <a href="#0">購物車</a>
+                                <a href="#0">會員中心</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <!-- nav 下拉式選單 -->
-            <nav class="mobile-nav">
-                <ul>
-                    <li><a href="#">廚藝教室</a></li>
-                    <li><a href="#">節氣食補</a></li>
-                    <li><a href="#">素食地圖</a></li>
-                    <li><a href="#">相關文章</a></li>
-                    <li>
-                        <a href="#"></a>
-                        <a href="#"></a>
-                    </li>
-                </ul>
-            </nav>
         </section>
 
         <section id="recipe-title">
