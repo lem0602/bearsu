@@ -1,72 +1,8 @@
 body {
     width: 100%;
-    background: url(../images/all_bg.png) no-repeat var(--mylightgreen);
+    background: url(../images/all_bg.png) no-repeat var(--mygreen);
     background-size: auto 100vh;
     background-attachment: fixed;
-}
-
-
-
-
-
-.mobile-nav-bar {
-    background: var(--mydarkgreen);
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-    z-index: 20;
-    box-shadow: 4px 4px 0 var(--myblack);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.mobile-logo {
-    padding: 12px;
-}
-
-.mobile-nav-button {
-    margin-right: 12px;
-}
-
-.mobile-nav-bar i {
-    color: var(--mybeige);
-    font-size: 1.8rem;
-}
-
-.mobile-nav {
-    height: 0;
-    z-index: 10;
-}
-.mobile-nav ul {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    transform: translate(0, -300px);
-    -ms-transform: translate(0, -300px);
-    -webkit-transform: translate(0, -300px);
-    transition: all 0.2s ease-in-out;
-}
-.mobile-nav ul li a {
-    display: block;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    background: #222;
-}
-.mobile-nav ul li a:active {
-    background: var(--mydarkgreen);
-}
-.mobile-nav.show-mobile-nav {
-    height: auto;
-}
-.mobile-nav.show-mobile-nav ul {
-    transform: translate(0px);
-    -ms-transform: translate(0px);
-    -webkit-transform: translate(0px);
-}
-.main-container {
-    margin: 20px;
 }
 
 /* recipe-title */
@@ -94,7 +30,7 @@ body {
 }
 .classification {
     width: 100%;
-    margin: 0 24px;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
 }
@@ -163,7 +99,6 @@ ul.drop-down-menu ul {
     border-radius: 10px;
     overflow: hidden;
     position: absolute;
-    z-index: 99;
     left: -1px;
     top: 100%;
     min-width: 100%;

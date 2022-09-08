@@ -1,0 +1,50 @@
+body {
+    width: 100%;
+    background: url(../images/all_bg.png) no-repeat var(--mygreen);
+    background-size: auto 100vh;
+    background-attachment: fixed;
+}
+
+#write-recipes {
+    padding: 48px 24px;
+}
+
+.write-recipes {
+    width: 100%;
+    background-color: var(--mybeige);
+    border-radius: 10px;
+    border: 2px solid var(--myblack);
+    box-shadow: var(--box-shadow);
+    padding: 16px;
+}
+
+.text-title-box {
+    flex-direction:column;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+
+
+.text-title {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    background-color: var(--mylightbeige);
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    align-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    border-top: 2px solid var(--myblack);
+    background-color: var(--mydarkgreen);
+    color: var(--mybeige);
+}
