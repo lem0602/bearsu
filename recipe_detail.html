@@ -13,6 +13,7 @@
             crossorigin="anonymous"
         />
 
+        <!-- font-awesome 6.2.0 -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -38,7 +39,48 @@
         <link rel="stylesheet" href="./css/recipe_detail.css" />
     </head>
     <body>
-        <section id="recipe-detail-nav"></section>
+        <section id="recipe-detail-nav">
+            <div class="page">
+                <header tabindex="0">
+                    <div class="logo-img">
+                        <img src="./images/logo_horizontal.png" alt="">
+                    </div>
+                </header>
+                <div id="nav-container">
+                    <div class="bg"></div>
+                    <div class="btn-box">
+                        <div class="button" tabindex="0">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </div>
+                    </div>
+                    <div id="nav-content" tabindex="0">
+                        <ul>
+                            <li>
+                                <a href="#0"><h3>首頁</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>廚藝教室</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>節氣食補</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>素食地圖</h3></a>
+                            </li>
+                            <li>
+                                <a href="#0"><h3>相關文章</h3></a>
+                            </li>
+                            <li class="small">
+                                <a href="#0">購物車</a>
+                                <a href="#0">會員中心</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="recipe-detail-content">
             <div class="recipe-detail-main">
@@ -264,7 +306,14 @@
                     <div class="author-img">
                         <img src="./images/mug_shot_04.png" alt="" />
                     </div>
-                    <textarea id="message-board" name="message-board" rows="20" cols="30" maxlength="100" placeholder="加入討論 (最多可輸入 400 字)"></textarea>
+                    <textarea
+                        id="message-board"
+                        name="message-board"
+                        rows="20"
+                        cols="30"
+                        maxlength="100"
+                        placeholder="加入討論 (最多可輸入 400 字)"
+                    ></textarea>
 
                     <div class="button-box">
                         <button>
