@@ -132,6 +132,7 @@ header {
     display: block;
     text-transform: uppercase;
     transition: color 0.1s;
+    text-decoration: none;
 }
 
 #nav-content li a:hover {
