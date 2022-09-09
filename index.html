@@ -288,6 +288,7 @@
             height: 350px;
         }
 
+        .mobile_circle,
         .describ1_wrap,
         .describ2_wrap,
         .describ3_wrap,
@@ -382,7 +383,7 @@
         }
 
         .mobile_title h1 {
-            font-size: 1.75rem;
+            font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
         }
@@ -469,7 +470,9 @@
         }
 
         .own img {
-            height: 100px;
+            width: 320px;
+            margin-top: 150px;
+            margin-bottom: 50px;
         }
 
         .main_own,
@@ -478,24 +481,18 @@
             margin-bottom: 0px;
         }
 
-        @media screen and (min-width:768px) {
-
-            .main_own,
-            .main_experience {
-                margin-top: 150px;
-                margin-bottom: 50px;
-            }
-        }
-
         .mascot_left,
         .mascot_right {
-            height: 290px;
+            height: 200px;
         }
 
         .have_restaurant,
         .have_recipe {
-            height: 360px;
+            height: 250px;
+        }
 
+        .have_restaurant_wrap, .mascot_left_wrap{
+            margin-bottom: 50px;
         }
 
         .have_restaurant_wrap,
@@ -509,39 +506,46 @@
             color: white;
             top: 10%;
             left: 26%;
-            font-size: 7rem;
+            font-size: 5rem;
             font-weight: 700;
         }
 
-        .mobile_own .title img,
-        .mobile_experience .title img {
-            width: 320px;
-            margin-top: 150px;
-            margin-bottom: 50px;
+        @media screen and (min-width:768px){
+            .own img {
+            width: 433px;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
 
-        .mobile_have_restaurant_wrap {
-            margin-bottom: 50px;
+            .main_own,
+            .main_experience {
+                margin-top: 150px;
+                margin-bottom: 50px;
+            }
+
+            .mascot_left,
+        .mascot_right {
+            height: 290px;
         }
 
-        .mobile_mascot_left img,
-        .mobile_mascot_right img {
-            height: 200px;
+        .have_restaurant,
+        .have_recipe {
+            height: 360px;    
         }
 
-        .mobile_have_restaurant img,
-        .mobile_have_recipe img {
-            height: 250px;
+        .have_restaurant_wrap, .mascot_left_wrap{
+            margin-bottom: 0px;
         }
 
-        .mobile_have_restaurant h1,
-        .mobile_have_recipe h1 {
+        .have_restaurant_wrap h1,
+        .have_recipe_wrap h1 {
             position: absolute;
             color: white;
             top: 10%;
             left: 26%;
-            font-size: 5rem;
+            font-size: 7rem;
             font-weight: 700;
+        }
         }
 
         .card_carousel {
@@ -4047,7 +4051,7 @@
 
                 <div class="col-2 tittle tittle1 d-flex flex-column align-items-center justify-content-between">
                     <div class="tittle_top d-none d-md-block d-lg-block">
-                        <h1>廚藝教室 - <br>簡單做、開心吃</h1>
+                        <h1>廚藝教室 – <br>簡單做、開心吃</h1>
                     </div>
                     <div class="tittle_center">
 
@@ -4089,7 +4093,7 @@
 
                 <div class="col-2 tittle tittle2 d-flex flex-column align-items-center justify-content-between">
                     <div class="tittle_top d-none d-md-block d-lg-block">
-                        <h1>食譜 - <br>廿四節氣食材</h1>
+                        <h1>食譜 – <br>廿四節氣食材</h1>
                     </div>
                     <div class="tittle_center">
 
@@ -4148,7 +4152,7 @@
                 <!-- ----------mobile start-------------- -->
                 <div class="mobile_describ_section1 d-md-none d-lg-none">
                     <div class="col-12 mobile_title">
-                        <h1>廚藝教室 - 簡單做、開心吃</h1>
+                        <h1><i class="fa-solid fa-school mb-2 mr-2"></i>廚藝教室<br>簡單做、開心吃</h1>
                     </div>
 
                     <div class="col-12 d-flex justify-content-center">
@@ -4170,7 +4174,7 @@
 
                 <div class="mobile_describ_section2 d-md-none d-lg-none">
                     <div class="col-12 mobile_title">
-                        <h1>食譜 - 廿四節氣食材</h1>
+                        <h1><i class="fa-solid fa-book mb-2 mr-2"></i>食譜<br>廿四節氣食材</h1>
                     </div>
 
                     <div class="col-12 d-flex justify-content-center">
@@ -4192,7 +4196,7 @@
 
                 <div class="mobile_describ_section3 d-md-none d-lg-none">
                     <div class="col-12 mobile_title">
-                        <h1>地圖 – 全台素食資訊</h1>
+                        <h1><i class="fa-solid fa-map-location-dot mb-2 mr-2"></i>地圖<br>全台素食資訊</h1>
                     </div>
 
                     <div class="col-12 d-flex justify-content-center">
@@ -4214,62 +4218,28 @@
                 <!-- ----------mobile end-------------- -->
 
                 <div class="col-12 own d-flex justify-content-center main_own">
-                    <img src="images/index_main_own.png" alt="" class="d-none d-md-block d-lg-block">
+                    <img src="images/index_main_own.png" alt="" class="">
                 </div>
 
-                <div class="col-3 d-flex justify-content-lg-start align-items-end mascot_left_wrap">
-                    <img src="images/mascot_left.png" alt="" class="mascot_left d-none d-md-block d-lg-block">
+                <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-lg-start align-items-end mascot_left_wrap mb-md-0">
+                    <img src="images/mascot_left.png" alt="" class="mascot_left">
                 </div>
-                <div class="col-3 d-flex justify-content-center have_restaurant_wrap">
-                    <h1 class="d-none d-md-block d-lg-block">60</h1>
-                    <img src="images/have_restaurant.png" alt="" class="have_restaurant d-none d-md-block d-lg-block">
+                <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center have_restaurant_wrap mb-md-0">
+                    <h1>60</h1>
+                    <img src="images/have_restaurant.png" alt="" class="have_restaurant">
 
                 </div>
-                <div class="col-3 d-flex justify-content-center have_recipe_wrap">
-                    <h1 class="d-none d-md-block d-lg-block">50</h1>
-                    <img src="images/have_recipe.png" alt="" class="have_recipe d-none d-md-block d-lg-block">
+                <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center have_recipe_wrap">
+                    <h1>50</h1>
+                    <img src="images/have_recipe.png" alt="" class="have_recipe">
                 </div>
-                <div class="col-3 d-flex justify-content-end align-items-end mascot_right_wrap">
-                    <img src="images/mascot_right.png" alt="" class="mascot_right d-none d-md-block d-lg-block">
-                </div>
-
-                <!-- ----------mobile start-------------- -->
-                <div class="mobile_own col-12 d-flex justify-content-center d-md-none d-lg-none">
-                    <div class="title">
-                        <img src="images/index_main_own.png" alt="">
-                    </div>
-                </div>
-                <div class="d-flex align-items-end mobile_have_restaurant_wrap w-100 d-md-none d-lg-none">
-                    <div class="col-6 mobile_mascot_left d-flex justify-content-center">
-                        <img src="images/mascot_left.png" alt="">
-                    </div>
-                    <div class="col-6 mobile_have_restaurant d-flex justify-content-center">
-                        <h1>60</h1>
-                        <img src="images/have_restaurant.png" alt="">
-                    </div>
+                <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-end align-items-end mascot_right_wrap">
+                    <img src="images/mascot_right.png" alt="" class="mascot_right">
                 </div>
 
-                <div class="d-flex align-items-end mobile_have_recipe_wrap w-100 d-md-none d-lg-none">
-                    <div class="col-6 mobile_have_recipe d-flex justify-content-center">
-                        <h1>50</h1>
-                        <img src="images/have_recipe.png" alt="">
-                    </div>
-                    <div class="col-6 mobile_mascot_right d-flex justify-content-center">
-                        <img src="images/mascot_right.png" alt="">
-                    </div>
-                </div>
-                <!-- ----------mobile end-------------- -->
                 <div class="col-12 own d-flex justify-content-center main_experience">
-                    <img src="images/index_main_experience.png" alt="" class="d-none d-md-block d-lg-block">
+                    <img src="images/index_main_experience.png" alt="" class="">
                 </div>
-
-                <!-- ----------mobile start-------------- -->
-                <div class="mobile_experience col-12 d-flex justify-content-center d-md-none d-lg-none">
-                    <div class="title">
-                        <img src="images/index_main_experience.png" alt="">
-                    </div>
-                </div>
-                <!-- ----------mobile end-------------- -->
 
                 <div class="col-12 card_carousel d-none d-md-block d-lg-block">
                     <ul id="c" class="pl-0">
@@ -4879,135 +4849,140 @@
                 })
             }
 
-            if ($(window).scrollTop() >= 1000) {
-                $('.describ1_wrap').css({
-                    transform: 'translateY(0px)',
-                    opacity: 1,
-                })
-            }
-            else {
-                $('.describ1_wrap').css({
-                    transform: 'translateY(1000px)',
-                    opacity: 0,
-                })
-            }
+            if ($(window).scrollTop() >= 780) {
+        $('.mobile_circle1').css({
+            transform: 'translateX(0px) rotate(0deg)',
+            opacity: 1,
+        })
+    }
+    else {
+        $('.mobile_circle1').css({
+            transform: 'translateX(-200px) rotate(-360deg)',
+            opacity: 0,
+        })
+    }
+
+    if ($(window).scrollTop() >= 1370) {
+        $('.mobile_circle2').css({
+            transform: 'translateX(0px) rotate(0deg)',
+            opacity: 1,
+        })
+    }
+    else {
+        $('.mobile_circle2').css({
+            transform: 'translateX(-200px) rotate(-360deg)',
+            opacity: 0,
+        })
+    }
+
+    if ($(window).scrollTop() >= 2000) {
+        $('.mobile_circle3').css({
+            transform: 'translateX(0px) rotate(0deg)',
+            opacity: 1,
+        })
+    }
+    else {
+        $('.mobile_circle3').css({
+            transform: 'translateX(-200px) rotate(-360deg)',
+            opacity: 0,
+        })
+    }
 
             if ($(window).scrollTop() >= 1000) {
-                $('.tittle1').css({
+                $('.describ1_wrap, .tittle1').css({
                     transform: 'translateY(0px)',
                     opacity: 1,
                 })
             }
             else {
-                $('.tittle1').css({
+                $('.describ1_wrap, .tittle1').css({
                     transform: 'translateY(1000px)',
                     opacity: 0,
                 })
             }
 
             if ($(window).scrollTop() >= 1750) {
-                $('.describ2_wrap').css({
+                $('.describ2_wrap, .tittle2').css({
                     transform: 'translateY(0px)',
                     opacity: 1,
                 })
             }
             else {
-                $('.describ2_wrap').css({
-                    transform: 'translateY(1000px)',
-                    opacity: 0,
-                })
-            }
-
-            if ($(window).scrollTop() >= 1750) {
-                $('.tittle2').css({
-                    transform: 'translateY(0px)',
-                    opacity: 1,
-                })
-            }
-            else {
-                $('.tittle2').css({
+                $('.describ2_wrap, .tittle2').css({
                     transform: 'translateY(1000px)',
                     opacity: 0,
                 })
             }
 
             if ($(window).scrollTop() >= 2500) {
-                $('.describ3_wrap').css({
+                $('.describ3_wrap, .tittle3').css({
                     transform: 'translateY(0px)',
                     opacity: 1,
                 })
             }
             else {
-                $('.describ3_wrap').css({
+                $('.describ3_wrap, .tittle3').css({
                     transform: 'translateY(1000px)',
                     opacity: 0,
                 })
             }
 
-            if ($(window).scrollTop() >= 2500) {
-                $('.tittle3').css({
-                    transform: 'translateY(0px)',
-                    opacity: 1,
-                })
-            }
-            else {
-                $('.tittle3').css({
-                    transform: 'translateY(1000px)',
-                    opacity: 0,
-                })
-            }
-
-            if ($(window).scrollTop() >= 3100) {
-                $('.mascot_left_wrap').css({
+            if ($(window).scrollTop() >= 2800) {
+                $('.mascot_left_wrap, .have_restaurant_wrap').css({
                     transform: 'translateX(0px)',
                     opacity: 1,
                 })
             }
             else {
-                $('.mascot_left_wrap').css({
+                $('.mascot_left_wrap, .have_restaurant_wrap').css({
+                    transform: 'translateX(-500px)',
+                    opacity: 0,
+                })
+            }
+
+            if ($(window).scrollTop() >= 3100) {
+                $('.have_recipe_wrap, .mascot_right_wrap').css({
+                    transform: 'translateX(0px)',
+                    opacity: 1,
+                })
+            }
+            else {
+                $('.have_recipe_wrap, .mascot_right_wrap').css({
+                    transform: 'translateX(500px)',
+                    opacity: 0,
+                })
+            }
+
+            if ($(window).width() > 767) {
+            if ($(window).scrollTop() >= 3100) {
+                $('.mascot_left_wrap, .have_restaurant_wrap').css({
+                    transform: 'translateX(0px)',
+                    opacity: 1,
+                })
+            }
+            else {
+                $('.mascot_left_wrap, .have_restaurant_wrap').css({
                     transform: 'translateX(-1000px)',
                     opacity: 0,
                 })
             }
+        }
 
+        if ($(window).width() > 767) {
             if ($(window).scrollTop() >= 3100) {
-                $('.have_restaurant_wrap').css({
+                $('.have_recipe_wrap, .mascot_right_wrap').css({
                     transform: 'translateX(0px)',
                     opacity: 1,
                 })
             }
             else {
-                $('.have_restaurant_wrap').css({
-                    transform: 'translateX(-1000px)',
-                    opacity: 0,
-                })
-            }
-
-            if ($(window).scrollTop() >= 3100) {
-                $('.have_recipe_wrap').css({
-                    transform: 'translateX(0px)',
-                    opacity: 1,
-                })
-            }
-            else {
-                $('.have_recipe_wrap').css({
+                $('.have_recipe_wrap, .mascot_right_wrap').css({
                     transform: 'translateX(1000px)',
                     opacity: 0,
                 })
             }
+        }
 
-            if ($(window).scrollTop() >= 3100) {
-                $('.mascot_right_wrap').css({
-                    transform: 'translateX(0px)',
-                    opacity: 1,
-                })
-            }
-            else {
-                $('.mascot_right_wrap').css({
-                    transform: 'translateX(1000px)',
-                    opacity: 0,
-                })
-            }
         })
     </script>
 </body>
