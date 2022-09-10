@@ -1,0 +1,59 @@
+:root {
+    font-family: 'Noto Sans TC',sans-serif;    
+    box-sizing: border-box;
+    --mydarkgreen:#005F5F;
+    --mygreen:#6DD0CD;
+    --mylightgreen:#B1D7D5;
+    --myblack:#333333;
+    --mybeige:#FFF6E9;
+    --mylightbeige:#FFFCF7;
+    --myorange:#F2AD31;
+    --mygray:#606060;
+    --box-shadow: 4px 4px 0 var(--myblack)
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+}
+
+h5 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+}
+
+span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+}
+
+
+
