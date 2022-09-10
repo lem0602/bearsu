@@ -95,11 +95,19 @@
             margin: 48px 0px;
         }
 
-        .solarterms_introduce .top h1 {
+        .solarterms_introduce .top h1{
             font-size: 3.5rem;
             color: #005F5F;
             margin-bottom: 0px;
             font-weight: 700;
+        }
+
+        .mobile_title h1 {
+            font-size: 3.5rem;
+            color: #005F5F;
+            margin-bottom: 48px;
+            font-weight: 700;
+            text-align: center;
         }
 
         .solarterms_introduce .down {
@@ -108,12 +116,12 @@
             border: 2px solid #333333;
             background-color: #FFF6E9;
             box-shadow: #333333 3px 3px;
-            padding: 20px;
+            padding: 16px;
         }
 
         .solarterms_introduce .down img {
-            height: 350px;
-            margin-bottom: 24px;
+            height: 250px;
+            margin-right: 16px;
         }
 
         .solarterms_introduce .down h2 {
@@ -127,6 +135,27 @@
         .solarterms_circle img {
             animation: circle 60s linear infinite;
             filter:drop-shadow(0px 0px 5px rgba(0,0,0,.7));
+            width: 345px;
+            height: 345px;
+            margin-bottom:16px;
+        }
+
+        @media screen and (min-width:768px) {
+            .solarterms_introduce .down img {
+            height: 350px;
+            margin-bottom: 24px;
+            margin-right: 0px;
+        }
+
+            .solarterms_circle img {
+                width: 720px;
+                height: 720px;
+                margin-bottom:0px;
+            }
+
+            .solarterms_introduce .down{
+                padding: 20px;
+            }
         }
 
         /* .solarterms_circle img:hover, .circle:hover{
@@ -299,26 +328,30 @@
 
 <body>
     <div class="solarterms_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
             <div class="row">
-                <div class="col-3 solarterms_introduce d-flex flex-column align-items-center justify-content-center">
-                    <div class="top mb-3">
+                <div class="order-1 order-md-0 col-12 col-md-3 col-lg-3 solarterms_introduce d-flex flex-column align-items-center justify-content-center">
+                    <div class="top mb-3 d-none d-md-block d-lg-block">
                         <h1>節氣食補</h1>
                     </div>
 
-                    <div class="down">
+                    <div class="down d-flex d-md-block d-lg-block w-100">
                         <div class="solarterms_card_wrap d-flex justify-content-center">
                             <img src="images/solarterms_card_0.png" alt="">
                         </div>
-                        <h2>大地回暖陽氣發,飲食宜清淡,少食辛辣的食物。</h2>
+                        <h2 class="d-flex align-items-center">大地回暖陽氣發,飲食宜清淡,少食辛辣的食物。</h2>
                     </div>
                 </div>
 
-                <div class="col-9 solarterms_circle d-flex justify-content-center">
+                <div class="mobile_title col-12 d-block d-md-none d-lg-none">
+                    <h1>節氣食補</h1>
+                </div>
+
+                <div class="order-0 order-md-1 col-md-1 col-12 col-md-9 col-lg-9 solarterms_circle d-flex justify-content-center">
                     <img src="images/solarterms_circle.png" alt="" width="720" height="720" usemap="#Map_solarterms">
                     <map name="Map_solarterms">
                         <area shape="poly" coords="432,280,608,101,592,84,567,65,538,49,415,265"
@@ -372,7 +405,7 @@
                     </map>
                 </div>
 
-                <div class="col-12 filter_section">
+                <div class="col-12 order-2 filter_section">
                     <select class="season_filter filter">
                         <option>季節分類</option>
                         <option>春季</option>
@@ -427,7 +460,7 @@
                     </select>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -456,7 +489,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -485,7 +518,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -514,7 +547,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -543,7 +576,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -572,7 +605,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -601,7 +634,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -630,7 +663,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -659,7 +692,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -688,7 +721,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 recipe_card d-flex">
+                <div class="col-12 order-2 recipe_card d-flex">
                     <div class="recipe_pic d-flex justify-content-center align-items-center">
                         <img src="images/solarterms_01.jpg" alt="">
                     </div>
@@ -717,7 +750,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 d-flex justify-content-center page">
+                <div class="col-12 order-2 d-flex justify-content-center page">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item">
@@ -742,7 +775,7 @@
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
@@ -789,7 +822,7 @@
             $('.solarterms_introduce .down').append(` <div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_0.png" alt="">
                     </div>
-                        <h2>大地回暖陽氣發,飲食宜清淡,少食辛辣的食物。</h2>`);
+                        <h2 class="d-flex align-items-center">大地回暖陽氣發,飲食宜清淡,少食辛辣的食物。</h2>`);
             if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_0.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -801,7 +834,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_1.png" alt="">
                     </div>
-                        <h2>萬物生長好時機,多吃綠色食物,有益肝氣升發。</h2>`)
+                        <h2 class="d-flex align-items-center">萬物生長好時機,多吃綠色食物,有益肝氣升發。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_1.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -813,7 +846,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_2.png" alt="">
                     </div>
-                        <h2>冬眠而起醒脾胃,多吃富含植物性蛋白質的食物。</h2>`)
+                        <h2 class="d-flex align-items-center">冬眠而起醒脾胃,多吃富含植物性蛋白質的食物。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_2.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -825,7 +858,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_3.png" alt="">
                     </div>
-                        <h2>維持人體陰陽平衡狀態,避免寒性食物損傷脾胃。</h2>`)
+                        <h2 class="d-flex align-items-center">維持人體陰陽平衡狀態,避免寒性食物損傷脾胃。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_3.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -837,7 +870,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_4.png" alt="">
                     </div>
-                        <h2>春天肝氣最旺盛之時,養生首重疏肝與調暢情志。</h2>`)
+                        <h2 class="d-flex align-items-center">春天肝氣最旺盛之時,養生首重疏肝與調暢情志。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_4.jpg)');
                 $("body").css("background-color", 'transparent'); 
@@ -849,7 +882,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_5.png" alt="">
                     </div>
-                        <h2>雨量漸多濕氣加重,養生的重點是袪濕邪護脾胃。</h2>`)
+                        <h2 class="d-flex align-items-center">雨量漸多濕氣加重,養生的重點是袪濕邪護脾胃。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_5.jpg)');
                 $("body").css("background-color", 'transparent'); 
@@ -861,7 +894,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_6.png" alt="">
                     </div>
-                        <h2>天氣漸熱,肝氣轉弱心氣增,飲食宜清淡補水分。</h2>`)
+                        <h2 class="d-flex align-items-center">天氣漸熱,肝氣轉弱心氣增,飲食宜清淡補水分。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_6.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -873,7 +906,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_7.png" alt="">
                     </div>
-                        <h2>濕熱氣候易讓人不安,清熱利濕的食物可解煩悶。</h2>`)
+                        <h2 class="d-flex align-items-center">濕熱氣候易讓人不安,清熱利濕的食物可解煩悶。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_7.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -885,7 +918,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_8.png" alt="">
                     </div>
-                        <h2>暑濕困脾更要當心粽子,清熱祛濕食材開胃消脹。</h2>`)
+                        <h2 class="d-flex align-items-center">暑濕困脾更要當心粽子,清熱祛濕食材開胃消脹。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_8.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -897,7 +930,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_9.png" alt="">
                     </div>
-                        <h2>天熱食慾差,護心冷食不可多,補充水分為優先。</h2>`)
+                        <h2 class="d-flex align-items-center">天熱食慾差,護心冷食不可多,補充水分為優先。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_9.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -909,7 +942,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_10.png" alt="">
                     </div>
-                        <h2>避免太陽過度曝曬,養生宜開胃、除濕、助消化。</h2>`)
+                        <h2 class="d-flex align-items-center">避免太陽過度曝曬,養生宜開胃、除濕、助消化。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_10.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -921,7 +954,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_11.png" alt="">
                     </div>
-                        <h2>高溫高濕大地像蒸籠,降火排濕食材治『苦夏症。』</h2>`)
+                        <h2 class="d-flex align-items-center">高溫高濕大地像蒸籠,降火排濕食材治『苦夏症。』</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_11.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -933,7 +966,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_12.png" alt="">
                     </div>
-                        <h2>陽氣漸收,養生重保養及收藏,飲食宜滋陰潤肺。</h2>`)
+                        <h2 class="d-flex align-items-center">陽氣漸收,養生重保養及收藏,飲食宜滋陰潤肺。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_12.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -945,7 +978,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_13.png" alt="">
                     </div>
-                        <h2>暑熱終結轉秋燥,預防秋老虎首重滋陰清熱潤燥。</h2>`)
+                        <h2 class="d-flex align-items-center">暑熱終結轉秋燥,預防秋老虎首重滋陰清熱潤燥。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_13.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -957,7 +990,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_14.png" alt="">
                     </div>
-                        <h2>日夜溫差大,勿貪涼。宜滋補養陰,轉骨好時機。</h2>`)
+                        <h2 class="d-flex align-items-center">日夜溫差大,勿貪涼。宜滋補養陰,轉骨好時機。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_14.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -969,7 +1002,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_15.png" alt="">
                     </div>
-                        <h2>日夜相等,人體也宜用溫潤的食材達到陰陽平衡。</h2>`)
+                        <h2 class="d-flex align-items-center">日夜相等,人體也宜用溫潤的食材達到陰陽平衡。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_15.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -981,7 +1014,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_16.png" alt="">
                     </div>
-                        <h2>夜間氣溫降低,調養著重滋陰潤燥及增強免疫力。</h2>`)
+                        <h2 class="d-flex align-items-center">夜間氣溫降低,調養著重滋陰潤燥及增強免疫力。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_16.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -993,7 +1026,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_17.png" alt="">
                     </div>
-                        <h2>北方露水凝為霜,養生應藏精氣,宜平補忌暴食。</h2>`)
+                        <h2 class="d-flex align-items-center">北方露水凝為霜,養生應藏精氣,宜平補忌暴食。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_17.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -1005,7 +1038,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_18.png" alt="">
                     </div>
-                        <h2>寒邪易入侵,補冬補嘴空,適合滋補或食療養生。</h2>`)
+                        <h2 class="d-flex align-items-center">寒邪易入侵,補冬補嘴空,適合滋補或食療養生。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_18.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -1017,7 +1050,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_19.png" alt="">
                     </div>
-                        <h2>天氣轉寒應減少精氣神消耗,除淨燥熱準備過冬。</h2>`)
+                        <h2 class="d-flex align-items-center">天氣轉寒應減少精氣神消耗,除淨燥熱準備過冬。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_19.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -1029,7 +1062,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_20.png" alt="">
                     </div>
-                        <h2>提高人體免疫和抗寒力,季節蔬菜有益冬天食補。</h2>`)
+                        <h2 class="d-flex align-items-center">提高人體免疫和抗寒力,季節蔬菜有益冬天食補。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_20.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -1041,7 +1074,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_21.png" alt="">
                     </div>
-                        <h2>陽氣弱陰氣盛,調養體質好時機,適合補腎強心。</h2>`)
+                        <h2 class="d-flex align-items-center">陽氣弱陰氣盛,調養體質好時機,適合補腎強心。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_21.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -1053,7 +1086,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_22.png" alt="">
                     </div>
-                        <h2>寒氣最盛,心腎陽氣易不足,宜熱食以滋補身體。</h2>`)
+                        <h2 class="d-flex align-items-center">寒氣最盛,心腎陽氣易不足,宜熱食以滋補身體。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_22.jpg)');
                 $("body").css("background-color", 'transparent');
@@ -1065,7 +1098,7 @@
             $('.solarterms_introduce .down').append(`<div class="solarterms_card_wrap d-flex justify-content-center">
                         <img src="images/solarterms_card_23.png" alt="">
                     </div>
-                        <h2>天寒宜早睡晚起,保暖固腎養心,避免過度進補。</h2>`)
+                        <h2 class="d-flex align-items-center">天寒宜早睡晚起,保暖固腎養心,避免過度進補。</h2>`)
                         if ($(window).width() > 767) {
                 $("body").css("background-image", 'url(images/solarterms_bg_23.jpg)');
                 $("body").css("background-color", 'transparent');
