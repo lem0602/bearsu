@@ -121,26 +121,56 @@
             background-color: #005F5F;
         }
 
+        /* -------mobile step start--------- */
+        .mobile_step{
+            margin-bottom: 32px;
+        }
+
+        .mobile_step h1{
+            font-size: 2rem;
+            color: #005F5F;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background-color: #FFF6E9;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+        }
+
+        .mobile_step p{
+            color: #333333;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .mobile_step .active{
+            color: #FFF6E9;
+            background-color: #005F5F;
+        }
+
+        /* -------mobile step end--------- */
         .course_card {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
             box-shadow: #333333 3px 3px;
-            padding: 24px;
+            padding: 12px;
             margin-bottom: 48px;
+            position: relative;
         }
 
         .course_card img {
-            aspect-ratio: 16 / 10;
-            width: 260px;
-            border-radius: 20px;
-            margin-right: 24px;
+            aspect-ratio: 1 / 1;
+            width: 100px;
+            border-radius: 10px;
+            margin-right: 12px;
         }
 
         .course_card h2 {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #333333;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
@@ -155,6 +185,24 @@
             font-size: 0.9rem;
             color: #333333;
             font-weight: 500;
+        }
+
+        @media screen and (min-width:768px) {
+            .course_card h2 {
+                font-size: 1.5rem;
+                margin-bottom: 16px;
+            }
+
+            .course_card {
+                padding: 24px;
+            }
+
+            .course_card img {
+                aspect-ratio: 16 / 10;
+                width: 260px;
+                border-radius: 20px;
+                margin-right: 32px;
+            }
         }
 
         .total {
@@ -187,14 +235,16 @@
             box-shadow: #333333 3px 3px;
             margin-bottom: 48px;
             overflow: hidden;
-            height: 200px;
         }
 
         .order_man_card .left,
         .pay_method_card .left {
-            background-color: #005F5F;
-            width: 100%;
-            height: 100%;
+            background-color: #005F5F;  
+        }
+
+        .order_man_card .right,
+        .pay_method_card .right{
+            padding: 48px 0px;
         }
 
         .order_man_card h2,
@@ -202,6 +252,25 @@
             font-size: 1.5rem;
             color: #FFF6E9;
             font-weight: 700;
+            margin: 16px 0px;
+        }
+
+        @media screen and (min-width:768px) {
+            .order_man_card h2,
+        .pay_method_card h2{
+            margin: 0px;
+        }
+
+        .order_man_card .left,
+        .pay_method_card .left {
+            width: 25%;
+            height: 100%;
+        }
+
+        .order_man_card .right,
+        .pay_method_card .right {
+            width: 75%;
+        }
         }
 
         .order_man_card .list_tittle {
@@ -221,11 +290,13 @@
 
         .radio{
             margin-right: 16px;
+            cursor:pointer ;
         }
 
         .pay_method_card label{
             font-size: 1rem;
             font-weight: 500;
+            cursor:pointer ;
         }
 
         .btn_section .btn_left {
@@ -272,80 +343,96 @@
             font-size: 1rem;
             margin-bottom: 0px;
             text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
 
 <body>
     <div class="shopping_pay_meyhod_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
             <div class="row shopping_cart">
                 <div class="col-12 step_wrap">
-                    <div class="step d-flex justify-content-between align-items-center">
+                    <div class="step d-md-flex d-lg-flex justify-content-between align-items-center d-none">
                         <h1 class="">STEP 1.確認訂單資訊</h1>
                         <div class="line"></div>
                         <h1 class="active">STEP 2.選擇付款方式</h1>
                         <div class="line"></div>
                         <h1 class="">STEP 3.確認結帳</h1>
                     </div>
-                    <div class="course_card d-flex align-items-center">
+                    <div class="mobile_step d-block d-md-none d-lg-none d-flex justify-content-between">
+                        <div class="step1 d-flex flex-column align-items-center">
+                            <h1 class="">1</h1>
+                            <p>訂單資訊</p>
+                        </div>
+                        <div class="step2 d-flex flex-column align-items-center">
+                            <h1 class="active">2</h1>
+                            <p>選擇付款方式</p>
+                        </div>
+                        <div class="step3 d-flex flex-column align-items-center">
+                            <h1>3</h1>
+                            <p>確認結帳</p>
+                        </div>
+                    </div>
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="info d-flex justify-content-between w-100 align-items-center">
+                        <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                             <div class="tittle">
                                 <h2>地瓜餅 (奶素)</h2>
-                                <h4>課程時間</h4>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
                                 <p>10月21日(五) 19:00-21:00</p>
                             </div>
                             <div class="price">
-                                <h4>價格</h4>
-                                <h4>$1,200</h4>
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div class="course_card d-flex align-items-center">
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="info d-flex justify-content-between w-100 align-items-center">
+                        <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                             <div class="tittle">
                                 <h2>地瓜餅 (奶素)</h2>
-                                <h4>課程時間</h4>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
                                 <p>10月21日(五) 19:00-21:00</p>
                             </div>
                             <div class="price">
-                                <h4>價格</h4>
-                                <h4>$1,200</h4>
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div class="course_card d-flex align-items-center">
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="info d-flex justify-content-between w-100 align-items-center">
+                        <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                             <div class="tittle">
                                 <h2>地瓜餅 (奶素)</h2>
-                                <h4>課程時間</h4>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
                                 <p>10月21日(五) 19:00-21:00</p>
                             </div>
                             <div class="price">
-                                <h4>價格</h4>
-                                <h4>$1,200</h4>
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-12 total d-flex justify-content-end align-items-center">
-                    <div class="line"></div>
+                <div class="col-12 total d-flex justify-content-center justify-content-md-end justify-content-lg-end align-items-center">
+                    <div class="line d-none d-md-block d-lg-block"></div>
                     <h2>訂單總計 $3,600</h2>
                 </div>
-                <div class="col-12 order_man_card d-flex align-items-center p-0">
-                    <div class="left w-25 d-flex justify-content-center align-items-center">
+                <div class="col-12 d-md-flex d-lg-flex order_man_card  align-items-center p-0">
+                    <div class="left d-flex justify-content-center align-items-center">
                         <h2>訂購人</h2>
                     </div>
-                    <div class="right d-flex justify-content-center w-75">
+                    <div class="right d-flex justify-content-center align-items-center">
                         <div class="list_tittle text-right">
                             <h4>姓名</h4>
                             <h4>聯絡電話</h4>
@@ -358,18 +445,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 pay_method_card d-flex align-items-center p-0">
-                    <div class="left w-25 d-flex justify-content-center align-items-center">
+                <div class="col-12 d-md-flex d-lg-flex pay_method_card align-items-center p-0">
+                    <div class="left d-flex justify-content-center align-items-center">
                         <h2>付款方式</h2>
                     </div>
-                    <div class="right w-75 d-flex justify-content-center">
+                    <div class="right d-flex justify-content-center align-items-center">
                         <div class="right_wrap">
-                            <input type="radio" name="pay" class="radio">
-                            <label for="">信用卡一次付清</label><br>
-                            <input type="radio" name="pay" class="radio">
-                            <label for="">ATM轉帳</label><br>
-                            <input type="radio" name="pay" class="radio">
-                            <label for="" class="mb-0">超商代碼繳費</label>
+                            <input type="radio" name="pay" class="radio" id="card">
+                            <label for="card">信用卡一次付清</label><br>
+                            <input type="radio" name="pay" class="radio" id="atm">
+                            <label for="atm">ATM轉帳</label><br>
+                            <input type="radio" name="pay" class="radio" id="market">
+                            <label for="market" class="mb-0">超商代碼繳費</label>
                         </div>
                     </div>
                 </div>
@@ -380,7 +467,7 @@
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
