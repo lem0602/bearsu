@@ -118,6 +118,7 @@ header {
     transition: transform 0.3s;
     will-change: transform;
     contain: paint;
+    
 }
 
 #nav-content ul {

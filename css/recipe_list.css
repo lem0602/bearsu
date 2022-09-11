@@ -34,6 +34,9 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+
+
 .filter-recipe {
     background-color: var(--mydarkgreen);
     color: var(--mybeige);
@@ -53,88 +56,7 @@ body {
 }
 
 /* recipe-dropdown */
-#recipe-dropdown .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 48px;
-    padding: 0 24px;
-}
 
-/* 下拉是選單第一層 */
-
-ul.drop-down-menu {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-ul.drop-down-menu > li {
-    width: 100%;
-    position: relative;
-    white-space: nowrap;
-    margin-right: 12px;
-}
-
-.drop-down-filter-title > a {
-    background-color: var(--mybeige);
-    border: 2px solid var(--myblack);
-    color: var(--mydarkgreen);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-ul.drop-down-menu  h5 {
-    margin-right: 8px;
-}
-/* 下拉是選單第二層 */
-ul.drop-down-menu ul {
-    border: 2px solid var(--myblack);
-    border-radius: 10px;
-    overflow: hidden;
-    position: absolute;
-    left: -1px;
-    top: 100%;
-    min-width: 100%;
-}
-
-ul.drop-down-menu ul li a{
-    color: var(--mydarkgreen);
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 8px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-ul.drop-down-menu ul li {
-    background-color: var(--mybeige);
-}
-
-ul.drop-down-menu ul li:hover {
-    background-color: var(--mydarkgreen);
-    color: var(--mybeige);
-}
-
-ul.drop-down-menu ul li:last-child {
-    border-bottom: none;
-}
-
-ul.drop-down-menu ul { 
-    /*隱藏次選單*/
-    display: none;
-}
-
-ul.drop-down-menu li:hover > ul { 
-    /* 滑鼠點擊展開次選單 */
-    display: block;
-}
 
 /* 寫食譜btn */
 .write-btn {

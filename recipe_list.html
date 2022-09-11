@@ -1,194 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>熊齋</title>
 
-        <!-- bootstrap 5.2.1 CSS only -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-            crossorigin="anonymous"
-        />
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>熊齋</title>
 
-        <!-- font-awesome 6.2.0 -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+    <!-- bootstrap 5.2.1 CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
 
-        <!-- google 字體  -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
-            rel="stylesheet"
-        />
+    <!-- font-awesome 6.2.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="icon" href="./favicon.png" type="image/x-icon" />
+    <!-- google 字體  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
 
-        <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
 
-        <link rel="stylesheet" href="./css/all-setup.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
 
-        <link rel="stylesheet" href="./css/recipe_list.css" />
+    <link rel="stylesheet" href="./css/all-setup.css" />
 
-        <link rel="stylesheet" href="./css/mobile-nav.css">
-    </head>
-    <body>
-        <!-- mobile-nav -->
-        <section id="mobile-nav">
-            <div class="page">
-                <header tabindex="0">
-                    <div class="logo-img">
-                        <img src="./images/logo_horizontal.png" alt="">
+    <link rel="stylesheet" href="./css/recipe_list.css" />
+
+    <link rel="stylesheet" href="./css/mobile-nav.css">
+</head>
+
+<body>
+    <!-- mobile-nav -->
+    <section id="mobile-nav">
+        <div class="page">
+            <header tabindex="0">
+                <div class="logo-img">
+                    <img src="./images/logo_horizontal.png" alt="">
+                </div>
+            </header>
+            <div id="nav-container">
+                <div class="bg"></div>
+                <!-- nav icon  -->
+                <div class="btn-box">
+                    <div class="button" tabindex="0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </div>
-                </header>
-                <div id="nav-container">
-                    <div class="bg"></div>
-                    <!-- nav icon  -->
-                    <div class="btn-box">
-                        <div class="button" tabindex="0">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </div>
-                    </div>
+                </div>
 
-                    <!-- nav list -->
-                    <div id="nav-content" tabindex="0">
-                        <ul>
-                            <li>
-                                <a href="#0"><h3>首頁</h3></a>
-                            </li>
-                            <li>
-                                <a href="#0"><h3>廚藝教室</h3></a>
-                            </li>
-                            <li>
-                                <a href="#0"><h3>節氣食補</h3></a>
-                            </li>
-                            <li>
-                                <a href="#0"><h3>素食地圖</h3></a>
-                            </li>
-                            <li>
-                                <a href="#0"><h3>相關文章</h3></a>
-                            </li>
-                            <li class="small">
-                                <a href="#0">購物車</a>
-                                <a href="#0">會員中心</a>
-                            </li>
-                        </ul>
+                <!-- nav list -->
+                <div id="nav-content" tabindex="0">
+                    <ul>
+                        <li>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
+                        </li>
+                        <li class="small">
+                            <a href="#0">購物車</a>
+                            <a href="#0">會員中心</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recipe-title">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="recipe-title-box">
+                        <img src="./images/mascot-09.png" alt="" />
+                        <h1>相關文章</h1>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="recipe-title">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="recipe-title-box">
-                            <img src="./images/mascot-09.png" alt="" />
-                            <h1>相關文章</h1>
-                        </div>
+    <section id="recipe-filter">
+        <div class="container">
+            <div class="row">
+                <div class="classification">
+                    <div class="filter-recipe">
+                        <h1>食譜</h1>
+                    </div>
+                    <div class="filter-article">
+                        <h1>文章</h1>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="recipe-filter">
-            <div class="container">
-                <div class="row">
-                    <div class="classification">
-                        <div class="filter-recipe">
-                            <h1>食譜</h1>
-                        </div>
-                        <div class="filter-article">
-                            <h1>文章</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section id="recipe-dropdown">
+        <!-- dropdown -->
+        
 
-        <section id="recipe-dropdown">
-            <div class="nav">
-                <ul class="drop-down-menu">
-                    <li class="drop-down-filter-title">
-                        <a>
-                            <h5>素食分類</h5>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </a>
-                        <ul>
-                            <li>
-                                <a>五辛素</a>
-                            </li>
-                            <li>
-                                <a>蛋素</a>
-                            </li>
-                            <li>
-                                <a>全素</a>
-                            </li>
-                            <li>
-                                <a>奶素</a>
-                            </li>
-                            <li>
-                                <a>蛋奶素</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="drop-down-filter-title">
-                        <a>
-                            <h5>烹飪時間</h5>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </a>
-                        <ul>
-                            <li>
-                                <a>
-                                    <h5>15</h5>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <h5>30</h5>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <h5>45</h5>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <h5>60</h5>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <h5>120以上</h5>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <button class="write-btn">
-                        <h5>寫食譜</h5>
-                        <div class="icon">
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </button>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 內容資訊 -->
-        <section id="recipe-main">
-            <div class="recipe-container">
+    <!-- 內容資訊 -->
+    <section id="recipe-main">
+        <div class="container">
+            <div class="row">
                 <div class="recipe-list">
                     <div class="recipe-content">
                         <div class="recipe-img">
@@ -214,7 +152,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="recipe-content">
                         <div class="recipe-img">
                             <img src="./images/recipe-01.png" alt="" />
@@ -239,7 +176,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="recipe-content">
                         <div class="recipe-img">
                             <img src="./images/recipe-01.png" alt="" />
@@ -264,7 +200,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="recipe-content">
                         <div class="recipe-img">
                             <img src="./images/recipe-01.png" alt="" />
@@ -291,39 +226,37 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="pagination">
-            <div class="container">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a
-                                class="page-link"
-                                tabindex="-1"
-                                aria-disabled="true"
-                            >
-                                <i class="fa-solid fa-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link">1</a>
-                        </li>
+    <section id="pagination">
+        <div class="container">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" tabindex="-1" aria-disabled="true">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link">1</a>
+                    </li>
 
-                        <li class="page-item">
-                            <a class="page-link">
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </section>
+                    <li class="page-item">
+                        <a class="page-link">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
 
-        <section id="footer">
-            <footer>
-                <p>&copy;2022 BearSu. All rights reserved.</p>
-            </footer>
-        </section>
-    </body>
+    <section id="footer">
+        <footer>
+            <p>&copy;2022 BearSu. All rights reserved.</p>
+        </footer>
+    </section>
+</body>
+
 </html>
