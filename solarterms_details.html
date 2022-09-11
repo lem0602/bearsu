@@ -103,7 +103,7 @@
             border: 2px solid #333333;
             background-color: #FFF6E9;
             box-shadow: #333333 3px 3px;
-            padding: 36px;
+            padding: 16px;
             margin-top: 48px;
         }
 
@@ -116,7 +116,7 @@
 
         .recipe_title .left img {
             aspect-ratio: 4 / 3;
-            width: 810px;
+            width: 100%;
             border-radius: 20px;
         }
 
@@ -165,11 +165,16 @@
         }
 
         .recipe_info .down .left {
-            padding-right: 45px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .recipe_info .down .left:last-child {
+            margin-bottom: 0px;
         }
 
         .recipe_info .down .right {
-            padding-left: 45px;
+            width: 100%;
         }
 
         .recipe_info .down {
@@ -182,7 +187,8 @@
 
         .recipe_list_wrap {
             border-bottom: 1px solid #333333;
-            padding: 32px 0px;
+            padding: 24px 0px;
+            width: 100%;
         }
 
         .recipe_list_wrap:first-child {
@@ -195,12 +201,12 @@
         }
 
         .recipe_list .left {
-            margin-right: 32px;
+            margin-bottom: 24px;
         }
 
         .recipe_list img {
             aspect-ratio: 4 / 3;
-            width: 500px;
+            width: 100%;
             border-radius: 20px;
         }
 
@@ -221,22 +227,35 @@
             color: #333333;
             font-weight: 700;
             border-bottom: 1px solid #333333;
-            padding-bottom: 32px;
+            padding-bottom: 24px;
         }
 
         .message_card_innrwrap {
-            margin-top: 36px;
+            margin-top: 24px;
+        }
+
+        .message_card .mug_shot {
+            margin-bottom: 24px;
         }
 
         .message_card .mug_shot img {
             width: 100px;
             border-radius: 100%;
-            margin-right: 32px;
+            margin: auto;
+        }
+
+        .message_card .mug_shot p {
+            font-size: 0.9rem;
+            color: #333333;
+            font-weight: 500;
+            margin-bottom: 0px;
+            margin-top: 16px;
         }
 
         .message_card textarea {
             border-radius: 20px;
             padding: 12px;
+            height: 200px;
         }
 
         .message_card textarea:focus {
@@ -244,7 +263,7 @@
         }
 
         .message_card .btn_section {
-            margin-top: 32px;
+            margin-top: 24px;
         }
 
         .message_card .btn_section button {
@@ -265,6 +284,65 @@
             transform: translate(3px, 3px);
         }
 
+        @media screen and (min-width:768px) {
+
+            .recipe_title,
+            .recipe_info,
+            .recipe_list,
+            .message_card {
+                padding: 36px;
+            }
+
+            .recipe_info .down .left {
+                padding-right: 45px;
+                width: 50%;
+                margin-bottom: 0px;
+            }
+
+            .recipe_info .down .right {
+                padding-left: 45px;
+                width: 50%;
+            }
+
+            .recipe_list_wrap {
+                padding: 32px 0px;
+            }
+
+            .recipe_list .left {
+                margin-right: 32px;
+                margin-bottom: 0px;
+            }
+
+            .recipe_list img {
+                width: 500px;
+            }
+
+            .message_card_innrwrap {
+                margin-top: 36px;
+            }
+
+            .message_card h2 {
+                padding-bottom: 32px;
+            }
+
+            .message_card .mug_shot {
+            margin-bottom: 0px;
+            margin-right: 32px;
+        }
+
+            .message_card .mug_shot img {
+                margin-bottom: 0px;
+            }
+
+            .message_card textarea {
+                height: 100px;
+            }
+
+            .message_card .btn_section {
+                margin-top: 32px;
+            }
+        }
+
         footer {
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
@@ -283,20 +361,20 @@
 
 <body>
     <div class="solarterms_details_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
-            <div class="row">
+            <div class="row mx-0">
                 <div class="col-12 recipe_title">
-                    <div class="top d-flex justify-content-between">
+                    <div class="top d-md-flex d-lg-flex justify-content-between">
                         <div class="left">
                             <h1>焗烤雙花 (全素)</h1>
                             <img src="images/solarterms_01.jpg" alt="">
                         </div>
                         <div class="right text-center">
-                            <i class="fa-regular fa-bookmark"></i><br>
+                            <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i><br>
                             <img src="images/solarterms_card_0.png" alt="">
                         </div>
                     </div>
@@ -319,49 +397,46 @@
                     <div class="middle">
                         <h2>食材</h2>
                     </div>
-                    <div class="down d-flex">
-                        <div class="left d-flex w-50 justify-content-between">
+                    <div class="down d-md-flex d-lg-flex">
+                        <div class="left d-flex justify-content-between">
                             <h3>青花椰菜</h3>
                             <h3>1顆</h3>
                         </div>
-                        <div class="right d-flex w-50 justify-content-between">
+                        <div class="right d-flex justify-content-between">
                             <h3>白花椰菜</h3>
                             <h3>半顆</h3>
                         </div>
                     </div>
-                    <div class="down d-flex">
-                        <div class="left d-flex w-50 justify-content-between">
+                    <div class="down d-md-flex d-lg-flex">
+                        <div class="left d-flex justify-content-between">
                             <h3>香蒜粒</h3>
                             <h3>適量</h3>
                         </div>
-                        <div class="right d-flex w-50 justify-content-between">
+                        <div class="right d-flex justify-content-between">
                             <h3>雙色焗烤乳酪絲</h3>
                             <h3>適量</h3>
                         </div>
                     </div>
-                    <div class="down d-flex">
-                        <div class="left d-flex w-50 justify-content-between">
+                    <div class="down d-md-flex d-lg-flex">
+                        <div class="left d-flex justify-content-between">
                             <h3>海鹽</h3>
                             <h3>適量</h3>
                         </div>
-                        <div class="right d-flex w-50 justify-content-between">
+                        <div class="right d-flex justify-content-between">
                             <h3>橄欖油</h3>
                             <h3>適量</h3>
                         </div>
                     </div>
-                    <div class="down d-flex">
-                        <div class="left d-flex w-50 justify-content-between">
+                    <div class="down d-md-flex d-lg-flex">
+                        <div class="left d-flex justify-content-between">
                             <h3>蘿勒葉</h3>
                             <h3>適量</h3>
                         </div>
-                        <div class="right d-flex w-50 justify-content-between">
-                            <h3></h3>
-                            <h3></h3>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-12 recipe_list">
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_01.jpg" alt="">
                         </div>
@@ -370,7 +445,7 @@
                             <h2>雙花菜洗淨，切成適當大小備用。</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_02.jpg" alt="">
                         </div>
@@ -379,7 +454,7 @@
                             <h2>鍋中倒入米量杯2杯的水、適量鹽巴和橄欖油稍拌勻，加熱至滾。</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_03.jpg" alt="">
                         </div>
@@ -388,7 +463,7 @@
                             <h2>水滾後加入雙花菜翻拌幾下。</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_04.jpg" alt="">
                         </div>
@@ -397,7 +472,7 @@
                             <h2>蓋鍋蓋，用中火稍悶約20秒。（如果切的比較小塊時間可縮短至約15秒）開蓋再拌炒幾下至熟，關火撈至烤盤。</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_05.jpg" alt="">
                         </div>
@@ -406,7 +481,7 @@
                             <h2>依口味喜好均勻的灑上適量海鹽和適量香蒜粒（香蒜粒可加可不加）。</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_06.jpg" alt="">
                         </div>
@@ -415,7 +490,7 @@
                             <h2>鋪上滿滿、厚厚的焗烤乳酪絲。</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_07.jpg" alt="">
                         </div>
@@ -424,7 +499,7 @@
                             <h2>放入預熱好的烤箱，上下火、220度、3分鐘。（烤箱火力、大小、烤盤距離不同，請依實際調整時間和溫度）</h2>
                         </div>
                     </div>
-                    <div class="recipe_list_wrap d-flex">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms_01_08.jpg" alt="">
                         </div>
@@ -436,22 +511,24 @@
                 </div>
                 <div class="col-12 message_card">
                     <h2>留言</h2>
-                    <div class="message_card_innrwrap d-flex ">
-                        <div class="mug_shot">
+                    <div class="message_card_innrwrap d-md-flex d-lg-flex align-items-center">
+                        <div class="mug_shot d-flex flex-column align-items-center">
                             <img src="images/mug_shot_01.png" alt="">
+                            <p>袁建平</p>
                         </div>
                         <div class="input_section w-100">
-                            <textarea name="" id="" cols="111" rows="3" placeholder="加入討論 (最多可輸入 200 字)"></textarea>
+                            <textarea name="" id="" class="w-100" placeholder="加入討論 (最多可輸入 200 字)"></textarea>
                         </div>
                     </div>
-                    <div class="btn_section d-flex justify-content-end">
+                    <div
+                        class="btn_section d-flex justify-content-center justify-content-md-end justify-content-lg-end">
                         <button type="submit">發表留言</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
@@ -475,7 +552,6 @@
             </ul>
         </div>
     </div>
-
 
     <footer>
         <p>Copyright © 2022 BearSu. All rights reserved.</p>
