@@ -150,7 +150,7 @@
         #bearsu:hover {
             /* animation:heartBeat;
             animation-duration: 2s; */
-            animation:swing 2s linear infinite;
+            animation: swing 2s linear infinite;
         }
 
         #say {
@@ -4176,7 +4176,7 @@
                 </div>
 
                 <div class="col-8 d-flex justify-content-center">
-                    <div class="circle d-none d-md-block d-lg-block">
+                    <div class="circle circle1 d-none d-md-block d-lg-block">
                         <img src="images/index_mascot_1.png" alt="" class="mascot mascot1">
                     </div>
                 </div>
@@ -4218,7 +4218,7 @@
                 </div>
 
                 <div class="col-8 d-flex justify-content-center">
-                    <div class="circle d-none d-md-block d-lg-block">
+                    <div class="circle circle2 d-none d-md-block d-lg-block">
                         <img src="images/index_mascot_2.png" alt="" class="mascot mascot2">
                     </div>
                 </div>
@@ -4258,7 +4258,7 @@
                 </div>
 
                 <div class="col-8 d-flex justify-content-center">
-                    <div class="circle d-none d-md-block d-lg-block">
+                    <div class="circle circle3 d-none d-md-block d-lg-block">
                         <img src="images/index_mascot_3.png" alt="" class="mascot mascot3">
                     </div>
                 </div>
@@ -5100,6 +5100,49 @@
                         transform: 'translateX(-1000px)',
                         opacity: 0,
                     })
+                }
+            }
+
+            if ($(window).width() > 767) {
+                if ($(window).scrollTop() >= 900) {
+                    // $('.circle1').css({
+                    //     animation: 'flipInY 1s linear',
+                    //     opacity: 1,
+                    // })
+                    $('.circle1').addClass(
+                        'animate__animated animate__flipInY'
+                    )
+                }
+                else {
+                    $('.circle1').removeClass(
+                        'animate__animated animate__flipInY'
+                    )
+                }
+            }
+
+            if ($(window).width() > 767) {
+                if ($(window).scrollTop() >= 1610) {
+                    $('.circle2').addClass(
+                        'animate__animated animate__flipInY'
+                    )
+                }
+                else {
+                    $('.circle2').removeClass(
+                        'animate__animated animate__flipInY'
+                    )
+                }
+            }
+
+            if ($(window).width() > 767) {
+                if ($(window).scrollTop() >= 2380) {
+                    $('.circle3').addClass(
+                        'animate__animated animate__flipInY'
+                    )
+                }
+                else {
+                    $('.circle3').removeClass(
+                        'animate__animated animate__flipInY'
+                    )
                 }
             }
 
