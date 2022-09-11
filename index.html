@@ -4283,7 +4283,7 @@
 
                 <!-- ----------mobile start-------------- -->
                 <div class="mobile_describ_section1 d-md-none d-lg-none">
-                    <div class="col-12 mobile_title">
+                    <div class="col-12 mobile_title mobile_title1">
                         <h1><i class="fa-solid fa-school mb-2 mr-2"></i>廚藝教室<br>簡單做、開心吃</h1>
                     </div>
 
@@ -4305,7 +4305,7 @@
                 </div>
 
                 <div class="mobile_describ_section2 d-md-none d-lg-none">
-                    <div class="col-12 mobile_title">
+                    <div class="col-12 mobile_title mobile_title2">
                         <h1><i class="fa-solid fa-book mb-2 mr-2"></i>食譜<br>廿四節氣食材</h1>
                     </div>
 
@@ -4327,7 +4327,7 @@
                 </div>
 
                 <div class="mobile_describ_section3 d-md-none d-lg-none">
-                    <div class="col-12 mobile_title">
+                    <div class="col-12 mobile_title mobile_title3">
                         <h1><i class="fa-solid fa-map-location-dot mb-2 mr-2"></i>地圖<br>全台素食資訊</h1>
                     </div>
 
@@ -4984,26 +4984,49 @@
                 })
             }
 
+            if ($(window).scrollTop() >= 400) {
+                $('.bigtittle h3').addClass(
+                        'animate__animated animate__heartBeat'
+                    )
+            }
+            else {
+                $('.bigtittle h3').removeClass(
+                        'animate__animated animate__heartBeat'
+                    )
+            }
+
             if ($(window).scrollTop() >= 860) {
-                $('.mobile_circle1').css({
+                $('.mobile_title1').addClass(
+                        'animate__animated animate__tada'
+                    )
+                    $('.mobile_circle1').css({
                     transform: 'translateX(0px) rotate(0deg)',
                     opacity: 1,
                 })
             }
             else {
-                $('.mobile_circle1').css({
+                $('.mobile_title1').removeClass(
+                        'animate__animated animate__tada'
+                    )
+                    $('.mobile_circle1').css({
                     transform: 'translateX(-200px) rotate(-360deg)',
                     opacity: 0,
                 })
             }
 
             if ($(window).scrollTop() >= 1570) {
+                $('.mobile_title2').addClass(
+                        'animate__animated animate__tada'
+                    )
                 $('.mobile_circle2').css({
                     transform: 'translateX(0px) rotate(0deg)',
                     opacity: 1,
                 })
             }
             else {
+                $('.mobile_title2').removeClass(
+                        'animate__animated animate__tada'
+                    )
                 $('.mobile_circle2').css({
                     transform: 'translateX(-200px) rotate(-360deg)',
                     opacity: 0,
@@ -5011,12 +5034,18 @@
             }
 
             if ($(window).scrollTop() >= 2280) {
+                $('.mobile_title3').addClass(
+                        'animate__animated animate__tada'
+                    )
                 $('.mobile_circle3').css({
                     transform: 'translateX(0px) rotate(0deg)',
                     opacity: 1,
                 })
             }
             else {
+                $('.mobile_title3').removeClass(
+                        'animate__animated animate__tada'
+                    )
                 $('.mobile_circle3').css({
                     transform: 'translateX(-200px) rotate(-360deg)',
                     opacity: 0,
