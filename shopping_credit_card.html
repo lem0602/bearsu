@@ -360,6 +360,8 @@
             .creadit_card_info img {
                 width: 445px;
             }
+
+
         }
 
         .btn_section .btn_left {
@@ -539,12 +541,13 @@
                         </div>
                         <div class="last_number">
                             <h3>背面末三碼</h3>
-                            <input type="text" size="3" maxlength="3" name="last_number">
+                            <input type="text" id="last_number" size="3" maxlength="3" name="last_number">
                         </div>
                     </div>
                     <div class="card_pic d-flex justify-content-center">
                         <img src="images/mascot_03.png" alt="">
                     </div>
+                    <input id="auto_last_number" size="3" maxlength="3" type="text" />
                 </div>
 
                 <div class="col-12 btn_section d-flex justify-content-center">
@@ -595,6 +598,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        <script>
+            $("#last_number").bind("keyup paste", function() {
+    $("#auto_last_number").val($(this).val());
+});
+        </script>
 </body>
 
 </html>
