@@ -617,23 +617,8 @@
                                 </div>
                             </div>
                             <div class="effective_date">
-                                <h3>有效年月</h3>
+                                <h3>有效月/年</h3>
                                 <div class="filter_section d-flex align-items-center">
-                                    <select name="year" id="year">
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2029">2029</option>
-                                        <option value="2030">2030</option>
-                                        <option value="2031">2031</option>
-                                        <option value="2032">2032</option>
-                                        <option value="2033">2033</option>
-                                        <option value="2034">2034</option>
-                                        <option value="2035">2035</option>
-                                        <option value="2036">2036</option>
-                                    </select>
-                                    <h3 class="mb-0 mr-3">年</h3>
                                     <select name="month" id="month">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -648,7 +633,22 @@
                                         <option value="11">11</option>
                                         <option value="12">12</option>
                                     </select>
-                                    <h3 class="mb-0">月</h3>
+                                    <h3 class="mb-0 mr-3">月</h3>
+                                    <select name="year" id="year">
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
+                                        <option value="2031">2031</option>
+                                        <option value="2032">2032</option>
+                                        <option value="2033">2033</option>
+                                        <option value="2034">2034</option>
+                                        <option value="2035">2035</option>
+                                        <option value="2036">2036</option>
+                                    </select>
+                                    <h3 class="mb-0">年</h3>
                                 </div>
                             </div>
                             <div class="last_number">
@@ -742,7 +742,7 @@
         });
 
         $("#year").change(function () {
-            $("#auto_year").val($(this).val());
+            $("#auto_year").val($(this).val()-2000);
         });
     </script>
 </body>
