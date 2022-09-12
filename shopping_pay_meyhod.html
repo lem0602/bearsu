@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="css/mobile-nav.css">
+        <link rel="stylesheet" href="css/all-setup.css">    
     <style>
         * {
             font-family: 'Noto Sans TC', sans-serif;
@@ -24,6 +26,10 @@
         body {
             background: url(images/all_bg.png) no-repeat center center / cover fixed;
             background-color: #6DD0CD;
+        }
+
+        header, #nav-container{
+            z-index: 9999;
         }
 
         .nav_left {
@@ -350,6 +356,52 @@
 </head>
 
 <body>
+    <section id="mobile-nav" class="d-block d-md-none d-lg-none">
+        <div class="page">
+            <header tabindex="0">
+                <div class="logo-img">
+                    <img src="images/logo_horizontal.png" alt="">
+                </div>
+            </header>
+            <div id="nav-container">
+                <div class="bg"></div>
+                <!-- nav icon  -->
+                <div class="btn-box">
+                    <div class="button" tabindex="0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </div>
+
+                <!-- nav list -->
+                <div id="nav-content" tabindex="0">
+                    <ul>
+                        <li>
+                            <a href="#0"><h3>首頁</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>廚藝教室</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>節氣食補</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>素食地圖</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>相關文章</h3></a>
+                        </li>
+                        <li class="small">
+                            <a href="#0">購物車</a>
+                            <a href="#0">會員中心</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <div class="shopping_pay_meyhod_wrap d-flex justify-content-between position-relative">
         <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>

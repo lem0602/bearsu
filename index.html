@@ -31,6 +31,10 @@
             contain: paint
         }
 
+        header, #nav-container{
+            z-index: 9999;
+        }
+
         #mobile-nav,
         #nav-container,
         #nav-content {
@@ -528,6 +532,7 @@
             align-items: center;
             justify-content: center;
             transition: .5s;
+            line-height: 16px;
         }
 
         .mobile_circle_s p:hover {
@@ -765,29 +770,19 @@
                 <div id="nav-content" tabindex="0">
                     <ul>
                         <li>
-                            <a href="#0">
-                                <h3>首頁</h3>
-                            </a>
+                            <a href="#0"><h3>首頁</h3></a>
                         </li>
                         <li>
-                            <a href="#0">
-                                <h3>廚藝教室</h3>
-                            </a>
+                            <a href="#0"><h3>廚藝教室</h3></a>
                         </li>
                         <li>
-                            <a href="#0">
-                                <h3>節氣食補</h3>
-                            </a>
+                            <a href="#0"><h3>節氣食補</h3></a>
                         </li>
                         <li>
-                            <a href="#0">
-                                <h3>素食地圖</h3>
-                            </a>
+                            <a href="#0"><h3>素食地圖</h3></a>
                         </li>
                         <li>
-                            <a href="#0">
-                                <h3>相關文章</h3>
-                            </a>
+                            <a href="#0"><h3>相關文章</h3></a>
                         </li>
                         <li class="small">
                             <a href="#0">購物車</a>
@@ -4147,6 +4142,7 @@
         <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
+
         <div class="container">
             <div class="row main">
 
