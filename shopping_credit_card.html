@@ -358,23 +358,50 @@
             outline: none;
         }
 
-        .card_pic {
-            position: relative;
+        .camera {
+            width: 308px;
+            height: 193px;
+            cursor:pointer ;
         }
 
-        .creadit_card_info img {
+        .card_wrap {
+            position: relative;
             width: 308px;
+            height: 193px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: .5s;
+        }
+
+        .card_wrap .card {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #333333;
+        }
+
+        .card_back {
+            transform: rotateY(180deg);
         }
 
         .auto_card_numbe_wrap {
             position: absolute;
-            top: 20px
+            left: 15%;
+            top: 8%
         }
 
         #auto_card_number_1,
         #auto_card_number_2,
         #auto_card_number_3,
-        #auto_card_number_4 {
+        #auto_card_number_4,
+        #auto_month,
+        #auto_year,
+        #auto_last_number {
             font-size: 1rem;
             color: #005F5F;
             font-weight: 700;
@@ -384,20 +411,16 @@
             border: none;
         }
 
-        .auto_effective_date_wrap{
+        .auto_effective_date_wrap {
             position: absolute;
-            left:0%;
-            bottom:5%;
+            left: 6%;
+            bottom: 8%;
         }
 
-        #auto_month, #auto_year{
-            font-size: 1rem;
-            color: #005F5F;
-            font-weight: 700;
-            width: 50px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, .8);
-            border: none;
+        .auto_last_number_wrap {
+            position: absolute;
+            left: 6%;
+            bottom: 8%;
         }
 
         @media screen and (min-width:768px) {
@@ -411,13 +434,24 @@
             }
 
             .auto_card_numbe_wrap {
-                top: 100px
+                left: 25%;
+                top: 35%
             }
 
-            .auto_effective_date_wrap{
-            left:31%;
-            bottom:8%;
-        }
+            .auto_effective_date_wrap {
+                left: 6%;
+                bottom: 8%;
+            }
+
+            .camera {
+                width: 445px;
+                height: 279px;
+            }
+
+            .card_wrap {
+                width: 445px;
+                height: 279px;
+            }
         }
 
         .btn_section .btn_left {
@@ -657,17 +691,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card_pic d-flex justify-content-center">
-                        <img src="images/mascot_03.png" alt="">
-                        <div class="auto_card_numbe_wrap">
-                            <input id="auto_card_number_1" maxlength="3" type="text" />
-                            <input id="auto_card_number_2" maxlength="3" type="text" />
-                            <input id="auto_card_number_3" maxlength="3" type="text" />
-                            <input id="auto_card_number_4" maxlength="3" type="text" />
-                        </div>
-                        <div class="auto_effective_date_wrap">
-                            <input id="auto_month" type="text" />
-                            <input id="auto_year" type="text" />
+                    <div class="camera_wrap d-flex justify-content-center">
+                        <div class="camera">
+                            <div class="card_wrap">
+                                <div class="card_front card">
+                                    <img src="images/mascot_03.png" alt="">
+                                    <div class="auto_card_numbe_wrap">
+                                        <input id="auto_card_number_1" maxlength="3" type="text" />
+                                        <input id="auto_card_number_2" maxlength="3" type="text" />
+                                        <input id="auto_card_number_3" maxlength="3" type="text" />
+                                        <input id="auto_card_number_4" maxlength="3" type="text" />
+                                    </div>
+                                    <div class="auto_effective_date_wrap">
+                                        <input id="auto_month" type="text" />
+                                        <input id="auto_year" type="text" />
+                                    </div>
+                                </div>
+                                <div class="card_back card">
+                                    <img src="images/mascot_03.png" alt="" class="">
+                                    <div class="auto_last_number_wrap">
+                                        <input id="auto_last_number" type="text" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -737,12 +783,37 @@
             $("#auto_card_number_4").val($(this).val());
         });
 
+        $("#last_number").bind("keyup paste", function () {
+            $("#auto_last_number").val($(this).val());
+        });
+
         $("#month").change("copy paste", function () {
             $("#auto_month").val($(this).val());
         });
 
         $("#year").change(function () {
-            $("#auto_year").val($(this).val()-2000);
+            $("#auto_year").val($(this).val() - 2000);
+        });
+
+        let circleNum = 0
+
+        $('.card_wrap').click(function () {
+            if (circleNum == 0) {
+                $('.card_wrap').css('transform', 'rotateY(0deg)');
+                circleNum = circleNum + 1;
+            }
+            else {
+                $('.card_wrap').css('transform', 'rotateY(180deg)');
+                circleNum = circleNum - 1;
+            }
+        })
+
+        $("#last_number").click("beforeinput", function () {
+            $('.card_wrap').css('transform', 'rotateY(180deg)');
+        });
+
+        $("#card_number_1,#card_number_2,#card_number_3,#card_number_4,#year,#month").click("beforeinput", function () {
+            $('.card_wrap').css('transform', 'rotateY(0deg)');
         });
     </script>
 </body>
