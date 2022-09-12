@@ -735,17 +735,14 @@
 
         $("#card_number_4").bind("keyup paste", function () {
             $("#auto_card_number_4").val($(this).val());
-            console.log('num',$(this).val());
         });
 
-        $("#month").bind("keyup paste", function () {
+        $("#month").change("copy paste", function () {
             $("#auto_month").val($(this).val());
-            console.log('month',$(this).val());
         });
 
-        $("#year").bind("keyup paste", function () {
+        $("#year").change(function () {
             $("#auto_year").val($(this).val());
-            console.log('year',$(this).val());
         });
     </script>
 </body>
