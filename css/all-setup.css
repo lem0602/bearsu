@@ -55,5 +55,88 @@ span {
     line-height: 1.6rem;
 }
 
+/* btn 設定 */
+.mybutton {
+    top: 0;
+    left: 0;
+    transition: all 0.15s linear 0s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mydarkgreen);
+    border: 2px solid var(--myblack);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: var(--mybeige);
+    letter-spacing: 1px;
+    box-shadow: 4px 4px 0 var(--myblack);
+    text-decoration: none;
+}
 
+.mybutton::after {
+    transition: all 0.15s linear 0s;
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--myblack);
+    transform: rotate(45deg);
+    z-index: -1;
+}
 
+.mybutton::before {
+    transition: all 0.15s linear 0s;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--myblack);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.mybutton:hover {
+    top: 4px;
+    left: 4px;
+    color: var(--mybeige);
+    box-shadow: 2px 2px 0 var(--myblack);
+}
+
+.mybutton:hover::after {
+    top: 1px;
+    right: -1px;
+    width: 8px;
+    height: 8px;
+}
+
+.mybutton:hover::before {
+    bottom: -1px;
+    right: 1px;
+    width: 8px;
+    height: 8px;
+}
+
+a.mybutton {
+    position: relative;
+}
+
+a:active.mybutton {
+    top: 6px;
+    left: 6px;
+    box-shadow: none;
+}
+
+a:active.mybutton:before {
+    bottom: 1px;
+    left: 1px;
+}
+
+a:active.mybutton:after {
+    top: 1px;
+    right: 1px;
+}
