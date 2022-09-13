@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登入  </title>
+    <title>登入 </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="css/mobile-nav.css">
-        <link rel="stylesheet" href="css/all-setup.css">     
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/all-setup.css">
     <style>
         * {
             font-family: 'Noto Sans TC', sans-serif;
@@ -28,7 +28,8 @@
             background-color: #6DD0CD;
         }
 
-        header, #nav-container{
+        header,
+        #nav-container {
             z-index: 9999;
         }
 
@@ -100,7 +101,60 @@
             min-height: calc(100vh - 46px);
         }
 
-        
+        .mascot img {
+            height: 300px;
+        }
+
+        .login_box {
+            border: 2px solid #333333;
+            border-radius: 20px;
+            box-shadow: 3px 3px #333333;
+            background-color: #FFF6E9;
+            overflow: hidden;
+        }
+
+        .login_box h1 {
+            font-size: 2rem;
+            color: #FFF6E9;
+            background-color: #005F5F;
+            text-align: center;
+            padding: 32px 0px;
+            margin-bottom: 0px;
+        }
+
+        .login_box .input_box{
+            padding:32px;
+        }
+
+        .login_box .email_box{
+            margin-bottom: 32px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 16px;
+        }
+
+        .login_box .password_box{
+            border-bottom: 1px solid #333333;
+            padding-bottom: 16px;
+        }
+
+        .login_box .input_box h4, .login_box .password_box h4 {
+            font-size: 1rem;
+            color: #333333;
+            font-weight: 700;
+            padding-right:16px;
+        }
+
+        .login_box .input_box input, .login_box .password_box input {
+            background-color: transparent;
+            border: none;
+            padding: 0px 8px;
+            width: 80%;
+        }
+
+        .login_box .input_box input:focus, .login_box .password_box input:focus {
+            outline: 1px solid #005F5F;
+            border-radius: 5px;
+        }
 
         footer {
             background-color: #005F5F;
@@ -141,19 +195,29 @@
                 <div id="nav-content" tabindex="0">
                     <ul>
                         <li>
-                            <a href="#0"><h3>首頁</h3></a>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>廚藝教室</h3></a>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>節氣食補</h3></a>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>素食地圖</h3></a>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>相關文章</h3></a>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
                         </li>
                         <li class="small">
                             <a href="#0">購物車</a>
@@ -171,8 +235,40 @@
         </div>
 
         <div class="container">
-            <div class="col-12">
-               
+            <div class="row h-100">
+                <div class="col-md-1 col-lg-1 d-none d-md-block d-lg-block">
+                </div>
+
+                <div class="col-md-3 col-lg-3 d-none d-md-block d-lg-block mascot  h-100">
+                    <div class="mascot_wrap d-flex align-items-center h-100">
+                        <img src="images/mascot_left.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <div class="login_box w-100">
+                        <h1>登入</h1>
+                        <div class="input_box">
+                            <div class="email_box d-flex">
+                                <h4>Email</h4>
+                                <input type="text">
+                            </div>
+                            <div class="password_box d-flex">
+                                <h4>密碼</h4>
+                                <input type="password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-lg-3 d-none d-md-block d-lg-block mascot h-100">
+                    <div class="mascot_wrap d-flex align-items-center h-100">
+                        <img src="images/mascot_right.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-md-1 col-lg-1 d-none d-md-block d-lg-block">
+                </div>
             </div>
         </div>
 
