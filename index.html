@@ -661,17 +661,6 @@
             font-weight: 500;
         }
 
-        @media screen and (min-width:768px) {
-            ul>li {
-                width: 33.333%;
-                list-style-type: none;
-                position: absolute;
-                padding: 17px;
-                opacity: 0;
-                transition: 1s opacity;
-            }
-        }
-
         .active {
             opacity: 1;
         }
@@ -713,13 +702,19 @@
             font-weight: 500;
         }
 
-        ul>li {
+        ol>li {
             width: 50%;
             list-style-type: none;
             position: absolute;
             padding: 17px;
             opacity: 0;
             transition: 1s opacity;
+        }
+
+        @media screen and (min-width:768px) {
+            ol>li {
+                width: 33.333%;
+            }
         }
 
         .active {
@@ -767,23 +762,23 @@
                 <div id="nav-content" tabindex="0">
                     <ul>
                         <li>
-                            <a href="#0"><h3>首頁</h3></a>
+                            <a href="index.html"><h3>首頁</h3></a>
                         </li>
                         <li>
-                            <a href="#0"><h3>廚藝教室</h3></a>
+                            <a href="course.html"><h3>廚藝教室</h3></a>
                         </li>
                         <li>
-                            <a href="#0"><h3>節氣食補</h3></a>
+                            <a href="solarterms.html"><h3>節氣食補</h3></a>
                         </li>
                         <li>
-                            <a href="#0"><h3>素食地圖</h3></a>
+                            <a href="map.html"><h3>素食地圖</h3></a>
                         </li>
                         <li>
-                            <a href="#0"><h3>相關文章</h3></a>
+                            <a href="article.html"><h3>相關文章</h3></a>
                         </li>
                         <li class="small">
-                            <a href="#0">購物車</a>
-                            <a href="#0">會員中心</a>
+                            <a href="shopping_cart.html">購物車</a>
+                            <a href="member.html">會員中心</a>
                         </li>
                     </ul>
                 </div>
@@ -4368,7 +4363,7 @@
                 </div>
 
                 <div class="col-12 card_carousel d-none d-md-block d-lg-block">
-                    <ul id="c" class="pl-0">
+                    <ol id="c" class="pl-0">
 
                         <li>
                             <div class="card d-flex flex-column justify-content-between">
@@ -4462,12 +4457,12 @@
                             </div>
                         </li>
 
-                    </ul>
+                    </ol>
                 </div>
 
                 <!-- --------------mobile start--------------- -->
                 <div class="col-12 mobile_card_carousel d-md-none d-lg-none">
-                    <ul id="cm" class="pl-0 ">
+                    <ol id="cm" class="pl-0 ">
 
                         <li>
                             <div class="card d-flex flex-column justify-content-between">
@@ -4561,7 +4556,7 @@
                             </div>
                         </li>
 
-                    </ul>
+                    </ol>
                 </div>
                 <!-- --------------mobile end--------------- -->
 
@@ -4587,7 +4582,7 @@
                 </a>
                 <div class="icon d-flex justify-content-center pt-3">
                     <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-                    <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                    <a href="member.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
                 </div>
             </ul>
         </div>
