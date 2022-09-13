@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心-廚藝教室收藏</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/all-setup.css">
+    <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background: url(images/all_bg.png) no-repeat center center / cover fixed;
+            background-color: #6DD0CD;
+        }
+
+        header,
+        #nav-container {
+            z-index: 9999;
+        }
+
+        .nav_left {
+            position: sticky;
+            top: 32px;
+            height: 100%;
+            z-index: 999;
+            margin-left: 50px;
+        }
+
+        .nav_left img {
+            width: 120px;
+        }
+
+        .nav_right {
+            position: sticky;
+            top: 32px;
+            z-index: 999;
+            margin-right: 30px;
+            width: 150px;
+            height: 400px;
+            border-radius: 100px;
+            border: 2px solid #FFF6E9;
+            background-color: #005F5F;
+            overflow: hidden;
+        }
+
+        .nav_right ul {
+            padding: 0px;
+            margin: 0px;
+            height: 400px;
+        }
+
+        .nav_right li {
+            list-style-type: none;
+            color: #FFF6E9;
+            text-align: center;
+            padding: 15px 0px;
+            transition: .5s;
+            border-bottom: 2px dashed #FFF6E9;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .nav_right .li_top {
+            padding-top: 35px;
+        }
+
+        .nav_right li:hover {
+            color: #005F5F;
+            background-color: #FFF6E9;
+        }
+
+        .nav_right a:hover {
+            text-decoration: none;
+        }
+
+        .nav_right .icon a {
+            color: #FFF6E9;
+            transition: .5s;
+        }
+
+        .nav_right .icon a:hover {
+            transform: scale(1.2);
+        }
+
+        .member_course_wrap {
+            min-height: calc(100vh - 46px);
+        }
+
+        .member_course_innerwrap {
+            margin: 48px 0px;
+        }
+
+        .member_menu_wrap img {
+            width: 150px;
+        }
+
+        .member_menu_wrap h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #005F5F;
+            text-align: center;
+            margin: 48px 0px;
+            width: 100%;
+        }
+
+        .member_menu_wrap .member_menu {
+            background-color: #FFF6E9;
+            border: 2px solid #333333;
+            border-radius: 20px;
+            box-shadow: 3px 3px #333333;
+            overflow: hidden;
+            margin-bottom: 48px;
+            height: 88px;
+        }
+
+        .member_menu_wrap .member_menu a {
+            text-decoration: none;
+        }
+
+        .member_menu_wrap .member_menu h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #333333;
+            text-align: center;
+            padding: 32px 0px;
+            margin: 0px;
+            border-right: 1px solid #333333;
+            line-height: 1.6rem;
+        }
+
+        .member_menu_wrap .member_menu .collection {
+            border: none;
+            background-color: #005F5F;
+            color: #FFF6E9;
+        }
+
+        @media screen and (min-width:768px) {
+            .member_menu_innrwrap {
+            position: sticky;
+            top: 32px;
+            z-index: 999;
+        }
+        
+            .member_menu_wrap .member_menu {
+                margin-bottom: 48px;
+                height: auto;
+            }
+
+            .member_menu_wrap .member_menu h3 {
+                border-bottom: 1px solid #333333;
+            }
+        }
+
+        .collection_list{
+            margin: 48px 0px;
+        }
+
+        .collection_list h1{
+            font-size: 1rem;
+            font-weight: 500;
+            color: #005F5F;
+            padding: 6px 15px;
+            background-color: #FFF6E9;
+            border: 2px solid #333333;
+            border-radius: 10px;
+            box-shadow: 3px 3px #333333;
+        }
+
+        .collection_list h1:first-child{
+            color: #FFF6E9;
+            background-color: #005F5F;
+        }
+
+        .collection_list h1:last-child{
+            margin-right: 0px;
+        }
+
+        @media screen and (min-width:768px) {
+            .collection_list{
+            margin-top: 0px;
+        }
+
+        .collection_list h1{
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 12px 30px;
+            margin-right: 19px;
+        }
+        }
+
+        .member_course_card {
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: #333333 3px 3px;
+            padding: 16px;
+            margin-bottom: 48px;
+        }
+
+        .member_course_pic img {
+            aspect-ratio: 4 / 3;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 32px;
+        }
+
+        .member_course_content .title h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0px;
+            color: #333333;
+            font-weight: 700;
+        }
+
+        .fa-bookmark {
+            color: #333333;
+            font-size: 2rem;
+        }
+
+        .member_course_card .describe {
+            border-bottom: 1px solid #333333;
+            margin-top: 24px;
+            padding-bottom: 12px;
+        }
+
+        .member_course_card .describe h4 {
+            font-size: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: #333333;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .member_course_card .price h2 {
+            color: #005F5F;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .member_course_card .price {
+            margin-top: 12px;
+        }
+
+        .member_course_card .price h5 {
+            color: #005F5F;
+            font-size: 0.9rem;
+            padding-right: 24px;
+            font-weight: 700;
+        }
+
+        .member_course_card .time {
+            margin: 24px 0px;
+        }
+
+        .member_course_card .time h5 {
+            color: #005F5F;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .member_course_card .time h4 {
+            color: #005F5F;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .member_course_card .btn_wrap {
+            background-color: #005F5F;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: #333333 3px 3px;
+            text-decoration: none;
+            transition: .3s;
+            margin-right: 24px;
+            text-align: center;
+            padding: 8px 35px;
+            width: 100%;
+        }
+
+        @media screen and (min-width:768px) {
+            .member_course_innerwrap {
+                margin-top: 48px;
+            }
+
+            .member_course_pic {
+                padding-right: 24px;
+            }
+
+            .member_course_card {
+                padding: 24px;
+            }
+
+            .member_course_pic img {
+                aspect-ratio: 4 / 3;
+                width: 100%;
+                border-radius: 20px;
+                margin-bottom: 0px;
+            }
+
+            .member_course_card .time {
+                margin: 0px;
+            }
+
+            .member_course_card .btn_wrap {
+                width: auto;
+            }
+        }
+
+        .member_course_card .btn {
+            color: #FFF6E9;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .member_course_card .btn_wrap:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
+        .page-link {
+            background-color: #005F5F;
+            border: none;
+            color: #FFF6E9;
+            transition: .3s;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        span {
+            font-size: 1.25rem;
+        }
+
+        .page-link:hover {
+            background-color: #FFF6E9;
+            color: #005F5F;
+        }
+
+        .page-item:first-child .page-link {
+            border-radius: 8px 0px 0px 8px;
+        }
+
+        .page-item:last-child .page-link {
+            border-radius: 0px 8px 8px 0px;
+        }
+
+        footer {
+            background-color: #005F5F;
+            box-shadow: 0px -3px 0px #333333;
+            padding: 11px 0px;
+        }
+
+        footer p {
+            color: #FFF6E9;
+            font-size: 1rem;
+            margin-bottom: 0px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="mobile-nav" class="d-block d-md-none d-lg-none">
+        <div class="page">
+            <header tabindex="0">
+                <div class="logo-img">
+                    <img src="images/logo_horizontal.png" alt="">
+                </div>
+            </header>
+            <div id="nav-container">
+                <div class="bg"></div>
+                <!-- nav icon  -->
+                <div class="btn-box">
+                    <div class="button" tabindex="0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </div>
+
+                <!-- nav list -->
+                <div id="nav-content" tabindex="0">
+                    <ul>
+                        <li>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
+                        </li>
+                        <li class="small">
+                            <a href="#0">購物車</a>
+                            <a href="#0">會員中心</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="member_course_wrap d-flex justify-content-between position-relative">
+        <div class="nav_left d-none d-md-block d-lg-block">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="container">
+            <div class="row member_course_innerwrap">
+
+                <div class="member_menu_wrap col-12 col-md-2 col-lg-2">
+                    <div class="member_menu_innrwrap">
+                    <div class="mug_shot d-flex justify-content-center">
+                        <img src="images/mug_shot_01.png" alt="">
+                    </div>
+                    <h3>已分享食譜0</h3>
+                    <div class="member_menu d-flex align-items-center d-md-block d-lg-block">
+                        <a href="#">
+                            <h3 class="d-none d-md-block d-lg-block">會員資料</h3>
+                        </a>
+                        <a href="#">
+                            <h3 class="d-none d-md-block d-lg-block">訂單記錄</h3>
+                        </a>
+                        <a href="#">
+                            <h3 class="d-none d-md-block d-lg-block">我的食譜</h3>
+                        </a>
+                        <a href="#">
+                            <h3 class="d-none d-md-block d-lg-block collection">收藏</h3>
+                        </a>
+                        <a href="#" class="w-100">
+                            <h3 class="d-block d-md-none d-lg-none">會員<br>資料</h3>
+                        </a>
+                        <a href="#" class="w-100">
+                            <h3 class="d-block d-md-none d-lg-none">訂單<br>記錄</h3>
+                        </a>
+                        <a href="#" class="w-100">
+                            <h3 class="d-block d-md-none d-lg-none">我的<br>食譜</h3>
+                        </a>
+                        <a href="#" class="w-100">
+                            <h3 class="d-block d-md-none d-lg-none collection">收藏</h3>
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="d-none d-md-block col-md-1 d-lg-block col-lg-1"></div>
+
+                <div class="col-12 col-md-9 col-lg-9 member_course_cards">
+                    <div class="collection_list d-flex justify-content-between justify-content-md-center justify-content-lg-center">
+                        <h1>廚藝教室</h1>
+                        <h1>食譜</h1>
+                        <h1>地圖</h1>
+                        <h1>文章</h1>
+                    </div>
+                    <div class="member_course_card d-md-flex d-lg-flex">
+                        <div class="member_course_pic d-flex justify-content-center align-items-center">
+                            <img src="images/course_01.jpg" alt="">
+                        </div>
+                        <div class="member_course_content d-flex flex-column justify-content-between">
+                            <div class="title d-flex justify-content-between align-items-center">
+                                <div class="left d-flex align-items-center">
+                                    <h2>地瓜餅 (奶素)</h2> <br>
+                                </div>
+                                <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                </h4>
+                            </div>
+                            <div class="price d-flex align-items-center">
+                                <h5>課程價格</h5>
+                                <h2>$1,200</h2>
+                            </div>
+                            <div class="time">
+                                <h5>開課時間</h5>
+                                <h4>10月21日(五) 19:00-21:00<br>
+                                    11月18日(五) 19:00-21:00</h4>
+                            </div>
+                            <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                                <a href="member_course_details.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                    <div class="btn p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member_course_card d-md-flex d-lg-flex">
+                        <div class="member_course_pic d-flex justify-content-center align-items-center">
+                            <img src="images/course_01.jpg" alt="">
+                        </div>
+                        <div class="member_course_content d-flex flex-column justify-content-between">
+                            <div class="title d-flex justify-content-between align-items-center">
+                                <div class="left d-flex align-items-center">
+                                    <h2>地瓜餅 (奶素)</h2> <br>
+                                </div>
+                                <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                </h4>
+                            </div>
+                            <div class="price d-flex align-items-center">
+                                <h5>課程價格</h5>
+                                <h2>$1,200</h2>
+                            </div>
+                            <div class="time">
+                                <h5>開課時間</h5>
+                                <h4>10月21日(五) 19:00-21:00<br>
+                                    11月18日(五) 19:00-21:00</h4>
+                            </div>
+                            <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                                <a href="member_course_details.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                    <div class="btn p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member_course_card d-md-flex d-lg-flex">
+                        <div class="member_course_pic d-flex justify-content-center align-items-center">
+                            <img src="images/course_01.jpg" alt="">
+                        </div>
+                        <div class="member_course_content d-flex flex-column justify-content-between">
+                            <div class="title d-flex justify-content-between align-items-center">
+                                <div class="left d-flex align-items-center">
+                                    <h2>地瓜餅 (奶素)</h2> <br>
+                                </div>
+                                <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                                </h4>
+                            </div>
+                            <div class="price d-flex align-items-center">
+                                <h5>課程價格</h5>
+                                <h2>$1,200</h2>
+                            </div>
+                            <div class="time">
+                                <h5>開課時間</h5>
+                                <h4>10月21日(五) 19:00-21:00<br>
+                                    11月18日(五) 19:00-21:00</h4>
+                            </div>
+                            <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                                <a href="member_course_details.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                    <div class="btn p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page d-flex justify-content-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination mb-0">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true"><i class="fa-solid fa-angle-left"
+                                                aria-hidden="true"></i></span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">4</a>
+                                </li>
+                                <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">5</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="nav_right d-none d-md-block d-lg-block">
+            <ul class="d-flex flex-column">
+                <a href="index.html">
+                    <li class="li_top">首頁</li>
+                </a>
+                <a href="member_course.html">
+                    <li>廚藝教室</li>
+                </a>
+                <a href="solarterms.html">
+                    <li>節氣食補</li>
+                </a>
+                <a href="map.html">
+                    <li>素食地圖</li>
+                </a>
+                <a href="article.html">
+                    <li>相關文章</li>
+                </a>
+                <div class="icon d-flex justify-content-center pt-3">
+                    <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
+                    <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2022 BearSu. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
