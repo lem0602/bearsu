@@ -21,6 +21,9 @@ header {
 
 #mobile-nav .logo-img {
     padding: 12px;
+}
+
+#mobile-nav .logo-img img{
     width: 100px;
 }
 
