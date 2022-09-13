@@ -318,6 +318,29 @@
         }
 
         /* ---------------main pic end---------------- */
+        /* --------mobile main pic start--------------- */
+        .index_main_pic_s{
+            position: relative;
+            transform-origin: center center;
+            animation: scale 10s linear infinite;
+        }
+
+        .bearsu_mobile{
+            position: absolute;
+            top:45%;
+            left:25%;
+            transform-origin: center center;
+            animation: scale 5s linear infinite;
+        }
+
+        .say_mobile{
+            position: absolute;
+            top:18%;
+            left:45%;
+            transform-origin:bottom left;
+            animation: swing 5s linear infinite;
+        }
+        /* --------mobile main pic end--------------- */
 
         .bigtittle h1 {
             color: #333333;
@@ -789,7 +812,9 @@
     <div class="container-fluid px-0">
         <div class="row mx-0">
             <div class="col px-0 d-md-none d-lg-none">
-                <img src="images/index_main_pic_s.png" alt="" class="w-100">
+                <img src="images/index_main_pic_s.png" alt="" class="w-100 index_main_pic_s">
+                <img src="images/bearsu_mobile.png" alt="" class="bearsu_mobile">
+                <img src="images/say_mobile.png" alt="" class="say_mobile">
             </div>
             <div class="col d-none d-md-block d-lg-block">
                 <svg id="main_pic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2020 1088.19">
