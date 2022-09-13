@@ -214,8 +214,8 @@
             }
 
             .course_card p {
-            margin-bottom: 0px;
-        }
+                margin-bottom: 0px;
+            }
         }
 
         .total {
@@ -366,7 +366,7 @@
         .camera {
             width: 308px;
             height: 193px;
-            cursor:pointer ;
+            cursor: pointer;
         }
 
         .card_wrap {
@@ -424,8 +424,8 @@
 
         .auto_last_number_wrap {
             position: absolute;
-            left: 6%;
-            bottom: 8%;
+            left: 75%;
+            top: 38%;
         }
 
         @media screen and (min-width:768px) {
@@ -456,6 +456,11 @@
             .card_wrap {
                 width: 445px;
                 height: 279px;
+            }
+
+            .auto_last_number_wrap {
+                left: 75%;
+                top: 41.5%;
             }
         }
 
@@ -676,13 +681,13 @@
                                     <h3>信用卡卡號</h3>
                                 </label><br>
                                 <div class="input_wrap d-flex align-items-center w-100">
-                                    <input type="text" maxlength="4" name="card_number_1" id="card_number_1">
+                                    <input type="text" maxlength="4" name="card_number_1" id="card_number_1" class="autotab">
                                     <i class="fa-solid fa-minus"></i>
-                                    <input type="text" maxlength="4" name="card_number_2" id="card_number_2">
+                                    <input type="text" maxlength="4" name="card_number_2" id="card_number_2" class="autotab">
                                     <i class="fa-solid fa-minus"></i>
-                                    <input type="text" maxlength="4" name="card_number_3" id="card_number_3">
+                                    <input type="text" maxlength="4" name="card_number_3" id="card_number_3" class="autotab">
                                     <i class="fa-solid fa-minus"></i>
-                                    <input type="text" maxlength="4" name="card_number_4" id="card_number_4">
+                                    <input type="text" maxlength="4" name="card_number_4" id="card_number_4" class="autotab">
                                 </div>
                             </div>
                             <div class="effective_date">
@@ -743,7 +748,7 @@
                                     </div>
                                 </div>
                                 <div class="card_back card">
-                                    <img src="images/mascot_03.png" alt="" class="">
+                                    <img src="images/mascot_08.png" alt="" class="">
                                     <div class="auto_last_number_wrap">
                                         <input id="auto_last_number" type="text" />
                                     </div>
@@ -850,6 +855,24 @@
         $("#card_number_1,#card_number_2,#card_number_3,#card_number_4,#year,#month").click("beforeinput", function () {
             $('.card_wrap').css('transform', 'rotateY(0deg)');
         });
+
+        //輸入想要跳下一格的class名稱
+        var tablist = ["autotab"];
+
+        //特殊功能鍵，防止修改時按了ctrl shift alt、方向鍵、del之類的被跳到下一格
+        var functionkey = [8, 9, 16, 17, 18, 20, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 93, 144];
+        tablist.forEach(function (element) {
+            $("." + element).on("keydown", function (event) {
+                //next
+                if ($(this).attr("maxLength") == $(this).val().length && (functionkey.indexOf(event.keyCode) == -1))
+                    $(this).nextAll("." + element).first().focus();
+                //prev
+                if ($(this).val().length == 0 && event.keyCode == 8) {
+                    $(this).prevAll("." + element).first().focus();
+                }
+            });
+        });
+
     </script>
 </body>
 
