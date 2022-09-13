@@ -21,6 +21,22 @@ body {
     margin-bottom: 48px;
 }
 
+@media screen and (min-width: 570px) {
+    .recipe-detail-main {
+        width: 100%;
+        padding: 36px 95px;
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 570px) {
+    .recipe-detail-main .title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 #recipe-detail-content .main-img {
     width: 100%;
     margin: 24px 0;
