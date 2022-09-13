@@ -20,7 +20,12 @@ header {
 }
 
 #mobile-nav .logo-img {
+    height: 70px;
     padding: 12px;
+}
+
+#mobile-nav .logo-img img{
+    height: 100%;;
 }
 
 #nav-container {
@@ -28,6 +33,7 @@ header {
     height: 100vh;
     width: 100%;
     pointer-events: none;
+    z-index: 1000;
 }
 
 #nav-container .bg {
