@@ -197,11 +197,11 @@ body {
     align-items: flex-end;
 }
 
-#message .editDetail {
+#message .editdetail {
     width: 100%;
     height: 200px;
     background-color:var(--mylightbeige);
-    border: 2px solid var(--myblack);
+    border: 1px solid var(--myblack);
     border-radius: 10px;
     padding: 24px;
 }
