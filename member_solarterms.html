@@ -178,21 +178,27 @@
             font-size: 1rem;
             font-weight: 500;
             color: #005F5F;
-            padding: 6px 15px;
+            padding: 6px;
             background-color: #FFF6E9;
             border: 2px solid #333333;
             border-radius: 10px;
             box-shadow: 3px 3px #333333;
+            transition: .3s;
         }
 
-        .collection_list .l_recipe{
+        .collection_list h1:hover{
+            box-shadow:none;
+            transform: translate(3px ,3px);
+        }
+
+        .collection_list .l_solarterms{
             color: #FFF6E9;
             background-color: #005F5F;
         }
 
         @media screen and (min-width:768px) {
         .collection_list h1{
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             padding: 12px 30px;
         }
@@ -448,7 +454,7 @@
         <div class="container">
             <div class="row member_recipe_innerwrap">
 
-                <div class="member_menu_wrap col-12 col-md-2 col-lg-2">
+                <div class="member_menu_wrap col-12 col-md-2 col-lg-2 px-0">
                     <div class="member_menu_innrwrap">
                     <div class="mug_shot d-flex justify-content-center">
                         <img src="images/mug_shot_01.png" alt="">
@@ -485,9 +491,10 @@
 
                 <div class="d-none d-md-block col-md-1 d-lg-block col-lg-1"></div>
 
-                <div class="col-12 col-md-9 col-lg-9 member_recipe_cards">
+                <div class="col-12 col-md-9 col-lg-9 member_recipe_cards px-0">
                     <div class="collection_list d-flex justify-content-between justify-content-md-center justify-content-lg-center">
                         <a href="member_course.html"><h1 class="l_course">廚藝教室</h1></a>
+                        <a href="member_solarterms.html"><h1 class="l_solarterms">節氣食補</h1></a>
                         <a href="member_recipe.html"><h1 class="l_recipe">食譜</h1></a>
                         <a href=""><h1 class="l_map">地圖</h1></a>
                         <a href=""><h1 class="l_article">文章</h1></a>
