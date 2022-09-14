@@ -111,7 +111,7 @@
 
         .member_menu_wrap h3 {
             font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 500;
             color: #005F5F;
             text-align: center;
             margin: 48px 0px;
@@ -134,7 +134,7 @@
 
         .member_menu_wrap .member_menu h3 {
             font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 500;
             color: #333333;
             text-align: center;
             padding: 32px 0px;
@@ -183,6 +183,12 @@
             border: 2px solid #333333;
             border-radius: 10px;
             box-shadow: 3px 3px #333333;
+            transition: .3s;
+        }
+
+        .collection_list h1:hover{
+            box-shadow:none;
+            transform: translate(3px ,3px);
         }
 
         .collection_list .l_course{
@@ -192,7 +198,7 @@
 
         @media screen and (min-width:768px) {
         .collection_list h1{
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             padding: 12px 30px;
         }
@@ -485,6 +491,7 @@
                 <div class="col-12 col-md-9 col-lg-9 member_course_cards">
                     <div class="collection_list d-flex justify-content-between justify-content-md-center justify-content-lg-center">
                         <a href="member_course.html"><h1 class="l_course">廚藝教室</h1></a>
+                        <a href="member_solarterms.html"><h1 class="l_solarterms">節氣食補</h1></a>
                         <a href="member_recipe.html"><h1 class="l_recipe">食譜</h1></a>
                         <a href=""><h1 class="l_map">地圖</h1></a>
                         <a href=""><h1 class="l_article">文章</h1></a>
