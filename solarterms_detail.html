@@ -128,7 +128,7 @@
         }
 
         .recipe_title .right img {
-            width: 200px;
+            width: 150px;
         }
 
         .recipe_title .fa-bookmark {
@@ -308,6 +308,10 @@
             .recipe_title .down h2 {
                 font-size: 1.5rem;
             }
+
+            .recipe_title .right img {
+            width: 200px;
+        }
 
             .recipe_list_wrap {
                 padding: 32px 0px;
@@ -586,9 +590,8 @@
                             <img src="images/mug_shot_01.png" alt="">
                         </div>
                         <div class="input_section w-100">
-                            <textarea name="message" id="wordcount" class="w-100"
+                            <textarea name="" id="" class="w-100"
                                 placeholder="加入討論 (最多可輸入 100 字)"></textarea>
-                            <var class="word">100</var>
                         </div>
                     </div>
                     <div
@@ -640,31 +643,6 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script>
-        $(function () {
-            //先選出 textarea 和 統計字數 dom 節點
-            var wordCount = $("#wordcount"),
-                textArea = wordCount.find("textarea"),
-                word = wordCount.find(".word");
-
-            //調用
-            statInputNum(textArea, word);
-        });
-
-        /*
-        * 剩餘字數統計
-        * 注意 最大字數只需要在放數字的節點哪裏直接寫好即可 如：<var class="word">200</var>
-        */
-
-        function statInputNum(textArea, numItem) {
-            var max = numItem.text(),
-                curLength;
-            textArea[0].setAttribute("maxlength", max);
-            curLength = textArea.val().length;
-            numItem.text(max - curLength);
-            textArea.on('input propertychange', function () {
-                numItem.text(max - $(this).val().length);
-            });
-        }
     </script>
 </body>
 
