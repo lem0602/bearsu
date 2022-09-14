@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="css/mobile-nav.css">
-        <link rel="stylesheet" href="css/all-setup.css">     
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/all-setup.css">
     <style>
         * {
             font-family: 'Noto Sans TC', sans-serif;
@@ -28,7 +28,8 @@
             background-color: #6DD0CD;
         }
 
-        header, #nav-container{
+        header,
+        #nav-container {
             z-index: 9999;
         }
 
@@ -276,6 +277,7 @@
             transition: .3s;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
         }
 
         .message_card .btn_section button:hover {
@@ -303,7 +305,7 @@
                 width: 50%;
             }
 
-            .recipe_title .down h2{
+            .recipe_title .down h2 {
                 font-size: 1.5rem;
             }
 
@@ -321,12 +323,12 @@
             }
 
             .recipe_list h1 {
-            font-size: 2rem;
-        }
+                font-size: 2rem;
+            }
 
-        .recipe_list h3 {
-            font-size: 1.5rem;
-        }
+            .recipe_list h3 {
+                font-size: 1.5rem;
+            }
 
             .message_card_innrwrap {
                 margin-top: 36px;
@@ -337,9 +339,9 @@
             }
 
             .message_card .mug_shot {
-            margin-bottom: 0px;
-            margin-right: 32px;
-        }
+                margin-bottom: 0px;
+                margin-right: 32px;
+            }
 
             .message_card .mug_shot img {
                 margin-bottom: 0px;
@@ -357,7 +359,7 @@
         footer {
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
-            padding: 11px 0px;
+            height: 50px;
         }
 
         footer p {
@@ -366,6 +368,7 @@
             margin-bottom: 0px;
             text-align: center;
             font-weight: 500;
+            line-height: 50px;
         }
     </style>
 </head>
@@ -393,19 +396,29 @@
                 <div id="nav-content" tabindex="0">
                     <ul>
                         <li>
-                            <a href="#0"><h3>首頁</h3></a>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>廚藝教室</h3></a>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>節氣食補</h3></a>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>素食地圖</h3></a>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>相關文章</h3></a>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
                         </li>
                         <li class="small">
                             <a href="#0">購物車</a>
@@ -416,7 +429,7 @@
             </div>
         </div>
     </section>
-    
+
     <div class="solarterms_details_wrap d-flex justify-content-between position-relative">
         <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
@@ -573,7 +586,9 @@
                             <img src="images/mug_shot_01.png" alt="">
                         </div>
                         <div class="input_section w-100">
-                            <textarea name="" id="" class="w-100" placeholder="加入討論 (最多可輸入 100 字)"></textarea>
+                            <textarea name="message" id="wordcount" class="w-100"
+                                placeholder="加入討論 (最多可輸入 100 字)"></textarea>
+                            <var class="word">100</var>
                         </div>
                     </div>
                     <div
@@ -625,7 +640,31 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script>
+        $(function () {
+            //先選出 textarea 和 統計字數 dom 節點
+            var wordCount = $("#wordcount"),
+                textArea = wordCount.find("textarea"),
+                word = wordCount.find(".word");
 
+            //調用
+            statInputNum(textArea, word);
+        });
+
+        /*
+        * 剩餘字數統計
+        * 注意 最大字數只需要在放數字的節點哪裏直接寫好即可 如：<var class="word">200</var>
+        */
+
+        function statInputNum(textArea, numItem) {
+            var max = numItem.text(),
+                curLength;
+            textArea[0].setAttribute("maxlength", max);
+            curLength = textArea.val().length;
+            numItem.text(max - curLength);
+            textArea.on('input propertychange', function () {
+                numItem.text(max - $(this).val().length);
+            });
+        }
     </script>
 </body>
 
