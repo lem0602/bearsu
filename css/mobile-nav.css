@@ -130,6 +130,10 @@ header {
     flex-direction: column;
 }
 
+#nav-content li{
+    list-style: none;
+}
+
 #nav-content li a {
     padding: 10px 5px;
     color: var(--mybeige);

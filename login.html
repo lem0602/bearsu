@@ -103,6 +103,7 @@
 
         .mascot img {
             height: 300px;
+            transform: translateY(60px);
         }
 
         .login_box {
@@ -122,38 +123,79 @@
             margin-bottom: 0px;
         }
 
-        .login_box .input_box{
-            padding:32px;
+        .login_box .input_box {
+            padding: 32px;
         }
 
-        .login_box .email_box{
+        .login_box .email_box {
             margin-bottom: 32px;
             border-bottom: 1px solid #333333;
             padding-bottom: 16px;
         }
 
-        .login_box .password_box{
+        .login_box .password_box {
             border-bottom: 1px solid #333333;
             padding-bottom: 16px;
         }
 
-        .login_box .input_box h4, .login_box .password_box h4 {
+        .login_box .input_box h4,
+        .login_box .password_box h4 {
             font-size: 1rem;
             color: #333333;
             font-weight: 700;
-            padding-right:16px;
+            padding-right: 16px;
         }
 
-        .login_box .input_box input, .login_box .password_box input {
+        .login_box .input_box input,
+        .login_box .password_box input {
             background-color: transparent;
             border: none;
             padding: 0px 8px;
             width: 80%;
         }
 
-        .login_box .input_box input:focus, .login_box .password_box input:focus {
+        .login_box .input_box input:focus,
+        .login_box .password_box input:focus {
             outline: 1px solid #005F5F;
             border-radius: 5px;
+        }
+
+        .login_btn_wrap a {
+            padding: 8px 35px;
+            background-color: #005F5F;
+            color: #FFF6E9;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            border: 1px solid #333333;
+            box-shadow: 3px 3px #333333;
+            margin-bottom: 32px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .login_btn_wrap a:hover {
+            box-shadow: none;
+            transform: translate(30px 30px);
+        }
+
+        .login_box .register_wrap {
+            margin-bottom: 32px;
+        }
+
+        .login_box .register_wrap p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 0px;
+        }
+
+        .login_box .register_wrap a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #005F5F;
+            border-bottom: 1px solid #005F5F;
+            text-decoration: none;
         }
 
         footer {
@@ -257,6 +299,14 @@
                                 <h4>密碼</h4>
                                 <input type="password">
                             </div>
+                        </div>
+                        <div class="login_btn_wrap d-flex justify-content-center">
+                            <a href="#">
+                                    登入
+                            </a>
+                        </div>
+                        <div class="register_wrap d-flex justify-content-center">
+                            <p>還不是會員嗎？</p> <a href="register.html">立即註冊</a>
                         </div>
                     </div>
                 </div>
