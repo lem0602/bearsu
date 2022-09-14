@@ -12,17 +12,30 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="css/mobile-nav.css">
+        <link rel="stylesheet" href="css/all-setup.css">    
     <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
         body {
             background: url(images/all_bg.png) no-repeat center center / cover fixed;
             background-color: #6DD0CD;
         }
 
+        header, #nav-container{
+            z-index: 9999;
+        }
+
         .nav_left {
             position: sticky;
             top: 32px;
-            transform: translateY(12px);
-            height: 0px;
+            height: 100%;
             z-index: 999;
             margin-left: 50px;
         }
@@ -34,7 +47,6 @@
         .nav_right {
             position: sticky;
             top: 32px;
-            transform: translateY(12px);
             z-index: 999;
             margin-right: 30px;
             width: 150px;
@@ -48,7 +60,6 @@
         .nav_right ul {
             padding: 0px;
             margin: 0px;
-            font-size: 1.2rem;
             height: 400px;
         }
 
@@ -59,6 +70,8 @@
             padding: 15px 0px;
             transition: .5s;
             border-bottom: 2px dashed #FFF6E9;
+            font-size: 1.25rem;
+            font-weight: 500;
         }
 
         .nav_right .li_top {
@@ -84,22 +97,26 @@
         }
 
         .course_details_wrap {
-            margin:48px 0px;
+            margin: 48px 0px;
+        }
+
+        .mobile_mascot_section img {
+            height: 300px;
         }
 
         .course_cards {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             padding: 24px;
             width: 805px;
         }
 
         .course_recipe_pic {
             aspect-ratio: 16 / 10;
-            width: 755px;
-            border-radius: 20px;
+            width: 100%;
+            border-radius: 10px;
             margin-bottom: 24px;
         }
 
@@ -108,40 +125,73 @@
             color: #333333;
             margin-bottom: 24px;
             line-height: 1.6;
+            font-weight: 700;
         }
 
         .classroom {
             margin-bottom: 24px;
         }
 
-        .course_cards p{
+        .course_cards p {
             font-size: 0.9rem;
             color: #333333;
             line-height: 1.8;
+            font-weight: 500;
         }
 
         .classroom img {
             aspect-ratio: 4 / 3;
-            width: 360px;
-            border-radius: 20px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .classroom img:first-child {
+            margin-bottom: 24px;
         }
 
         .course_menu {
-            position: sticky;
-            top: 32px;
-            z-index: 999;
-            height: 615px;
+            width: 100%;
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             padding: 24px;
+        }
+
+        @media screen and (min-width:768px) {
+            .course_menu {
+                position: sticky;
+                top: 32px;
+                z-index: 999;
+                height: 615px;
+                border-radius: 20px;
+                border: 2px solid #333333;
+                background-color: #FFF6E9;
+                box-shadow: 3px 3px #333333;
+                padding: 24px;
+            }
+
+            .course_recipe_pic {
+                border-radius: 20px;
+            }
+
+            .classroom img {
+                aspect-ratio: 4 / 3;
+                width: calc(50% - 8px);
+                border-radius: 20px;
+            }
+
+            .classroom img:first-child {
+                margin-bottom: 0px;
+                margin-right: 16px;
+            }
         }
 
         .course_menu h2 {
             font-size: 1.5rem;
             color: #005F5F;
             padding-bottom: 24px;
+            font-weight: 700;
         }
 
         .course_menu .fa-bookmark {
@@ -149,7 +199,7 @@
             font-size: 2rem;
         }
 
-        .solarterms_card{
+        .solarterms_card {
             padding-bottom: 24px;
         }
 
@@ -164,6 +214,8 @@
             color: #005F5F;
             padding: 4px;
             margin-bottom: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .date_filter:focus {
@@ -174,12 +226,13 @@
             color: #333333;
         }
 
-        .course_menu p{
+        .course_menu p {
             font-size: 1rem;
             color: #333333;
+            font-weight: 700;
         }
 
-        .course_menu .number{
+        .course_menu .number {
             color: #005F5F;
         }
 
@@ -189,9 +242,11 @@
             padding: 8px 35px;
             border-radius: 8px;
             border: 2px solid #333333;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             text-decoration: none;
             transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .course_menu .btn a:hover {
@@ -210,24 +265,77 @@
             font-size: 1rem;
             margin-bottom: 0px;
             text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
 
 <body>
+    <section id="mobile-nav" class="d-block d-md-none d-lg-none">
+        <div class="page">
+            <header tabindex="0">
+                <div class="logo-img">
+                    <img src="images/logo_horizontal.png" alt="">
+                </div>
+            </header>
+            <div id="nav-container">
+                <div class="bg"></div>
+                <!-- nav icon  -->
+                <div class="btn-box">
+                    <div class="button" tabindex="0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </div>
+
+                <!-- nav list -->
+                <div id="nav-content" tabindex="0">
+                    <ul>
+                        <li>
+                            <a href="#0"><h3>首頁</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>廚藝教室</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>節氣食補</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>素食地圖</h3></a>
+                        </li>
+                        <li>
+                            <a href="#0"><h3>相關文章</h3></a>
+                        </li>
+                        <li class="small">
+                            <a href="#0">購物車</a>
+                            <a href="#0">會員中心</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="course_details_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
-            <div class="row course_innerwrap justify-content-between">
+            <div class="row course_innerwrap justify-content-between mx-0">
 
-                <div class="col-fix course_cards justify-content-center">
+                <div class="col-12 d-md-none d-lg-none text-center">
+                    <div class="mobile_mascot_section mb-4">
+                        <img src="images/mascot_06.png" alt="">
+                    </div>
+                </div>
+
+                <div class="col-fix course_cards justify-content-center order-1 order-md-0 order-lg-0">
                     <img src="images/course_01.jpg" alt="" class="course_recipe_pic">
                     <h3>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
                     </h3>
-                    <div class="classroom d-flex justify-content-between">
+                    <div class="classroom d-md-flex d-lg-flex justify-content-between">
                         <img src="images/course_00_01.jpg" alt="">
                         <img src="images/course_00_02.jpg" alt="">
                     </div>
@@ -247,10 +355,10 @@
                         8/8（週六）的課程，若於8/5（週三）的18:00來電或來信告知欲取消，恕不接受退費或保留費用。<br>
 
                         * 若因學員個人因素取消課程，退費部分之跨行手續費需由學員自行負擔。<br>
-                        * 若”熊齋”因不可抗力之因素取消課程，將全額退費或保留費用（自完成訂單日起計六十天內使用），跨行手續費將由窩廚房負擔。</p>
+                        * 若”熊齋”因不可抗力之因素取消課程，將全額退費或保留費用（自完成訂單日起計六十天內使用），跨行手續費將由”熊齋”負擔。</p>
                 </div>
 
-                <div class="col-3 course_menu">
+                <div class="col-12 col-md-3 col-lg-3 course_menu order-0 order-md-1 order-lg-1 mb-4 mb-md-0 mb-lg-0">
 
                     <div class="course_menu_tittle d-flex justify-content-between">
                         <h2>地瓜餅 (奶素)</h2>
@@ -285,7 +393,7 @@
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
