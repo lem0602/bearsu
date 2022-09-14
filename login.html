@@ -160,23 +160,31 @@
             border-radius: 5px;
         }
 
-        .login_btn_wrap a {
+        .login_btn_wrap {
+            width: 100%;
+        }
+
+        .login_btn_wrap {
             padding: 8px 35px;
             background-color: #005F5F;
-            color: #FFF6E9;
-            font-size: 0.9rem;
-            font-weight: 500;
             border-radius: 8px;
-            border: 1px solid #333333;
+            border: 2px solid #333333;
             box-shadow: 3px 3px #333333;
             margin-bottom: 32px;
             text-decoration: none;
             transition: .3s;
+            width: auto;
         }
 
-        .login_btn_wrap a:hover {
+        .login_btn_wrap:hover {
             box-shadow: none;
-            transform: translate(30px 30px);
+            transform: translate(3px 3px);
+        }
+
+        .login_btn_wrap .login_btn {
+            color: #FFF6E9;
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .login_box .register_wrap {
@@ -300,9 +308,9 @@
                                 <input type="password">
                             </div>
                         </div>
-                        <div class="login_btn_wrap d-flex justify-content-center">
-                            <a href="#">
-                                    登入
+                        <div class="d-flex justify-content-center">
+                            <a href="" class="login_btn_wrap">
+                                <div class="login_btn">登入</div>
                             </a>
                         </div>
                         <div class="register_wrap d-flex justify-content-center">
