@@ -17,6 +17,7 @@ header {
     justify-content: start;
     align-items: center;
     -webkit-tap-highlight-color: var(--mydarkgreen);
+    z-index: 9999;
 }
 
 #mobile-nav .logo-img {
@@ -33,7 +34,7 @@ header {
     height: 100vh;
     width: 100%;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 #nav-container .bg {
