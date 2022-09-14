@@ -1,8 +1,6 @@
 body {
-    width: 100%;
-    background: url(../images/all_bg.png) no-repeat var(--mygreen);
-    background-size: auto 100vh;
-    background-attachment: fixed;
+    background: url(../images/all_bg.png) no-repeat center bottom / cover fixed;
+    background-color: var(--mygreen);
 }
 
 /* article-title */
