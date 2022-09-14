@@ -17,14 +17,16 @@ header {
     justify-content: start;
     align-items: center;
     -webkit-tap-highlight-color: var(--mydarkgreen);
+    z-index: 9999;
 }
 
 #mobile-nav .logo-img {
+    height: 70px;
     padding: 12px;
 }
 
 #mobile-nav .logo-img img{
-    width: 100px;
+    height: 100%;;
 }
 
 #nav-container {
@@ -32,6 +34,7 @@ header {
     height: 100vh;
     width: 100%;
     pointer-events: none;
+    z-index: 9999;
 }
 
 #nav-container .bg {

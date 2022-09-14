@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>熊齋</title>
+
+    <!-- bootstrap 5.2.1 CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+
+    <!-- font-awesome 6.2.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google 字體  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+
+    <link rel="stylesheet" href="./css/all-setup.css" />
+
+    <link rel="stylesheet" href="./css/write_recipes.css" />
+
+    <link rel="stylesheet" href="./css/mobile-nav.css" />
+</head>
+
+<body>
+    <!-- mobile-nav -->
+    <section id="mobile-nav" class="d-lg-none">
+        <div class="page">
+            <header tabindex="0">
+                <div class="logo-img">
+                    <img src="./images/logo_horizontal.png" alt="" />
+                </div>
+            </header>
+            <div id="nav-container">
+                <div class="bg"></div>
+                <!-- nav icon  -->
+                <div class="btn-box">
+                    <div class="button" tabindex="0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </div>
+
+                <!-- nav list -->
+                <div id="nav-content" tabindex="0">
+                    <ul>
+                        <li>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
+                        </li>
+                        <li class="small">
+                            <a href="#0">購物車</a>
+                            <a href="#0">會員中心</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 寫食譜 -->
+    <section id="write-recipes">
+        <div class="container">
+            <div class="row">
+                <div class="write-recipes">
+                    <div class="text-title-box">
+                        <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea"
+                            id="title-detail"></textarea>
+                        <p><span id="detail2-num">0</span>/<span>20</span></p>
+                    </div>
+                    <!-- 素食分類 -->
+                    <div class="veggie-Category">
+                        <h2>素食分類</h2>
+                        <!-- dropdown -->
+                        <details class="dropdown-custom-select" for="dropdown-radios">
+                            <!-- 設定外層的dropdown -->
+                            <summary class="dropdown-radios">
+                                <input type="radio" name="item" id="dropdown-default" title="素食分類" checked>
+                                <input type="radio" name="item" id="dropdown-item1" title="五辛素">
+                                <input type="radio" name="item" id="dropdown-item2" title="蛋素">
+                                <input type="radio" name="item" id="dropdown-item3" title="全素">
+                                <input type="radio" name="item" id="dropdown-item4" title="奶素">
+                                <input type="radio" name="item" id="dropdown-item5" title="蛋奶素">
+                            </summary>
+                            <!-- 設定下拉的資訊 -->
+                            <ul class="list">
+                                <li>
+                                    <label for="dropdown-item1">
+                                        五辛素
+                                        <span></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="dropdown-item2">蛋素</label>
+                                </li>
+                                <li>
+                                    <label for="dropdown-item3">全素</label>
+                                </li>
+                                <li>
+                                    <label for="dropdown-item4">奶素</label>
+                                </li>
+                                <li>
+                                    <label for="dropdown-item5">蛋奶素</label>
+                                </li>
+                            </ul>
+                        </details>
+                    </div>
+                    <!-- 上傳圖片 -->
+                    <div id="img-crop">
+                        <div id="upload">
+                            <h3>01. Upload</h3>
+                            <div class="block">
+                                <div class="stage"><label id="filedrag"><input type="file" id="fileselect" name="fileselect" accept="image/*"/></label></div>
+                            </div>
+                        </div>
+                        <div id="crop">
+                            <h3>02. Crop / Preview</h3>
+                            <div class="block">
+                                <div class="stage">
+                                    <button class="btn" id="prev" onclick="cropCancel();">PREV</button>
+                                    <button class="btn" id="next" onclick="cropResult();">NEXT</button>
+                                    <div id="croppie"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="result">
+                            <h3>03. Result</h3><button id="close" onclick="cropCancel();"></button>
+                            <div class="block">
+                                <div class="stage"><img src="" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 簡介 -->
+                    <div class="introduction">
+                        <div class="introduction-box">
+                            <lable for="subject">
+                                <h2>簡介</h2>
+                            </lable>
+                            <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction"
+                                id="introduction-detail"></textarea>
+                            <p><span id="detail2-num">0</span>/<span>200</span></p>
+                        </div>
+                    </div>
+                    <!-- 時間與份量的下拉式選單和新增食材-->
+                    <div class="ingredients">
+                        <div class="serving-size">
+                            <h3>份量</h3>
+                            <h4>(人份)</h4>
+                        </div>
+                        <div class="time">
+                            <h3>烹調時間</h3>
+                            <h4>(分鐘)</h4>
+                        </div>
+                        <!-- 新增食材 -->
+                        <div class="addIngredients">
+                            <div class="introduction-box">
+                                <lable for="subject">
+                                    <h2>食材</h2>
+                                </lable>
+                                <div class="container">
+                                    <!-- 新增食材列表 -->
+                                    <div class="row allDetail-box">
+                                        <div class="detail-box col p-0">
+                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients"
+                                                id="addIngredients-detail"></textarea>
+                                        </div>
+                                        <div class="detail-box col-3 p-0">
+                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients"
+                                                id="addIngredients-detail"></textarea>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <button class="del-introduction" type="button" aria-label="刪除食材">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row allDetail-box">
+                                        <div class="detail-box col p-0">
+                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients"
+                                                id="addIngredients-detail"></textarea>
+                                        </div>
+                                        <div class="detail-box col-3 p-0">
+                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients"
+                                                id="addIngredients-detail"></textarea>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <button class="del-introduction" type="button" aria-label="刪除食材">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row allDetail-box">
+                                        <div class="detail-box col p-0">
+                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients"
+                                                id="addIngredients-detail"></textarea>
+                                        </div>
+                                        <div class="detail-box col-3 p-0">
+                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients"
+                                                id="addIngredients-detail"></textarea>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <button class="del-introduction" type="button" aria-label="刪除食材">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- 新增食材btn -->
+                                    <div class="row addbtn">
+                                        <button>
+                                            <h3>新增食材</h3>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 步驟 -->
+                    <div class="step">
+                        <h2 class="title">步驟</h2>
+                        <div class="step-box">
+                            <div class="addimg">
+                                <!-- to do 點擊新增圖片 -->
+                            </div>
+                            <div class="textarea">
+                                <div class="header">
+                                    <h2>1</h2>
+                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                                <div class="textarea-box">
+                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea"
+                                        id="introduction-detail"></textarea>
+                                    <p><span id="detail2-num">0</span>/<span>150</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-box">
+                            <div class="addimg">
+                                <!-- to do 點擊新增圖片 -->
+                            </div>
+                            <div class="textarea">
+                                <div class="header">
+                                    <h2>2</h2>
+                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                                <div class="textarea-box">
+                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea"
+                                        id="introduction-detail"></textarea>
+                                    <p><span id="detail2-num">0</span>/<span>150</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-box">
+                            <div class="addimg">
+                                <!-- to do 點擊新增圖片 -->
+                            </div>
+                            <div class="textarea">
+                                <div class="header">
+                                    <h2>3</h2>
+                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                                <div class="textarea-box">
+                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea"
+                                        id="introduction-detail"></textarea>
+                                    <p><span id="detail2-num">0</span>/<span>150</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 新增步驟btn -->
+                        <div class="addbtn">
+                            <button>
+                                <h3>新增步驟</h3>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 發布雨取消按鈕 -->
+    <section id="postcancel">
+        <div class="postcancel-box">
+            <div class="post">
+                <button class="post-btn">
+                    <h2>取消</h2>
+                </button>
+            </div>
+            <div class="cancel">
+                <button class="cancel-btn">
+                    <h2>發布</h2>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <footer>
+            <p>&copy;2022 BearSu. All rights reserved.</p>
+        </footer>
+    </section>
+</body>
+
+</html>
