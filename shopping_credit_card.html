@@ -12,17 +12,31 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/all-setup.css">
     <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
         body {
             background: url(images/all_bg.png) no-repeat center center / cover fixed;
             background-color: #6DD0CD;
         }
 
+        header,
+        #nav-container {
+            z-index: 9999;
+        }
+
         .nav_left {
             position: sticky;
             top: 32px;
-            transform: translateY(12px);
-            height: 0px;
+            height: 100%;
             z-index: 999;
             margin-left: 50px;
         }
@@ -34,7 +48,6 @@
         .nav_right {
             position: sticky;
             top: 32px;
-            transform: translateY(12px);
             z-index: 999;
             margin-right: 30px;
             width: 150px;
@@ -48,7 +61,6 @@
         .nav_right ul {
             padding: 0px;
             margin: 0px;
-            font-size: 1.2rem;
             height: 400px;
         }
 
@@ -59,6 +71,8 @@
             padding: 15px 0px;
             transition: .5s;
             border-bottom: 2px dashed #FFF6E9;
+            font-size: 1.25rem;
+            font-weight: 500;
         }
 
         .nav_right .li_top {
@@ -87,95 +101,186 @@
             margin: 48px 0px;
         }
 
-        .step {
+        .step_wrap .step {
             margin-bottom: 48px;
         }
 
-        .line {
+        .step_wrap .line {
             height: 2px;
-            width: 91px;
+            width: 30px;
             border: 2px solid #333333;
         }
 
-        .step h1 {
+        .step_wrap .step h1 {
             font-size: 2rem;
             color: #005F5F;
             background-color: #FFF6E9;
-            padding: 8px 32px;
+            padding: 12px 24px;
             border-radius: 8px;
             border: 2px solid #333333;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
+            text-align: center;
+            font-weight: 700;
         }
 
-        .step .active {
+        .step_wrap .step .active {
             color: #FFF6E9;
             background-color: #005F5F;
         }
+
+        /* -------mobile step start--------- */
+        .mobile_step {
+            margin-bottom: 32px;
+        }
+
+        .mobile_step h1 {
+            font-size: 2rem;
+            color: #005F5F;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            background-color: #FFF6E9;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
+        }
+
+        .mobile_step p {
+            color: #333333;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .mobile_step .active {
+            color: #FFF6E9;
+            background-color: #005F5F;
+        }
+
+        /* -------mobile step end--------- */
 
         .course_card {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
-            box-shadow: #333333 3px 3px;
-            padding: 24px;
+            box-shadow: 3px 3px #333333;
+            padding: 12px;
             margin-bottom: 48px;
+            position: relative;
         }
 
         .course_card img {
-            aspect-ratio: 16 / 10;
-            width: 260px;
-            border-radius: 20px;
-            margin-right: 24px;
+            aspect-ratio: 1 / 1;
+            width: 100px;
+            border-radius: 10px;
+            margin-right: 12px;
         }
 
         .course_card h2 {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #333333;
-            border-bottom: 1px solid #333333;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .course_card h4 {
             font-size: 1rem;
             color: #333333;
             margin-bottom: 16px;
+            font-weight: 500;
         }
 
         .course_card p {
             font-size: 0.9rem;
             color: #333333;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        @media screen and (min-width:768px) {
+            .course_card h2 {
+                font-size: 1.5rem;
+                margin-bottom: 16px;
+            }
+
+            .course_card {
+                padding: 24px;
+            }
+
+            .course_card img {
+                aspect-ratio: 16 / 10;
+                width: 260px;
+                border-radius: 20px;
+                margin-right: 32px;
+            }
+
+            .course_card p {
+                margin-bottom: 0px;
+            }
         }
 
         .total {
-            border-top: 2px solid #333333;
-            padding-top: 48px;
             margin-bottom: 48px;
+        }
+
+        .total .line {
+            height: 2px;
+            width: calc(100% - 232px);
+            border: 2px solid #333333;
         }
 
         .total h2 {
             font-size: 1.5rem;
-            color: #333333;
+            font-weight: 700;
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
+            text-align: center;
         }
 
         .order_man_card {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             margin-bottom: 48px;
             overflow: hidden;
-            height: 200px;
         }
 
         .order_man_card .left {
             background-color: #005F5F;
-            width: 100%;
-            height: 100%;
+        }
+
+        .order_man_card .right {
+            padding: 48px 0px;
         }
 
         .order_man_card h2 {
             font-size: 1.5rem;
             color: #FFF6E9;
+            font-weight: 700;
+            margin: 16px 0px;
+        }
+
+        @media screen and (min-width:768px) {
+
+            .order_man_card h2,
+            .pay_method_card h2 {
+                margin: 0px;
+            }
+
+            .order_man_card .left,
+            .pay_method_card .left {
+                width: 25%;
+                height: 100%;
+            }
+
+            .order_man_card .right,
+            .pay_method_card .right {
+                width: 75%;
+            }
         }
 
         .order_man_card .list_tittle {
@@ -186,6 +291,7 @@
             font-size: 1rem;
             color: #333333;
             line-height: 1.8;
+            font-weight: 500;
         }
 
         .order_man_card .list_info h4 {
@@ -198,14 +304,20 @@
 
         .creadit_card_tittle h1 {
             font-size: 2rem;
-            color: #005F5F;
+            font-weight: 700;
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
         }
 
         .creadit_card_info {
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             padding: 24px;
             margin-bottom: 48px;
         }
@@ -214,6 +326,7 @@
             font-size: 1.25rem;
             color: #333333;
             margin-bottom: 16px;
+            font-weight: 700;
         }
 
         .input_wrap {
@@ -223,19 +336,20 @@
         .creadit_card_info input {
             border: 2px solid #333333;
             border-radius: 8px;
-            padding: 8px 32px;
+            padding: 8px 0px;
+            width: 65px;
+            height: 50px;
+            text-align: center;
         }
 
         .creadit_card_info input:focus {
             outline: none;
         }
 
-        .last_number{
-            margin-bottom: 48px;
-        }
-
-        .effective_date{
-            margin-bottom: 48px;
+        .card_number,
+        .effective_date,
+        .last_number {
+            margin-bottom: 24px;
         }
 
         .effective_date select {
@@ -249,8 +363,105 @@
             outline: none;
         }
 
-        .creadit_card_info img {
-            width: 445px;
+        .camera {
+            width: 308px;
+            height: 193px;
+            cursor: pointer;
+        }
+
+        .card_wrap {
+            position: relative;
+            width: 308px;
+            height: 193px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: .5s;
+        }
+
+        .card_wrap .card {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #333333;
+        }
+
+        .card_back {
+            transform: rotateY(180deg);
+        }
+
+        .auto_card_numbe_wrap {
+            position: absolute;
+            left: 15%;
+            top: 8%
+        }
+
+        #auto_card_number_1,
+        #auto_card_number_2,
+        #auto_card_number_3,
+        #auto_card_number_4,
+        #auto_month,
+        #auto_year,
+        #auto_last_number {
+            font-size: 1rem;
+            color: #005F5F;
+            font-weight: 700;
+            width: 50px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, .8);
+            border: none;
+        }
+
+        .auto_effective_date_wrap {
+            position: absolute;
+            left: 6%;
+            bottom: 8%;
+        }
+
+        .auto_last_number_wrap {
+            position: absolute;
+            left: 75%;
+            top: 38%;
+        }
+
+        @media screen and (min-width:768px) {
+            .creadit_card_info input {
+                width: 100px;
+                height: 50px;
+            }
+
+            .creadit_card_info img {
+                width: 445px;
+            }
+
+            .auto_card_numbe_wrap {
+                left: 25%;
+                top: 35%
+            }
+
+            .auto_effective_date_wrap {
+                left: 6%;
+                bottom: 8%;
+            }
+
+            .camera {
+                width: 445px;
+                height: 279px;
+            }
+
+            .card_wrap {
+                width: 445px;
+                height: 279px;
+            }
+
+            .auto_last_number_wrap {
+                left: 75%;
+                top: 41.5%;
+            }
         }
 
         .btn_section .btn_left {
@@ -259,10 +470,12 @@
             color: #005F5F;
             border-radius: 8px;
             border: 2px solid #333333;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             margin-right: 16px;
             text-decoration: none;
             transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .btn_section .btn_right {
@@ -271,9 +484,11 @@
             color: #FFF6E9;
             border-radius: 8px;
             border: 2px solid #333333;
-            box-shadow: #333333 3px 3px;
+            box-shadow: 3px 3px #333333;
             text-decoration: none;
             transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .btn_section .btn_left:hover,
@@ -293,82 +508,154 @@
             font-size: 1rem;
             margin-bottom: 0px;
             text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
 
 <body>
+    <section id="mobile-nav" class="d-block d-md-none d-lg-none">
+        <div class="page">
+            <header tabindex="0">
+                <div class="logo-img">
+                    <img src="images/logo_horizontal.png" alt="">
+                </div>
+            </header>
+            <div id="nav-container">
+                <div class="bg"></div>
+                <!-- nav icon  -->
+                <div class="btn-box">
+                    <div class="button" tabindex="0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </div>
+
+                <!-- nav list -->
+                <div id="nav-content" tabindex="0">
+                    <ul>
+                        <li>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
+                        </li>
+                        <li class="small">
+                            <a href="#0">購物車</a>
+                            <a href="#0">會員中心</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="shopping_credit_card_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left">
+        <div class="nav_left d-none d-md-block d-lg-block">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="container">
             <div class="row shopping_cart">
-                <div class="col-12">
-                    <div class="step d-flex justify-content-between align-items-center">
+                <div class="col-12 step_wrap">
+                    <div class="step d-md-flex d-lg-flex justify-content-between align-items-center d-none">
+                        <h1 class="">STEP 1.確認訂單資訊</h1>
                         <div class="line"></div>
-                        <h1 class="">STEP 1.<br>確認訂單資訊</h1>
+                        <h1 class="">STEP 2.選擇付款方式</h1>
                         <div class="line"></div>
-                        <h1 class="">STEP 2.<br>選擇付款方式</h1>
-                        <div class="line"></div>
-                        <h1 class="active">STEP 3.<br>確認結帳</h1>
-                        <div class="line"></div>
+                        <h1 class="active">STEP 3.確認結帳</h1>
                     </div>
-                    <div class="course_card d-flex align-items-center">
+                    <div class="mobile_step d-block d-md-none d-lg-none d-flex justify-content-between">
+                        <div class="step1 d-flex flex-column align-items-center">
+                            <h1 class="">1</h1>
+                            <p>訂單資訊</p>
+                        </div>
+                        <div class="step2 d-flex flex-column align-items-center">
+                            <h1 class="">2</h1>
+                            <p>選擇付款方式</p>
+                        </div>
+                        <div class="step3 d-flex flex-column align-items-center">
+                            <h1 class="active">3</h1>
+                            <p>確認結帳</p>
+                        </div>
+                    </div>
+
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="info d-flex justify-content-between w-100 align-items-center">
+                        <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                             <div class="tittle">
                                 <h2>地瓜餅 (奶素)</h2>
-                                <h4>課程時間</h4>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
                                 <p>10月21日(五) 19:00-21:00</p>
                             </div>
                             <div class="price">
-                                <h4>價格</h4>
-                                <h4>$1,200</h4>
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div class="course_card d-flex align-items-center">
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="info d-flex justify-content-between w-100 align-items-center">
+                        <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                             <div class="tittle">
                                 <h2>地瓜餅 (奶素)</h2>
-                                <h4>課程時間</h4>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
                                 <p>10月21日(五) 19:00-21:00</p>
                             </div>
                             <div class="price">
-                                <h4>價格</h4>
-                                <h4>$1,200</h4>
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div class="course_card d-flex align-items-center">
+                    <div class="course_card d-flex align-items-center w-100">
                         <img src="images/course_01.jpg" alt="">
-                        <div class="info d-flex justify-content-between w-100 align-items-center">
+                        <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                             <div class="tittle">
                                 <h2>地瓜餅 (奶素)</h2>
-                                <h4>課程時間</h4>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
                                 <p>10月21日(五) 19:00-21:00</p>
                             </div>
                             <div class="price">
-                                <h4>價格</h4>
-                                <h4>$1,200</h4>
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0">$1,200</h4>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-12 total d-flex justify-content-end">
-                    <h2 class="pr-4">訂單總計</h2>
-                    <h2>$3,600</h2>
+                <div
+                    class="col-12 total d-flex justify-content-center justify-content-md-end justify-content-lg-end align-items-center">
+                    <div class="line d-none d-md-block d-lg-block"></div>
+                    <h2>訂單總計 $3,600</h2>
                 </div>
-                <div class="col-12 order_man_card d-flex align-items-center p-0">
-                    <div class="left w-25 d-flex justify-content-center align-items-center">
+                <div class="col-12 order_man_card d-md-flex d-lg-flex align-items-center p-0">
+                    <div class="left d-flex justify-content-center align-items-center">
                         <h2>訂購人</h2>
                     </div>
-                    <div class="right d-flex justify-content-center w-75">
+                    <div class="right d-flex justify-content-center align-items-center">
                         <div class="list_tittle text-right">
                             <h4>姓名</h4>
                             <h4>聯絡電話</h4>
@@ -386,64 +673,88 @@
                     <h1>信用卡一次付清</h1>
                 </div>
 
-                <div class="creadit_card_info w-100 d-flex flex-column align-items-center">
-                    <div class="card_input">
-                        <div class="card_number">
-                            <label for="card_number" class="mb-0">
-                                <h3>信用卡卡號</h3>
-                            </label><br>
-                            <div class="input_wrap d-flex align-items-center">
-                                <input type="text" size="4" maxlength="4" name="card_number_1">
-                                <i class="fa-solid fa-minus"></i>
-                                <input type="text" size="4" maxlength="4" name="card_number_2">
-                                <i class="fa-solid fa-minus"></i>
-                                <input type="text" size="4" maxlength="4" name="card_number_3">
-                                <i class="fa-solid fa-minus"></i>
-                                <input type="text" size="4" maxlength="4" name="card_number_4">
+                <div class="creadit_card_info w-100">
+                    <div class="card_input_wrap d-flex flex-column align-items-center">
+                        <div class="card_input">
+                            <div class="card_number">
+                                <label for="card_number" class="mb-0">
+                                    <h3>信用卡卡號</h3>
+                                </label><br>
+                                <div class="input_wrap d-flex align-items-center w-100">
+                                    <input type="text" maxlength="4" name="card_number_1" id="card_number_1" class="autotab">
+                                    <i class="fa-solid fa-minus"></i>
+                                    <input type="text" maxlength="4" name="card_number_2" id="card_number_2" class="autotab">
+                                    <i class="fa-solid fa-minus"></i>
+                                    <input type="text" maxlength="4" name="card_number_3" id="card_number_3" class="autotab">
+                                    <i class="fa-solid fa-minus"></i>
+                                    <input type="text" maxlength="4" name="card_number_4" id="card_number_4" class="autotab">
+                                </div>
                             </div>
-                        </div>
-                        <div class="effective_date">
-                            <h3>有效年月</h3>
-                            <div class="filter_section d-flex align-items-center">
-                                <select class="month">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                </select>
-                                <h3 class="mb-0 mr-3">年</h3>
-                                <select class="year">
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                    <option>2025</option>
-                                    <option>2026</option>
-                                    <option>2027</option>
-                                    <option>2028</option>
-                                    <option>2029</option>
-                                    <option>2030</option>
-                                    <option>2031</option>
-                                    <option>2031</option>
-                                    <option>2032</option>
-                                    <option>2033</option>
-                                </select>
-                                <h3 class="mb-0">月</h3>
+                            <div class="effective_date">
+                                <h3>有效月/年</h3>
+                                <div class="filter_section d-flex align-items-center">
+                                    <select name="month" id="month">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <h3 class="mb-0 mr-3">月</h3>
+                                    <select name="year" id="year">
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
+                                        <option value="2031">2031</option>
+                                        <option value="2032">2032</option>
+                                        <option value="2033">2033</option>
+                                        <option value="2034">2034</option>
+                                        <option value="2035">2035</option>
+                                        <option value="2036">2036</option>
+                                    </select>
+                                    <h3 class="mb-0">年</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="last_number">
-                            <h3>背面末三碼</h3>
-                            <input type="text" size="3" maxlength="3" name="last_number">
+                            <div class="last_number">
+                                <h3>背面末三碼</h3>
+                                <input type="text" id="last_number" size="4" maxlength="3" name="last_number">
+                            </div>
                         </div>
                     </div>
-                    <div class="card_pic d-flex justify-content-center">
-                        <img src="images/mascot_03.png" alt="">
+                    <div class="camera_wrap d-flex justify-content-center">
+                        <div class="camera">
+                            <div class="card_wrap">
+                                <div class="card_front card">
+                                    <img src="images/mascot_03.png" alt="">
+                                    <div class="auto_card_numbe_wrap">
+                                        <input id="auto_card_number_1" maxlength="3" type="text" />
+                                        <input id="auto_card_number_2" maxlength="3" type="text" />
+                                        <input id="auto_card_number_3" maxlength="3" type="text" />
+                                        <input id="auto_card_number_4" maxlength="3" type="text" />
+                                    </div>
+                                    <div class="auto_effective_date_wrap">
+                                        <input id="auto_month" type="text" />
+                                        <input id="auto_year" type="text" />
+                                    </div>
+                                </div>
+                                <div class="card_back card">
+                                    <img src="images/mascot_08.png" alt="" class="">
+                                    <div class="auto_last_number_wrap">
+                                        <input id="auto_last_number" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -454,7 +765,7 @@
             </div>
         </div>
 
-        <div class="nav_right">
+        <div class="nav_right d-none d-md-block d-lg-block">
             <ul class="d-flex flex-column">
                 <a href="index.html">
                     <li class="li_top">首頁</li>
@@ -495,6 +806,74 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+    <script>
+        $("#card_number_1").bind("keyup paste", function () {
+            $("#auto_card_number_1").val($(this).val());
+        });
+
+        $("#card_number_2").bind("keyup paste", function () {
+            $("#auto_card_number_2").val($(this).val());
+        });
+
+        $("#card_number_3").bind("keyup paste", function () {
+            $("#auto_card_number_3").val($(this).val());
+        });
+
+        $("#card_number_4").bind("keyup paste", function () {
+            $("#auto_card_number_4").val($(this).val());
+        });
+
+        $("#last_number").bind("keyup paste", function () {
+            $("#auto_last_number").val($(this).val());
+        });
+
+        $("#month").change("copy paste", function () {
+            $("#auto_month").val($(this).val());
+        });
+
+        $("#year").change(function () {
+            $("#auto_year").val($(this).val() - 2000);
+        });
+
+        let circleNum = 0
+
+        $('.card_wrap').click(function () {
+            if (circleNum == 0) {
+                $('.card_wrap').css('transform', 'rotateY(0deg)');
+                circleNum = circleNum + 1;
+            }
+            else {
+                $('.card_wrap').css('transform', 'rotateY(180deg)');
+                circleNum = circleNum - 1;
+            }
+        })
+
+        $("#last_number").click("beforeinput", function () {
+            $('.card_wrap').css('transform', 'rotateY(180deg)');
+        });
+
+        $("#card_number_1,#card_number_2,#card_number_3,#card_number_4,#year,#month").click("beforeinput", function () {
+            $('.card_wrap').css('transform', 'rotateY(0deg)');
+        });
+
+        //輸入想要跳下一格的class名稱
+        var tablist = ["autotab"];
+
+        //特殊功能鍵，防止修改時按了ctrl shift alt、方向鍵、del之類的被跳到下一格
+        var functionkey = [8, 9, 16, 17, 18, 20, 33, 34, 35, 36, 37, 38, 39, 40, 45, 46, 93, 144];
+        tablist.forEach(function (element) {
+            $("." + element).on("keydown", function (event) {
+                //next
+                if ($(this).attr("maxLength") == $(this).val().length && (functionkey.indexOf(event.keyCode) == -1))
+                    $(this).nextAll("." + element).first().focus();
+                //prev
+                if ($(this).val().length == 0 && event.keyCode == 8) {
+                    $(this).prevAll("." + element).first().focus();
+                }
+            });
+        });
+
+    </script>
 </body>
 
 </html>
