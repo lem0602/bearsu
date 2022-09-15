@@ -28,7 +28,7 @@ body {
 
 @media screen and (min-width: 570px) {
     .recipe-title-box img {
-        margin: 48px 0 48px;
+        margin: 0;
         order: 1
     }
 }

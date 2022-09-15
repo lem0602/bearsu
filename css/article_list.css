@@ -10,9 +10,24 @@ body {
     align-items: center;
 }
 
+@media screen and (min-width: 570px) {
+    .article-title-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 .article-title-box img {
     height: 280px;
     margin: 48px 0 32px;
+}
+
+@media screen and (min-width: 570px) {
+    .article-title-box img {
+        order: 1;
+    }
 }
 
 .article-title-box h1 {
@@ -20,6 +35,13 @@ body {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 48px;
+}
+
+@media screen and (min-width: 570px) {
+    .article-title-box h1 {
+        margin-bottom: 0;
+        margin-right: 48px;
+    }
 }
 
 /* article-filter */
@@ -40,7 +62,7 @@ body {
         justify-content: center;
     }
 
-    .filter-article {
+    .filter-article:nth-child(1) {
         margin-right: 200px;
     }
 }
@@ -49,8 +71,10 @@ body {
     padding: 8px 24px;
 }
 
-.filter-article h1{
-    padding: 8px 24px;
+@media screen and (min-width: 570px) {
+    .filter-article h1{
+        padding: 8px 48px;
+    }
 }
 
 /* article-dropdown */
@@ -106,11 +130,12 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 32px;
+    aspect-ratio: 4/3;
 }
 
 @media screen and (min-width: 570px) {
     .article-img {
-        width: 90%;
+        width: 400px;
         margin-right: 48px;
         margin-bottom: 0;
     }
@@ -119,6 +144,10 @@ body {
 .article-img img {
     width: 100%;
 }
+
+/* .article-content .contant {
+    width: 100%;
+} */
 
 .article-content .title {
     display: flex;
@@ -142,10 +171,6 @@ body {
     margin-bottom: 16px;
 }
 
-.article-content p {
-    margin-bottom: 16px;
-}
-
 .article-content .introduction {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -153,6 +178,17 @@ body {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     margin-bottom: 16px;
+}
+
+@media screen and (min-width: 570px) {
+    .article-content .introduction {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        margin-bottom: 24px;
+    }
 }
 
 .article-content .article-btn {
@@ -175,7 +211,7 @@ body {
 }
 
 @media screen and (min-width: 570px) {
-    .article-content .mybutton {
+    .article-content .darkbutton {
         width: auto;
         padding: 8px 35px;
     }

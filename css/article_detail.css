@@ -3,7 +3,6 @@ body {
     background-color: var(--mygreen);
 }
 
-
 /* content */
 #article-detail-main {
     padding: 48px 24px;
@@ -20,7 +19,7 @@ body {
 
 @media screen and (min-width: 570px) {
     .article-detail-box {
-        width: 100%;
+        /* width: 100%; */
         margin-bottom: 48px;
     }
 }
