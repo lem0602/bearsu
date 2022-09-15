@@ -30,17 +30,24 @@
             min-height: 100vh;
         }
 
-        .pc_header_wrap {
-            height: 0px;
+        header, #nav-container{
+            z-index: 9999;
         }
 
-        .pc_header {
-            /* z-index: -9999; */
+        .page{
+            height: 70px;
+        }
+
+        .container-fluid, .main_wrap {
+            contain:layout;
+        }
+
+        .nav_left {
             position: sticky;
             top: 32px;
-            height: 0px;
-            /* opacity: 0; */
-            transition: .5;
+            height: 100%;
+            z-index: 999;
+            margin-left: 50px;
         }
 
         .nav_left img {
@@ -49,6 +56,10 @@
         }
 
         .nav_right {
+            position: sticky;
+            top: 32px;
+            z-index: 999;
+            margin-right: 30px;
             width: 150px;
             height: 400px;
             border-radius: 100px;
@@ -94,10 +105,6 @@
 
         .nav_right .icon a:hover {
             transform: scale(1.2);
-        }
-
-        .container-fluid, .container {
-            contain:layout;
         }
 
         /* --------main pic start--------------- */
@@ -792,41 +799,6 @@
 </head>
 
 <body>
-    <header class="pc_header d-none d-md-block d-lg-block">
-        <div class="container-fluid d-flex pc_header_wrap">
-                    <div class="col-2 nav_left d-none d-md-flex d-lg-flex justify-content-start">
-                        <a href="index.html"><img src="images/logo.png" alt=""></a>
-                    </div>
-
-                    <div class="col-2 offset-8 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
-                        <div class="nav_right">
-                        <ul class="d-flex flex-column">
-                            <a href="index.html">
-                                <li class="li_top">首頁</li>
-                            </a>
-                            <a href="course.html">
-                                <li>廚藝教室</li>
-                            </a>
-                            <a href="solarterms.html">
-                                <li>節氣食補</li>
-                            </a>
-                            <a href="map.html">
-                                <li>素食地圖</li>
-                            </a>
-                            <a href="article.html">
-                                <li>相關文章</li>
-                            </a>
-                            <div class="icon d-flex justify-content-center pt-3">
-                                <a href="shopping_cart.html"><i
-                                        class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-                                <a href="login.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
-                            </div>
-                        </ul>
-                    </div>
-                    </div>
-        </div>
-    </header>
-
     <section id="mobile-nav" class="d-block d-md-none d-lg-none">
         <div class="page">
             <header tabindex="0">
@@ -3017,7 +2989,12 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="main_wrap d-flex justify-content-between position-relative">
+        <div class="nav_left d-none d-md-block d-lg-block">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="container">
             <div class="row main">
 
                 <div class="col-12 bigtittle d-none d-md-block d-lg-block">
@@ -3443,6 +3420,31 @@
                 <!-- --------------mobile end--------------- -->
 
             </div>
+        </div>
+
+        <div class="nav_right d-none d-md-block d-lg-block">
+            <ul class="d-flex flex-column">
+                <a href="index.html">
+                    <li class="li_top">首頁</li>
+                </a>
+                <a href="course.html">
+                    <li>廚藝教室</li>
+                </a>
+                <a href="solarterms.html">
+                    <li>節氣食補</li>
+                </a>
+                <a href="map.html">
+                    <li>素食地圖</li>
+                </a>
+                <a href="article.html">
+                    <li>相關文章</li>
+                </a>
+                <div class="icon d-flex justify-content-center">
+                    <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5 pt-3"></i></a>
+                    <a href="member_login.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5 pt-3"></i></a>
+                </div>
+            </ul>
+        </div>
     </div>
 
     <footer>
@@ -3787,21 +3789,6 @@
             $("#cm > li").eq(j + 1).css('left', '50%').addClass('active').css('transition-delay', '1.5s');
 
         }, timermobile);
-
-        if ($(window).width() > 767) {
-                if ($(window).scrollTop() >= 600) {
-                    $('.pc_header').css({
-                    'z-index': 9999,
-                    opacity: 1,
-                })
-                }
-                else {
-                    $('.pc_header').css({
-                    'z-index': -9999,
-                    opacity: 0,
-                })
-            }
-        }
 
         $(window).scroll(function () {
             console.log('scrollTop:', $(window).scrollTop());

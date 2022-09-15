@@ -16,22 +16,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/mobile-nav.css"> -->
+    <link rel="stylesheet" href="css/mobile-nav.css">
     <link rel="stylesheet" href="css/all-setup.css">
     <style>
         * {
             font-family: 'Noto Sans TC', sans-serif;
         }
 
-        header {
-            z-index: 999;
+        .pc_header_wrap {
+            height: 0px;
+        }
+
+        .pc_header {
+            z-index: 9999;
             position: sticky;
-            top: 32px
+            top: 32px;
+            height: 0px;
         }
 
         .nav_left img {
             width: 120px;
-            transition: 1s;
         }
 
         .nav_right {
@@ -85,15 +89,13 @@
 </head>
 
 <body>
-    <header class="">
-        <div class="container-fluid d-flex">
+    <header class="pc_header d-none d-md-block d-lg-block">
+        <div class="container-fluid d-flex pc_header_wrap">
                     <div class="col-2 nav_left d-none d-md-flex d-lg-flex justify-content-start">
                         <a href="index.html"><img src="images/logo.png" alt=""></a>
                     </div>
 
-                    <div class="col-8 d-none d-md-block d-lg-block"></div>
-
-                    <div class="col-2 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
+                    <div class="col-2 offset-8 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
                         <div class="nav_right">
                         <ul class="d-flex flex-column">
                             <a href="index.html">
@@ -121,7 +123,6 @@
                     </div>
         </div>
     </header>
-
 </body>
 
 </html>

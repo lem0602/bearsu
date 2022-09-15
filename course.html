@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="css/mobile-nav.css">
-        <link rel="stylesheet" href="css/all-setup.css">    
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/all-setup.css">
     <style>
         * {
             font-family: 'Noto Sans TC', sans-serif;
@@ -28,16 +28,15 @@
             background-color: #6DD0CD;
         }
 
-        header, #nav-container{
-            z-index: 9999;
+        .pc_header_wrap {
+            height: 0px;
         }
 
-        .nav_left {
+        .pc_header {
+            z-index: 9999;
             position: sticky;
             top: 32px;
-            height: 100%;
-            z-index: 999;
-            margin-left: 50px;
+            height: 0px;
         }
 
         .nav_left img {
@@ -45,10 +44,6 @@
         }
 
         .nav_right {
-            position: sticky;
-            top: 32px;
-            z-index: 999;
-            margin-right: 30px;
             width: 150px;
             height: 400px;
             border-radius: 100px;
@@ -96,9 +91,13 @@
             transform: scale(1.2);
         }
 
-        .course_wrap {
+        .container {
             margin-top: 48px;
             margin-bottom: 48px;
+        }
+
+        .course_title{
+            margin-bottom: 12px;
         }
 
         .course_title h1 {
@@ -119,6 +118,7 @@
             top: 90px;
             z-index: 10000;
             margin-top: 48px;
+            margin-bottom: 12px;
         }
 
         .mobile_course_filter {
@@ -179,10 +179,6 @@
             color: #005F5F;
             margin-bottom: 0px;
             font-weight: 700;
-        }
-
-        .course_innerwrap {
-            margin-top: 12px;
         }
 
         .course_card {
@@ -278,9 +274,9 @@
         }
 
         @media screen and (min-width:768px) {
-            .course_innerwrap {
-                margin-top: 48px;
-            }
+            .course_title{
+            margin-bottom: 48px;
+        }
 
             .course_pic {
                 padding-right: 24px;
@@ -306,7 +302,7 @@
             }
         }
 
-        .course_card .btn{
+        .course_card .btn {
             color: #FFF6E9;
             font-weight: 500;
             font-size: 0.9rem;
@@ -329,10 +325,6 @@
             padding: 24px;
         }
 
-        .course_menu_wrap {
-            width: 100%;
-        }
-
         .filter {
             background-color: #FFF6E9;
             border: 2px solid #333333;
@@ -344,6 +336,7 @@
             -webkit-appearance: none; */
             font-weight: 500;
             font-size: 0.9rem;
+            cursor: pointer;
         }
 
         .filter:focus {
@@ -374,12 +367,12 @@
             color: #333333;
             font-size: 1rem;
             font-weight: 500;
-            cursor:pointer ;
+            cursor: pointer;
         }
 
         .course_menu .radio {
             margin-right: 12px;
-            cursor:pointer ;
+            cursor: pointer;
         }
 
         .page-link {
@@ -389,11 +382,6 @@
             transition: .3s;
             font-size: 1.25rem;
             font-weight: 700;
-            line-height: 1.4;
-        }
-
-        span{
-            font-size: 1.25rem;
         }
 
         .page-link:hover {
@@ -427,6 +415,41 @@
 </head>
 
 <body>
+    <header class="pc_header d-none d-md-block d-lg-block">
+        <div class="container-fluid d-flex pc_header_wrap">
+                    <div class="col-2 nav_left d-none d-md-flex d-lg-flex justify-content-start">
+                        <a href="index.html"><img src="images/logo.png" alt=""></a>
+                    </div>
+
+                    <div class="col-2 offset-8 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
+                        <div class="nav_right">
+                        <ul class="d-flex flex-column">
+                            <a href="index.html">
+                                <li class="li_top">首頁</li>
+                            </a>
+                            <a href="course.html">
+                                <li>廚藝教室</li>
+                            </a>
+                            <a href="solarterms.html">
+                                <li>節氣食補</li>
+                            </a>
+                            <a href="map.html">
+                                <li>素食地圖</li>
+                            </a>
+                            <a href="article.html">
+                                <li>相關文章</li>
+                            </a>
+                            <div class="icon d-flex justify-content-center pt-3">
+                                <a href="shopping_cart.html"><i
+                                        class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
+                                <a href="login.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                            </div>
+                        </ul>
+                    </div>
+                    </div>
+        </div>
+    </header>
+
     <section id="mobile-nav" class="d-block d-md-none d-lg-none">
         <div class="page">
             <header tabindex="0">
@@ -449,19 +472,29 @@
                 <div id="nav-content" tabindex="0">
                     <ul>
                         <li>
-                            <a href="#0"><h3>首頁</h3></a>
+                            <a href="#0">
+                                <h3>首頁</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>廚藝教室</h3></a>
+                            <a href="#0">
+                                <h3>廚藝教室</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>節氣食補</h3></a>
+                            <a href="#0">
+                                <h3>節氣食補</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>素食地圖</h3></a>
+                            <a href="#0">
+                                <h3>素食地圖</h3>
+                            </a>
                         </li>
                         <li>
-                            <a href="#0"><h3>相關文章</h3></a>
+                            <a href="#0">
+                                <h3>相關文章</h3>
+                            </a>
                         </li>
                         <li class="small">
                             <a href="#0">購物車</a>
@@ -473,283 +506,246 @@
         </div>
     </section>
 
-    <div class="course_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left d-none d-md-block d-lg-block">
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 course_title d-md-flex d-lg-flex justify-content-center align-items-center d-none">
+                <h1>廚藝教室</h1>
+                <img src="images/mascot_01.png" alt="">
+            </div>
+            <!-- ------------------mobile start----------- -->
+            <div
+                class="col-12 mobile_course_title  justify-content-center align-items-center d-block d-md-none d-lg-none text-center">
+                <img src="images/mascot_01.png" alt="">
+                <h1>廚藝教室</h1>
+            </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 course_title d-md-flex d-lg-flex justify-content-center align-items-center d-none">
-                    <h1>廚藝教室</h1>
-                    <img src="images/mascot_01.png" alt="">
-                </div>
-                <!-- ------------------mobile start----------- -->
-                <div
-                    class="col-12 mobile_course_title  justify-content-center align-items-center d-block d-md-none d-lg-none text-center">
-                    <img src="images/mascot_01.png" alt="">
-                    <h1>廚藝教室</h1>
-                </div>
+            <div class="col-12 d-flex justify-content-end mobile_course_filter_wrap d-block d-md-none d-lg-none">
+                <button type="button" class="btn btn-primary mobile_course_filter  d-block d-md-none d-lg-none"
+                    data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fa-solid fa-filter"></i></button>
 
-                <div class="col-12 d-flex justify-content-end mobile_course_filter_wrap d-block d-md-none d-lg-none">
-                    <button type="button" class="btn btn-primary mobile_course_filter  d-block d-md-none d-lg-none"
-                        data-toggle="modal" data-target=".bd-example-modal-sm"><i
-                            class="fa-solid fa-filter"></i></button>
-
-                    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
-                        aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="course_menu d-flex justify-content-center align-items-center">
-                                    <div class="course_menu_wrap">
-                                        <h2>篩選條件</h2>
-                                        <select class="course_filter filter">
-                                            <option>推薦排序</option>
-                                            <option>開課日期</option>
-                                            <option>價格由低至高</option>
-                                            <option>價格由高至低</option>
-                                        </select>
-                                        <select class="date_filter filter">
-                                            <option>選擇課程日期</option>
-                                            <option>10月21日(五) 19:00-21:00</option>
-                                            <option>11月18日(五) 19:00-21:00</option>
-                                            <option>10月22日(六) 10:30-12:30</option>
-                                            <option>11月19日(六) 10:30-12:30</option>
-                                        </select>
-                                        <p>素食分類</p>
-                                        <input type="radio" name="su" class="radio" id="allsu_m">
-                                        <label for="allsu_m">全素</label><br>
-                                        <input type="radio" name="su" class="radio" id="eggsu_m">
-                                        <label for="eggsu_m">蛋素</label><br>
-                                        <input type="radio" name="su" class="radio" id="fivesu_m">
-                                        <label for="fivesu_m">五辛素</label><br>
-                                        <input type="radio" name="su" class="radio" id="milksu_m">
-                                        <label for="milksu_m">奶素</label><br>
-                                        <input type="radio" name="su" class="radio" id="emsu_m">
-                                        <label for="emsu_m">蛋奶素</label>
-                                        <p>價格</p>
-                                        <input type="radio" name="price" class="radio" id="price8_m">
-                                        <label for="price8_m">$800 以下</label><br>
-                                        <input type="radio" name="price" class="radio" id="price815_m">
-                                        <label for="price815_m">$800 ~ $1500</label><br>
-                                        <input type="radio" name="price" class="radio" id="price15_m">
-                                        <label for="price15_m" class="mb-0">$1500 以上</label>
-                                    </div>
+                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="course_menu d-flex justify-content-center align-items-center">
+                                <div class="course_menu_wrap">
+                                    <h2>篩選條件</h2>
+                                    <select class="course_filter filter">
+                                        <option>推薦排序</option>
+                                        <option>開課日期</option>
+                                        <option>價格由低至高</option>
+                                        <option>價格由高至低</option>
+                                    </select>
+                                    <select class="date_filter filter">
+                                        <option>選擇課程日期</option>
+                                        <option>10月21日(五) 19:00-21:00</option>
+                                        <option>11月18日(五) 19:00-21:00</option>
+                                        <option>10月22日(六) 10:30-12:30</option>
+                                        <option>11月19日(六) 10:30-12:30</option>
+                                    </select>
+                                    <p>素食分類</p>
+                                    <input type="radio" name="su" class="radio" id="allsu_m">
+                                    <label for="allsu_m">全素</label><br>
+                                    <input type="radio" name="su" class="radio" id="eggsu_m">
+                                    <label for="eggsu_m">蛋素</label><br>
+                                    <input type="radio" name="su" class="radio" id="fivesu_m">
+                                    <label for="fivesu_m">五辛素</label><br>
+                                    <input type="radio" name="su" class="radio" id="milksu_m">
+                                    <label for="milksu_m">奶素</label><br>
+                                    <input type="radio" name="su" class="radio" id="emsu_m">
+                                    <label for="emsu_m">蛋奶素</label>
+                                    <p>價格</p>
+                                    <input type="radio" name="price" class="radio" id="price8_m">
+                                    <label for="price8_m">$800 以下</label><br>
+                                    <input type="radio" name="price" class="radio" id="price815_m">
+                                    <label for="price815_m">$800 ~ $1500</label><br>
+                                    <input type="radio" name="price" class="radio" id="price15_m">
+                                    <label for="price15_m" class="mb-0">$1500 以上</label>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary mobile_close_btn"
-                                        data-dismiss="modal">關閉</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary mobile_close_btn"
+                                    data-dismiss="modal">關閉</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- ------------------mobile end----------- -->
-
-                <div class="course_innerwrap d-flex justify-content-between">
-                    <div class="col-12 col-md-9 col-lg-9 course_cards">
-                        <div class="course_card d-md-flex d-lg-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div
-                                        class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>$1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                    <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
-                                        <div class="btn p-0">
-                                            了解更多
-                                        </div>
-                                    </a>
-                                    <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-md-flex d-lg-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div
-                                        class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>$1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                    <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
-                                        <div class="btn p-0">
-                                            了解更多
-                                        </div>
-                                    </a>
-                                    <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="course_card d-md-flex d-lg-flex">
-                            <div class="course_pic d-flex justify-content-center align-items-center">
-                                <img src="images/course_01.jpg" alt="">
-                            </div>
-                            <div class="course_content d-flex flex-column justify-content-between">
-                                <div class="title d-flex justify-content-between align-items-center">
-                                    <div class="left d-flex align-items-center">
-                                        <h2>地瓜餅 (奶素)</h2> <br>
-                                    </div>
-                                    <div
-                                        class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                                <div class="describe">
-                                    <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
-                                    </h4>
-                                </div>
-                                <div class="price d-flex align-items-center">
-                                    <h5>課程價格</h5>
-                                    <h2>$1,200</h2>
-                                </div>
-                                <div class="time">
-                                    <h5>開課時間</h5>
-                                    <h4>10月21日(五) 19:00-21:00<br>
-                                        11月18日(五) 19:00-21:00</h4>
-                                </div>
-                                <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                    <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
-                                        <div class="btn p-0">
-                                            了解更多
-                                        </div>
-                                    </a>
-                                    <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <div
-                        class="col-fix course_menu d-md-flex d-lg-flex justify-content-center align-items-center d-none">
-                        <div class="course_menu_wrap">
-                            <h2>篩選條件</h2>
-                            <select class="course_filter filter">
-                                <option>推薦排序</option>
-                                <option>開課日期</option>
-                                <option>價格由低至高</option>
-                                <option>價格由高至低</option>
-                            </select>
-                            <select class="date_filter filter">
-                                <option>選擇課程日期</option>
-                                <option>10月21日(五) 19:00-21:00</option>
-                                <option>11月18日(五) 19:00-21:00</option>
-                                <option>10月22日(六) 10:30-12:30</option>
-                                <option>11月19日(六) 10:30-12:30</option>
-                            </select>
-                            <p>素食分類</p>
-                                        <input type="radio" name="su" class="radio" id="allsu">
-                                        <label for="allsu">全素</label><br>
-                                        <input type="radio" name="su" class="radio" id="eggsu">
-                                        <label for="eggsu">蛋素</label><br>
-                                        <input type="radio" name="su" class="radio" id="fivesu">
-                                        <label for="fivesu">五辛素</label><br>
-                                        <input type="radio" name="su" class="radio" id="milksu">
-                                        <label for="milksu">奶素</label><br>
-                                        <input type="radio" name="su" class="radio" id="emsu">
-                                        <label for="emsu">蛋奶素</label>
-                                        <p>價格</p>
-                                        <input type="radio" name="price" class="radio" id="price8">
-                                        <label for="price8">$800 以下</label><br>
-                                        <input type="radio" name="price" class="radio" id="price815">
-                                        <label for="price815">$800 ~ $1500</label><br>
-                                        <input type="radio" name="price" class="radio" id="price15">
-                                        <label for="price15" class="mb-0">$1500 以上</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-9 ol-lg-9 d-flex justify-content-center page">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination mb-0">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true"><i class="fa-solid fa-angle-left"
-                                            aria-hidden="true"></i></span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
-        </div>
+            <!-- ------------------mobile end----------- -->
 
-        <div class="nav_right d-none d-md-block d-lg-block">
-            <ul class="d-flex flex-column">
-                <a href="index.html">
-                    <li class="li_top">首頁</li>
-                </a>
-                <a href="course.html">
-                    <li>廚藝教室</li>
-                </a>
-                <a href="solarterms.html">
-                    <li>節氣食補</li>
-                </a>
-                <a href="map.html">
-                    <li>素食地圖</li>
-                </a>
-                <a href="article.html">
-                    <li>相關文章</li>
-                </a>
-                <div class="icon d-flex justify-content-center">
-                    <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5 pt-3"></i></a>
-                    <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5 pt-3"></i></a>
+            <div class="col-12 col-md-9 col-lg-9 course_cards">
+                <div class="course_card d-md-flex d-lg-flex">
+                    <div class="course_pic d-flex justify-content-center align-items-center">
+                        <img src="images/course_01.jpg" alt="">
+                    </div>
+                    <div class="course_content d-flex flex-column justify-content-between">
+                        <div class="title d-flex justify-content-between align-items-center">
+                            <div class="left d-flex align-items-center">
+                                <h2>地瓜餅 (奶素)</h2> <br>
+                            </div>
+                            <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="describe">
+                            <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                            </h4>
+                        </div>
+                        <div class="price d-flex align-items-center">
+                            <h5>課程價格</h5>
+                            <h2>$1,200</h2>
+                        </div>
+                        <div class="time">
+                            <h5>開課時間</h5>
+                            <h4>10月21日(五) 19:00-21:00<br>
+                                11月18日(五) 19:00-21:00</h4>
+                        </div>
+                        <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                            <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                <div class="btn p-0">
+                                    了解更多
+                                </div>
+                            </a>
+                            <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                        </div>
+                    </div>
                 </div>
-            </ul>
+
+                <div class="course_card d-md-flex d-lg-flex">
+                    <div class="course_pic d-flex justify-content-center align-items-center">
+                        <img src="images/course_01.jpg" alt="">
+                    </div>
+                    <div class="course_content d-flex flex-column justify-content-between">
+                        <div class="title d-flex justify-content-between align-items-center">
+                            <div class="left d-flex align-items-center">
+                                <h2>地瓜餅 (奶素)</h2> <br>
+                            </div>
+                            <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="describe">
+                            <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                            </h4>
+                        </div>
+                        <div class="price d-flex align-items-center">
+                            <h5>課程價格</h5>
+                            <h2>$1,200</h2>
+                        </div>
+                        <div class="time">
+                            <h5>開課時間</h5>
+                            <h4>10月21日(五) 19:00-21:00<br>
+                                11月18日(五) 19:00-21:00</h4>
+                        </div>
+                        <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                            <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                <div class="btn p-0">
+                                    了解更多
+                                </div>
+                            </a>
+                            <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course_card d-md-flex d-lg-flex">
+                    <div class="course_pic d-flex justify-content-center align-items-center">
+                        <img src="images/course_01.jpg" alt="">
+                    </div>
+                    <div class="course_content d-flex flex-column justify-content-between">
+                        <div class="title d-flex justify-content-between align-items-center">
+                            <div class="left d-flex align-items-center">
+                                <h2>地瓜餅 (奶素)</h2> <br>
+                            </div>
+                            <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                        </div>
+                        <div class="describe">
+                            <h4>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+                            </h4>
+                        </div>
+                        <div class="price d-flex align-items-center">
+                            <h5>課程價格</h5>
+                            <h2>$1,200</h2>
+                        </div>
+                        <div class="time">
+                            <h5>開課時間</h5>
+                            <h4>10月21日(五) 19:00-21:00<br>
+                                11月18日(五) 19:00-21:00</h4>
+                        </div>
+                        <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                            <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                <div class="btn p-0">
+                                    了解更多
+                                </div>
+                            </a>
+                            <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-lg-3 course_menu d-none d-md-block d-lg-block">
+                <div class="course_menu_wrap">
+                    <h2>篩選條件</h2>
+                    <select class="course_filter filter">
+                        <option>推薦排序</option>
+                        <option>開課日期</option>
+                        <option>價格由低至高</option>
+                        <option>價格由高至低</option>
+                    </select>
+                    <select class="date_filter filter">
+                        <option>選擇課程日期</option>
+                        <option>10月21日(五) 19:00-21:00</option>
+                        <option>11月18日(五) 19:00-21:00</option>
+                        <option>10月22日(六) 10:30-12:30</option>
+                        <option>11月19日(六) 10:30-12:30</option>
+                    </select>
+                    <p>素食分類</p>
+                                <input type="radio" name="su" class="radio" id="allsu">
+                                <label for="allsu">全素</label><br>
+                                <input type="radio" name="su" class="radio" id="eggsu">
+                                <label for="eggsu">蛋素</label><br>
+                                <input type="radio" name="su" class="radio" id="fivesu">
+                                <label for="fivesu">五辛素</label><br>
+                                <input type="radio" name="su" class="radio" id="milksu">
+                                <label for="milksu">奶素</label><br>
+                                <input type="radio" name="su" class="radio" id="emsu">
+                                <label for="emsu">蛋奶素</label>
+                                <p>價格</p>
+                                <input type="radio" name="price" class="radio" id="price8">
+                                <label for="price8">$800 以下</label><br>
+                                <input type="radio" name="price" class="radio" id="price815">
+                                <label for="price815">$800 ~ $1500</label><br>
+                                <input type="radio" name="price" class="radio" id="price15">
+                                <label for="price15" class="mb-0">$1500 以上</label>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-9 ol-lg-9 d-flex justify-content-center page">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination mb-0">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fa-solid fa-angle-left"
+                                        aria-hidden="true"></i></span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item d-none d-md-block d-lg-block"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 
