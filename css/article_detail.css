@@ -21,6 +21,7 @@ body {
     .article-detail-box {
         /* width: 100%; */
         margin-bottom: 48px;
+        padding: 48px;
     }
 }
 
@@ -35,7 +36,9 @@ body {
     .article-detail-box .title {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
     }
 }
 
@@ -53,6 +56,12 @@ body {
     margin-bottom: 16px;
 }
 
+@media screen and (min-width: 570px) {
+    #article-detail-main .title h1 {
+        margin-bottom: 0;
+    }
+}
+
 #article-detail-main .title .date {
     margin-bottom: 16px;
 }
@@ -62,14 +71,35 @@ body {
     color: var(--myblack);
 }
 
+@media screen and (min-width: 570px) {
+    #article-detail-main .bookmark {
+        margin-left: auto;
+    }
+}
+
+#article-detail-main .date {
+    margin-bottom: 16px;
+    color: var(--mydarkgreen);
+}
+
 #article-detail-main .txt .img {
     width: 100%;
     aspect-ratio: 4/3 ;
     object-fit: cover;
-    float: left;
     border-radius: 10px;
     overflow: hidden;
     margin: 32px 0;
+}
+
+@media screen and (min-width: 570px) {
+    #article-detail-main .txt .img {
+        width: 70%;
+        aspect-ratio: 4/3 ;
+        object-fit: cover;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 32px auto;
+    }
 }
 
 /* message */
@@ -108,10 +138,28 @@ body {
     margin-bottom: 32px;
 }
 
+@media screen and (min-width: 570px) {
+    #message .img-text-box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 32px;
+    }
+}
+
 #message .author-img {
     width: 100px;
     height: 100px;
     margin-bottom: 32px;
+}
+
+@media screen and (min-width: 570px) {
+    #message .author-img {
+        margin-bottom: 0;
+        margin-right: 45px;
+    }
 }
 
 #message .author-img img {
@@ -122,6 +170,14 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (min-width: 570px) {
+    .button-box {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
 }
 
 .textareabox {
@@ -140,13 +196,8 @@ body {
     padding: 24px;
 }
 
-#message button {
+#message .button-box h5{
     padding: 8px 32px;
-    color: var(--mybeige);
-    background-color: var(--mydarkgreen);
-    border: 2px solid var(--myblack);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
 }
 
 footer {
