@@ -37,7 +37,7 @@
         .pc_header {
             /* z-index: -9999; */
             position: sticky;
-            top: 32px;
+            top: 10vh;
             height: 0px;
             /* opacity: 0; */
             transition: .5;
@@ -3791,14 +3791,14 @@
         if ($(window).width() > 767) {
                 if ($(window).scrollTop() >= 600) {
                     $('.pc_header').css({
-                    'z-index': 9999,
-                    opacity: 1,
+                    // zIndex: 9999,
+                    // opacity: 1,
                 })
                 }
                 else {
                     $('.pc_header').css({
-                    'z-index': -9999,
-                    opacity: 0,
+                    // zIndex: -9999,
+                    // opacity: 0,
                 })
             }
         }
@@ -3818,31 +3818,31 @@
                 })
             }
 
-            if ($(window).scrollTop() >= 360) {
-                $('.nav_left img').css({
-                    transform: 'skew(45deg)',
-                    transformOrigin: 'top center',
-                })
-            }
-            else {
-                $('.nav_left img').css({
-                    transform: 'skew(0deg)',
-                    transformOrigin: 'top center',
-                })
-            }
+            // if ($(window).scrollTop() >= 360) {
+            //     $('.nav_left img').css({
+            //         transform: 'skew(45deg)',
+            //         transformOrigin: 'top center',
+            //     })
+            // }
+            // else {
+            //     $('.nav_left img').css({
+            //         transform: 'skew(0deg)',
+            //         transformOrigin: 'top center',
+            //     })
+            // }
 
-            if ($(window).scrollTop() >= 400) {
-                $('.nav_left img').css({
-                    transform: 'skew(0deg)',
-                    transformOrigin: 'top center',
-                })
-            }
-            else {
-                $('.nav_left img').css({
-                    transform: 'skew(45deg)',
-                    transformOrigin: 'top center',
-                })
-            }
+            // if ($(window).scrollTop() >= 400) {
+            //     $('.nav_left img').css({
+            //         transform: 'skew(0deg)',
+            //         transformOrigin: 'top center',
+            //     })
+            // }
+            // else {
+            //     $('.nav_left img').css({
+            //         transform: 'skew(45deg)',
+            //         transformOrigin: 'top center',
+            //     })
+            // }
 
             if ($(window).scrollTop() >= 400) {
                 $('.bigtittle h3').addClass(

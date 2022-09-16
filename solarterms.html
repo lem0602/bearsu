@@ -240,8 +240,9 @@
         }
 
         .fa-bookmark {
-            color: #333333;
+            color: #005F5F;
             font-size: 2rem;
+            cursor: pointer;
         }
 
         .recipe_card .author p {
@@ -808,6 +809,17 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script>
+        $('.fa-bookmark').click(function(){
+            if($(this,'.fa-bookmark').hasClass('fa-regular')){
+                $(this, '.fa-bookmark').addClass('fa-solid')
+                $(this,'.fa-bookmark').removeClass('fa-regular')
+            }
+            else{
+                $(this,'.fa-bookmark').removeClass('fa-solid')
+                $(this,'.fa-bookmark').addClass('fa-regular')
+            }
+        })
+
         $('.solarterms_card_0').click(function () {
             $('.solarterms_introduce .down').empty();
             $('.solarterms_introduce .down').append(` <div class="solarterms_card_wrap d-flex justify-content-center">
@@ -1137,7 +1149,7 @@
 
         });
         $(".season_filter").change();
+
     </script>
 </body>
-
 </html>

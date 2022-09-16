@@ -251,6 +251,7 @@
         .course_card .fa-bookmark {
             color: #005F5F;
             font-size: 2rem;
+            cursor: pointer;
         }
 
         .total {
@@ -532,6 +533,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        <script>
+            $('.fa-bookmark').click(function(){
+            if($(this,'.fa-bookmark').hasClass('fa-regular')){
+                $(this, '.fa-bookmark').addClass('fa-solid')
+                $(this,'.fa-bookmark').removeClass('fa-regular')
+            }
+            else{
+                $(this,'.fa-bookmark').removeClass('fa-solid')
+                $(this,'.fa-bookmark').addClass('fa-regular')
+            }
+        })
+        </script>
 </body>
-
 </html>
