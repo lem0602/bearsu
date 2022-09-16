@@ -17,11 +17,23 @@ body {
     padding: 16px;
 }
 
+@media screen and (min-width: 570px) {
+    .write-recipes {
+        padding: 48px 24px;
+    }
+}
+
 .write-recipes .text-title-box {
     flex-direction: column;
     display: flex;
     align-items: flex-end;
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .write-recipes .text-title-box {
+        margin-bottom: 48px;
+    }
 }
 
 .write-recipes .text-title-textarea {
@@ -31,12 +43,20 @@ body {
     background-color: var(--mylightbeige);
     border: 2px solid var(--myblack);
     border-radius: 8px;
+    resize: none;
 }
 
 /* veggie-Category */
 .veggie-Category {
     display: flex;
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .veggie-Category {
+        display: flex;
+        margin-bottom: 48px;
+    }
 }
 
 .veggie-Category h2 {
@@ -193,6 +213,20 @@ details[open] .dropdown-custom-select summary:after {
 }
 
 /* 上傳圖片 */
+.upload-image-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .upload-image-group {
+        flex-direction: row;
+        align-items: flex-end;
+        margin-bottom: 48px;
+    }
+}
+
 button {
     border: 0;
     cursor: pointer;
@@ -206,9 +240,19 @@ button:focus {
 /*croppie*/
 #img-crop {
     width: 100%;
+    border: 2px solid var(--mydarkgreen);
+    border-radius: 10px;
+    aspect-ratio: 4/3;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+@media screen and (min-width: 570px) {
+    #img-crop {
+        width: 60%;
+        margin-right: 64px;
+    }
 }
 
 #img-crop h3 {
@@ -451,6 +495,24 @@ button:focus {
 }
 
 /* introduction 簡介 */
+.introduction-box {
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .introduction-box {
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 570px) {
+    .textarea-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
 .introduction h2 {
     margin-bottom: 16px;
 }
@@ -469,6 +531,7 @@ button:focus {
     background-color: var(--mylightbeige);
     border: 2px solid var(--myblack);
     border-radius: 8px;
+    resize: none;
 }
 
 /* ingredients */
@@ -476,14 +539,37 @@ button:focus {
     margin-bottom: 24px;
 }
 
+@media screen and (min-width: 570px) {
+    .serving-time {
+        /* margin-bottom: 24px; */
+        display: flex;
+        margin-bottom: 48px;
+    }
+}
+
 .ingredients .serving-size {
     display: flex;
     margin-bottom: 24px;
 }
 
+@media screen and (min-width: 570px) {
+    .ingredients .serving-size {
+        display: flex;
+        margin-bottom: 0;
+        margin-right: 48px;
+    }
+}
+
 .ingredients .time {
     display: flex;
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .ingredients .time {
+        display: flex;
+        margin-bottom: 0;
+    }
 }
 
 /* addIngredients */
@@ -498,10 +584,32 @@ button:focus {
     background-color: var(--mylightbeige);
     border: 2px solid var(--myblack);
     border-radius: 8px;
+    resize: none;
+}
+
+@media screen and (min-width: 570px) {
+    .text-addIngredients {
+        width: 100%;
+        height: 48px;
+        padding: 12px;
+        background-color: var(--mylightbeige);
+        border: 2px solid var(--myblack);
+        border-radius: 8px;
+    }
+
+    teztarea {
+        text-align: center;
+    }
 }
 
 .allDetail-box {
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .allDetail-box {
+        margin-bottom: 48px;
+    }
 }
 
 .detail-box {

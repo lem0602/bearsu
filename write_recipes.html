@@ -96,48 +96,46 @@
         </section>
 
         <!-- pc-nav -->
-        <div id="pcheader" class="d-none d-lg-inline-flex">
-            <div class="nav-left">
-                <div class="logoimg">
-                    <img src="./images/logo.png" alt="">
-                </div>
+        <div class="pc-nav-left d-none d-md-block">
+            <div class="logoimg">
+                <img src="./images/logo.png" alt="">
             </div>
-            <div class="nav-right">
-                <ul>
-                    <li class="li-top">
-                        <a href="./index.html">
-                            <h3>首頁</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./course.html">
-                            <h3>廚藝教室</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./solarterms.html">
-                            <h3>節氣食補</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./map.html">
-                            <h3>素食地圖</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./article_list.html">
-                            <h3>相關文章</h3>
-                        </a>
-                    </li>
-                </ul>
-                <div class="nav-right-icon d-flex">
-                    <a href="shopping_cart.html" class="cart-icon">
-                        <i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i>
+        </div>
+        <div class="pc-nav-right d-none d-md-block">
+            <ul>
+                <li class="li-top">
+                    <a href="./index.html">
+                        <h3>首頁</h3>
                     </a>
-                    <a href="" class="member-icon">
-                        <i class="fa-solid fa-user pl-3 pr-5 pb-5"></i>
+                </li>
+                <li>
+                    <a href="./course.html">
+                        <h3>廚藝教室</h3>
                     </a>
-                </div>
+                </li>
+                <li>
+                    <a href="./solarterms.html">
+                        <h3>節氣食補</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="./map.html">
+                        <h3>素食地圖</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="./article_list.html">
+                        <h3>相關文章</h3>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-right-icon d-flex">
+                <a href="shopping_cart.html" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i>
+                </a>
+                <a href="" class="member-icon">
+                    <i class="fa-solid fa-user pl-3 pr-5 pb-5"></i>
+                </a>
             </div>
         </div>
     </header>
@@ -191,29 +189,37 @@
                             </details>
                         </div>
                         <!-- 上傳圖片 -->
-                        <div id="img-crop">
-                            <div id="upload">
-                                <h3>01. Upload</h3>
-                                <div class="block">
-                                    <div class="stage"><label id="filedrag"><input type="file" id="fileselect"
-                                                name="fileselect" accept="image/*" /></label></div>
+                        <div class="upload-image-group">
+                            <div id="img-crop">
+                                <div id="upload">
+                                    <h3>01. Upload</h3>
+                                    <div class="block">
+                                        <div class="stage">
+                                            <label id="filedrag">
+                                                <input type="file" id="fileselect" name="fileselect" accept="image/*" />
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="crop">
-                                <h3>02. Crop / Preview</h3>
-                                <div class="block">
-                                    <div class="stage">
-                                        <button class="btn" id="prev" onclick="cropCancel();">PREV</button>
-                                        <button class="btn" id="next" onclick="cropResult();">NEXT</button>
-                                        <div id="croppie"></div>
+                                <div id="crop">
+                                    <h3>02. Crop / Preview</h3>
+                                    <div class="block">
+                                        <div class="stage">
+                                            <button class="btn" id="prev" onclick="cropCancel();">PREV</button>
+                                            <button class="btn" id="next" onclick="cropResult();">NEXT</button>
+                                            <div id="croppie"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="result">
+                                    <h3>03. Result</h3><button id="close" onclick="cropCancel();"></button>
+                                    <div class="block">
+                                        <div class="stage"><img src="" /></div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="result">
-                                <h3>03. Result</h3><button id="close" onclick="cropCancel();"></button>
-                                <div class="block">
-                                    <div class="stage"><img src="" /></div>
-                                </div>
+                            <div class="img d-none d-lg-block">
+                                <img class="w-100" src="./images/mascot-09.png" alt="">
                             </div>
                         </div>
                         <!-- 簡介 -->
@@ -222,20 +228,25 @@
                                 <lable for="subject">
                                     <h2>簡介</h2>
                                 </lable>
-                                <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction"
-                                    id="introduction-detail"></textarea>
-                                <p><span id="detail2-num">0</span>/<span>200</span></p>
+                                <div class="textarea-box">
+                                    <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200"
+                                        class="text-introduction" id="introduction-detail"></textarea>
+                                    <p><span id="detail2-num">0</span>/<span>200</span></p>
+                                </div>
                             </div>
                         </div>
                         <!-- 時間與份量的下拉式選單和新增食材-->
                         <div class="ingredients">
-                            <div class="serving-size">
-                                <h3>份量</h3>
-                                <h4>(人份)</h4>
-                            </div>
-                            <div class="time">
-                                <h3>烹調時間</h3>
-                                <h4>(分鐘)</h4>
+                            <div class="serving-time">
+                                <div class="serving-size">
+                                    <h3>份量</h3>
+                                    <h4>(人份)</h4>
+
+                                </div>
+                                <div class="time">
+                                    <h3>烹調時間</h3>
+                                    <h4>(分鐘)</h4>
+                                </div>
                             </div>
                             <!-- 新增食材 -->
                             <div class="addIngredients">
@@ -315,8 +326,8 @@
                                         </button>
                                     </div>
                                     <div class="textarea-box">
-                                        <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea"
-                                            id="introduction-detail"></textarea>
+                                        <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150"
+                                            class="step-textarea" id="introduction-detail"></textarea>
                                         <p><span id="detail2-num">0</span>/<span>150</span></p>
                                     </div>
                                 </div>
@@ -333,8 +344,8 @@
                                         </button>
                                     </div>
                                     <div class="textarea-box">
-                                        <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea"
-                                            id="introduction-detail"></textarea>
+                                        <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150"
+                                            class="step-textarea" id="introduction-detail"></textarea>
                                         <p><span id="detail2-num">0</span>/<span>150</span></p>
                                     </div>
                                 </div>
@@ -351,8 +362,8 @@
                                         </button>
                                     </div>
                                     <div class="textarea-box">
-                                        <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea"
-                                            id="introduction-detail"></textarea>
+                                        <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150"
+                                            class="step-textarea" id="introduction-detail"></textarea>
                                         <p><span id="detail2-num">0</span>/<span>150</span></p>
                                     </div>
                                 </div>
@@ -386,6 +397,12 @@
             <p>&copy;2022 BearSu. All rights reserved.</p>
         </footer>
     </section>
+
+
+    <script>
+
+
+    </script>
 </body>
 
 </html>
