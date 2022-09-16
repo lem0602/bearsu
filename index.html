@@ -30,17 +30,37 @@
             min-height: 100vh;
         }
 
+        @keyframes header_show {
+            0% {
+                opacity: 0;
+                z-index: -9999;
+            }
+            100% {
+                opacity: 1;
+                z-index: 9999;
+            }
+        }
+
+        @keyframes header_hide {
+            0% {
+                opacity: 1;
+                z-index: 9999;
+            }
+            100% {
+                opacity: 0;
+                z-index: -9999;
+            }
+        }
+
         .pc_header_wrap {
             height: 0px;
         }
 
         .pc_header {
-            /* z-index: -9999; */
+            z-index: 9999;
             position: sticky;
-            top: 10vh;
+            top: 32px;
             height: 0px;
-            /* opacity: 0; */
-            transition: .5;
         }
 
         .nav_left img {
@@ -144,7 +164,7 @@
             }
         } */
 
-        @keyframes opacity_eye {
+        @keyframes open_eye {
 
             0%,
             51%,
@@ -184,11 +204,11 @@
         }
 
         #bearsu_eye {
-            animation: opacity_eye 3s linear infinite;
+            animation: open_eye 3s ease-in-out infinite;
         }
 
         #close_eye {
-            animation: close_eye 3s linear infinite;
+            animation: close_eye 3s ease-in-out infinite;
         }
 
         #say {
@@ -816,40 +836,6 @@
 </head>
 
 <body>
-    <header class="pc_header d-none d-md-block d-lg-block">
-        <div class="container-fluid d-flex pc_header_wrap">
-            <div class="col-2 nav_left d-none d-md-flex d-lg-flex justify-content-start">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
-            </div>
-
-            <div class="col-2 offset-8 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
-                <div class="nav_right">
-                    <ul class="d-flex flex-column">
-                        <a href="index.html">
-                            <li class="li_top">首頁</li>
-                        </a>
-                        <a href="course.html">
-                            <li>廚藝教室</li>
-                        </a>
-                        <a href="solarterms.html">
-                            <li>節氣食補</li>
-                        </a>
-                        <a href="map.html">
-                            <li>素食地圖</li>
-                        </a>
-                        <a href="article.html">
-                            <li>相關文章</li>
-                        </a>
-                        <div class="icon d-flex justify-content-center pt-3">
-                            <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-                            <a href="login.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
-                        </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <section id="mobile-nav" class="d-block d-md-none d-lg-none">
         <div class="page">
             <header tabindex="0">
@@ -3078,6 +3064,40 @@
         </div>
     </div>
 
+    <header class="pc_header d-none d-md-block d-lg-block">
+        <div class="container-fluid d-flex pc_header_wrap">
+            <div class="col-2 nav_left d-none d-md-flex d-lg-flex justify-content-start">
+                <a href="index.html"><img src="images/logo.png" alt=""></a>
+            </div>
+
+            <div class="col-2 offset-8 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
+                <div class="nav_right">
+                    <ul class="d-flex flex-column">
+                        <a href="index.html">
+                            <li class="li_top">首頁</li>
+                        </a>
+                        <a href="course.html">
+                            <li>廚藝教室</li>
+                        </a>
+                        <a href="solarterms.html">
+                            <li>節氣食補</li>
+                        </a>
+                        <a href="map.html">
+                            <li>素食地圖</li>
+                        </a>
+                        <a href="article.html">
+                            <li>相關文章</li>
+                        </a>
+                        <div class="icon d-flex justify-content-center pt-3">
+                            <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
+                            <a href="login.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
         <div class="row main">
 
@@ -3849,20 +3869,33 @@
 
         }, timermobile);
 
-        if ($(window).width() > 767) {
-            if ($(window).scrollTop() >= 600) {
-                $('.pc_header').css({
-                    // zIndex: 9999,
-                    // opacity: 1,
-                })
-            }
-            else {
-                $('.pc_header').css({
-                    // zIndex: -9999,
-                    // opacity: 0,
-                })
-            }
-        }
+        // if ($(window).width() > 767) {
+        //     if ($(window).scrollTop() >= 600) {
+        //         $('.pc_header').css({
+        //             zIndex: 9999,
+        //             opacity: 1,
+        //         })
+        //     }
+        //     else {
+        //         $('.pc_header').css({
+        //             zIndex: -9999,
+        //             opacity: 0,
+        //         })
+        //     }
+        // }
+
+        // if ($(window).width() > 767) {
+        //     if ($(window).scrollTop() >= 600) {
+        //         $('.pc_header').css({
+        //             animation: 'header_show 3s linear',
+        //         })
+        //     }
+        //     else{
+        //         $('.pc_header').css({
+        //             animation: 'header_hide 3s linear',
+        //         })
+        //     }
+        // }
 
         $(window).scroll(function () {
             console.log('scrollTop:', $(window).scrollTop());
@@ -3879,31 +3912,31 @@
                 })
             }
 
-            // if ($(window).scrollTop() >= 360) {
-            //     $('.nav_left img').css({
-            //         transform: 'skew(45deg)',
-            //         transformOrigin: 'top center',
-            //     })
-            // }
-            // else {
-            //     $('.nav_left img').css({
-            //         transform: 'skew(0deg)',
-            //         transformOrigin: 'top center',
-            //     })
-            // }
+            if ($(window).scrollTop() >= 360)  {
+                $('.nav_left img').css({
+                    transform: 'skew(45deg)',
+                    transformOrigin: 'top center',
+                })
+            }
+            else {
+                $('.nav_left img').css({
+                    transform: 'skew(0deg)',
+                    transformOrigin: 'top center',
+                })
+            }
 
-            // if ($(window).scrollTop() >= 400) {
-            //     $('.nav_left img').css({
-            //         transform: 'skew(0deg)',
-            //         transformOrigin: 'top center',
-            //     })
-            // }
-            // else {
-            //     $('.nav_left img').css({
-            //         transform: 'skew(45deg)',
-            //         transformOrigin: 'top center',
-            //     })
-            // }
+            if ($(window).scrollTop() >= 400) {
+                $('.nav_left img').css({
+                    transform: 'skew(0deg)',
+                    transformOrigin: 'top center',
+                })
+            }
+            else {
+                $('.nav_left img').css({
+                    transform: 'skew(45deg)',
+                    transformOrigin: 'top center',
+                })
+            }
 
             if ($(window).scrollTop() >= 400) {
                 $('.bigtittle h3').addClass(
