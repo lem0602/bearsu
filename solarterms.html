@@ -810,13 +810,13 @@
         crossorigin="anonymous"></script>
     <script>
         $('.fa-bookmark').click(function(){
-            if($(this,'.fa-bookmark').hasClass('fa-regular')){
+            if($(this).hasClass('fa-regular')){
                 $(this, '.fa-bookmark').addClass('fa-solid')
-                $(this,'.fa-bookmark').removeClass('fa-regular')
+                $(this).removeClass('fa-regular')
             }
             else{
-                $(this,'.fa-bookmark').removeClass('fa-solid')
-                $(this,'.fa-bookmark').addClass('fa-regular')
+                $(this).removeClass('fa-solid')
+                $(this).addClass('fa-regular')
             }
         })
 
@@ -1143,7 +1143,6 @@
             $(".solarterms_filter").change(function () {
                 index = this.selectedIndex;
                 console.log('no2', this.selectedIndex);
-                console.log('0000', sectorss[noIndex]);
             });
             $(".solarterms_filter").change();
 

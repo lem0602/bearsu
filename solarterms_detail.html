@@ -129,9 +129,9 @@
         }
 
         .recipe_title .fa-bookmark {
-            color: #333333;
+            color: #005F5F;
             font-size: 2rem;
-            margin-bottom: 24px;
+            cursor: pointer;
         }
 
         .recipe_title .down h2 {
@@ -645,6 +645,16 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script>
+        $('.fa-bookmark').click(function () {
+            if ($(this).hasClass('fa-regular')) {
+                $(this).addClass('fa-solid')
+                $(this).removeClass('fa-regular')
+            }
+            else {
+                $(this).removeClass('fa-solid')
+                $(this).addClass('fa-regular')
+            }
+        })
     </script>
 </body>
 

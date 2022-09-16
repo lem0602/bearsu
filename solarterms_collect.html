@@ -250,8 +250,9 @@
         }
 
         .fa-bookmark {
-            color: #333333;
+            color: #005F5F;
             font-size: 2rem;
+            cursor: pointer;
         }
 
         .member_recipe_card .author p {
@@ -536,7 +537,7 @@
                                 <div class="right d-flex align-items-center">
                                     <i class="fa-solid fa-clock d-none d-md-block d-lg-block"></i>
                                     <p class="mb-0 pl-2 d-none d-md-block d-lg-block">10分</p>
-                                    <i class="fa-regular fa-bookmark pl-4 d-none d-md-block d-lg-block"></i>
+                                    <i class="fa-solid fa-bookmark pl-4 d-none d-md-block d-lg-block"></i>
                                 </div>
                             </div>
                             <div class="author">
@@ -553,7 +554,7 @@
                             </div>
                             <div class="btn d-flex justify-content-md-end justify-content-lg-end p-0">
                                 <a href="solarterms_details.html">了解更多</a>
-                                <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -570,7 +571,7 @@
                                 <div class="right d-flex align-items-center">
                                     <i class="fa-solid fa-clock d-none d-md-block d-lg-block"></i>
                                     <p class="mb-0 pl-2 d-none d-md-block d-lg-block">10分</p>
-                                    <i class="fa-regular fa-bookmark pl-4 d-none d-md-block d-lg-block"></i>
+                                    <i class="fa-solid fa-bookmark pl-4 d-none d-md-block d-lg-block"></i>
                                 </div>
                             </div>
                             <div class="author">
@@ -587,7 +588,7 @@
                             </div>
                             <div class="btn d-flex justify-content-md-end justify-content-lg-end p-0">
                                 <a href="solarterms_details.html">了解更多</a>
-                                <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -604,7 +605,7 @@
                                 <div class="right d-flex align-items-center">
                                     <i class="fa-solid fa-clock d-none d-md-block d-lg-block"></i>
                                     <p class="mb-0 pl-2 d-none d-md-block d-lg-block">10分</p>
-                                    <i class="fa-regular fa-bookmark pl-4 d-none d-md-block d-lg-block"></i>
+                                    <i class="fa-solid fa-bookmark pl-4 d-none d-md-block d-lg-block"></i>
                                 </div>
                             </div>
                             <div class="author">
@@ -621,7 +622,7 @@
                             </div>
                             <div class="btn d-flex justify-content-md-end justify-content-lg-end p-0">
                                 <a href="solarterms_details.html">了解更多</a>
-                                <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -674,6 +675,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        
+    <script>
+        $('.fa-bookmark').click(function(){
+            if($(this).hasClass('fa-regular')){
+                $(this).addClass('fa-solid')
+                $(this).removeClass('fa-regular')
+            }
+            else{
+                $(this).removeClass('fa-solid')
+                $(this).addClass('fa-regular')
+            }
+        })
+    </script>
+        </script>
 </body>
 
 </html>

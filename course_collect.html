@@ -230,8 +230,9 @@
         }
 
         .fa-bookmark {
-            color: #333333;
+            color: #005F5F;
             font-size: 2rem;
+            cursor: pointer;
         }
 
         .member_course_card .describe {
@@ -531,7 +532,7 @@
                                     <h2>地瓜餅 (奶素)</h2> <br>
                                 </div>
                                 <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-bookmark"></i>
                                 </div>
                             </div>
                             <div class="describe">
@@ -553,7 +554,7 @@
                                         了解更多
                                     </div>
                                 </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -568,7 +569,7 @@
                                     <h2>地瓜餅 (奶素)</h2> <br>
                                 </div>
                                 <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-bookmark"></i>
                                 </div>
                             </div>
                             <div class="describe">
@@ -590,7 +591,7 @@
                                         了解更多
                                     </div>
                                 </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -605,7 +606,7 @@
                                     <h2>地瓜餅 (奶素)</h2> <br>
                                 </div>
                                 <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-bookmark"></i>
                                 </div>
                             </div>
                             <div class="describe">
@@ -627,7 +628,7 @@
                                         了解更多
                                     </div>
                                 </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -680,6 +681,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        <script>
+            $('.fa-bookmark').click(function(){
+            if($(this).hasClass('fa-regular')){
+                $(this).addClass('fa-solid')
+                $(this).removeClass('fa-regular')
+            }
+            else{
+                $(this).removeClass('fa-solid')
+                $(this).addClass('fa-regular')
+            }
+        })
+        </script>
 </body>
 
 </html>
