@@ -10,7 +10,7 @@ body {
 
 @media screen and (min-width: 570px) {
     #avatar-menu {
-        padding: 0 27.5px;
+        padding: 0;
     }
 }
 
@@ -91,17 +91,12 @@ body {
     text-align: center;
 }
 
-/* collection-nav */
-#collection-menu {
+/* main-container*/
+.main-container {
     padding: 0 27.5px;
 }
 
-@media screen and (min-width: 570px) {
-    #collection-menu {
-        padding: 0 27.5px;
-    }
-}
-
+/* collection-nav */
 .collection-nav {
     display: flex;
     justify-content: space-between; 
@@ -131,11 +126,6 @@ body {
         font-size: 2rem;
         font-weight: 700;
     }
-}
-
-/* collection-main */
-#collection-main {
-    padding: 0 27.5px;
 }
 
 .collection-list {
@@ -283,7 +273,7 @@ body {
 }
 
 @media screen and (min-width: 570px) {
-    .collection-content .mybutton {
+    .collection-content .darkbutton {
         width: auto;
         padding: 8px 35px;
     }
