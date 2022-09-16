@@ -373,12 +373,18 @@
 
         footer p {
             color: #FFF6E9;
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 0px;
             text-align: center;
             font-weight: 500;
             line-height: 50px;
         }
+
+        @media screen and (min-width:768px) {
+            footer p {
+                font-size: 1rem;
+            }
+        }    
     </style>
 </head>
 
@@ -404,7 +410,7 @@
                             <a href="map.html">
                                 <li>素食地圖</li>
                             </a>
-                            <a href="article.html">
+                            <a href="article_list.html">
                                 <li>相關文章</li>
                             </a>
                             <div class="icon d-flex justify-content-center pt-3">
@@ -515,7 +521,7 @@
                 <div class="d-none d-md-block col-md-1 d-lg-block col-lg-1"></div>
 
                 <div class="col-12 col-md-9 col-lg-9 member_course_cards px-0">
-                    <div class="collection_list d-flex justify-content-between justify-content-md-center justify-content-lg-center">
+                    <div class="collection_list d-flex justify-content-between">
                         <a href="course_collect.html"><h1 class="l_course">廚藝教室</h1></a>
                         <a href="solarterms_collect.html"><h1 class="l_solarterms">節氣食補</h1></a>
                         <a href="member_recipe.html"><h1 class="l_recipe">食譜</h1></a>
