@@ -349,8 +349,36 @@ body {
     }
 }
 
+#message .button-box {
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--myblack);
+}
+
 #message .button-box h5 {
     padding: 8px 32px;
+}
+
+#message .message {
+    display: flex;
+    flex-direction: row;
+    padding: 24px 0;
+    align-items: center;
+}
+
+#message .message-author-img {
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 570px) {
+    #message .message-author-img {
+        margin-right: 25px;
+        margin-bottom: 0;
+    }
+}
+
+#message .message-author-img img {
+    width: 100%;
 }
 
 footer {
