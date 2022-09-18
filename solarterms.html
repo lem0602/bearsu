@@ -115,7 +115,6 @@
         }
 
         .solarterms_introduce .down {
-            width: 250px;
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -134,6 +133,59 @@
             text-align: justify;
             line-height: 1.4;
             font-weight: 700;
+        }
+
+        .modal-dialog{
+            z-index: 10000;
+        }
+
+        .solarterms_introduce_btn {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #005F5F;
+            box-shadow: 3px 3px #333333;
+            padding: 16px;
+            margin-top: 24px;
+            transition: .3s;
+        }
+
+        .solarterms_introduce_btn:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
+        .solarterms_introduce_btn h2 {
+            color: #FFF6E9;
+            margin-bottom: 0px;
+            line-height: 1.4;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled).active,
+        .btn-primary:not(:disabled):not(.disabled):active,
+        .show>.btn-primary.dropdown-toggle {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            border: 2px solid #333333;
+        }
+
+        .btn-primary:hover {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            border-color: #333333;
+        }
+
+        .btn-primary.focus,
+        .btn-primary:focus {
+            box-shadow: 3px 3px #333333;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled).active:focus,
+        .btn-primary:not(:disabled):not(.disabled):active:focus,
+        .show>.btn-primary.dropdown-toggle:focus {
+            box-shadow: 3px 3px #333333;
         }
 
         .solarterms_circle img {
@@ -192,7 +244,7 @@
             font-weight: 500;
         }
 
-        .solarterms_filter{
+        .solarterms_filter {
             width: 90px;
         }
 
@@ -344,9 +396,9 @@
             }
 
             .recipe_card .btn {
-            width: fit-content;
-            padding: 6px;
-        }
+                width: fit-content;
+                padding: 6px;
+            }
 
             .recipe_card .btn a {
                 padding: 8px 35px;
@@ -565,6 +617,25 @@
                     </div>
                     <h2 class="d-flex align-items-center">大地回暖陽氣發,飲食宜清淡,少食辛辣的食物。</h2>
                 </div>
+                
+                <div class="solarterms_introduce_btn_wrap w-100"> 
+                    <button type="button" class="btn btn-primary solarterms_introduce_btn" data-toggle="modal"
+                        data-target=".bd-example-modal-lg">
+                        <h2>節氣小教室</h2>
+                    </button>
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                        aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <img src="images/course_00_01.jpg" alt="">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary mobile_close_btn"
+                                        data-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-9 solarterms_circle d-md-flex d-lg-flex justify-content-center d-none">
@@ -706,7 +777,7 @@
                     </div>
                     <div class="btn_wrap d-flex justify-content-md-end justify-content-lg-end p-0">
                         <div class="btn">
-                        <a href="solarterms_detail.html">了解更多</a>
+                            <a href="solarterms_detail.html">了解更多</a>
                         </div>
                         <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                     </div>
@@ -742,7 +813,7 @@
                     </div>
                     <div class="btn_wrap d-flex justify-content-md-end justify-content-lg-end p-0">
                         <div class="btn">
-                        <a href="solarterms_detail.html">了解更多</a>
+                            <a href="solarterms_detail.html">了解更多</a>
                         </div>
                         <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                     </div>
@@ -778,7 +849,7 @@
                     </div>
                     <div class="btn_wrap d-flex justify-content-md-end justify-content-lg-end p-0">
                         <div class="btn">
-                        <a href="solarterms_detail.html">了解更多</a>
+                            <a href="solarterms_detail.html">了解更多</a>
                         </div>
                         <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                     </div>
