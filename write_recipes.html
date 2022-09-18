@@ -155,71 +155,50 @@
                         <div class="veggie-Category">
                             <h2>素食分類</h2>
                             <!-- dropdown -->
-                            <details class="dropdown-custom-select" for="dropdown-radios">
-                                <!-- 設定外層的dropdown -->
-                                <summary class="dropdown-radios">
-                                    <input type="radio" name="item" id="dropdown-default" title="素食分類" checked>
-                                    <input type="radio" name="item" id="dropdown-item1" title="五辛素">
-                                    <input type="radio" name="item" id="dropdown-item2" title="蛋素">
-                                    <input type="radio" name="item" id="dropdown-item3" title="全素">
-                                    <input type="radio" name="item" id="dropdown-item4" title="奶素">
-                                    <input type="radio" name="item" id="dropdown-item5" title="蛋奶素">
-                                </summary>
-                                <!-- 設定下拉的資訊 -->
-                                <ul class="list">
-                                    <li>
-                                        <label for="dropdown-item1">
-                                            五辛素
-                                            <span></span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label for="dropdown-item2">蛋素</label>
-                                    </li>
-                                    <li>
-                                        <label for="dropdown-item3">全素</label>
-                                    </li>
-                                    <li>
-                                        <label for="dropdown-item4">奶素</label>
-                                    </li>
-                                    <li>
-                                        <label for="dropdown-item5">蛋奶素</label>
-                                    </li>
-                                </ul>
-                            </details>
+                            <div class="custom-select">
+                                <select>
+                                    <option value="0">
+                                        <h5>素食分類</h5>
+                                    </option>
+                                    <option value="1">
+                                        <h5>五辛素</h5>
+                                    </option>
+                                    <option value="2">
+                                        <H5>蛋素</H5>
+                                    </option>
+                                    <option value="3">
+                                        <H5>全素</H5>
+                                    </option>
+                                    <option value="4">
+                                        <H5>奶素</H5>
+                                    </option>
+                                    <option value="5">
+                                        <H5>蛋奶素</H5>
+                                    </option>
+                                </select>
+                            </div>
+                            <!-- dropdown end -->
                         </div>
                         <!-- 上傳圖片 -->
-                        <div class="upload-image-group">
-                            <div id="img-crop">
-                                <div id="upload">
-                                    <h3>01. Upload</h3>
-                                    <div class="block">
-                                        <div class="stage">
-                                            <label id="filedrag">
-                                                <input type="file" id="fileselect" name="fileselect" accept="image/*" />
-                                            </label>
-                                        </div>
+                        <div class="upload">
+                            <label class="text-center mb-5 image-preview-wrapper" for="file-uploader">
+                                <img src="https://via.placeholder.com/300x300/efefef?text=Avatar" alt="image-placehoder"
+                                    class="img-thumbnail" data-target="image-preview">
+                                <div class="spinner-wrapper position-absolute" data-target="spinner">
+                                    <div class="spinner-border text-secondary" role="status">
+                                        <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div id="crop">
-                                    <h3>02. Crop / Preview</h3>
-                                    <div class="block">
-                                        <div class="stage">
-                                            <button class="btn" id="prev" onclick="cropCancel();">PREV</button>
-                                            <button class="btn" id="next" onclick="cropResult();">NEXT</button>
-                                            <div id="croppie"></div>
-                                        </div>
+                            </label>
+
+                            <div class="row">
+                                <div class="col-12 col-md-6 mx-auto">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" data-target="file-uploader"
+                                            id="file-uploader">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
-                                <div id="result">
-                                    <h3>03. Result</h3><button id="close" onclick="cropCancel();"></button>
-                                    <div class="block">
-                                        <div class="stage"><img src="" /></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="img d-none d-lg-block">
-                                <img class="w-100" src="./images/mascot-09.png" alt="">
                             </div>
                         </div>
                         <!-- 簡介 -->
@@ -241,11 +220,64 @@
                                 <div class="serving-size">
                                     <h3>份量</h3>
                                     <h4>(人份)</h4>
-
+                                    <!-- dropdown -->
+                                    <div class="custom-select">
+                                        <select>
+                                            <option value="0">
+                                                <h5>份量</h5>
+                                            </option>
+                                            <option value="1">
+                                                <h5>1</h5>
+                                            </option>
+                                            <option value="2">
+                                                <H5>2</H5>
+                                            </option>
+                                            <option value="3">
+                                                <H5>3</H5>
+                                            </option>
+                                            <option value="4">
+                                                <H5>4</H5>
+                                            </option>
+                                            <option value="5">
+                                                <H5>5</H5>
+                                            </option>
+                                            <option value="6">
+                                                <H5>6</H5>
+                                            </option>
+                                            <option value="7">
+                                                <H5>7</H5>
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!-- dropdown end -->
                                 </div>
                                 <div class="time">
                                     <h3>烹調時間</h3>
                                     <h4>(分鐘)</h4>
+                                    <!-- dropdown -->
+                                    <div class="custom-select">
+                                        <select>
+                                            <option value="0">
+                                                <h5>烹調時間</h5>
+                                            </option>
+                                            <option value="1">
+                                                <h5>15</h5>
+                                            </option>
+                                            <option value="2">
+                                                <H5>30</H5>
+                                            </option>
+                                            <option value="3">
+                                                <H5>45</H5>
+                                            </option>
+                                            <option value="4">
+                                                <H5>60</H5>
+                                            </option>
+                                            <option value="5">
+                                                <H5>120</H5>
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!-- dropdown end -->
                                 </div>
                             </div>
                             <!-- 新增食材 -->
@@ -398,10 +430,87 @@
         </footer>
     </section>
 
+    <!-- dropdown js -->
+    <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        // x = 取得所有 classname 為 "custom-select" 的元素：
+        x = document.getElementsByClassName("custom-select");
+
+        l = x.length;
+        console.log(x.length);
+        for (i = 0; i < l; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            /*對於每個元素，創建一個新的 DIV 作為選定項：*/
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            x[i].appendChild(a);
+            /*對於每個元素，創建一個包含選項列表的新 DIV：*/
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 1; j < ll; j++) {
+                /*對於原始選擇元素中的每個選項，創建一個新的 DIV 作為選項：*/
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function (e) {
+                    /*單擊項目時，更新原始選擇框，和選定的項目：*/
+                    var y, i, k, s, h, sl, yl;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    sl = s.length;
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < sl; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            yl = y.length;
+                            for (k = 0; k < yl; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+                            break;
+                        }
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            a.addEventListener("click", function (e) {
+                /*單擊選擇框時，關閉任何其他選擇框，並打開/關閉當前選擇框：*/
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        }
+        function closeAllSelect(elmnt) {
+
+            var x, y, i, xl, yl, arrNo = [];
+            x = document.getElementsByClassName("select-items");
+            y = document.getElementsByClassName("select-selected");
+            xl = x.length;
+            yl = y.length;
+            for (i = 0; i < yl; i++) {
+                if (elmnt == y[i]) {
+                    arrNo.push(i)
+                } else {
+                    y[i].classList.remove("select-arrow-active");
+                }
+            }
+            for (i = 0; i < xl; i++) {
+                if (arrNo.indexOf(i)) {
+                    x[i].classList.add("select-hide");
+                }
+            }
+        }
+
+        document.addEventListener("click", closeAllSelect);
+    </script>
 
     <script>
-
-
+        
     </script>
 </body>
 
