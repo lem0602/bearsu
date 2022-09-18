@@ -95,10 +95,6 @@
             margin: 48px 0px;
         }
 
-        .mobile_mascot_section img {
-            height: 300px;
-        }
-
         .course_cards {
             border-radius: 20px;
             border: 2px solid #333333;
@@ -156,7 +152,7 @@
                 position: sticky;
                 top: 32px;
                 z-index: 999;
-                height: 615px;
+
                 border-radius: 20px;
                 border: 2px solid #333333;
                 background-color: #FFF6E9;
@@ -210,6 +206,7 @@
             margin-bottom: 24px;
             font-size: 0.9rem;
             font-weight: 500;
+            width: 100%;
         }
 
         .date_filter:focus {
@@ -246,6 +243,11 @@
         .course_menu .btn a:hover {
             box-shadow: none;
             transform: translate(3px, 3px);
+        }
+
+        .course_menu_pic img{
+            height: 250px;
+            margin-top: 24px;
         }
 
         footer {
@@ -366,12 +368,6 @@
     <div class="container">
         <div class="row course_innerwrap">
 
-            <div class="col-12 d-md-none d-lg-none text-center">
-                <div class="mobile_mascot_section mb-4">
-                    <img src="images/mascot_06.png" alt="">
-                </div>
-            </div>
-
             <div class="col-12 col-md-9 col-lg-9 course_cards order-1 order-md-0 order-lg-0">
                 <img src="images/course_01.jpg" alt="" class="course_recipe_pic">
                 <h3>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
@@ -429,9 +425,11 @@
                     <div class="btn d-flex justify-content-center">
                         <a href="">加入購物車</a>
                     </div>
+                    <div class="course_menu_pic d-flex justify-content-center">
+                        <img src="images/mascot_02.gif" alt="">
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 
