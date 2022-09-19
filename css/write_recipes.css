@@ -1,8 +1,6 @@
 body {
-    width: 100%;
-    background: url(../images/all_bg.png) no-repeat var(--mygreen);
-    background-size: auto 100vh;
-    background-attachment: fixed;
+    background: url(../images/all_bg.png) no-repeat center bottom / cover fixed;
+    background-color: var(--mygreen);
 }
 
 /* write-recipes */
@@ -19,11 +17,23 @@ body {
     padding: 16px;
 }
 
+@media screen and (min-width: 570px) {
+    .write-recipes {
+        padding: 48px 24px;
+    }
+}
+
 .write-recipes .text-title-box {
     flex-direction: column;
     display: flex;
     align-items: flex-end;
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .write-recipes .text-title-box {
+        margin-bottom: 48px;
+    }
 }
 
 .write-recipes .text-title-textarea {
@@ -33,12 +43,20 @@ body {
     background-color: var(--mylightbeige);
     border: 2px solid var(--myblack);
     border-radius: 8px;
+    resize: none;
 }
 
 /* veggie-Category */
 .veggie-Category {
     display: flex;
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .veggie-Category {
+        display: flex;
+        margin-bottom: 48px;
+    }
 }
 
 .veggie-Category h2 {
@@ -65,11 +83,11 @@ body {
     border: 2px solid var(--myblack);
 }
 
-summary::-webkit-details-marker {
+.dropdown-custom-select summary::-webkit-details-marker {
     display: none;
 }
 
-details[open] summary:before {
+details[open] .dropdown-custom-select summary:before {
     content: "";
     display: block;
     width: 100vw;
@@ -80,7 +98,7 @@ details[open] summary:before {
     left: 0;
 }
 
-summary:after {
+.dropdown-custom-select summary:after {
     content: "";
     display: inline-block;
     float: right;
@@ -94,15 +112,15 @@ summary:after {
     transition: transform ease-in-out 100ms;
 }
 
-summary:focus {
+.dropdown-custom-select summary:focus {
     outline: none;
 }
 
-details[open] summary:after {
+details[open] .dropdown-custom-select summary:after {
     transform: rotate(-45deg) translate(0%, 0%);
 }
 
-ul {
+.dropdown-custom-select ul {
     width: 100%;
     background: var(--mybeige);
     color: var(--mydarkgreen);
@@ -120,75 +138,74 @@ ul {
 }
 
 /* 改變滾動條的樣式 */
-::-webkit-scrollbar {
+.dropdown-custom-select::-webkit-scrollbar {
     width: 8px;
 }
 
-::-webkit-scrollbar-button {
+.dropdown-custom-select::-webkit-scrollbar-button {
     background: transparent;
     border-radius: 4px;
 }
 
-::-webkit-scrollbar-track-piece {
+.dropdown-custom-select::-webkit-scrollbar-track-piece {
     background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+.dropdown-custom-select::-webkit-scrollbar-thumb {
     border-radius: 4px;
-
     background-color: var(--mydarkgreen);
 }
 
-::-webkit-scrollbar-track {
+.dropdown-custom-select::-webkit-scrollbar-track {
     box-shadow: transp arent;
 }
 
-li {
+.dropdown-custom-select li {
     margin: 0;
     padding: 1rem 0;
 }
 
-li:first-child {
+.dropdown-custom-select li:first-child {
     padding-top: 0;
 }
 
-li:last-child {
+.dropdown-custom-select li:last-child {
     padding-bottom: 0;
     border-bottom: none;
 }
 
 /* FAKE SELECT */
 
-summary.radios {
+.dropdown-custom-select summary.radios {
     counter-reset: radios;
 }
 
-summary.radios:before {
+.dropdown-custom-select summary.radios:before {
     content: var(--selection);
 }
 
-input[type="radio"] {
+.dropdown-custom-select input[type="radio"] {
     counter-increment: radios;
     appearance: none;
     display: none;
 }
 
-input[type="radio"]:checked {
+.dropdown-custom-select input[type="radio"]:checked {
     display: inline;
     --display: block;
 }
 
-input[type="radio"]:after {
+.dropdown-custom-select input[type="radio"]:after {
     content: attr(title);
     display: inline;
     font-size: 1rem;
 }
 
-ul.list {
+.dropdown-custom-select ul.list {
     counter-reset: labels;
 }
 
-label {
+.dropdown-custom-select label {
     width: 100%;
     display: flex;
     cursor: pointer;
@@ -196,6 +213,20 @@ label {
 }
 
 /* 上傳圖片 */
+.upload-image-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .upload-image-group {
+        flex-direction: row;
+        align-items: flex-end;
+        margin-bottom: 48px;
+    }
+}
+
 button {
     border: 0;
     cursor: pointer;
@@ -209,9 +240,19 @@ button:focus {
 /*croppie*/
 #img-crop {
     width: 100%;
+    border: 2px solid var(--mydarkgreen);
+    border-radius: 10px;
+    aspect-ratio: 4/3;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+@media screen and (min-width: 570px) {
+    #img-crop {
+        width: 60%;
+        margin-right: 64px;
+    }
 }
 
 #img-crop h3 {
@@ -454,6 +495,24 @@ button:focus {
 }
 
 /* introduction 簡介 */
+.introduction-box {
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .introduction-box {
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 570px) {
+    .textarea-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
 .introduction h2 {
     margin-bottom: 16px;
 }
@@ -472,6 +531,7 @@ button:focus {
     background-color: var(--mylightbeige);
     border: 2px solid var(--myblack);
     border-radius: 8px;
+    resize: none;
 }
 
 /* ingredients */
@@ -479,14 +539,37 @@ button:focus {
     margin-bottom: 24px;
 }
 
+@media screen and (min-width: 570px) {
+    .serving-time {
+        /* margin-bottom: 24px; */
+        display: flex;
+        margin-bottom: 48px;
+    }
+}
+
 .ingredients .serving-size {
     display: flex;
     margin-bottom: 24px;
 }
 
+@media screen and (min-width: 570px) {
+    .ingredients .serving-size {
+        display: flex;
+        margin-bottom: 0;
+        margin-right: 48px;
+    }
+}
+
 .ingredients .time {
     display: flex;
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .ingredients .time {
+        display: flex;
+        margin-bottom: 0;
+    }
 }
 
 /* addIngredients */
@@ -501,10 +584,32 @@ button:focus {
     background-color: var(--mylightbeige);
     border: 2px solid var(--myblack);
     border-radius: 8px;
+    resize: none;
+}
+
+@media screen and (min-width: 570px) {
+    .text-addIngredients {
+        width: 100%;
+        height: 48px;
+        padding: 12px;
+        background-color: var(--mylightbeige);
+        border: 2px solid var(--myblack);
+        border-radius: 8px;
+    }
+
+    teztarea {
+        text-align: center;
+    }
 }
 
 .allDetail-box {
     margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .allDetail-box {
+        margin-bottom: 48px;
+    }
 }
 
 .detail-box {
@@ -521,20 +626,6 @@ button:focus {
 
 .ingredients .addbtn {
     width: 100%;
-}
-
-.ingredients .addbtn button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--mydarkgreen);
-    color: var(--mybeige);
-    border: 2px solid var(--myblack);
-    border-radius: 8px;
-    box-shadow: 4px 4px 0 var(--myblack);
-    padding: 6px 4px;
-    outline: none;
 }
 
 /* step */
@@ -574,18 +665,8 @@ button:focus {
     width: 100%;
 }
 
-.step .addbtn button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--mydarkgreen);
-    color: var(--mybeige);
-    border: 2px solid var(--myblack);
-    border-radius: 8px;
-    box-shadow: 4px 4px 0 var(--myblack);
-    padding: 6px 4px;
-    outline: none;
+.addbtn h3 {
+    margin: 20px 0;
 }
 
 /* postcancel  發布取消按鈕*/
@@ -593,35 +674,86 @@ button:focus {
     margin-bottom: 48px;
 }
 
+@media screen and (min-width: 570px) {
+    #postcancel {
+        margin-top: 48px;
+        margin-bottom: 0;
+        margin-right: auto;
+    }
+}
+
 .postcancel-box {
     display: flex;
     justify-content: center;
 }
 
-#postcancel button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid var(--myblack);
-    border-radius: 8px;
-    box-shadow: 4px 4px 0 var(--myblack);
-    padding: 6px 4px;
-    outline: none;
+@media screen and (min-width: 570px) {
+    .postcancel-box {
+        margin-left: auto;
+        position: fixed;
+    }
 }
 
-#postcancel button h2 {
+#postcancel h2 {
     padding: 12px 30px;
 }
 
-#postcancel .post-btn {
-    background-color: var(--mybeige);
-    color: var(--mydarkgreen);
+@media screen and (min-width: 570px) {
+    #postcancel h2 {
+        padding: 45px 50px;
+    }
+}
+
+#postcancel .lightbutton {
     margin-right: 48px;
 }
 
-#postcancel .cancel-btn {
-    background-color: var(--mydarkgreen);
-    color: var(--mybeige);
+@media screen and (min-width: 570px) {
+    .postcancel-box {
+        width: 150px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid var(--myblack);
+        border-radius: 20px;
+        box-shadow: var(--box-shadow);
+    }
+
+    /* 把原本btn設定定清空 */
+    /* start */
+    #postcancel .lightbutton,
+    #postcancel .darkbutton {
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0;
+        letter-spacing: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    #postcancel .lightbutton::after,
+    #postcancel .lightbutton::before,
+    #postcancel .darkbutton::after,
+    #postcancel .darkbutton::before {
+        transition: none;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        background-color: rgba(240, 248, 255, 0);
+        transform: none;
+        z-index: 0;
+    }
+    /* end */
+
+    #postcancel .lightbutton {
+        margin-right: 0;
+        order: 1;
+    }
 }
 
 footer {

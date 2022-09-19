@@ -32,285 +32,338 @@
 
     <link rel="stylesheet" href="./css/mobile-nav.css">
 
+    <link rel="stylesheet" href="./css/pc-nav.css">
+
 </head>
 
 <body>
-    <!-- mobile-nav -->
-    <section id="mobile-nav">
-        <div class="page">
-            <header tabindex="0">
-                <div class="logo-img">
-                    <img src="./images/logo_horizontal.png" alt="">
-                </div>
-            </header>
-            <div id="nav-container">
-                <div class="bg"></div>
-                <!-- nav icon  -->
-                <div class="btn-box">
-                    <div class="button" tabindex="0">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+    <header>
+        <!-- mobile-nav -->
+        <section id="mobile-nav" class="d-lg-none">
+            <div class="page">
+                <header tabindex="0">
+                    <div class="logo-img">
+                        <img src="./images/logo_horizontal.png" alt="">
+                    </div>
+                </header>
+                <div id="nav-container">
+                    <div class="bg"></div>
+                    <!-- nav icon  -->
+                    <div class="btn-box">
+                        <div class="button" tabindex="0">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </div>
+                    </div>
+                    <!-- nav list -->
+                    <div id="nav-content" tabindex="0">
+                        <ul>
+                            <li>
+                                <a href="#0">
+                                    <h3>首頁</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0">
+                                    <h3>廚藝教室</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0">
+                                    <h3>節氣食補</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0">
+                                    <h3>素食地圖</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0">
+                                    <h3>相關文章</h3>
+                                </a>
+                            </li>
+                            <li class="small">
+                                <a href="#0">購物車</a>
+                                <a href="#0">會員中心</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- nav list -->
-                <div id="nav-content" tabindex="0">
-                    <ul>
-                        <li>
-                            <a href="#0">
-                                <h3>首頁</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0">
-                                <h3>廚藝教室</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0">
-                                <h3>節氣食補</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0">
-                                <h3>素食地圖</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0">
-                                <h3>相關文章</h3>
-                            </a>
-                        </li>
-                        <li class="small">
-                            <a href="#0">購物車</a>
-                            <a href="#0">會員中心</a>
-                        </li>
-                    </ul>
-                </div>
+        <!-- pc-nav -->
+        <div class="pc-nav-left d-none d-md-block">
+            <div class="logoimg">
+                <img src="./images/logo.png" alt="">
             </div>
         </div>
-    </section>
+        <div class="pc-nav-right d-none d-md-block">
+            <ul>
+                <li class="li-top">
+                    <a href="./index.html">
+                        <h3>首頁</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="./course.html">
+                        <h3>廚藝教室</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="./solarterms.html">
+                        <h3>節氣食補</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="./map.html">
+                        <h3>素食地圖</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="./article_list.html">
+                        <h3>相關文章</h3>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-right-icon d-flex">
+                <a href="shopping_cart.html" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i>
+                </a>
+                <a href="" class="member-icon">
+                    <i class="fa-solid fa-user pl-3 pr-5 pb-5"></i>
+                </a>
+            </div>
+        </div>
 
-    <section id="avatar">
+    </header>
+
+    <main>
         <div class="container">
             <div class="row">
-                <div class="avatar-box">
-                    <div class="avatar">
-                        <img src="./images/mug_shot_04.png" alt="">
+                <section id="avatar-menu" class="avatar col-md-2">
+                    <div class="avatar-menu-box">
+                        <div class="avatar-box">
+                            <div class="avatar">
+                                <img src="./images/mug_shot_04.png" alt="">
+                            </div>
+                            <h3>已分享食譜 0</h3>
+                        </div>
+                        <ul class="membermenulist">
+                            <li class="col membermenu">
+                                <a href="#0">
+                                    <h3>會員資料</h3>
+                                </a>
+                            </li>
+                            <li class="col membermenu">
+                                <a href="#0">
+                                    <h3>訂單記錄</h3>
+                                </a>
+                            </li>
+                            <li class="col membermenu">
+                                <a href="#0">
+                                    <h3>我的食譜</h3>
+                                </a>
+                            </li>
+                            <li class="col membermenu">
+                                <a href="#0">
+                                    <h3>收藏</h3>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <h3>已分享食譜 0</h3>
+                </section>
+
+                <div class="main-container col-md-9 offset-md-1">
+                    <section id="menu">
+                        <div class="collection-nav">
+                            <a href="#0" class="lightbutton">
+                                <h4>廚藝教室</h4>
+                            </a>
+                            <a href="#0" class="lightbutton">
+                                <h4>節氣食譜</h4>
+                            </a>
+                            <a href="./recipe_collect.html" class="lightbutton">
+                                <h4>食譜</h4>
+                            </a>
+                            <a href="#0" class="lightbutton">
+                                <h4>地圖</h4>
+                            </a>
+                            <a href="./article_collect.html" class="darkbutton">
+                                <h4>文章</h4>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section id="collection-main">
+                        <div class="collection-list">
+                            <div class="article-content">
+                                <div class="article-img col-md">
+                                    <img src="./images/article_05_01.jpeg" alt="" />
+                                </div>
+
+                                <div class="contant col-md">
+                                    <div class="title">
+                                        <h2>
+                                            植物肉有益健康 可望取代動物製
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
+                                    </div>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction">
+                                        發表在科學雜誌《未來食品》( Future Foods
+                                        )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
+                                        植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
+                                    </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" href="#0">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-content">
+                                <div class="article-img col-md">
+                                    <img src="./images/article_05_01.jpeg" alt="" />
+                                </div>
+
+                                <div class="contant col-md">
+                                    <div class="title">
+                                        <h2>
+                                            植物肉有益健康 可望取代動物製
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
+                                    </div>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction">
+                                        發表在科學雜誌《未來食品》( Future Foods
+                                        )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
+                                        植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
+                                    </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" href="#0">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-content">
+                                <div class="article-img col-md">
+                                    <img src="./images/article_05_01.jpeg" alt="" />
+                                </div>
+
+                                <div class="contant col-md">
+                                    <div class="title">
+                                        <h2>
+                                            植物肉有益健康 可望取代動物製
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
+                                    </div>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction">
+                                        發表在科學雜誌《未來食品》( Future Foods
+                                        )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
+                                        植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
+                                    </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" href="#0">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-content">
+                                <div class="article-img col-md">
+                                    <img src="./images/article_05_01.jpeg" alt="" />
+                                </div>
+
+                                <div class="contant col-md">
+                                    <div class="title">
+                                        <h2>
+                                            植物肉有益健康 可望取代動物製
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
+                                    </div>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction">
+                                        發表在科學雜誌《未來食品》( Future Foods
+                                        )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
+                                        植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
+                                    </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" href="#0">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-content">
+                                <div class="article-img col-md">
+                                    <img src="./images/article_05_01.jpeg" alt="" />
+                                </div>
+
+                                <div class="contant col-md">
+                                    <div class="title">
+                                        <h2>
+                                            植物肉有益健康 可望取代動物製
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
+                                    </div>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction">
+                                        發表在科學雜誌《未來食品》( Future Foods
+                                        )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
+                                        植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
+                                    </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" href="#0">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="menu">
-        <div class="container">
-            <div class="row">
-                <ul class="membermenulist">
-                    <li class=" membermenu">
-                        <a href="#0">
-                            <h3>會員資料</h3>
-                        </a>
-                    </li>
-                    <li class=" membermenu">
-                        <a href="#0">
-                            <h3>訂單記錄</h3>
-                        </a>
-                    </li>
-                    <li class=" membermenu">
-                        <a href="#0">
-                            <h3>我的食譜</h3>
-                        </a>
-                    </li>
-                    <li class=" membermenu">
-                        <a href="#0">
-                            <h3>收藏</h3>
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="collection-nav">
-                    <a href="#0" class="lightbutton">
-                        <h4>廚藝教室</h4>
-                    </a>
-                    <a href="#0" class="lightbutton">
-                        <h4>食譜</h4>
-                    </a>
-                    <a href="#0" class="lightbutton">
-                        <h4>地圖</h4>
-                    </a>
-                    <a href="#0" class="darkbutton">
-                        <h4>文章</h4>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="collection-main">
-        <div class="container">
-            <div class="row">
-                <div class="collection-list">
-                    <div class="article-content">
-                        <div class="article-img">
-                            <img src="./images/article_05_01.jpeg" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>
-                                    植物肉有益健康 可望取代動物製
-                                </h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                            </div>
-
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-
-                            <h4 class="introduction">
-                                發表在科學雜誌《未來食品》( Future Foods )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                            </h4>
-
-                            <h4 class="Ingredients">
-                                食材：甜豌豆/荷蘭豆、乾木耳/鮮木耳、胡蘿蔔、杏鮑菇、蒜頭、辣椒、鹽、熱水、香菇素蠔油、香菇粉、白胡椒粉、香油、太白粉
-                            </h4>
-
-                            <div class="article-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-img">
-                            <img src="./images/article_05_01.jpeg" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>
-                                    植物肉有益健康 可望取代動物製
-                                </h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                            </div>
-
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-
-                            <h4 class="introduction">
-                                發表在科學雜誌《未來食品》( Future Foods )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                            </h4>
-
-                            <div class="article-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-img">
-                            <img src="./images/article_05_01.jpeg" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>
-                                    植物肉有益健康 可望取代動物製
-                                </h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                            </div>
-
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-
-                            <h4 class="introduction">
-                                發表在科學雜誌《未來食品》( Future Foods )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                            </h4>
-
-                            <div class="article-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-img">
-                            <img src="./images/article_05_01.jpeg" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>
-                                    植物肉有益健康 可望取代動物製
-                                </h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                            </div>
-
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-
-                            <h4 class="introduction">
-                                發表在科學雜誌《未來食品》( Future Foods )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                            </h4>
-
-                            <div class="article-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="article-content">
-                        <div class="article-img">
-                            <img src="./images/article_05_01.jpeg" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>
-                                    植物肉有益健康 可望取代動物製
-                                </h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                            </div>
-
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-
-                            <h4 class="introduction">
-                                發表在科學雜誌《未來食品》( Future Foods )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                            </h4>
-
-                            <div class="article-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    </main>
 
     <section id="footer">
         <footer>
