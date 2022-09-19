@@ -48,7 +48,7 @@ body {
 
 /* recipe-filter */
 #recipe-filter {
-    margin-bottom: 28px;
+    margin-bottom: 48px;
 }
 
 @media screen and (min-width: 570px) {
@@ -59,7 +59,7 @@ body {
 
 .classification {
     width: 100%;
-    padding: 0 24px;
+    padding: 0 12px;
     display: flex;
     justify-content: space-between;
 }
@@ -86,30 +86,109 @@ body {
 }
 
 /* recipe-dropdown */
-
-/* 寫食譜btn */
-.write-btn {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--mydarkgreen);
-    color: var(--mybeige);
-    border: 2px solid var(--myblack);
-    border-radius: 8px;
-    box-shadow: 4px 4px 0 var(--myblack);
-    padding: 6px 4px;
-    outline: none;
+.custom-select {
+    position: relative;
+    width: 140px;
 }
 
-.write-btn h5 {
-    margin-right: 8px;
+@media screen and (min-width: 570px) {
+    .custom-select {
+        width: 165px;
+    }
+    
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-selected {
+    background-color: var(--mybeige);
+    border: 2px solid var(--myblack);
+    border-radius: 8px;
+    color: var(--mydarkgreen);
+}
+
+.select-selected::after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-color: var(--mydarkgreen) transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active::after {
+    border-color: transparent transparent var(--mydarkgreen) transparent;
+    top: 8px;
+}
+
+.select-items div {
+    color: var(--mydarkgreen);
+    padding: 8px 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.select-selected {
+    color: var(--mydarkgreen);
+    padding: 8px 16px;
+    border: 2px solid var(--myblack);
+    cursor: pointer;
+    user-select: none;
+}
+
+/*style items*/
+.select-items {
+    position: absolute;
+    background-color: var(--mybeige);
+    border: 2px solid var(--myblack);
+    border-radius: 8px;
+    margin-top: 8px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover {
+    background-color: var(--mydarkgreen);
+    color: var(--mybeige);
+}
+
+.veggie-Category {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 12px;
+    margin-bottom: 48px;
+}
+
+/* 寫食譜btn */
+.darkbutton {
+    width: auto;
+}
+
+.darkbutton i {
+    font-size: 1rem;
+    margin-left: 12px;
+}
+
+.darkbutton h5 {
+    padding: 8px 12px;
 }
 
 /* recipe-main */
 .recipe-list {
     width: 100%;
-    padding: 0 24px;
+    padding: 0 12px;
 }
 
 .recipe-content {
