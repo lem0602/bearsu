@@ -73,7 +73,6 @@ body {
     .custom-select {
         width: 165px;
     }
-    
 }
 
 .custom-select select {
@@ -166,18 +165,33 @@ body {
 }
 
 /* 上傳圖片 */
+.upload {
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .upload {
+        margin-bottom: 48px;
+    }
+}
+
 .upload .image-preview-wrapper {
-    display: block;
-    max-width: 310px;
-    max-height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    border: 2px solid var(--myblack);
+    aspect-ratio: 4/3;
+    max-width: 520px;
+    max-height: 390px;
+    border: 2px solid var(--mydarkgreen);
+    background-color: var(--mybeige);
+    color: var(--mydarkgreen);
     border-radius: 10px;
     overflow: hidden;
-    margin: 0 auto;
     position: relative;
     cursor: pointer;
 }
+
 .upload .spinner-wrapper {
     opacity: 0;
     margin: 0;
@@ -186,6 +200,17 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.upload .detall i {
+    color: var(--mydarkgreen);
+    font-size: 2rem;
+    margin-bottom: 26px;
+}
+
+.upload .detall h2 {
+    margin-bottom: 26px;
+}
+
 .opacity-1 {
     opacity: 1;
 }
@@ -474,6 +499,24 @@ body {
         margin-right: 0;
         order: 1;
     }
+}
+
+#postcancel .lightbutton:hover,
+#postcancel .darkbutton:hover {
+    top: 0;
+    left: 0;
+}
+
+#postcancel .lightbutton:hover::after,
+#postcancel .darkbutton:hover::after {
+    top: 0;
+    right: 0;
+}
+
+#postcancel .lightbutton:hover::before,
+#postcancel .darkbutton:hover::before {
+    bottom: 0;
+    right: 0;
 }
 
 footer {

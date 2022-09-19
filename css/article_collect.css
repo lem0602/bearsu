@@ -186,6 +186,12 @@ body {
     width: 100%;
     object-fit: cover;
     object-position: center center;
+}z
+
+.article-content .contant {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .article-content .title {
