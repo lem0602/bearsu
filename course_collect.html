@@ -28,17 +28,15 @@
             background-color: #6DD0CD;
         }
 
-        header,
-        #nav-container {
-            z-index: 9999;
+        .pc_header_wrap {
+            height: 0px;
         }
 
-        .nav_left {
+        .pc_header {
+            z-index: 9999;
             position: sticky;
             top: 32px;
-            height: 100%;
-            z-index: 999;
-            margin-left: 50px;
+            height: 0px;
         }
 
         .nav_left img {
@@ -46,10 +44,6 @@
         }
 
         .nav_right {
-            position: sticky;
-            top: 32px;
-            z-index: 999;
-            margin-right: 30px;
             width: 150px;
             height: 400px;
             border-radius: 100px;
@@ -178,7 +172,7 @@
             font-size: 1rem;
             font-weight: 500;
             color: #005F5F;
-            padding: 6px 15px;
+            padding: 6px;
             background-color: #FFF6E9;
             border: 2px solid #333333;
             border-radius: 10px;
@@ -198,7 +192,7 @@
 
         @media screen and (min-width:768px) {
         .collection_list h1{
-            font-size: 1.5rem;
+            font-size: 1.9rem;
             font-weight: 700;
             padding: 12px 30px;
         }
@@ -236,8 +230,9 @@
         }
 
         .fa-bookmark {
-            color: #333333;
+            color: #005F5F;
             font-size: 2rem;
+            cursor: pointer;
         }
 
         .member_course_card .describe {
@@ -373,20 +368,62 @@
         footer {
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
-            padding: 11px 0px;
+            height: 50px;
         }
 
         footer p {
             color: #FFF6E9;
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 0px;
             text-align: center;
             font-weight: 500;
+            line-height: 50px;
         }
+
+        @media screen and (min-width:768px) {
+            footer p {
+                font-size: 1rem;
+            }
+        }    
     </style>
 </head>
 
 <body>
+    <header class="pc_header d-none d-md-block d-lg-block">
+        <div class="container-fluid d-flex pc_header_wrap">
+                    <div class="col-2 nav_left d-none d-md-flex d-lg-flex justify-content-start">
+                        <a href="index.html"><img src="images/logo.png" alt=""></a>
+                    </div>
+
+                    <div class="col-2 offset-8 nav_right_wrap d-none d-md-flex d-lg-flex justify-content-end">
+                        <div class="nav_right">
+                        <ul class="d-flex flex-column">
+                            <a href="index.html">
+                                <li class="li_top">首頁</li>
+                            </a>
+                            <a href="course.html">
+                                <li>廚藝教室</li>
+                            </a>
+                            <a href="solarterms.html">
+                                <li>節氣食補</li>
+                            </a>
+                            <a href="map.html">
+                                <li>素食地圖</li>
+                            </a>
+                            <a href="recipe_list.html">
+                                <li>相關文章</li>
+                            </a>
+                            <div class="icon d-flex justify-content-center pt-3">
+                                <a href="shopping_cart.html"><i
+                                        class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
+                                <a href="member_login.html"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                            </div>
+                        </ul>
+                    </div>
+                    </div>
+        </div>
+    </header>
+
     <section id="mobile-nav" class="d-block d-md-none d-lg-none">
         <div class="page">
             <header tabindex="0">
@@ -409,33 +446,33 @@
                 <div id="nav-content" tabindex="0">
                     <ul>
                         <li>
-                            <a href="#0">
+                            <a href="index.html">
                                 <h3>首頁</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#0">
+                            <a href="course.html">
                                 <h3>廚藝教室</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#0">
+                            <a href="solarterms.html">
                                 <h3>節氣食補</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#0">
+                            <a href="map.html">
                                 <h3>素食地圖</h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#0">
+                            <a href="recipe_list.html">
                                 <h3>相關文章</h3>
                             </a>
                         </li>
                         <li class="small">
-                            <a href="#0">購物車</a>
-                            <a href="#0">會員中心</a>
+                            <a href="shopping_cart.html">購物車</a>
+                            <a href="member_login.html">會員中心</a>
                         </li>
                     </ul>
                 </div>
@@ -443,15 +480,10 @@
         </div>
     </section>
 
-    <div class="member_course_wrap d-flex justify-content-between position-relative">
-        <div class="nav_left d-none d-md-block d-lg-block">
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
-        </div>
-
-        <div class="container">
+    <div class="container member_course_wrap">
             <div class="row member_course_innerwrap">
 
-                <div class="member_menu_wrap col-12 col-md-2 col-lg-2">
+                <div class="member_menu_wrap col-12 col-md-2 col-lg-2 px-0">
                     <div class="member_menu_innrwrap">
                     <div class="mug_shot d-flex justify-content-center">
                         <img src="images/mug_shot_01.png" alt="">
@@ -488,10 +520,10 @@
 
                 <div class="d-none d-md-block col-md-1 d-lg-block col-lg-1"></div>
 
-                <div class="col-12 col-md-9 col-lg-9 member_course_cards">
-                    <div class="collection_list d-flex justify-content-between justify-content-md-center justify-content-lg-center">
-                        <a href="member_course.html"><h1 class="l_course">廚藝教室</h1></a>
-                        <a href="member_solarterms.html"><h1 class="l_solarterms">節氣食補</h1></a>
+                <div class="col-12 col-md-9 col-lg-9 member_course_cards px-0">
+                    <div class="collection_list d-flex justify-content-between">
+                        <a href="course_collect.html"><h1 class="l_course">廚藝教室</h1></a>
+                        <a href="solarterms_collect.html"><h1 class="l_solarterms">節氣食補</h1></a>
                         <a href="member_recipe.html"><h1 class="l_recipe">食譜</h1></a>
                         <a href=""><h1 class="l_map">地圖</h1></a>
                         <a href=""><h1 class="l_article">文章</h1></a>
@@ -506,7 +538,7 @@
                                     <h2>地瓜餅 (奶素)</h2> <br>
                                 </div>
                                 <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-bookmark"></i>
                                 </div>
                             </div>
                             <div class="describe">
@@ -523,12 +555,12 @@
                                     11月18日(五) 19:00-21:00</h4>
                             </div>
                             <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                <a href="member_course_details.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
                                     <div class="btn p-0">
                                         了解更多
                                     </div>
                                 </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -543,7 +575,7 @@
                                     <h2>地瓜餅 (奶素)</h2> <br>
                                 </div>
                                 <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-bookmark"></i>
                                 </div>
                             </div>
                             <div class="describe">
@@ -560,12 +592,12 @@
                                     11月18日(五) 19:00-21:00</h4>
                             </div>
                             <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                <a href="member_course_details.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
                                     <div class="btn p-0">
                                         了解更多
                                     </div>
                                 </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -580,7 +612,7 @@
                                     <h2>地瓜餅 (奶素)</h2> <br>
                                 </div>
                                 <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="fa-solid fa-bookmark"></i>
                                 </div>
                             </div>
                             <div class="describe">
@@ -597,12 +629,12 @@
                                     11月18日(五) 19:00-21:00</h4>
                             </div>
                             <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                <a href="member_course_details.html" class="btn_wrap mr-md-0 mr-lg-0">
+                                <a href="course_detail.html" class="btn_wrap mr-md-0 mr-lg-0">
                                     <div class="btn p-0">
                                         了解更多
                                     </div>
                                 </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <i class="fa-solid fa-bookmark d-md-none d-lg-none"></i>
                             </div>
                         </div>
                     </div>
@@ -638,31 +670,6 @@
 
 
             </div>
-        </div>
-
-        <div class="nav_right d-none d-md-block d-lg-block">
-            <ul class="d-flex flex-column">
-                <a href="index.html">
-                    <li class="li_top">首頁</li>
-                </a>
-                <a href="member_course.html">
-                    <li>廚藝教室</li>
-                </a>
-                <a href="solarterms.html">
-                    <li>節氣食補</li>
-                </a>
-                <a href="map.html">
-                    <li>素食地圖</li>
-                </a>
-                <a href="article.html">
-                    <li>相關文章</li>
-                </a>
-                <div class="icon d-flex justify-content-center pt-3">
-                    <a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-                    <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
-                </div>
-            </ul>
-        </div>
     </div>
 
     <footer>
@@ -680,6 +687,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        <script>
+            $('.fa-bookmark').on('click', function () {
+            $(this).parents('.member_course_card').remove();
+        })
+        </script>
 </body>
 
 </html>
