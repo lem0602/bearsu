@@ -378,8 +378,7 @@
 
         /* ---------------main pic end---------------- */
         /* --------mobile main pic start--------------- */
-        @keyframes scale_mobile {
-
+        @keyframes scale_mobile1 {
             0%,
             50%,
             100% {
@@ -392,10 +391,31 @@
             }
         }
 
-        .index_main_pic_s {
+        @keyframes scale_mobile2 {
+            0%,
+            50%,
+            100% {
+                transform: scale(1.06);
+            }
+
+            25%,
+            75% {
+                transform: scale(1.02);
+            }
+        }
+
+        .index_main_pic_s1 {
             position: relative;
             transform-origin: center center;
-            animation: scale_mobile 5s linear infinite;
+            animation: scale_mobile1 5s linear infinite;
+        }
+
+        .index_main_pic_s2 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform-origin: center center;
+            animation: scale_mobile2 5s linear infinite;
         }
 
         .bearsu_mobile {
@@ -728,7 +748,7 @@
                 font-weight: 700;
             }
 
-            .have_recipe_wrap h1{
+            .have_recipe_wrap h1 {
                 position: absolute;
                 color: white;
                 top: 15%;
@@ -919,7 +939,8 @@
     <div class="container-fluid px-0">
         <div class="row mx-0">
             <div class="col px-0 d-md-none d-lg-none">
-                <img src="images/index_main_pic_s.png" alt="" class="w-100 index_main_pic_s">
+                <img src="images/index_main_pic_s-1.png" alt="" class="w-100 index_main_pic_s index_main_pic_s1">
+                <img src="images/index_main_pic_s-2.png" alt="" class="w-100 index_main_pic_s index_main_pic_s2">
                 <img src="images/bearsu_mobile.png" alt="" class="bearsu_mobile">
                 <img src="images/say_mobile.png" alt="" class="say_mobile">
             </div>
