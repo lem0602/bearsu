@@ -1,0 +1,856 @@
+* {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background: #6DD0CD;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        @keyframes header_show {
+            0% {
+                opacity: 0;
+                z-index: -9999;
+            }
+
+            100% {
+                opacity: 1;
+                z-index: 9999;
+            }
+        }
+
+        @keyframes header_hide {
+            0% {
+                opacity: 1;
+                z-index: 9999;
+            }
+
+            100% {
+                opacity: 0;
+                z-index: -9999;
+            }
+        }
+
+        .pc_header_wrap {
+            height: 0px;
+        }
+
+        .pc_header {
+            z-index: 9999;
+            position: sticky;
+            top: 32px;
+            height: 0px;
+        }
+
+        .nav_left img {
+            width: 120px;
+            transition: 1s;
+        }
+
+        .nav_right {
+            width: 150px;
+            height: 400px;
+            border-radius: 100px;
+            border: 2px solid #FFF6E9;
+            background-color: #005F5F;
+            overflow: hidden;
+        }
+
+        .nav_right ul {
+            padding: 0px;
+            margin: 0px;
+            height: 400px;
+        }
+
+        .nav_right li {
+            list-style-type: none;
+            color: #FFF6E9;
+            text-align: center;
+            padding: 15px 0px;
+            transition: .5s;
+            border-bottom: 2px dashed #FFF6E9;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .nav_right .li_top {
+            padding-top: 35px;
+        }
+
+        .nav_right li:hover {
+            color: #005F5F;
+            background-color: #FFF6E9;
+        }
+
+        .nav_right a:hover {
+            text-decoration: none;
+        }
+
+        .nav_right .icon a {
+            color: #FFF6E9;
+            transition: .5s;
+        }
+
+        .nav_right .icon a:hover {
+            transform: scale(1.2);
+        }
+
+        .container-fluid,
+        .container {
+            contain: layout;
+        }
+
+        /* --------main pic start--------------- */
+        #main_pic {
+            transform-origin: center center;
+            animation: scale 20s linear infinite;
+        }
+
+        @keyframes scale {
+
+            0%,
+            50%,
+            100% {
+                transform: scale(1);
+            }
+
+            25%,
+            75% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes scale_s {
+
+            0%,
+            50%,
+            100% {
+                transform: scale(1);
+            }
+
+            25%,
+            75% {
+                transform: scale(.9);
+            }
+        }
+
+        /* @keyframes opacity{
+            0%,100%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+        } */
+
+        @keyframes open_eye {
+
+            0%,
+            51%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes close_eye {
+
+            0%,
+            51%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        #bearsu {
+            cursor: pointer;
+            transform-origin: center center;
+            transition: .5s;
+            animation: swing 3s linear infinite;
+        }
+
+        #bearsu:hover {
+            /* animation:heartBeat;
+            animation-duration: 2s; */
+            animation: swing 2s linear infinite;
+        }
+
+        #bearsu_eye {
+            animation: open_eye 3s ease-in-out infinite;
+        }
+
+        #close_eye {
+            animation: close_eye 3s ease-in-out infinite;
+        }
+
+        #say {
+            transform-origin: center center;
+            animation: scale 5s linear infinite;
+            transition: .5s;
+        }
+
+        #carrot2,
+        #mushrooma1,
+        #mushroomb1,
+        #pepper1,
+        #carrot4,
+        #eggplant1,
+        #yan2,
+        #cabbage1,
+        #radish1,
+        #bamboo1,
+        #sweetpotato1,
+        #onionb1,
+        #pepper2 {
+            transform-origin: center center;
+            animation: scale_s 15s linear infinite;
+        }
+
+        #tomato1,
+        #tomato2,
+        #tomato3,
+        #tomato4,
+        #sugarpea1,
+        #sugarpea2,
+        #sugarpea3,
+        #carrot1,
+        #carrot2,
+        #carrot3,
+        #carrot4,
+        #pumpkin1,
+        #pumpkin2,
+        #sweetpotato1,
+        #sweetpotato2,
+        #sweetpotato3,
+        #sweetpotato4,
+        #sweetpotato5,
+        #yan1,
+        #yan2,
+        #cabbage1,
+        #mushroomb1,
+        #mushroomb2,
+        #mushrooma1,
+        #mushrooma2,
+        #mushrooma3,
+        #asparagus1,
+        #asparagus2,
+        #asparagus3,
+        #garlic1,
+        #garlic2,
+        #garlic3,
+        #oniona1,
+        #oniona2,
+        #lettuce1,
+        #eggplant1,
+        #eggplant2,
+        #bitter1,
+        #bitter2,
+        #brocoli1,
+        #brocoli2,
+        #bamboo1,
+        #onionb1,
+        #onionb2,
+        #pepper1,
+        #pepper2,
+        #radish1,
+        #radish2,
+        #gherkin1,
+        #kale1,
+        #kale2,
+        #solanum1 {
+            cursor: pointer;
+        }
+
+        #tomato1:hover,
+        #tomato2:hover,
+        #tomato3:hover,
+        #tomato4:hover,
+        #sugarpea1:hover,
+        #sugarpea2:hover,
+        #sugarpea3:hover,
+        #carrot1:hover,
+        #carrot2:hover,
+        #carrot3:hover,
+        #carrot4:hover,
+        #pumpkin1:hover,
+        #pumpkin2:hover,
+        #sweetpotato1:hover,
+        #sweetpotato2:hover,
+        #sweetpotato3:hover,
+        #sweetpotato4:hover,
+        #sweetpotato5:hover,
+        #yan1:hover,
+        #yan2:hover,
+        #cabbage1:hover,
+        #mushroomb1:hover,
+        #mushroomb2:hover,
+        #mushrooma1:hover,
+        #mushrooma2:hover,
+        #mushrooma3:hover,
+        #asparagus1:hover,
+        #asparagus2:hover,
+        #asparagus3:hover,
+        #garlic1:hover,
+        #garlic2:hover,
+        #garlic3:hover,
+        #oniona1:hover,
+        #oniona2:hover,
+        #lettuce1:hover,
+        #eggplant1:hover,
+        #eggplant2:hover,
+        #bitter1:hover,
+        #bitter2:hover,
+        #brocoli1:hover,
+        #brocoli2:hover,
+        #bamboo1:hover,
+        #onionb1:hover,
+        #onionb2:hover,
+        #pepper1:hover,
+        #pepper2:hover,
+        #radish1:hover,
+        #radish2:hover,
+        #gherkin1:hover,
+        #kale1:hover,
+        #kale2:hover,
+        #solanum1:hover {
+            animation: shakeY;
+            animation: shakeY 2s linear infinite;
+        }
+
+        #say_change,
+        #tomato_say,
+        #sugarpea_say,
+        #carrot_say,
+        #pumpkin_say,
+        #sweetpotato_say,
+        #yan_say,
+        #cabbage_say,
+        #mushroomb_say,
+        #mushrooma_say,
+        #asparagus_say,
+        #garlic_say,
+        #oniona_say,
+        #lettuce_say,
+        #eggplant_say,
+        #bitter_say,
+        #brocoli_say,
+        #bamboo_say,
+        #onionb_say,
+        #pepper_say,
+        #radish_say,
+        #gherkin_say,
+        #kale_say,
+        #solanum_say {
+            transform-origin: center center;
+            transition: .5s;
+            animation: heartBeat 5s linear infinite;
+        }
+
+        /* ---------------main pic end---------------- */
+        /* --------mobile main pic start--------------- */
+        @keyframes scale_mobile1 {
+            0%,
+            50%,
+            100% {
+                transform: scale(1.02);
+            }
+
+            25%,
+            75% {
+                transform: scale(1.06);
+            }
+        }
+
+        @keyframes scale_mobile2 {
+            0%,
+            50%,
+            100% {
+                transform: scale(1.06);
+            }
+
+            25%,
+            75% {
+                transform: scale(1.02);
+            }
+        }
+
+        .index_main_pic_s1 {
+            position: relative;
+            transform-origin: center center;
+            animation: scale_mobile1 5s linear infinite;
+        }
+
+        .index_main_pic_s2 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform-origin: center center;
+            animation: scale_mobile2 5s linear infinite;
+        }
+
+        .bearsu_mobile {
+            position: absolute;
+            top: 45%;
+            left: 24%;
+            transform-origin: center center;
+            animation: swing 3s linear infinite;
+        }
+
+        .say_mobile {
+            position: absolute;
+            top: 18%;
+            left: 45%;
+            transform-origin: bottom left;
+            animation: swing 5s linear infinite;
+        }
+
+        /* --------mobile main pic end--------------- */
+
+        .bigtittle h1 {
+            color: #333333;
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 5px;
+            font-weight: 700;
+            line-height: 2;
+            margin: 150px 0px;
+            transition: 1s;
+        }
+
+        .bigtittle h3 {
+            color: #333333;
+            text-align: center;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            line-height: 2;
+            margin: 150px 0px;
+        }
+
+        .main .circle {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+        }
+
+        .mascot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mascot1 {
+            height: 350px;
+        }
+
+        .mobile_circle,
+        .describ1_wrap,
+        .describ2_wrap,
+        .describ3_wrap,
+        .tittle,
+        .mascot_left_wrap,
+        .mascot_right_wrap,
+        .have_restaurant_wrap,
+        .have_recipe_wrap {
+            transition: 1s;
+        }
+
+        .describ_top {
+            height: 155px;
+        }
+
+        .describ_top h1 {
+            font-size: 7rem;
+            font-weight: 900;
+            color: #F2AD31;
+            -webkit-text-stroke: 3px #333333;
+            margin-bottom: 0px;
+        }
+
+        .describ_down {
+            height: 445px;
+            border-top: 2px solid #333333;
+            border-bottom: 2px solid #333333;
+        }
+
+        .describ_down h5 {
+            font-size: 1.4rem;
+            color: #333333;
+            writing-mode: vertical-rl;
+            line-height: 1.8;
+            letter-spacing: 5px;
+            font-weight: 500;
+            margin: 0px;
+        }
+
+        .tittle_top h1 {
+            color: #333333;
+            writing-mode: vertical-rl;
+            font-size: 3.3rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            line-height: 1.5;
+        }
+
+        .tittle_down .dashed {
+            width: 2px;
+            height: 50px;
+            border-left: 5px dotted #333333;
+        }
+
+        .tittle_down p {
+            color: #333333;
+            writing-mode: vertical-rl;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 8px;
+            margin: 0px;
+            text-decoration: none;
+            height: 125px;
+            width: 125px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .5s;
+        }
+
+        .tittle_down p:hover {
+            background-color: #F2AD31;
+        }
+
+        .tittle_down a {
+            text-decoration: none;
+        }
+
+        .line {
+            width: 2px;
+            height: 150px;
+            border: 2px solid #333333;
+            margin: 0px;
+        }
+
+        .mascot2,
+        .mascot3 {
+            height: 300px;
+        }
+
+        .mobile_title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .mobile_circle {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            margin: 32px 0px;
+        }
+
+        .mobile_circle1 img {
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mobile_circle2 img {
+            height: 160px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mobile_circle3 img {
+            height: 160px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mobile_describ h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #F2AD31;
+            -webkit-text-stroke: 3px #333333;
+            margin-bottom: 0px;
+        }
+
+        .mobile_describ p {
+            font-size: 0.9rem;
+            color: #333333;
+            margin-bottom: 0px;
+            font-weight: 500;
+            padding: 0px 14px;
+        }
+
+        .mobile_circle_s p {
+            color: #333333;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0px;
+            text-decoration: none;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .5s;
+            line-height: 16px;
+        }
+
+        .mobile_circle_s p:hover {
+            background-color: #F2AD31;
+        }
+
+        .mobile_circle_s a {
+            text-decoration: none;
+        }
+
+        .mobile_describ_section2 {
+            margin: 150px 0px;
+        }
+
+        .own img {
+            width: 320px;
+            margin-top: 150px;
+            margin-bottom: 50px;
+        }
+
+        .main_own,
+        .main_experience {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .mascot_left,
+        .mascot_right {
+            height: 200px;
+        }
+
+        .have_restaurant,
+        .have_recipe {
+            height: 250px;
+        }
+
+        .have_restaurant_wrap,
+        .mascot_left_wrap {
+            margin-bottom: 50px;
+        }
+
+        .have_restaurant_wrap,
+        .have_recipe_wrap {
+            position: relative;
+        }
+
+        .have_restaurant_wrap h1 {
+            position: absolute;
+            color: white;
+            top: 15%;
+            left: 30%;
+            font-size: 3.9rem;
+            font-weight: 700;
+        }
+
+        .have_recipe_wrap h1 {
+            position: absolute;
+            color: white;
+            top: 15%;
+            left: 20%;
+            font-size: 3.9rem;
+            font-weight: 700;
+        }
+
+        @media screen and (min-width:768px) {
+            .own img {
+                width: 433px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .main_own,
+            .main_experience {
+                margin-top: 150px;
+                margin-bottom: 50px;
+            }
+
+            .mascot_left,
+            .mascot_right {
+                height: 290px;
+            }
+
+            .have_restaurant,
+            .have_recipe {
+                height: 360px;
+            }
+
+            .have_restaurant_wrap,
+            .mascot_left_wrap {
+                margin-bottom: 0px;
+            }
+
+            .have_restaurant_wrap h1 {
+                position: absolute;
+                color: white;
+                top: 15%;
+                left: 32%;
+                font-size: 5.5rem;
+                font-weight: 700;
+            }
+
+            .have_recipe_wrap h1 {
+                position: absolute;
+                color: white;
+                top: 15%;
+                left: 22%;
+                font-size: 5.5rem;
+                font-weight: 700;
+            }
+        }
+
+        .card_carousel {
+            height: 370px;
+            margin-bottom: 100px;
+        }
+
+        .card_carousel .card {
+            height: 350px;
+            width: 350px;
+            background-color: #FFF6E9;
+            border-radius: 12px;
+            border: 2px solid #333333;
+            box-shadow: 2px 2px 0px #333333;
+            margin-bottom: 100px;
+            padding: 24px;
+        }
+
+        .card_carousel .card_top h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.6;
+            letter-spacing: 3px;
+            color: #333333;
+            text-align: justify;
+        }
+
+        .card_carousel .card_down .mug_shot img {
+            width: 90px;
+            height: 90px;
+        }
+
+        .card_carousel .card_down .name h2 {
+            font-size: 1.5rem;
+            color: #005F5F;
+            font-weight: 500;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        /* -----------mobile start-------------------- */
+        .mobile_card_carousel {
+            height: 370px;
+            margin-bottom: 100px;
+        }
+
+        .mobile_card_carousel .card {
+            height: 400px;
+            width: 150px;
+            background-color: #FFF6E9;
+            border-radius: 12px;
+            border: 2px solid #333333;
+            box-shadow: 2px 2px 0px #333333;
+            margin-bottom: 100px;
+            padding: 12px;
+        }
+
+        .mobile_card_carousel .card_top h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.6;
+            letter-spacing: 2px;
+            color: #333333;
+            text-align: justify;
+        }
+
+        .mobile_card_carousel .card_down .mug_shot img {
+            width: 90px;
+            height: 90px;
+        }
+
+        .mobile_card_carousel .card_down .name h2 {
+            font-size: 1rem;
+            color: #005F5F;
+            font-weight: 500;
+        }
+
+        ol>li {
+            width: 50%;
+            list-style-type: none;
+            position: absolute;
+            padding: 17px;
+            opacity: 0;
+            transition: 1s opacity;
+        }
+
+        @media screen and (min-width:768px) {
+            ol>li {
+                width: 33.333%;
+            }
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        /* ------------------mobile end------------------ */
+
+        footer {
+            background-color: #005F5F;
+            box-shadow: 0px -3px 0px #333333;
+            height: 50px
+        }
+
+        footer p {
+            color: #FFF6E9;
+            font-size: 0.9rem;
+            margin-bottom: 0px;
+            text-align: center;
+            font-weight: 500;
+            line-height: 50px;
+        }
+
+        @media screen and (min-width:768px) {
+            footer p {
+                font-size: 1rem;
+            }
+        }
