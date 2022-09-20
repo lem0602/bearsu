@@ -181,9 +181,14 @@
                         </div>
                         <!-- 上傳圖片 -->
                         <div class="upload">
-                            <label class="text-center mb-5 image-preview-wrapper" for="file-uploader">
-                                <img src="https://via.placeholder.com/300x300/efefef?text=Avatar" alt="image-placehoder"
-                                    class="img-thumbnail" data-target="image-preview">
+                            <label class="text-center image-preview-wrapper" for="file-uploader">
+                                <div class="detall">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <h2>點擊新增圖片</h2>
+                                    <h3>比例建議 4:3 ，大小 1200x900 以上<br>
+                                        內容以食譜為主<br>
+                                        (請勿上傳人像或動物圖片)</h3>   
+                                </div>
                                 <div class="spinner-wrapper position-absolute" data-target="spinner">
                                     <div class="spinner-border text-secondary" role="status">
                                         <span class="sr-only">Loading...</span>
@@ -191,13 +196,10 @@
                                 </div>
                             </label>
 
-                            <div class="row">
-                                <div class="col-12 col-md-6 mx-auto">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" data-target="file-uploader"
-                                            id="file-uploader">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
+                            <div class="col-12 col-md-6">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" data-target="file-uploader"
+                                        id="file-uploader">
                                 </div>
                             </div>
                         </div>
@@ -412,7 +414,7 @@
                 <!-- 發布雨取消按鈕 -->
                 <section id="postcancel" class="col-md-2">
                     <div class="postcancel-box">
-                        <a class="lightbutton">
+                        <a class="lightbutton" href="./recipe_list.html">
                             <h2>取消</h2>
                         </a>
                         <a class="darkbutton">
@@ -510,7 +512,7 @@
     </script>
 
     <script>
-        
+
     </script>
 </body>
 
