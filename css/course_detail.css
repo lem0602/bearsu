@@ -1,0 +1,251 @@
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            background: url(../images/all_bg.png) no-repeat center center / cover fixed;
+            background-color: #6DD0CD;
+        }
+
+        .pc_header_wrap {
+            height: 0px;
+        }
+
+        .pc_header {
+            z-index: 9999;
+            position: sticky;
+            top: 32px;
+            height: 0px;
+        }
+
+        .nav_left img {
+            width: 120px;
+        }
+
+        .nav_right {
+            width: 150px;
+            height: 400px;
+            border-radius: 100px;
+            border: 2px solid #FFF6E9;
+            background-color: #005F5F;
+            overflow: hidden;
+        }
+
+        .nav_right ul {
+            padding: 0px;
+            margin: 0px;
+            height: 400px;
+        }
+
+        .nav_right li {
+            list-style-type: none;
+            color: #FFF6E9;
+            text-align: center;
+            padding: 15px 0px;
+            transition: .5s;
+            border-bottom: 2px dashed #FFF6E9;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .nav_right .li_top {
+            padding-top: 35px;
+        }
+
+        .nav_right li:hover {
+            color: #005F5F;
+            background-color: #FFF6E9;
+        }
+
+        .nav_right a:hover {
+            text-decoration: none;
+        }
+
+        .nav_right .icon a {
+            color: #FFF6E9;
+            transition: .5s;
+        }
+
+        .nav_right .icon a:hover {
+            transform: scale(1.2);
+        }
+
+        .course_innerwrap {
+            margin: 48px 0px;
+        }
+
+        .course_cards {
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            padding: 24px 24px 8px 24px;
+        }
+
+        .course_recipe_pic {
+            aspect-ratio: 16 / 10;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+
+        .course_cards h3 {
+            font-size: 1.25rem;
+            color: #333333;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .classroom {
+            margin-bottom: 24px;
+        }
+
+        .course_cards p {
+            font-size: 0.9rem;
+            color: #333333;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .classroom img {
+            aspect-ratio: 4 / 3;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .classroom img:first-child {
+            margin-bottom: 24px;
+        }
+
+        .course_menu {
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            padding: 24px;
+        }
+
+        @media screen and (min-width:768px) {
+            .course_menu {
+                position: sticky;
+                top: 32px;
+                z-index: 999;
+
+                border-radius: 20px;
+                border: 2px solid #333333;
+                background-color: #FFF6E9;
+                box-shadow: 3px 3px #333333;
+                padding: 24px;
+            }
+
+            .course_recipe_pic {
+                border-radius: 20px;
+            }
+
+            .classroom img {
+                aspect-ratio: 4 / 3;
+                width: calc(50% - 8px);
+                border-radius: 20px;
+            }
+
+            .classroom img:first-child {
+                margin-bottom: 0px;
+                margin-right: 16px;
+            }
+        }
+
+        .course_menu h2 {
+            font-size: 1.5rem;
+            color: #005F5F;
+            padding-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .course_menu .fa-bookmark {
+            color: #005F5F;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .solarterms_card {
+            padding-bottom: 24px;
+        }
+
+        .solarterms_card img {
+            width: 150px;
+        }
+
+        .date_filter {
+            background-color: #FFF6E9;
+            border: 2px solid #333333;
+            border-radius: 8px;
+            color: #005F5F;
+            padding: 4px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .date_filter:focus {
+            outline: none
+        }
+
+        .course_menu label {
+            color: #333333;
+        }
+
+        .course_menu p {
+            font-size: 1rem;
+            color: #333333;
+            font-weight: 700;
+        }
+
+        .course_menu .number {
+            color: #005F5F;
+        }
+
+        .course_menu .btn a {
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 8px 35px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .course_menu .btn a:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
+        .course_menu_pic img {
+            height: 250px;
+            margin-top: 24px;
+        }
+
+        footer {
+            background-color: #005F5F;
+            box-shadow: 0px -3px 0px #333333;
+            height: 50px;
+        }
+
+        footer p {
+            color: #FFF6E9;
+            font-size: 0.9rem;
+            margin-bottom: 0px;
+            text-align: center;
+            font-weight: 500;
+            line-height: 50px;
+        }
+
+        @media screen and (min-width:768px) {
+            footer p {
+                font-size: 1rem;
+            }
+        }

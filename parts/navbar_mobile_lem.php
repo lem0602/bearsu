@@ -26,33 +26,33 @@ if (!isset($page_name)) {
             <div id="nav-content" tabindex="0">
                 <ul>
                     <li>
-                        <a href="index.html">
+                        <a href="index.php">
                             <h3>首頁</h3>
                         </a>
                     </li>
                     <li>
-                        <a href="course.html">
+                        <a href="course.php">
                             <h3>廚藝教室</h3>
                         </a>
                     </li>
                     <li>
-                        <a href="solarterms.html">
+                        <a href="solarterms.php">
                             <h3>節氣食補</h3>
                         </a>
                     </li>
                     <li>
-                        <a href="map.html">
+                        <a href="map.php">
                             <h3>素食地圖</h3>
                         </a>
                     </li>
                     <li>
-                        <a href="recipe_list.html">
+                        <a href="recipe_list.php">
                             <h3>相關文章</h3>
                         </a>
                     </li>
                     <li class="small">
-                        <a href="shopping_cart.html">購物車</a>
-                        <a href="member_login.html">會員中心</a>
+                        <a href="shopping_cart.php">購物車</a>
+                        <a href="member_login.php">會員中心</a>
                     </li>
                 </ul>
             </div>

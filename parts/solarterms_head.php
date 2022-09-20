@@ -1,6 +1,6 @@
 <?php
 if(! isset($title)){
-    $title = '熊齋';
+    $title = '節氣食補';
 } else {
     $title = $title. ' | 熊齋';
 }
@@ -27,8 +27,7 @@ if(! isset($title)){
         rel="stylesheet">
     <link rel="stylesheet" href="css/mobile-nav.css">
     <link rel="stylesheet" href="css/all-setup.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/solarterms.css">
 </head>
 
 <body>
