@@ -49,7 +49,7 @@ if (!isset($page_name)) {
                                 </a>
                             </li>
                             <li>
-                                <a href="#0">
+                                <a href="./recipe_list.php">
                                     <h3>相關文章</h3>
                                 </a>
                             </li>
