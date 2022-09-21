@@ -343,7 +343,9 @@ footer p {
     margin-bottom: 0px;
     text-align: center;
 }
-
+.modal-dialog{
+    margin: 80px auto;
+}
 @media screen and (max-width:768px) {
     .nav_left img {
         display: block;
@@ -455,7 +457,7 @@ footer p {
         padding: 0 2px;
     }
 
-    .mapcardp5 a {
+    .maplink{
         margin-top: 16px;
     }
 

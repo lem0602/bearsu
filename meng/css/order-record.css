@@ -389,6 +389,14 @@ footer p {
 }
 
 @media only screen and (max-width:768px) {
+    .navmember_item+.navmember_item {
+        border-top: none;
+        border-left: 1px solid #333333;
+    }
+    .navmember_item{
+        padding: 12px;
+        height: 88px;
+    }
     .member_wrap .row{ margin: 0; }
     
     .member_wrap {
@@ -417,11 +425,6 @@ footer p {
         width: 324px;
         height: 88px;
         margin: 0 auto;
-    }
-
-    .navmember_item {
-        padding: 12px 20px;
-        height: 88px;
     }
 
     .course_title h1 {
@@ -471,4 +474,13 @@ footer p {
     .member_info{
         padding: 0 27.5px;
     }
+    .order_box1 th{
+        width: 25%;
+        padding: 0 20px;
+    }
+    /* 抓第二個th出來做樣式 */
+    .order_box1 th:nth-child(2){
+        padding: 0 25px;
+    }
+    
 }

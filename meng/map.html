@@ -18,6 +18,8 @@ user-scalable=0;">
     <script src="https://kit.fontawesome.com/bfd7c1ee72.js" crossorigin="anonymous"></script>
     <title>素食地圖</title>
     <link rel="stylesheet" href="/css/map.css">
+    <!-- 網站faviconicon -->
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
 </head>
 
 <body>
@@ -78,6 +80,29 @@ user-scalable=0;">
         </div>
     </section>
 
+    <!-- Button trigger modal -->
+  
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">map name</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.1957319357366!2d120.64357235080834!3d24.129763384327187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d47f94524dd%3A0x507861f9b78767f8!2z5Y-w5Lit5paH5b-D56eA5rOw5b2x5Z-O!5e0!3m2!1szh-TW!2stw!4v1663596533772!5m2!1szh-TW!2stw"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- 熊齋logo -->
     <div class="course_wrap d-none d-lg-flex justify-content-between  ">
@@ -219,7 +244,7 @@ user-scalable=0;">
 
     <!-- 地圖卡片 -->
     <!-- 顯示地圖用Bootstrap的互動式窗modal做 -->
-    <div class="mapcard" >
+    <div class="mapcard">
         <div class="mappic">
             <img src="/img/map_41.jpeg" alt="">
         </div>
@@ -246,12 +271,15 @@ user-scalable=0;">
                     <h4>奶素</h4>
                 </span>
 
-                <a href="" class="maplink">查看地圖</a>
+                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    查看地圖
+                </button>
+                <!-- <a href="" class="maplink">查看地圖</a> -->
             </div>
 
         </div>
     </div>
-    <div class="mapcard" >
+    <div class="mapcard">
         <div class="mappic">
             <img src="/img/map_41.jpeg" alt="">
         </div>
@@ -277,13 +305,15 @@ user-scalable=0;">
                     <h4>蛋素</h4>
                     <h4>奶素</h4>
                 </span>
-
-                <a href="" class="maplink">查看地圖</a>
+                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    查看地圖
+                </button>
+                <!-- <a href="" class="maplink">查看地圖</a> -->
             </div>
 
         </div>
     </div>
-    <div class="mapcard" >
+    <div class="mapcard">
         <div class="mappic">
             <img src="/img/map_41.jpeg" alt="">
         </div>
@@ -310,12 +340,16 @@ user-scalable=0;">
                     <h4>奶素</h4>
                 </span>
 
-                <a href="" class="maplink">查看地圖</a>
+                
+                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    查看地圖
+                </button>
+                <!-- <a href="" class="maplink">查看地圖</a> -->
             </div>
 
         </div>
     </div>
-    <div class="mapcard" >
+    <div class="mapcard">
         <div class="mappic">
             <img src="/img/map_41.jpeg" alt="">
         </div>
@@ -342,12 +376,16 @@ user-scalable=0;">
                     <h4>奶素</h4>
                 </span>
 
-                <a href="" class="maplink">查看地圖</a>
+                
+                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    查看地圖
+                </button>
+                <!-- <a href="" class="maplink">查看地圖</a> -->
             </div>
 
         </div>
     </div>
-    <div class="mapcard" >
+    <div class="mapcard">
         <div class="mappic">
             <img src="/img/map_41.jpeg" alt="">
         </div>
@@ -374,7 +412,11 @@ user-scalable=0;">
                     <h4>奶素</h4>
                 </span>
 
-                <a href="" class="maplink">查看地圖</a>
+                
+                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    查看地圖
+                </button>
+                <!-- <a href="" class="maplink">查看地圖</a> -->
             </div>
 
         </div>
@@ -407,6 +449,10 @@ user-scalable=0;">
     <footer>
         <p>Copyright © 2022 BearSu. All rights reserved.</p>
     </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 
 </body>
 

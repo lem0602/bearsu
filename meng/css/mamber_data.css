@@ -381,6 +381,15 @@ footer p {
 }
 
 @media only screen and (max-width:768px) {
+    .navmember_item+.navmember_item {
+        border-top: none;
+        border-left: 1px solid #333333;
+    }
+    .navmember_item{
+        padding: 12px;
+        height: 88px;
+    }
+
     .member_wrap {
         padding: 48px 0 10.82px;
         overflow: hidden;
@@ -409,10 +418,10 @@ footer p {
         margin: 0 auto;
     }
 
-    .navmember_item {
+    /* .navmember_item {
         padding: 12px 20px;
         height: 88px;
-    }
+    } */
 
     .course_title h1 {
         margin: auto;
@@ -451,7 +460,7 @@ footer p {
         padding-top: 48px;
     }
     .changgg{
-       margin: 48px auto 48px;
+       margin: 48px auto 30px;
     }
 
     /* .member_info{
@@ -515,10 +524,10 @@ footer p {
         height: 88px;
         margin: 0 auto;
     }
-    .navmember_item{
+    /* .navmember_item{
        padding:  12px 20px;
        height: 88px;
-    }
+    } */
     .course_title h1{
      margin: auto;
      padding-top: 48px;
@@ -591,5 +600,8 @@ footer p {
     .member_box123{
         letter-spacing: 15px;
     }
+    .changgg{
+        margin: 48px auto 0 ;
+     }
 
 }

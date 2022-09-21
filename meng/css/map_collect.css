@@ -420,7 +420,14 @@ footer p {
 }
 
 @media only screen and (max-width:768px) {
-
+    .navmember_item+.navmember_item {
+        border-top: none;
+        border-left: 1px solid #333333;
+    }
+    .navmember_item{
+        padding: 12px;
+        height: 88px;
+    }
     /* 去掉767橫向捲軸 */
     .member_wrap .row {
         margin: 0;
@@ -448,10 +455,10 @@ footer p {
         margin: 0 auto 48px;
     }
 
-    .navmember_item {
+    /* .navmember_item {
         padding: 12px 20px;
         height: 88px;
-    }
+    } */
 
     .share {
         margin-top: 32px;
@@ -460,7 +467,7 @@ footer p {
     }
 
     .map_collect1 h1 {
-        padding: 6px 6px;
+        padding: 6px 3px;
         /* font-size: 1rem;
     font-weight: 500;
     line-height: 1.6rem; */
@@ -566,7 +573,7 @@ footer p {
         width: 22px;
         position: absolute;
         right: 15px;
-        bottom: 16px;
+        bottom: 16px; 
     }
     .map_collect1 h1{
         display: flex;
@@ -589,5 +596,8 @@ footer p {
     }
     .bigpageitem{
         padding-bottom:0 ;
+    }
+    .map_collect_title+.map_collect_title{
+        margin-left: 9px;
     }
 }
