@@ -5,19 +5,17 @@ require __DIR__ . '/kc_parts/connect_db.php';
 $perPage = 10;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
-$lowp = isset($_GET['lowp']) ? intval($_GET['lowp']) : 0; // 低價
-$highp = isset($_GET['highp']) ? intval($_GET['highp']) : 0; // 高價
 
 $qsp = []; // query string parameters
 
 // 取得分類資料
-$cates = $pdo->query("SELECT * FROM article_classification WHERE sid")
+$cates = $pdo->query("SELECT * FROM `article_classification` WHERE `sid`")
     ->fetchAll();
 
 // ----------------------商品
 
 $where = ' WHERE 1 ';  // 起頭
-if($cate){
+if ($cate) {
     $where .= " AND article_sid=$cate ";
     $qsp['cate'] = $cate;
 }
@@ -91,24 +89,24 @@ if ($totalRows > 0) {
                 <div class="veggie-Category">
                     <div class="custom-select">
                         <select>
+
                             <option value="0">
                                 <h5>文章分類</h5>
                             </option>
+
                             <option value="1">
-                                <h5>全部</h5>
+                                <a 
+                                    type="button" 
+                                    href="?<?php $tmp = $qsp; unset($tmp['cate']); ?>">
+                                    <h5>全部</h5>
+                                </a>
                             </option>
+
+                            <?php foreach($cates as $c): ?>
                             <option value="2">
-                                <h5>生活</h5>
+                                <h5><?= $c['classification'] ?></h5>
                             </option>
-                            <option value="3">
-                                <H5>世界</H5>
-                            </option>
-                            <option value="4">
-                                <H5>品味</H5>
-                            </option>
-                            <option value="5">
-                                <H5>營養</H5>
-                            </option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                 </div>
@@ -119,34 +117,34 @@ if ($totalRows > 0) {
             <section id="article-main">
                 <div class="article-list">
                     <?php foreach ($rows as $r) : ?>
-                    <div class="article-content">
-                        <div class="col-lg-5 article-img">
-                            <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
-                        </div>
-                        <div class="col-lg contant">
-                            <div class="title">
-                                <h2>
-                                    <?= $r['title'] ?>
-                                </h2>
-                                <div class="bookmark d-none d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                                <p class="d-lg-none">by 史萊姆</p>
+                        <div class="article-content">
+                            <div class="col-lg-5 article-img">
+                                <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
                             </div>
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction">
-                                <?= $r['introduction'] ?>
-                            </h4>
-                            <div class="article-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
+                            <div class="col-lg contant">
+                                <div class="title">
+                                    <h2>
+                                        <?= $r['title'] ?>
+                                    </h2>
+                                    <div class="bookmark d-none d-lg-block">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                    <p class="d-lg-none">by 史萊姆</p>
+                                </div>
+                                <p class="d-none d-lg-block">by 史萊姆</p>
+                                <h4 class="introduction">
+                                    <?= $r['introduction'] ?>
+                                </h4>
+                                <div class="article-btn">
+                                    <a class="darkbutton" href="#0">
+                                        <h4>了解更多</h4>
+                                    </a>
+                                    <div class="bookmark d-lg-none">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
             </section>
