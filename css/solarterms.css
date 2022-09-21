@@ -1,0 +1,613 @@
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    background: url(../images/all_bg.png) no-repeat center bottom / cover fixed;
+    background-color: #6DD0CD;
+}
+
+.pc_header_wrap {
+    height: 0px;
+}
+
+.pc_header {
+    z-index: 9999;
+    position: sticky;
+    top: 32px;
+    height: 0px;
+}
+
+.nav_left img {
+    width: 120px;
+}
+
+.nav_right {
+    width: 150px;
+    height: 400px;
+    border-radius: 100px;
+    border: 2px solid #FFF6E9;
+    background-color: #005F5F;
+    overflow: hidden;
+}
+
+.nav_right ul {
+    padding: 0px;
+    margin: 0px;
+    height: 400px;
+}
+
+.nav_right li {
+    list-style-type: none;
+    color: #FFF6E9;
+    text-align: center;
+    padding: 15px 0px;
+    transition: .5s;
+    border-bottom: 2px dashed #FFF6E9;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.nav_right .li_top {
+    padding-top: 35px;
+}
+
+.nav_right li:hover {
+    color: #005F5F;
+    background-color: #FFF6E9;
+}
+
+.nav_right a:hover {
+    text-decoration: none;
+}
+
+.nav_right .icon a {
+    color: #FFF6E9;
+    transition: .5s;
+}
+
+.nav_right .icon a:hover {
+    transform: scale(1.2);
+}
+
+.solarterms_wrap {
+    overflow: hidden;
+}
+
+.solarterms_wrap .row {
+    margin: 48px 0px;
+}
+
+.solarterms_introduce_card .top h1 {
+    font-size: 4rem;
+    color: #005F5F;
+    margin-bottom: 0px;
+    font-weight: 700;
+}
+
+.mobile_title h1 {
+    font-size: 3rem;
+    color: #005F5F;
+    margin-bottom: 48px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.solarterms_introduce_card .down {
+    border-radius: 20px;
+    border: 2px solid #333333;
+    background-color: #FFF6E9;
+    box-shadow: 3px 3px #333333;
+    padding: 16px;
+}
+
+.solarterms_introduce_card .down img {
+    height: 250px;
+    margin-right: 16px;
+}
+
+.solarterms_introduce_card .down h2 {
+    color: #005F5F;
+    margin-bottom: 0px;
+    text-align: justify;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.modal {
+    z-index: 10000;
+}
+
+.solarterms_class_btn {
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #333333;
+    background-color: #005F5F;
+    box-shadow: 3px 3px #333333;
+    padding: 24px 0px;
+    margin-top: 24px;
+    transition: .3s;
+}
+
+.solarterms_class_btn:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.solarterms_class_btn h2 {
+    color: #FFF6E9;
+    margin-bottom: 0px;
+    line-height: 1.4;
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    color: #FFF6E9;
+    background-color: #005F5F;
+    border: 2px solid #333333;
+}
+
+.btn-primary:hover {
+    color: #FFF6E9;
+    background-color: #005F5F;
+    border-color: #333333;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 3px 3px #333333;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 3px 3px #333333;
+}
+
+.solarterms_class {
+    border-radius: 20px;
+    border: 2px solid #333333;
+    background-color: #FFF6E9;
+    box-shadow: 3px 3px #333333;
+    padding: 24px;
+}
+
+.solarterms_class h1 {
+    font-size: 1.5rem;
+    color: #FFF6E9;
+    background-color: #005F5F;
+    border: 2px solid #333333;
+    box-shadow: 3px 3px #333333;
+    color: #FFF6E9;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 15px;
+    padding: 8px 16px;
+    margin-bottom: 24px;
+}
+
+.solarterms_class p,
+.solarterms_class li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 500;
+}
+
+.loop-run {
+    position: relative;
+    transition: 1s;
+    margin-bottom: 36px;
+}
+
+@media screen and (min-width: 768px) {
+    .solarterms_class h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .solarterms_class p,
+    .solarterms_class li {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+}
+
+.sun-body {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    width: 80px;
+    animation: sunzoom 6s infinite 1.5s linear
+}
+
+.sun-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.earth-circle {
+    width: 20px;
+    position: absolute;
+    animation: animX 3s ease-in-out 0s infinite alternate,
+        animY 3s ease-in-out -1.5s infinite alternate,
+        scale 6s ease-in-out 0s infinite alternate,
+        rotation 3s infinite linear;
+}
+
+@keyframes sunzoom {
+    0% {
+        transform: scale(1) rotate(0deg)
+    }
+
+    25% {
+        transform: scale(1.2) rotate(-90deg)
+    }
+
+    50% {
+        transform: scale(1) rotate(-180deg)
+    }
+
+    75% {
+        transform: scale(1.2) rotate(-270deg)
+    }
+
+    100% {
+        transform: scale(1) rotate(-360deg)
+    }
+
+}
+
+@keyframes animX {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 95%;
+    }
+}
+
+@keyframes animY {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: 94%;
+    }
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(-360deg)
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .earth-circle {
+        width: 35px;
+    }
+
+    .sun-bg {
+        width: 70%;
+    }
+
+    @keyframes animX {
+        0% {
+            left: 5%;
+        }
+
+        100% {
+            left: 88%;
+        }
+    }
+
+    @keyframes animY {
+        0% {
+            top: -2%;
+        }
+
+        100% {
+            top: 93%;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sun-body {
+        width: 140px;
+    }
+
+    .earth-circle {
+        width: 50px;
+    }
+
+    .sun-bg {
+        width: 90%;
+    }
+}
+
+.modal-footer {
+    border: none;
+    padding: 0px;
+}
+
+.close_btn {
+    background-color: #005F5F;
+    border: 2px solid #333333;
+    box-shadow: 3px 3px #333333;
+    color: #FFF6E9;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 8px 16px;
+    transition: .3s;
+}
+
+.close_btn:hover {
+    background-color: #005F5F;
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+@media screen and (min-width:768px) {
+    .solarterms_introduce_card .down img {
+        height: 350px;
+        margin-bottom: 24px;
+        margin-right: 0px;
+    }
+
+    .solarterms_circle img {
+        margin-bottom: 0px;
+    }
+
+    .solarterms_introduce_card .down {
+        padding: 20px;
+    }
+}
+
+@keyframes circle {
+    to {
+        transform: rotate(-360deg)
+    }
+}
+
+.solarterms_circle img {
+    animation: circle 60s linear infinite;
+    /* filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, .7)); */
+    margin-bottom: 16px;
+    border-radius: 50%;
+    border: 2px solid #333333;
+}
+
+.filter_section {
+    margin-top: 48px;
+    padding: 0px;
+}
+
+.filter {
+    background-color: #FFF6E9;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    color: #005F5F;
+    padding: 4px 0px;
+    /* appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none; */
+    margin-right: 1px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.solarterms_filter {
+    width: 90px;
+}
+
+.filter:focus {
+    outline: none
+}
+
+.recipe_card {
+    border-radius: 20px;
+    border: 2px solid #333333;
+    background-color: #FFF6E9;
+    box-shadow: 3px 3px #333333;
+    padding: 16px;
+    margin-top: 48px;
+}
+
+.recipe_pic {
+    margin-bottom: 32px;
+}
+
+.recipe_pic img {
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.recipe_content .tittle h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+    color: #333333;
+    font-weight: 700;
+}
+
+.recipe_content .right .fa-clock,
+.mobile_recipe_time .fa-clock {
+    color: #005F5F;
+    font-size: 1.5rem;
+}
+
+.mobile_recipe_time {
+    margin-bottom: 16px;
+}
+
+.recipe_content .right p,
+.mobile_recipe_time p {
+    color: #005F5F;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.fa-bookmark {
+    color: #005F5F;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.recipe_card .author p {
+    font-size: 0.9rem;
+    color: #808080;
+    font-weight: 500;
+}
+
+.recipe_card .describe h3 {
+    font-size: 1rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #333333;
+    font-weight: 500;
+}
+
+.recipe_card .describe h4 {
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #808080;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.recipe_card .btn {
+    width: 100%;
+    background-color: #005F5F;
+    border-radius: 8px;
+    border: 2px solid #333333;
+    box-shadow: 3px 3px #333333;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.recipe_card .btn a {
+    color: #FFF6E9;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 35px;
+    text-decoration: none;
+}
+
+.recipe_card .btn:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+@media screen and (min-width:768px) {
+    .filter {
+        padding: 4px;
+        margin-right: 24px;
+    }
+
+    .season_filter {
+        margin-right: 6px;
+    }
+
+    .recipe_card {
+        padding: 24px;
+    }
+
+    .recipe_pic {
+        padding-right: 24px;
+        margin-bottom: 0px;
+    }
+
+    .recipe_pic img {
+        aspect-ratio: 4 / 3;
+        width: 387px;
+        border-radius: 20px;
+    }
+
+    .recipe_card .describe h3 {
+        font-size: 1.25rem;
+    }
+
+    .recipe_card .describe h4 {
+        font-size: 1rem;
+        margin-bottom: 0px;
+        -webkit-line-clamp: 1;
+    }
+
+    .recipe_card .author p {
+        margin-bottom: 0px;
+    }
+
+    .mobile_recipe_time {
+        margin-bottom: 0px;
+    }
+
+    .recipe_card .btn {
+        width: fit-content;
+        padding: 6px;
+    }
+
+    .recipe_card .btn a {
+        padding: 8px 35px;
+        width: auto;
+    }
+}
+
+.page_wrap {
+    margin-top: 48px;
+}
+
+.page-link {
+    background-color: #005F5F;
+    border: none;
+    color: #FFF6E9;
+    transition: .3s;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+span {
+    font-size: 1.25rem;
+}
+
+.page-link:hover {
+    background-color: #FFF6E9;
+    color: #005F5F;
+}
+
+.page-item:first-child .page-link {
+    border-radius: 8px 0px 0px 8px;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0px 8px 8px 0px;
+}
+
+footer {
+    background-color: #005F5F;
+    box-shadow: 0px -3px 0px #333333;
+    height: 50px;
+}
+
+footer p {
+    color: #FFF6E9;
+    font-size: 1rem;
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 50px;
+}

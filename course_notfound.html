@@ -104,9 +104,10 @@
         /* ------------mobile start------------ */
         .mobile_course_filter_wrap {
             position: sticky;
-            top: 32px;
+            top: 90px;
             z-index: 10000;
             margin-top: 48px;
+            margin-bottom: 12px;
         }
 
         .mobile_course_filter {
@@ -124,12 +125,21 @@
             border: none;
         }
 
-        .mobile_close_btn {
-            background-color: #333333;
+        .modal-footer {
             border: none;
+            padding: 0px;
+        }
+
+        .mobile_close_btn {
+            background-color: #005F5F;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
             color: #FFF6E9;
             font-size: 1rem;
             font-weight: 500;
+            border-radius: 10px;
+            padding: 8px 16px;
+            transition: .3s;
         }
 
         .btn-primary:not(:disabled):not(.disabled).active,
@@ -137,24 +147,24 @@
         .show>.btn-primary.dropdown-toggle {
             color: #FFF6E9;
             background-color: #005F5F;
-            border: none;
+            border: 2px solid #333333;
         }
 
         .btn-primary:hover {
             color: #FFF6E9;
             background-color: #005F5F;
-            border-color: transparent;
+            border-color: #333333;
         }
 
         .btn-primary.focus,
         .btn-primary:focus {
-            box-shadow: none;
+            box-shadow: 3px 3px #333333;
         }
 
         .btn-primary:not(:disabled):not(.disabled).active:focus,
         .btn-primary:not(:disabled):not(.disabled):active:focus,
         .show>.btn-primary.dropdown-toggle:focus {
-            box-shadow: none;
+            box-shadow: 3px 3px #333333;
         }
 
         .course_innerwrap {
@@ -183,7 +193,7 @@
             position: sticky;
             top: 32px;
             z-index: 999;
-            height: 580px;
+            height: auto;
             border-radius: 20px;
             border: 2px solid #333333;
             background-color: #FFF6E9;
@@ -420,6 +430,10 @@
                                     <label for="price815_m">$800 ~ $1500</label><br>
                                     <input type="radio" name="price" class="radio" id="price15_m">
                                     <label for="price15_m" class="mb-0">$1500 以上</label>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary mobile_close_btn"
+                                            data-dismiss="modal">關閉</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
