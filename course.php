@@ -3,7 +3,7 @@
 require __DIR__ . '/parts/connect_db.php';
 $pageName = 'list'; // 頁面名稱
 
-$perPage = 10;  // 每頁最多有幾筆
+$perPage = 5;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $vegetarian = isset($_GET['vegetarian']) ? intval($_GET['vegetarian']) : 0;
 $lowp = isset($_GET['lowp']) ? intval($_GET['lowp']) : 0; // 低價
@@ -214,8 +214,8 @@ if ($totalRows > 0) {
                             <span aria-hidden="true"><i class="fa-solid fa-angle-left" aria-hidden="true"></i></span>
                         </a>
                     </li>
-                    <?php for ($i = $page ; $i <= $page + 1; $i++) :
-                        if ($i >= 0 and $i <= $totalPages) :
+                    <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
+                        if ($i >= 1 and $i <= $totalPages) :
                             $qsp['page'] = $i;
                     ?>
                             <li class="page-item <?= $page == $i ? 'active' : '' ?>">
