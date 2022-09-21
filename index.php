@@ -1,4 +1,7 @@
 <?php session_start(); ?>
+<?php
+require __DIR__ . '/parts/connect_db.php'; ?>
+
 <?php include __DIR__ . '/parts/index_head.php'; ?>
 
 <?php include __DIR__ . '/parts/navbar_mobile_lem.php'; ?>
@@ -1540,11 +1543,21 @@
             <img src="images/mascot_left.gif" alt="" class="mascot_left">
         </div>
         <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center have_restaurant_wrap mb-md-0">
-            <h1>60</h1>
+            <h1><?php
+                $t_sql = "SELECT COUNT(1) FROM map";
+                $totalMaps = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+                echo $totalMaps
+                ?></h1>
             <img src="images/have_restaurant.png" alt="" class="have_restaurant">
         </div>
         <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-center have_recipe_wrap">
-            <h1>100</h1>
+            <h1><?php
+                $t_sql = "SELECT COUNT(1) FROM solarterms_recipe";
+                $totalSolartermsRecipe = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+                $t_sql = "SELECT COUNT(1) FROM recipe";
+                $totalRecipe = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+                echo $totalSolartermsRecipe + $totalRecipe;
+                ?></h1>
             <img src="images/have_recipe.png" alt="" class="have_recipe">
         </div>
         <div class="col-6 col-md-3 col-lg-3 d-flex justify-content-end align-items-end mascot_right_wrap">
