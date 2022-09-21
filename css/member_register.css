@@ -70,11 +70,12 @@
             transform: scale(1.2);
         }
 
-        .container, .row {
+        .container,
+        .row {
             min-height: calc(100vh - 46px);
         }
 
-        .row{
+        .row {
             height: calc(100vh - 46px);
         }
 
@@ -104,7 +105,7 @@
             padding: 32px;
         }
 
-        .register_box .name_box{
+        .register_box .name_box {
             margin-bottom: 32px;
             border-bottom: 1px solid #333333;
             padding-bottom: 16px;
@@ -149,6 +150,13 @@
             border-radius: 5px;
         }
 
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #FFF6E9 inset !important;
+        }
+
         .register_btn {
             padding: 8px 35px;
             background-color: #005F5F;
@@ -169,7 +177,7 @@
             transform: translate(3px, 3px);
         }
 
-        .register_btn:focus{
+        .register_btn:focus {
             outline: none;
         }
 
@@ -192,4 +200,4 @@
             footer p {
                 font-size: 1rem;
             }
-        } 
+        }

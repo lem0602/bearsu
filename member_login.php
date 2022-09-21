@@ -31,7 +31,7 @@
                     <button class="login_btn">登入</button>
                 </div>
                 <div class="register_wrap d-flex justify-content-center">
-                    <p>還不是會員嗎？</p> <a href="member_register.html">立即註冊</a>
+                    <p>還不是會員嗎？</p> <a href="member_register.php">立即註冊</a>
                 </div>
             </div>
         </div>
