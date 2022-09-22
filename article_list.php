@@ -3,6 +3,7 @@ require __DIR__ . '/kc_parts/connect_db.php';
 // pageName = '';
 
 $perPage = 10;  // 每頁最多有幾筆
+
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
@@ -13,13 +14,11 @@ $cates = $pdo->query("SELECT * FROM `article_classification` WHERE `sid`")
     ->fetchAll();
 
 // ----------------------商品
-
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
-    $where .= " AND article_sid=$cate ";
+    $where .= " AND article_classification_sid = $cate ";
     $qsp['cate'] = $cate;
 }
-
 
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM article $where ";
@@ -36,12 +35,16 @@ if ($totalRows > 0) {
         header('Location: ?page=1');
         exit;
     }
+
     if ($page > $totalPages) {
         header('Location: ?page=' . $totalPages);
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT * FROM `article` ORDER BY `sid` LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `article` ORDER BY `sid` LIMIT %s, %s",
+    ($page - 1) * $perPage,
+    $perPage);
+    
     $rows = $pdo->query($sql)->fetchAll();
 }
 
@@ -61,7 +64,6 @@ if ($totalRows > 0) {
 <main>
     <div class="container">
         <div class="row">
-
             <section id="article-title">
                 <div class="article-title-box">
                     <img src="./images/mascot_06.png" alt="" />
@@ -89,23 +91,23 @@ if ($totalRows > 0) {
                 <div class="veggie-Category">
                     <div class="custom-select">
                         <select>
-
                             <option value="0">
                                 <h5>文章分類</h5>
                             </option>
 
                             <option value="1">
-                                <a 
-                                    type="button" 
-                                    href="?<?php $tmp = $qsp; unset($tmp['cate']); ?>">
+                                <a type="button" href="?<?php $tmp = $qsp; 
+                                                        unset($tmp['cate']); ?>">
                                     <h5>全部</h5>
                                 </a>
                             </option>
 
-                            <?php foreach($cates as $c): ?>
-                            <option value="2">
-                                <h5><?= $c['classification'] ?></h5>
-                            </option>
+                            <?php foreach ($cates as $c) : ?>
+                                <option value="2">
+                                    <a type="button" href="?<?php $tmp['cate'] = $c['sid'];?>">
+                                        <h5><?= $c['classification'] ?></h5>
+                                    </a>
+                                </option>
                             <?php endforeach ?>
                         </select>
                     </div>
@@ -136,7 +138,7 @@ if ($totalRows > 0) {
                                     <?= $r['introduction'] ?>
                                 </h4>
                                 <div class="article-btn">
-                                    <a class="darkbutton" href="#0">
+                                    <a class="darkbutton" href="#0" >
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none">
@@ -151,20 +153,29 @@ if ($totalRows > 0) {
 
             <section id="pagination">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link">
+                    <li class="page-item disabled <?= $page == 1 ? 'disabled' : '' ?>">
+                        <a class="page-link" href="?<?php $qsp['page']=$page-1;?>">
                             <i class="fa-solid fa-angle-left"></i>
                         </a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link">1</a>
+                    
+                    <?php for ($i = $page - 3; $i <= $page + 3; $i++) :
+                        if ($i >= 1 and $i <= $totalPages) :
+                            $qsp['page']=$i;
+                    ?>
+                    <li class="page-item <?= $page == $i ? 'active' : '' ?>">
+                        <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link">
+                    <?php endif;
+                    endfor;?>
+
+                    <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                        <a class="page-link" href="?<?php $qsp['page']=$page+1;?>">
                             <i class="fa-solid fa-angle-right"></i>
                         </a>
                     </li>
                 </ul>
+                
             </section>
         </div>
     </div>
