@@ -218,7 +218,7 @@ if ($totalRows > 0) {
         <?php foreach ($rows as $r) : ?>
         <div class="col-12 order-2 recipe_card d-md-flex d-lg-flex">
                 <div class="recipe_pic d-flex justify-content-center align-items-center">
-                <img src="images/<?= $r['img'] ?>.jpg" alt="">
+                <img src="images/solarterms/<?= $r['img'] ?>.jpg" alt="">
                 </div>
                 <div class="recipe_content d-flex flex-column justify-content-between">
                     <div class="title d-flex justify-content-between align-items-center">
