@@ -47,14 +47,13 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $rows,
-]);
-exit;
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+// ]);
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -150,19 +149,19 @@ exit;
             <!-- 內容資訊 -->
             <section id="recipe-main">
                 <div class="recipe-list">
-
+                    <?php foreach ($rows as $r) : ?>
                     <div class="recipe-content">
-                        <div class="recipe-img">
-                            <img src="./images/recipe-01.png" alt="" />
+                        <div class="recipe-img ">
+                            <img src="./images/recipe/<?= $r['img'] ?>/<?= $r['img'] ?>.jpeg" alt="" />
                         </div>
                         <div class="contant">
                             <div class="title">
-                                <h2>木耳炒甜豆 (五辛素)</h2>
+                                <h2><?= $r['name'] ?> (五辛素)</h2>
                                 <p class="d-lg-none">by 史萊姆</p>
                                 <div class="time-bookmark">
                                     <div class="time">
                                         <i class="fa-solid fa-clock"></i>
-                                        <h4>10分</h4>
+                                        <h4><?= $r['time'] ?>分</h4>
                                     </div>
                                     <div class="bookmark d-none d-lg-block">
                                         <i class="fa-regular fa-bookmark"></i>
@@ -170,9 +169,7 @@ exit;
                                 </div>
                             </div>
                             <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction">
-                                適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。
-                            </h4>
+                            <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
                             <h4 class="ingredients">
                                 食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉
                             </h4>
@@ -186,150 +183,7 @@ exit;
                             </div>
                         </div>
                     </div>
-
-                    <div class="recipe-content">
-                        <div class="recipe-img">
-                            <img src="./images/recipe-01.png" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>木耳炒甜豆 (五辛素)</h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                                <div class="time-bookmark">
-                                    <div class="time">
-                                        <i class="fa-solid fa-clock"></i>
-                                        <h4>10分</h4>
-                                    </div>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction">
-                                適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。
-                            </h4>
-                            <h4 class="ingredients">
-                                食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉
-                            </h4>
-                            <div class="recipe-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="recipe-content">
-                        <div class="recipe-img">
-                            <img src="./images/recipe-01.png" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>木耳炒甜豆 (五辛素)</h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                                <div class="time-bookmark">
-                                    <div class="time">
-                                        <i class="fa-solid fa-clock"></i>
-                                        <h4>10分</h4>
-                                    </div>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction">
-                                適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。
-                            </h4>
-                            <h4 class="ingredients">
-                                食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉
-                            </h4>
-                            <div class="recipe-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="recipe-content">
-                        <div class="recipe-img">
-                            <img src="./images/recipe-01.png" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>木耳炒甜豆 (五辛素)</h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                                <div class="time-bookmark">
-                                    <div class="time">
-                                        <i class="fa-solid fa-clock"></i>
-                                        <h4>10分</h4>
-                                    </div>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction">
-                                適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。
-                            </h4>
-                            <h4 class="ingredients">
-                                食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉
-                            </h4>
-                            <div class="recipe-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="recipe-content">
-                        <div class="recipe-img">
-                            <img src="./images/recipe-01.png" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2>木耳炒甜豆 (五辛素)</h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                                <div class="time-bookmark">
-                                    <div class="time">
-                                        <i class="fa-solid fa-clock"></i>
-                                        <h4>10分</h4>
-                                    </div>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction">
-                                適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。清甜的什錦蔬菜，吃得到滿滿營養！一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。適合全家大小食用,唯痛風患者要避食黑木耳。
-                            </h4>
-                            <h4 class="ingredients">
-                                食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉
-                            </h4>
-                            <div class="recipe-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </section>
             
