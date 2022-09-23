@@ -12,6 +12,10 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM `vegetarian` WHERE `sid`")
     ->fetchAll();
 
+$ingre = $pdo->query("SELECT `recipe`.*, `recipe_ingredients`.`ingredients_name` FROM `recipe` JOIN `recipe_ingredients` ON `recipe`.`sid` = `recipe_ingredients`.`recipe_sid`;
+")
+    ->fetchAll();
+
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
@@ -47,13 +51,15 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-// echo json_encode([
-//     'totalRows' => $totalRows,
-//     'totalPages' => $totalPages,
-//     'perPage' => $perPage,
-//     'page' => $page,
-//     'rows' => $rows,
-// ]);
+echo json_encode([
+    'totalRows' => $totalRows,
+    'totalPages' => $totalPages,
+    'perPage' => $perPage,
+    'page' => $page,
+    'rows' => $rows,
+    'ingre' => $ingre['ingredients_name']
+]);
+exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -170,9 +176,11 @@ if ($totalRows > 0) {
                             </div>
                             <p class="d-none d-lg-block">by 史萊姆</p>
                             <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
+                            <?php if ($ingre[''] = $ingre ['']) ?>
                             <h4 class="ingredients">
-                                食材：青花椰菜、白花椰菜、品牌香蒜粒、雙色焗烤乳酪絲、海鹽、橄欖油、品牌蘿勒葉
+                            食材：<?= $ingre['name'] ?>
                             </h4>
+                            
                             <div class="recipe-btn">
                                 <a class="darkbutton" href="#0">
                                     <h4>了解更多</h4>
