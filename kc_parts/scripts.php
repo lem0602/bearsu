@@ -1,19 +1,9 @@
-<script>
-    $.get('add-to-cart-api.php', function(data) {
-        countCartObj(data);
-    }, 'json');
+<script src="./js/jquery-3.6.1.min.js"></script>
 
-    function countCartObj(data) {
-        let total = 0;
-        for (let i in data) {
-            total += data[i];
-        }
-        $('.cart-count').text(total);
-    }
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- dropdown js -->
-<script>
+<!-- <script>
     var x, i, j, l, ll, selElmnt, a, b, c;
     // x = 取得所有 classname 為 "custom-select" 的元素：
     x = document.getElementsByClassName("custom-select");
@@ -90,4 +80,4 @@
     }
 
     document.addEventListener("click", closeAllSelect);
-</script>
+</script> -->

@@ -166,6 +166,15 @@
                 </section>
 
                 <section id="article-dropdown">
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown </button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+
                     <!-- 文章分類 dropdown -->
                     <div class="veggie-Category">
                         <div class="custom-select">
@@ -481,6 +490,17 @@
         }
 
         document.addEventListener("click", closeAllSelect);
+    </script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
     </script>
 </body>
 

@@ -16,7 +16,7 @@ $cates = $pdo->query("SELECT * FROM `article_classification` WHERE `sid`")
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
-    $where .= " AND article_classification_sid = $cate ";
+    $where .= " AND article_classification_sid=$cate ";
     $qsp['cate'] = $cate;
 }
 
@@ -41,10 +41,13 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT * FROM `article` ORDER BY `sid` LIMIT %s, %s",
-    ($page - 1) * $perPage,
-    $perPage);
-    
+    $sql = sprintf(
+        "SELECT * FROM `article` %s ORDER BY `sid` LIMIT %s, %s",
+        $where,
+        ($page - 1) * $perPage,
+        $perPage
+    );
+
     $rows = $pdo->query($sql)->fetchAll();
 }
 
@@ -55,7 +58,6 @@ if ($totalRows > 0) {
 //     'page' => $page,
 //     'rows' => $rows,
 // ]);
-
 ?>
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
 <link rel="stylesheet" href="./css/article_list.css" />
@@ -88,95 +90,85 @@ if ($totalRows > 0) {
 
             <section id="article-dropdown">
                 <!-- 文章分類 dropdown -->
-                <div class="veggie-Category">
-                    <div class="custom-select">
-                        <select>
-                            <option value="0">
-                                <h5>文章分類</h5>
-                            </option>
-
-                            <option value="1">
-                                <a type="button" href="?<?php $tmp = $qsp; 
-                                                        unset($tmp['cate']); ?>">
-                                    <h5>全部</h5>
-                                </a>
-                            </option>
-
+                <section id="article-dropdown">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <h5>文章分類</h5>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
                             <?php foreach ($cates as $c) : ?>
-                                <option value="2">
-                                    <a type="button" href="?<?php $tmp['cate'] = $c['sid'];?>">
-                                        <h5><?= $c['classification'] ?></h5>
-                                    </a>
-                                </option>
+                                <a href="?cate= <?= $c['sid'] ?>">
+                                    <h5><?= $c['classification'] ?></h5>
+                                </a>
                             <?php endforeach ?>
-                        </select>
-                    </div>
-                </div>
-                <!-- dropdown end -->
-            </section>
-
-            <!-- 內容資訊 -->
-            <section id="article-main">
-                <div class="article-list">
-                    <?php foreach ($rows as $r) : ?>
-                        <div class="article-content">
-                            <div class="col-lg-5 article-img">
-                                <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
-                            </div>
-                            <div class="col-lg contant">
-                                <div class="title">
-                                    <h2>
-                                        <?= $r['title'] ?>
-                                    </h2>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                    <p class="d-lg-none">by 史萊姆</p>
-                                </div>
-                                <p class="d-none d-lg-block">by 史萊姆</p>
-                                <h4 class="introduction">
-                                    <?= $r['introduction'] ?>
-                                </h4>
-                                <div class="article-btn">
-                                    <a class="darkbutton" href="#0" >
-                                        <h4>了解更多</h4>
-                                    </a>
-                                    <div class="bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    <?php endforeach; ?>
-                </div>
-            </section>
+                    </div>
+                    <!-- dropdown end -->
+                </section>
 
-            <section id="pagination">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled <?= $page == 1 ? 'disabled' : '' ?>">
-                        <a class="page-link" href="?<?php $qsp['page']=$page-1;?>">
-                            <i class="fa-solid fa-angle-left"></i>
-                        </a>
-                    </li>
-                    
-                    <?php for ($i = $page - 3; $i <= $page + 3; $i++) :
-                        if ($i >= 1 and $i <= $totalPages) :
-                            $qsp['page']=$i;
-                    ?>
-                    <li class="page-item <?= $page == $i ? 'active' : '' ?>">
-                        <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
-                    </li>
-                    <?php endif;
-                    endfor;?>
+                <!-- 內容資訊 -->
+                <section id="article-main">
+                    <div class="article-list">
+                        <?php foreach ($rows as $r) : ?>
+                            <div class="article-content">
+                                <div class="col-lg-5 article-img">
+                                    <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
+                                </div>
+                                <div class="col-lg contant">
+                                    <div class="title">
+                                        <h2>
+                                            <?= $r['title'] ?>
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
+                                    </div>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction">
+                                        <?= $r['introduction'] ?>
+                                    </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" data-sid="<?php $r = ['sid'] ?>" onclick="seemore(event)">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
 
-                    <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
-                        <a class="page-link" href="?<?php $qsp['page']=$page+1;?>">
-                            <i class="fa-solid fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-                
-            </section>
+                <section id="pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled <?= $page == 1 ? 'disabled' : '' ?>">
+                            <a class="page-link" href="?<?php $qsp['page'] = $page - 1; ?>">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </a>
+                        </li>
+
+                        <?php for ($i = $page - 3; $i <= $page + 3; $i++) :
+                            if ($i >= 1 and $i <= $totalPages) :
+                                $qsp['page'] = $i;
+                        ?>
+                                <li class="page-item <?= $page == $i ? 'active' : '' ?>">
+                                    <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
+                                </li>
+                        <?php endif;
+                        endfor; ?>
+
+                        <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                            <a class="page-link" href="?<?php $qsp['page'] = $page + 1; ?>">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </section>
         </div>
     </div>
 </main>
@@ -188,5 +180,24 @@ if ($totalRows > 0) {
 </footer>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
+<script>
+    function seemore(event) {
+        const btn = $(event.currentTarget);
+        const qty = btn.closest('.card-body').find('select').val();
+        const sid = btn.attr('data-sid');
 
+        console.log('qty', qty);
+
+        $.get(
+            'handle-cart.php', {
+                sid,
+                qty
+            },
+            function(data) {
+                console.log(data);
+                showCartCount(data);
+            },
+            'json');
+    }
+</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>

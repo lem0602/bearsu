@@ -12,7 +12,7 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM `vegetarian` WHERE `sid`")
     ->fetchAll();
 
-$ingre = $pdo->query("SELECT `recipe`.*, `recipe_ingredients`.`ingredients_name` FROM `recipe` JOIN `recipe_ingredients` ON `recipe`.`sid` = `recipe_ingredients`.`recipe_sid`;
+$ingre = $pdo->query("SELECT `recipe`.*, `recipe_ingredients`.`name` FROM `recipe` JOIN `recipe_ingredients` ON `recipe`.`sid` = `recipe_ingredients`.`recipe_sid`;
 ")
     ->fetchAll();
 
@@ -51,15 +51,15 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $rows,
-    'ingre' => $ingre['ingredients_name']
-]);
-exit;
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+
+// ]);
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>

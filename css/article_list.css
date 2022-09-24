@@ -68,103 +68,90 @@ body {
     }
 }
 
-.filter-article h1{
+.filter-article h1 {
     padding: 8px 24px;
 }
 
 @media screen and (min-width: 570px) {
-    .filter-article h1{
+    .filter-article h1 {
         padding: 8px 48px;
     }
 }
 
 /* recipe-dropdown */
-.custom-select {
+#article-dropdown {
+    margin-bottom: 48px;
+}
+/* 下拉是選單外觀設定 */
+.dropbtn {
+    background-color: var(--mybeige);
+    color: var(--mydarkgreen);
+    border: 2px solid var(--myblack);
+    /* border-bottom: none; */
+    border-radius: 8px;
+    padding: 4px 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropbtn h5{
+    margin-right: 48px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
     position: relative;
-    width: 140px;
+    display: inline-block;
 }
 
-@media screen and (min-width: 570px) {
-    .custom-select {
-        width: 165px;
-    }
-    
-}
-
-.custom-select select {
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    width: 100%;
+    border: 2px solid var(--myblack);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
     display: none;
-}
-
-.select-selected {
-    background-color: var(--mybeige);
-    border: 2px solid var(--myblack);
-    border-radius: 8px;
-    color: var(--mydarkgreen);
-}
-
-.select-selected::after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 8px solid transparent;
-    border-color: var(--mydarkgreen) transparent transparent transparent;
-}
-
-.select-selected.select-arrow-active::after {
-    border-color: transparent transparent var(--mydarkgreen) transparent;
-    top: 8px;
-}
-
-.select-items div {
-    color: var(--mydarkgreen);
-    padding: 8px 16px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.select-selected {
-    color: var(--mydarkgreen);
-    padding: 8px 16px;
-    border: 2px solid var(--myblack);
-    cursor: pointer;
-    user-select: none;
-}
-
-/*style items*/
-.select-items {
     position: absolute;
     background-color: var(--mybeige);
-    border: 2px solid var(--myblack);
-    border-radius: 8px;
-    margin-top: 8px;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
+    z-index: 1;
+    overflow: hidden;
+
 }
 
-.select-hide {
-    display: none;
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: var(--mydarkgreen);
+    padding: 7px 0;
+    text-decoration: none;
+    display: block;
 }
 
-.select-items div:hover {
+.dropdown-content a h5{
+    margin-left: 14px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
     background-color: var(--mydarkgreen);
     color: var(--mybeige);
 }
 
-.veggie-Category {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 12px;
-    margin-bottom: 48px;
+/* hover 時顯示資訊 */
+.dropdown:hover .dropdown-content {
+    display: block;
+
 }
 
-
+.dropdown:hover .dropbtn {
+    border-radius: 8px 8px 0 0;
+    padding: 4px 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* article-main */
 .article-list {
     width: 100%;
@@ -270,6 +257,10 @@ body {
         display: flex;
         justify-content: flex-end;
     }
+}
+
+.article-content .article-btn h4 {
+    cursor: pointer;
 }
 
 .article-content .darkbutton {
