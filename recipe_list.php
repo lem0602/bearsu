@@ -12,6 +12,8 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM `vegetarian` WHERE `sid`")
     ->fetchAll();
 
+
+
 $ingre = $pdo->query("SELECT `recipe`.*, `recipe_ingredients`.`name` FROM `recipe` JOIN `recipe_ingredients` ON `recipe`.`sid` = `recipe_ingredients`.`recipe_sid`;
 ")
     ->fetchAll();
@@ -44,10 +46,12 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT * FROM `recipe` ORDER BY `sid` LIMIT %s, %s",
-    ($page - 1) * $perPage,
-    $perPage);
-    
+    $sql = sprintf(
+        "SELECT * FROM `recipe` ORDER BY `sid` LIMIT %s, %s",
+        ($page - 1) * $perPage,
+        $perPage
+    );
+
     $rows = $pdo->query($sql)->fetchAll();
 }
 
@@ -94,56 +98,38 @@ if ($totalRows > 0) {
 
             <section id="recipe-dropdown">
                 <!-- dropdown -->
-                <div class="veggie-Category">
-                    <!-- 素食分類 dropdown -->
-                    <div class="custom-select">
-                        <select>
-                            <option value="0">
+                <div class="veggie-category">
+                    <div class="dropdown-box">
+                        <div class="dropdown">
+                            <button class="dropbtn">
                                 <h5>素食分類</h5>
-                            </option>
-                            <option value="1">
-                                <h5>五辛素</h5>
-                            </option>
-                            <option value="2">
-                                <H5>蛋素</H5>
-                            </option>
-                            <option value="3">
-                                <H5>全素</H5>
-                            </option>
-                            <option value="4">
-                                <H5>奶素</H5>
-                            </option>
-                            <option value="5">
-                                <H5>蛋奶素</H5>
-                            </option>
-                        </select>
-                    </div>
-                    <!-- dropdown end -->
-
-                    <!-- 烹飪時間 dropdown -->
-                    <div class="custom-select">
-                        <select>
-                            <option value="0">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="?">
+                                    <h5>全部</h5>
+                                </a>
+                                <?php foreach ($cates as $c) : ?>
+                                    <a href="?cate= <?= $c['sid'] ?>">
+                                        <h5><?= $c['classification'] ?></h5>
+                                    </a>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">
                                 <h5>烹飪時間</h5>
-                            </option>
-                            <option value="1">
-                                <h5>15</h5>
-                            </option>
-                            <option value="2">
-                                <H5>30</H5>
-                            </option>
-                            <option value="3">
-                                <H5>45</H5>
-                            </option>
-                            <option value="4">
-                                <H5>60</H5>
-                            </option>
-                            <option value="5">
-                                <H5>120</H5>
-                            </option>
-                        </select>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <?php foreach ($cates as $c) : ?>
+                                    <a href="?cate= <?= $c['sid'] ?>">
+                                        <h5><?= $c['classification'] ?></h5>
+                                    </a>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
                     </div>
-                    <!-- dropdown end -->
 
                     <a href="./write_recipes.html" class="darkbutton">
                         <i class="fa-solid fa-pencil"></i>
@@ -156,45 +142,44 @@ if ($totalRows > 0) {
             <section id="recipe-main">
                 <div class="recipe-list">
                     <?php foreach ($rows as $r) : ?>
-                    <div class="recipe-content">
-                        <div class="recipe-img ">
-                            <img src="./images/recipe/<?= $r['img'] ?>/<?= $r['img'] ?>.jpeg" alt="" />
-                        </div>
-                        <div class="contant">
-                            <div class="title">
-                                <h2><?= $r['name'] ?> (五辛素)</h2>
-                                <p class="d-lg-none">by 史萊姆</p>
-                                <div class="time-bookmark">
-                                    <div class="time">
-                                        <i class="fa-solid fa-clock"></i>
-                                        <h4><?= $r['time'] ?>分</h4>
+                        <div class="recipe-content">
+                            <div class="recipe-img ">
+                                <img src="./images/recipe/<?= $r['img'] ?>/<?= $r['img'] ?>.jpeg" alt="" />
+                            </div>
+                            <div class="contant">
+                                <div class="title">
+                                    <h2><?= $r['name'] ?> (五辛素)</h2>
+                                    <p class="d-lg-none">by 史萊姆</p>
+                                    <div class="time-bookmark">
+                                        <div class="time">
+                                            <i class="fa-solid fa-clock"></i>
+                                            <h4><?= $r['time'] ?>分</h4>
+                                        </div>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
                                     </div>
-                                    <div class="bookmark d-none d-lg-block">
+                                </div>
+                                <p class="d-none d-lg-block">by 史萊姆</p>
+                                <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
+                                <h4 class="ingredients">
+                                    食材：
+                                </h4>
+
+                                <div class="recipe-btn">
+                                    <a class="darkbutton" href="#0">
+                                        <h4>了解更多</h4>
+                                    </a>
+                                    <div class="bookmark d-lg-none">
                                         <i class="fa-regular fa-bookmark"></i>
                                     </div>
                                 </div>
                             </div>
-                            <p class="d-none d-lg-block">by 史萊姆</p>
-                            <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
-                            <?php if ($ingre[''] = $ingre ['']) ?>
-                            <h4 class="ingredients">
-                            食材：<?= $ingre['name'] ?>
-                            </h4>
-                            
-                            <div class="recipe-btn">
-                                <a class="darkbutton" href="#0">
-                                    <h4>了解更多</h4>
-                                </a>
-                                <div class="bookmark d-lg-none">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
                         </div>
-                    </div>
                     <?php endforeach ?>
                 </div>
             </section>
-            
+
             <section id="pagination">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled">

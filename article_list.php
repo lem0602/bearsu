@@ -88,87 +88,86 @@ if ($totalRows > 0) {
                 </div>
             </section>
 
+            <!-- 文章分類 dropdown -->
             <section id="article-dropdown">
-                <!-- 文章分類 dropdown -->
-                <section id="article-dropdown">
-                    <div class="dropdown">
-                        <button class="dropbtn">
-                            <h5>文章分類</h5>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <?php foreach ($cates as $c) : ?>
-                                <a href="?cate= <?= $c['sid'] ?>">
-                                    <h5><?= $c['classification'] ?></h5>
-                                </a>
-                            <?php endforeach ?>
-                        </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <h5>文章分類</h5>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <?php foreach ($cates as $c) : ?>
+                            <a href="?cate= <?= $c['sid'] ?>">
+                                <h5><?= $c['classification'] ?></h5>
+                            </a>
+                        <?php endforeach ?>
                     </div>
-                    <!-- dropdown end -->
-                </section>
+                </div>
+                <!-- dropdown end -->
+            </section>
 
-                <!-- 內容資訊 -->
-                <section id="article-main">
-                    <div class="article-list">
-                        <?php foreach ($rows as $r) : ?>
-                            <div class="article-content">
-                                <div class="col-lg-5 article-img">
-                                    <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
-                                </div>
-                                <div class="col-lg contant">
-                                    <div class="title">
-                                        <h2>
-                                            <?= $r['title'] ?>
-                                        </h2>
-                                        <div class="bookmark d-none d-lg-block">
-                                            <i class="fa-regular fa-bookmark"></i>
-                                        </div>
-                                        <p class="d-lg-none">by 史萊姆</p>
+            <!-- 內容資訊 -->
+            <section id="article-main">
+                <div class="article-list">
+                    <?php foreach ($rows as $r) : ?>
+                        <div class="article-content">
+                            <div class="col-lg-5 article-img">
+                                <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
+                            </div>
+                            <div class="col-lg contant">
+                                <div class="title">
+                                    <h2>
+                                        <?= $r['title'] ?>
+                                    </h2>
+                                    <div class="bookmark d-none d-lg-block">
+                                        <i class="fa-regular fa-bookmark"></i>
                                     </div>
-                                    <p class="d-none d-lg-block">by 史萊姆</p>
-                                    <h4 class="introduction">
-                                        <?= $r['introduction'] ?>
-                                    </h4>
-                                    <div class="article-btn">
-                                        <a class="darkbutton" data-sid="<?php $r = ['sid'] ?>" onclick="seemore(event)">
-                                            <h4>了解更多</h4>
-                                        </a>
-                                        <div class="bookmark d-lg-none">
-                                            <i class="fa-regular fa-bookmark"></i>
-                                        </div>
+                                    <p class="d-lg-none">by 史萊姆</p>
+                                </div>
+                                <p class="d-none d-lg-block">by 史萊姆</p>
+                                <h4 class="introduction">
+                                    <?= $r['introduction'] ?>
+                                </h4>
+                                <div class="article-btn">
+                                    <a class="darkbutton" data-sid="<?php $r = ['sid'] ?>" onclick="seemore(event)">
+                                        <h4>了解更多</h4>
+                                    </a>
+                                    <div class="bookmark d-lg-none">
+                                        <i class="fa-regular fa-bookmark"></i>
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
-                    </div>
-                </section>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </section>
 
-                <section id="pagination">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled <?= $page == 1 ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?<?php $qsp['page'] = $page - 1; ?>">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </a>
-                        </li>
+            <section id="pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled <?= $page == 1 ? 'disabled' : '' ?>">
+                        <a class="page-link" href="?<?php $qsp['page'] = $page - 1; ?>">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                    </li>
 
-                        <?php for ($i = $page - 3; $i <= $page + 3; $i++) :
-                            if ($i >= 1 and $i <= $totalPages) :
-                                $qsp['page'] = $i;
-                        ?>
-                                <li class="page-item <?= $page == $i ? 'active' : '' ?>">
-                                    <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
-                                </li>
-                        <?php endif;
-                        endfor; ?>
+                    <?php for ($i = $page - 3; $i <= $page + 3; $i++) :
+                        if ($i >= 1 and $i <= $totalPages) :
+                            $qsp['page'] = $i;
+                    ?>
+                            <li class="page-item <?= $page == $i ? 'active' : '' ?>">
+                                <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
+                            </li>
+                    <?php endif;
+                    endfor; ?>
 
-                        <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?<?php $qsp['page'] = $page + 1; ?>">
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                        <a class="page-link" href="?<?php $qsp['page'] = $page + 1; ?>">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
 
-                </section>
+            </section>
         </div>
     </div>
 </main>
