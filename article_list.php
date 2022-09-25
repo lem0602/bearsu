@@ -96,6 +96,9 @@ if ($totalRows > 0) {
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
+                        <a href="?">
+                            <h5>全部</h5>
+                        </a>
                         <?php foreach ($cates as $c) : ?>
                             <a href="?cate= <?= $c['sid'] ?>">
                                 <h5><?= $c['classification'] ?></h5>

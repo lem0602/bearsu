@@ -12,11 +12,9 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM `vegetarian` WHERE `sid`")
     ->fetchAll();
 
-
-
-$ingre = $pdo->query("SELECT `recipe`.*, `recipe_ingredients`.`name` FROM `recipe` JOIN `recipe_ingredients` ON `recipe`.`sid` = `recipe_ingredients`.`recipe_sid`;
-")
-    ->fetchAll();
+// 取得
+$ingredients = $pdo->query("SELECT * FROM `recipe_ingredients` ")
+    ->fetchAll(pdo::FETCH_ASSOC);
 
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
@@ -55,15 +53,14 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-// echo json_encode([
-//     'totalRows' => $totalRows,
-//     'totalPages' => $totalPages,
-//     'perPage' => $perPage,
-//     'page' => $page,
-//     'rows' => $rows,
-
-// ]);
-// exit;
+echo json_encode([
+    'totalRows' => $totalRows,
+    'totalPages' => $totalPages,
+    'perPage' => $perPage,
+    'page' => $page,
+    'rows' => $rows,
+]);
+exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -122,11 +119,9 @@ if ($totalRows > 0) {
                                 <i class="fa-solid fa-caret-down"></i>
                             </button>
                             <div class="dropdown-content">
-                                <?php foreach ($cates as $c) : ?>
-                                    <a href="?cate= <?= $c['sid'] ?>">
-                                        <h5><?= $c['classification'] ?></h5>
-                                    </a>
-                                <?php endforeach ?>
+                                <a href="?">
+                                    <h5>全部</h5>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -148,7 +143,7 @@ if ($totalRows > 0) {
                             </div>
                             <div class="contant">
                                 <div class="title">
-                                    <h2><?= $r['name'] ?> (五辛素)</h2>
+                                    <h2><?= $r['name'] ?> ( <?= $r['vegetarian_sid'] ?> )</h2>
                                     <p class="d-lg-none">by 史萊姆</p>
                                     <div class="time-bookmark">
                                         <div class="time">

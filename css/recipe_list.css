@@ -132,7 +132,7 @@ body {
     align-items: center;
 }
 
-.dropbtn h5{
+.dropbtn h5 {
     margin-right: 48px;
 }
 
@@ -147,13 +147,12 @@ body {
     width: 100%;
     border: 2px solid var(--myblack);
     border-top: none;
-    border-radius: 0 0 8px 8px; 
+    border-radius: 0 0 8px 8px;
     display: none;
     position: absolute;
     background-color: var(--mybeige);
     z-index: 1;
     overflow: hidden;
-
 }
 
 /* Links inside the dropdown */
@@ -164,7 +163,7 @@ body {
     display: block;
 }
 
-.dropdown-content a h5{
+.dropdown-content a h5 {
     margin-left: 14px;
 }
 
@@ -188,11 +187,11 @@ body {
     align-items: center;
 }
 
-.darkbutton {
+#recipe-dropdown .darkbutton {
     padding: 8px 12px;
 }
 
-.darkbutton i {
+#recipe-dropdown .darkbutton i {
     margin-right: 7px;
 }
 

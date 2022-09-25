@@ -10,7 +10,7 @@ $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $qsp = []; // query string parameters
 
 // 取得分類資料
-$cates = $pdo->query("SELECT * FROM `article_classification` WHERE `sid`")
+$cates = $pdo->query("SELECT * FROM `article` WHERE `sid` = 1")
     ->fetchAll();
 
 // ----------------------商品
@@ -55,7 +55,9 @@ if ($totalRows > 0) {
 //     'perPage' => $perPage,
 //     'page' => $page,
 //     'rows' => $rows,
+//     'cates' => $cates
 // ]);
+// exit;
 ?>
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
 <link rel="stylesheet" href="./css/article_detail.css" />
@@ -65,32 +67,29 @@ if ($totalRows > 0) {
     <div class="container">
         <div class="row">
             <section id="article-detail-main">
+                <?php foreach ($cates as $c) :?>
                 <div class="article-detail-box">
                     <div class="title">
-                        <h1>植物肉有益健康 可望取代動物製</h1>
+                        <h1><?= $c['title'];?></h1>
                         <div class="date d-lg-none">
-                            <p>2022/06/10 15:01:28</p>
+                            <p><?= $c['date']?></p>
                         </div>
                         <div class="bookmark">
                             <i class="fa-regular fa-bookmark"></i>
                         </div>
                     </div>
                     <div class="d-none d-md-block date">
-                        <p>2022/06/10 15:01:28</p>
+                        <p><?= $c['date']?></p>
                     </div>
                     <div class="txt">
                         <h4>
-                            發表在科學雜誌《未來食品》( Future Foods )
-                            上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
+                            
                         </h4>
                         <div class="img">
                             <img class="w-100" src="./images/article_05_01.jpeg" alt="">
                         </div>
                         <h4>
-                            植物肉對健康的益處該研究指出，40%的動物肉被視為「不太健康」，植物肉僅占
-                            14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低 49%。
-                            與雞肉相比，由真菌蛋白（一種源自真菌的單細胞蛋白）製成的肉可顯著降低胰島素反應，從而減少體重超重的人胰島素釋放。
-                            報告指出，在許多情況下，植物性成分的加工可以改善營養，例如豆類製作成植物肉，可增強人們消化它們的能力。植物性食物具有降低膽固醇的功效，並有助於改善腸道健康。
+                        <?= $c['introduction']?>
                         </h4>
                         <div class="img">
                             <img class="w-100" src="./images/article_05_02.jpeg" alt="">
@@ -110,6 +109,7 @@ if ($totalRows > 0) {
                         </h4>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </section>
 
             <section id="message">
