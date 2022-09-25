@@ -1379,7 +1379,7 @@ require __DIR__ . '/parts/connect_db.php'; ?>
                     <div class="dashed mb-3 d-none d-md-block d-lg-block">
 
                     </div>
-                    <div class="s_circle d-none d-md-block d-lg-block"><a href="course.html">
+                    <div class="s_circle d-none d-md-block d-lg-block"><a href="course.php">
                             <p>詳細<br> 資訊</p>
                         </a>
                     </div>
@@ -1420,7 +1420,7 @@ require __DIR__ . '/parts/connect_db.php'; ?>
                 <div class="dashed mb-3 d-none d-md-block d-lg-block">
                 </div>
 
-                <div class="s_circle d-none d-md-block d-lg-block"><a href="solarterms.html">
+                <div class="s_circle d-none d-md-block d-lg-block"><a href="solarterms.php">
                         <p>詳細<br> 資訊</p>
                     </a>
                 </div>
@@ -1460,7 +1460,7 @@ require __DIR__ . '/parts/connect_db.php'; ?>
                 <div class="dashed mb-3 d-none d-md-block d-lg-block">
                 </div>
 
-                <div class="s_circle d-none d-md-block d-lg-block"><a href="map.html">
+                <div class="s_circle d-none d-md-block d-lg-block"><a href="map.php">
                         <p>詳細<br> 資訊</p>
                     </a>
                 </div>
@@ -1483,7 +1483,7 @@ require __DIR__ . '/parts/connect_db.php'; ?>
                 <h1>01</h1>
                 <p>提供平價素食料理課程，實現輕鬆下廚、享樂生活的完美生活提案。</p>
                 <div class="mobile_circle_s">
-                    <a href="course.html">
+                    <a href="course.php">
                         <P>詳細<br>資訊</P>
                     </a>
                 </div>
@@ -1505,7 +1505,7 @@ require __DIR__ . '/parts/connect_db.php'; ?>
                 <h1>02</h1>
                 <p>結合廿四節氣的養生原則與方法，運用中醫進補食材概念，讓大家選對食物，吃出健康。</p>
                 <div class="mobile_circle_s">
-                    <a href="solarterms.html">
+                    <a href="solarterms.php">
                         <P>詳細<br>資訊</P>
                     </a>
                 </div>
@@ -1527,7 +1527,7 @@ require __DIR__ . '/parts/connect_db.php'; ?>
                 <h1>03</h1>
                 <p>提供全台素食餐廳，擁有詳細的素食分類，讓吃素變得簡單又方便。</p>
                 <div class="mobile_circle_s">
-                    <a href="map.html">
+                    <a href="map.php">
                         <P>詳細<br>資訊</P>
                     </a>
                 </div>

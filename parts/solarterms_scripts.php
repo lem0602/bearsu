@@ -310,45 +310,4 @@
             }
         })
 
-
-        // 產出第一層
-        var colleges = ['季節分類', '春季', '夏季', '秋季', '冬季'];
-
-        var inner = "";
-        for (var i = 0; i < colleges.length; i++) {
-
-            inner += `<option value=i>${colleges[i]}</option>`;
-        }
-        $(".season_filter").html(inner);//寫入
-        var noIndex;//第二層的index
-        //選擇第一層後，產出第二層
-        var sectors = new Array();
-        sectors[0] = ['節氣分類'];
-        sectors[1] = ['立春', '雨水', ' 驚蟄 ', '春分', ' 清明 ', ' 穀雨 '];
-        sectors[2] = ['立夏', '小滿', ' 芒種 ', '夏至', ' 小暑 ', ' 大暑 '];
-        sectors[3] = ['立秋', '處暑', ' 白露 ', '秋分', ' 寒露 ', ' 霜降 '];
-        sectors[4] = ['立冬', '小雪', ' 大雪 ', '冬至', ' 小寒 ', ' 大寒 '];
-        $(".season_filter").change(function () {
-            index = this.selectedIndex;//第一層的index
-            noIndex = index;
-            console.log('no1', this.selectedIndex);
-            console.log('第二層的長度', sectors[index].length);//第二層的長度
-            console.log('第二層選擇的陣列', sectors[index]);//第二層選擇的陣列
-            var Sinner = "";
-            for (var i = 0; i < sectors[index].length; i++) {
-                // Sinner=Sinner+'<option value=i>'+sectors[index][i]+'</option>';
-                Sinner += `<option value=i>${sectors[index][i]}</option>`;
-            }
-
-            $(".solarterms_filter").html(Sinner);
-
-            $(".solarterms_filter").change(function () {
-                index = this.selectedIndex;
-                console.log('no2', this.selectedIndex);
-            });
-            $(".solarterms_filter").change();
-
-        });
-        $(".season_filter").change();
-
     </script>

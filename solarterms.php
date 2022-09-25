@@ -5,12 +5,26 @@ $pageName = 'list'; // 頁面名稱
 
 $perPage = 5;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-
+$vege = isset($_GET['vege']) ? intval($_GET['vege']) : 0;
+$time = isset($_GET['time']) ? intval($_GET['time']) : 0;
+// $season = isset($_GET['season']) ? intval($_GET['season']) : 0;
 $qsp = []; // query string parameters
 
 // ----------------------商品
 
 $where = ' WHERE 1 ';  // 起頭
+if ($vege) {
+    $where .= " AND vegetarian_sid=$vege";
+    $qsp['vege'] = $vege;
+}
+if ($time) {
+    $where .= " AND time=$time";
+    $qsp['time'] = $time;
+}
+// if ($season) {
+//     $where .= " AND season=$season";
+//     $qsp['season'] = $season;
+// }
 
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM solarterms_recipe $where ";
@@ -30,9 +44,18 @@ if ($totalRows > 0) {
         header('Location: ?page=' . $totalPages);
         exit;
     }
+
+    // $names = $pdo->query("SELECT * FROM `solarterms_recipe_ingredients`")->fetchAll();
+    // $names_ar = [];
+    // foreach ($names as $n) {
+    //     $names_ar[$n['recipe_sid']] = $n['name'];
+    //     echo $n['name'];
+    // }
     // 取得該頁面的資料
     $sql = sprintf(
-        "SELECT * FROM `solarterms_recipe` %s ORDER BY `sid` DESC LIMIT %s, %s",
+        "SELECT * FROM `solarterms_recipe` JOIN `vegetarian` ON solarterms_recipe.vegetarian_sid = vegetarian.sid %s ORDER BY solarterms_recipe.sid LIMIT %s, %s",
+
+        // "SELECT * FROM `solarterms_recipe` JOIN `vegetarian` ON solarterms_recipe.vegetarian_sid = vegetarian.sid JOIN `solarterms_recipe_ingredients` ON solarterms_recipe.Ingredients_sid = solarterms_recipe_ingredients.recipe_sid %s ORDER BY solarterms_recipe.sid LIMIT %s, %s",
         $where,
         ($page - 1) * $perPage,
         $perPage
@@ -50,8 +73,8 @@ if ($totalRows > 0) {
         <div class="mobile_title col-12 d-block d-md-none d-lg-none">
             <h1>節氣食補</h1>
         </div>
-
         <div class="col-12 solarterms_circle d-flex d-md-none d-lg-none justify-content-center">
+            <img src="" alt="">
             <img src="images/solarterms_circle.png" alt="" width="345" height="345" usemap="#Map_solarterms_mobile">
             <map name="Map_solarterms_mobile">
                 <area shape="poly" coords="207,134,292,48,275,34,258,23,198,127" href="javascript:void(0);" class="solarterms_card_0 circle">
@@ -161,16 +184,27 @@ if ($totalRows > 0) {
         </div>
 
         <div class="col-12 order-2 filter_section d-flex justify-content-between justify-content-md-start justify-content-lg-start">
-            <select class="season_filter filter">
-                <!-- <option>季節分類</option>
-                        <option>春季</option>
-                        <option>夏季</option>
-                        <option>秋季</option>
-                        <option>冬季</option> -->
+            <select class="season_filter filter" onchange="seasonRange(value)">
+                <option>季節分類</option>
+                <option value='' <?php if (!(strcmp("0", $season))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>全部</option>
+                <option value='1' <?php if (!(strcmp("1", $season))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>春季</option>
+                <option value='2' <?php if (!(strcmp("2", $season))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>夏季</option>
+                <option value='3' <?php if (!(strcmp("3", $season))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>秋季</option>
+                <option value='4' <?php if (!(strcmp("4", $season))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>冬季</option>
             </select>
 
-            <select class="solarterms_filter filter">
-                <!-- <option>節氣分類</option>
+            <!-- <select class="solarterms_filter filter">
+                <option>節氣分類</option>
                         <option>立春</option>
                         <option>雨水</option>
                         <option>驚蟄</option>
@@ -194,36 +228,60 @@ if ($totalRows > 0) {
                         <option>大雪</option>
                         <option>冬至</option>
                         <option>小寒</option>
-                        <option>大寒</option> -->
-            </select>
+                        <option>大寒</option>
+            </select> -->
 
-            <select class="su_filter filter">
+            <select class="su_filter filter" onchange="vegeRange(value)">
                 <option>素食分類</option>
-                <option>全素</option>
-                <option>蛋素</option>
-                <option>五辛素</option>
-                <option>奶素</option>
-                <option>蛋奶素</option>
+                <option value='' <?php if (!(strcmp("", $vege))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>全部</option>
+                <option value='3' <?php if (!(strcmp("3", $vege))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>全素</option>
+                <option value='2' <?php if (!(strcmp("2", $vege))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>蛋素</option>
+                <option value='1' <?php if (!(strcmp("1", $vege))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>五辛素</option>
+                <option value='4' <?php if (!(strcmp("4", $vege))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>奶素</option>
+                <option value='5' <?php if (!(strcmp("5", $vege))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>蛋奶素</option>
             </select>
 
-            <select class="time_filter filter">
+            <select class="time_filter filter" onchange="timeRange(value)">
                 <option>烹飪時間</option>
-                <option>15分鐘</option>
-                <option>30分鐘</option>
-                <option>45分鐘</option>
-                <option>60分鐘以上</option>
+                <option value='' <?php if (!(strcmp("", $time))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>全部</option>
+                <option value='15' <?php if (!(strcmp("15", $time))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>15分鐘</option>
+                <option value='30' <?php if (!(strcmp("30", $time))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>30分鐘</option>
+                <option value='45' <?php if (!(strcmp("45", $time))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>45分鐘</option>
+                <option value='60' <?php if (!(strcmp("60", $time))) {
+                                        echo "selected=\"selected\"";
+                                    } ?>>60分鐘以上</option>
             </select>
         </div>
 
         <?php foreach ($rows as $r) : ?>
-        <div class="col-12 order-2 recipe_card d-md-flex d-lg-flex">
+            <div class="col-12 order-2 recipe_card d-md-flex d-lg-flex">
                 <div class="recipe_pic d-flex justify-content-center align-items-center">
-                <img src="images/solarterms/<?= $r['img'] ?>.jpg" alt="">
+                    <img src="images/solarterms/<?= $r['img'] ?>.jpg" alt="">
                 </div>
                 <div class="recipe_content d-flex flex-column justify-content-between">
                     <div class="title d-flex justify-content-between align-items-center">
                         <div class="left d-flex align-items-center">
-                            <h2><?= $r['name'] ?> (全素)</h2> <br>
+                            <h2><?= $r['recipe_name'] ?> (<?= $r['classification'] ?>)</h2> <br>
                         </div>
                         <div class="right d-flex align-items-center">
                             <i class="fa-solid fa-clock d-none d-md-block d-lg-block"></i>
@@ -239,8 +297,8 @@ if ($totalRows > 0) {
                         <p class="mb-0 pl-2 d-block d-md-none d-lg-none"><?= $r['time'] ?></p>
                     </div>
                     <div class="describe">
-                    <h3><?= $r['introduction'] ?></h3>
-                        <h4>食材：<?= $r['Ingredients'] ?></h4>
+                        <h3><?= $r['introduction'] ?></h3>
+                        <h4>食材：、</h4>
                     </div>
                     <div class="btn_wrap d-flex justify-content-md-end justify-content-lg-end p-0">
                         <div class="btn">
@@ -249,11 +307,11 @@ if ($totalRows > 0) {
                         <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                     </div>
                 </div>
-        </div>
+            </div>
         <?php endforeach; ?>
 
         <div class="col-12 order-2 d-flex justify-content-center page_wrap">
-        <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example">
                 <ul class="pagination mb-0">
                     <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
                         <a class="page-link" href="?<?php $qsp['page'] = $page - 1;
@@ -287,5 +345,76 @@ if ($totalRows > 0) {
 </footer>
 
 <?php include __DIR__ . '/parts/solarterms_scripts.php'; ?>
+
+<script>
+    const usp = new URLSearchParams(location.search);
+
+    function vegeRange(vege = 0) {
+        if (vege) {
+            usp.set('vege', vege);
+        } else {
+            usp.delete('vege')
+        }
+        location.href = '?' + usp.toString();
+    }
+
+    function timeRange(time = 0) {
+        if (time) {
+            usp.set('time', time);
+        } else {
+            usp.delete('time')
+        }
+        location.href = '?' + usp.toString();
+    }
+
+    // function seasonRange(season = 0) {
+    //     if (season) {
+    //         usp.set('season', season);
+    //     } else {
+    //         usp.delete('season')
+    //     }
+    //     location.href = '?' + usp.toString();
+    // }
+
+    //     // 產出第一層
+    //     var colleges = ['季節分類', '春季', '夏季', '秋季', '冬季'];
+
+    // var inner = "";
+    // for (var i = 0; i < colleges.length; i++) {
+
+    //     inner += `<option value=i>${colleges[i]}</option>`;
+    // }
+    // $(".season_filter").html(inner);//寫入
+    // var noIndex;//第二層的index
+    // //選擇第一層後，產出第二層
+    // var sectors = new Array();
+    // sectors[0] = ['節氣分類'];
+    // sectors[1] = ['立春', '雨水', ' 驚蟄 ', '春分', ' 清明 ', ' 穀雨 '];
+    // sectors[2] = ['立夏', '小滿', ' 芒種 ', '夏至', ' 小暑 ', ' 大暑 '];
+    // sectors[3] = ['立秋', '處暑', ' 白露 ', '秋分', ' 寒露 ', ' 霜降 '];
+    // sectors[4] = ['立冬', '小雪', ' 大雪 ', '冬至', ' 小寒 ', ' 大寒 '];
+    // $(".season_filter").change(function () {
+    //     index = this.selectedIndex;//第一層的index
+    //     noIndex = index;
+    //     console.log('no1', this.selectedIndex);
+    //     console.log('第二層的長度', sectors[index].length);//第二層的長度
+    //     console.log('第二層選擇的陣列', sectors[index]);//第二層選擇的陣列
+    //     var Sinner = "";
+    //     for (var i = 0; i < sectors[index].length; i++) {
+    //         // Sinner=Sinner+'<option value=i>'+sectors[index][i]+'</option>';
+    //         Sinner += `<option value=i>${sectors[index][i]}</option>`;
+    //     }
+
+    //     $(".solarterms_filter").html(Sinner);
+
+    //     $(".solarterms_filter").change(function () {
+    //         index = this.selectedIndex;
+    //         console.log('no2', this.selectedIndex);
+    //     });
+    //     $(".solarterms_filter").change();
+
+    // });
+    // $(".season_filter").change();
+</script>
 
 <?php include __DIR__ . '/parts/foot.php'; ?>

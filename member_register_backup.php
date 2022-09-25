@@ -1,4 +1,4 @@
-<?php include __DIR__. '/parts/config.php'; ?>
+<?php session_start(); ?>
 <?php include __DIR__ . '/parts/member_register_head.php'; ?>
 
 <?php include __DIR__ . '/parts/navbar_lem.php'; ?>
@@ -20,11 +20,11 @@
                         <div class="input_box">
                             <div class="name_box d-flex">
                                 <h4>姓名</h4>
-                                <input type="text" id="name">
+                                <input type="text">
                             </div>
                             <div class="email_box d-flex">
                                 <h4>Email</h4>
-                                <input type="text" id="email">
+                                <input type="text">
                             </div>
                             <div class="password_box d-flex">
                                 <h4>密碼</h4>
@@ -32,11 +32,11 @@
                             </div>
                             <div class="repeat_password_box d-flex">
                                 <h4>確認密碼</h4>
-                                <input type="password" id="password">
+                                <input type="password">
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="register_btn">註冊</button>
+                            <button class="register_btn">註冊</button>
                         </div>
                     </div>
                 </div>
@@ -57,50 +57,5 @@
 </footer>
 
 <?php include __DIR__ . '/parts/member_register_scripts.php'; ?>
-<script>
-    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
-    const $nickname = $('#nickname'),
-        $email = $('#email');
-    const fileds = [$nickname, $email];
-
-    function checkForm() {
-        // 回復原來的狀態
-        fileds.forEach(el=>{
-            el.css('border', '1px solid #CCCCCC');
-            el.next().text('');
-        });
-
-        let isPass = true;
-
-        if($name.val().length < 2){
-            isPass = false;
-            $name.css('border', '1px solid red');
-            $name.next().text('請輸入正確的姓名');
-        }
-
-        if(! email_re.test($email.val())){
-            isPass = false;
-            $email.css('border', '1px solid red');
-            $email.next().text('請輸入正確的 email');
-        }
-
-        if(isPass){
-            $.post(
-                'member_register_api.php',
-                $(document.form1).serialize(),
-                function(data){
-                    if(data.success){
-                        alert('註冊成功');
-                    } else {
-                        alert(data.error);
-                    }
-                },
-                'json'
-            )
-        }
-
-    }
-</script>
 
 <?php include __DIR__ . '/parts/foot.php'; ?>

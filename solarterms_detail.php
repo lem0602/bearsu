@@ -9,7 +9,7 @@
             <div class="top d-md-flex d-lg-flex justify-content-between">
                 <div class="left">
                     <h1>焗烤雙花 (全素)</h1>
-                    <img src="images/solarterms_01.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01.jpg" alt="">
                 </div>
                 <div class="right text-center">
                     <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i><br>
@@ -76,7 +76,7 @@
         <div class="col-12 recipe_list">
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_01.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_01.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>1</h1>
@@ -85,7 +85,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_02.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_02.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>2</h1>
@@ -94,7 +94,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_03.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_03.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>3</h1>
@@ -103,7 +103,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_04.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_04.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>4</h1>
@@ -112,7 +112,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_05.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_05.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>5</h1>
@@ -121,7 +121,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_06.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_06.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>6</h1>
@@ -130,7 +130,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_07.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_07.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>7</h1>
@@ -139,7 +139,7 @@
             </div>
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
-                    <img src="images/solarterms_01_08.jpg" alt="">
+                    <img src="images/solarterms/solarterms_01_08.jpg" alt="">
                 </div>
                 <div class="right">
                     <h1>8</h1>

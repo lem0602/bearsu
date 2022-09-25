@@ -7,12 +7,12 @@
     <div class="row course_innerwrap">
 
         <div class="col-12 col-md-9 col-lg-9 course_cards order-1 order-md-0 order-lg-0">
-            <img src="images/course/course_01.jpg" alt="" class="course_recipe_pic">
+            <img src="images/course_01.jpg" alt="" class="course_recipe_pic">
             <h3>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
             </h3>
             <div class="classroom d-md-flex d-lg-flex justify-content-between">
-                <img src="images/course/course_00_01.jpg" alt="">
-                <img src="images/course/course_00_02.jpg" alt="">
+                <img src="images/course_00_01.jpg" alt="">
+                <img src="images/course_00_02.jpg" alt="">
             </div>
             <p>注意事項: <br>
                 1.因教室空間有限，並有爐火、刀具等需謹慎操作之用品，為安全起見，僅開放給報名學員進場。<br>
