@@ -63,8 +63,7 @@ if ($totalRows > 0) {
 // $veges_ar = [];
 // foreach($veges as $v){
 //     $veges_ar[$v['sid']] = $v['classification'];
-//     echo $veges_ar[$v['sid']];
-    
+//     echo $v['classification'];
 // }
 
 // foreach($rows as $row){
