@@ -3621,64 +3621,6 @@
             oscillator.stop(audioCtx.currentTime + 1);
         });
     })();
-    
-    (function() {
-        if (!window.AudioContext) {
-            alert('當前瀏覽器不支持Web Audio API');
-            return;
-        }
-
-        //按鈕元素
-        var eleMusic = document.getElementById('onionb1');
-        // var eleG = document.getElementsByTagName('g');
-
-        //創建新的音頻上下文接口
-        var audioCtx = new AudioContext();
-
-        //發出的聲音頻率數據，表現為音調的高低
-        var arrFrequency = [196.00, 220.00, 246.94, 261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25, 587.33, 659.25, 698.46, 783.99, 880.00, 987.77, 1046.50];
-
-        //音調依次遞增或者遞減處理需要的參數
-        var start = 0,
-            direction = 1;
-
-        //鼠標hover我們的按鈕的時候
-        eleMusic.addEventListener('mouseenter', function() {
-            //當前頻率
-            var frequency = arrFrequency[start];
-            //如果到頭，改變音調的變化規則（增減切換）
-            if (!frequency) {
-                direction = -1 * direction;
-                start = start + 2 * direction;
-                frequency = arrFrequency[start];
-            }
-            //改變索引，下一次hover時候使用
-            start = start + direction;
-
-            //創建一個OscillatorNode, 它表示一個週期性波形（振盪），基本上來說創造了一個音調
-            var oscillator = audioCtx.createOscillator();
-            //創建一個GainNode,它可以控制音頻的總音量
-            var gainNode = audioCtx.createGain();
-            //把音量，音調和終節點進行關聯
-            oscillator.connect(gainNode);
-            // audioCtx.destination返回AudioDestinationNode對象，表示當前audio context中所有節點的最終節點，一般表示音頻渲染設備
-            gainNode.connect(audioCtx.destination);
-            //指定音調的類型，其他還有square|triangle|sawtooth 
-            oscillator.type = ' sine ';
-            //設置當前播放聲音的頻率，也就是最終播放聲音的調調
-            oscillator.frequency.value = frequency;
-            //當前時間設置音量為0 
-            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            // 0.01秒後音量為1 
-            gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
-            //音調從當前時間開始播放
-            oscillator.start(audioCtx.currentTime);
-            // 1秒內聲音慢慢降低，是個不錯的停止聲音的方法
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1);
-            // 1秒後完全停止聲音
-            oscillator.stop(audioCtx.currentTime + 1);
-        });
-    })();
 
     (function() {
         if (!window.AudioContext) {

@@ -59,32 +59,45 @@
 <?php include __DIR__ . '/parts/member_register_scripts.php'; ?>
 <script>
     const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
-    const $nickname = $('#nickname'),
-        $email = $('#email');
-    const fileds = [$nickname, $email];
+    // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
+    const $name = $('#name'),
+        $email = $('#email'),
+        $pwd1 = $('#password'),
+        $pwd2 = $('#password2');
+    const fileds = [$name, $email, $pwd1, $pwd2];
 
     function checkForm(e) {
         e.preventDefault();
         // 回復原來的狀態
         fileds.forEach(el => {
-            el.css('border', '1px solid #CCCCCC');
+            el.css('border', 'none');
             el.next().text('');
         });
 
         let isPass = true;
 
-        // if ($name.val().length < 2) {
-        //     isPass = false;
-        //     $name.css('border', '1px solid red');
-        //     $name.next().text('請輸入正確的姓名');
-        // }
+        if ($name.val().length < 2) {
+            isPass = false;
+            $name.css('border', '1px solid red')
+                .css('borderRadius', '5px');
+            $name.next().text('請輸入正確的姓名');
+        }
 
-        // if (!email_re.test($email.val())) {
-        //     isPass = false;
-        //     $email.css('border', '1px solid red');
-        //     $email.next().text('請輸入正確的 email');
-        // }
+        if (!email_re.test($email.val())) {
+            isPass = false;
+            $email.css('border', '1px solid red')
+                .css('borderRadius', '5px');
+            $email.pleaseholder('請輸入正確的email');
+        }
+
+        if ($pwd1 != $pwd2) {
+            isPass = false;
+            $pwd1.css('border', '1px solid red')
+                .css('borderRadius', '5px');
+            $pwd2.css('border', '1px solid red')
+                .css('borderRadius', '5px');
+            $pwd1.next().text('請輸入正確的密碼');
+        }
 
         // console.log('isPass',isPass);
 

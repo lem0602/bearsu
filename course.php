@@ -50,13 +50,15 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
+    // 
     $sql = sprintf(
-        "SELECT * FROM `course` JOIN `vegetarian` ON course.vegetarian_sid = vegetarian.sid %s ORDER BY course.sid LIMIT %s, %s",
+        "SELECT *, `course`.sid as courseID FROM `course` JOIN `vegetarian` ON course.vegetarian_sid = vegetarian.sid %s ORDER BY course.sid LIMIT %s, %s",
         $where,
         ($page - 1) * $perPage,
         $perPage
     );
     $rows = $pdo->query($sql)->fetchAll();
+    // var_dump($rows) ;
 }
 
 // $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
@@ -153,41 +155,41 @@ if ($totalRows > 0) {
 
         <div class="col-12 col-md-9 col-lg-9 course_cards">
             <?php foreach ($rows as $r) : ?>
-                <div class="course_card d-md-flex d-lg-flex">
-                    <div class="course_pic d-flex justify-content-center align-items-center">
-                        <img src="images/course/<?= $r['img'] ?>.jpg" alt="">
-                    </div>
-                    <div class="course_content d-flex flex-column justify-content-between">
-                        <div class="title d-flex justify-content-between align-items-center">
-                            <div class="left d-flex align-items-center">
-                                <h2><?= $r['name'] ?> (<?= $r['classification'] ?>)</h2> <br>
-                            </div>
-                            <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                <i class="fa-regular fa-bookmark"></i>
-                            </div>
+                    <div class="course_card d-md-flex d-lg-flex">
+                        <div class="course_pic d-flex justify-content-center align-items-center">
+                            <img src="images/course/<?= $r['img'] ?>.jpg" alt="">
                         </div>
-                        <div class="describe">
-                            <h4><?= $r['introduction'] ?>
-                            </h4>
-                        </div>
-                        <div class="price d-flex align-items-center">
-                            <h5>課程價格</h5>
-                            <h2>$<?= number_format($r['price']) ?></h2>
-                        </div>
-                        <div class="time">
-                            <h5>開課時間</h5>
-                            <h4><?= $r['date_1'] ?><br><?= $r['date_2'] ?></h4>
-                        </div>
-                        <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                            <a href="course_detail.php" class="btn_wrap mr-md-0 mr-lg-0">
-                                <div class="btn p-0">
-                                    了解更多
+                        <div class="course_content d-flex flex-column justify-content-between">
+                            <div class="title d-flex justify-content-between align-items-center">
+                                <div class="left d-flex align-items-center">
+                                    <h2><?= $r['name'] ?> (<?= $r['classification'] ?>)</h2> <br>
                                 </div>
-                            </a>
-                            <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                                <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="describe">
+                                <h4><?= $r['introduction'] ?>
+                                </h4>
+                            </div>
+                            <div class="price d-flex align-items-center">
+                                <h5>課程價格</h5>
+                                <h2>$<?= number_format($r['price']) ?></h2>
+                            </div>
+                            <div class="time">
+                                <h5>開課時間</h5>
+                                <h4><?= $r['date_1'] ?><br><?= $r['date_2'] ?></h4>
+                            </div>
+                            <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                                <a href="course_detail.php?sid=<?= $r['courseID'] ?>" class="btn_wrap mr-md-0 mr-lg-0">
+                                    <div class="btn p-0">
+                                        了解更多
+                                    </div>
+                                </a>
+                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
             <?php endforeach; ?>
         </div>
 
@@ -301,6 +303,5 @@ if ($totalRows > 0) {
         }
         location.href = '?' + usp.toString();
     }
-
 </script>
 <?php include __DIR__ . '/parts/foot.php'; ?>
