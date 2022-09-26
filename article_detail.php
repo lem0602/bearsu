@@ -141,12 +141,6 @@ if ($totalRows > 0) {
                             <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
                         </div>
 
-                        <div class="message">
-                            <div class="message-author-img">
-                                <img src="./images/mug_shot_04.png" alt="" />
-                            </div>
-                            <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
-                        </div>
                     </div>
                 </div>
             </section>

@@ -9,12 +9,9 @@ $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $qsp = []; // query string parameters
 
 // 取得分類資料
-$cates = $pdo->query("SELECT * FROM `vegetarian` WHERE `sid`")
+$cates = $pdo->query("SELECT * FROM vegetarian WHERE sid")
     ->fetchAll();
 
-// 取得
-$ingredients = $pdo->query("SELECT * FROM `recipe_ingredients` ")
-    ->fetchAll(pdo::FETCH_ASSOC);
 
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
@@ -51,6 +48,7 @@ if ($totalRows > 0) {
     );
 
     $rows = $pdo->query($sql)->fetchAll();
+
 }
 
 echo json_encode([
@@ -59,6 +57,7 @@ echo json_encode([
     'perPage' => $perPage,
     'page' => $page,
     'rows' => $rows,
+    
 ]);
 exit;
 ?>
@@ -122,6 +121,9 @@ exit;
                                 <a href="?">
                                     <h5>全部</h5>
                                 </a>
+                                <a href="?">
+                                    <h5>5</h5>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -143,7 +145,14 @@ exit;
                             </div>
                             <div class="contant">
                                 <div class="title">
-                                    <h2><?= $r['name'] ?> ( <?= $r['vegetarian_sid'] ?> )</h2>
+                                    
+                                    <h2>
+                                        <?= $r['name'] ?> 
+                                        <?php foreach ($cates as $c) : ?>
+                                        ( <?= $c['classification'] ?> )
+                                        <?php endforeach ?>
+                                    </h2>
+                                    
                                     <p class="d-lg-none">by 史萊姆</p>
                                     <div class="time-bookmark">
                                         <div class="time">

@@ -1,5 +1,70 @@
 <?php
 require __DIR__ . '/kc_parts/connect_db.php';
+
+$perPage = 10;  // 每頁最多有幾筆
+
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+
+$qsp = []; // query string parameters
+
+// 取得分類資料
+$cates = $pdo->query("SELECT * FROM `recipe_ingredients` WHERE `recipe_sid`=1")
+    ->fetchAll();
+
+$recipe = $pdo->query("SELECT * FROM `recipe` WHERE `sid`=1")
+    ->fetchAll();
+
+$vegetarian = $pdo->query("SELECT * FROM vegetarian WHERE sid=1")
+    ->fetchAll();
+
+
+// ----------------------商品
+$where = ' WHERE 1 ';  // 起頭
+if ($cate) {
+    $where .= " AND vegetarian_sid = $cate ";
+    $qsp['cate'] = $cate;
+}
+
+// 取得資料的總筆數
+$t_sql = "SELECT COUNT(1) FROM recipe $where ";
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+
+// 計算總頁數
+$totalPages = ceil($totalRows / $perPage);
+
+$rows = [];  // 預設值
+
+// 有資料才執行
+if ($totalRows > 0) {
+    if ($page < 1) {
+        header('Location: ?page=1');
+        exit;
+    }
+
+    if ($page > $totalPages) {
+        header('Location: ?page=' . $totalPages);
+        exit;
+    }
+    // 取得該頁面的資料
+    $sql = sprintf(
+        "SELECT * FROM `recipe` ORDER BY `sid` LIMIT %s, %s",
+        ($page - 1) * $perPage,
+        $perPage
+    );
+
+    $rows = $pdo->query($sql)->fetchAll();
+}
+
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'recipe' => $recipe,
+
+// ]);
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -11,117 +76,80 @@ require __DIR__ . '/kc_parts/connect_db.php';
         <div class="row">
 
             <section id="recipe-detail-content">
-                <div class=" recipe-detail-main">
-                    <div class="title">
-                        <h1>木耳炒甜豆 (五辛素)</h1>
-                        <div class="bookmark">
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <div class="img-author">
-                        <div class="col-md-10 main-img">
-                            <img src="./images/recipe_01/recipe_01.jpg" alt="" />
-                        </div>
-                        <div class="author">
-                            <div class="author-img">
-                                <img src="./images/mug_shot_04.png" alt="" />
+                <?php foreach ($recipe as $r) : ?>
+                    <div class=" recipe-detail-main">
+                        <div class="title">
+                            <h1>
+                                <?= $r['name'] ?>
+                                <?php foreach ($vegetarian as $v) : ?>
+                                ( <?= $v['classification'] ?> )
+                                <?php endforeach ?>
+                            </h1>
+                            <div class="bookmark">
+                                <i class="fa-regular fa-bookmark"></i>
                             </div>
-                            <h4>史萊姆</h4>
+                        </div>
+                        <div class="img-author">
+                            <div class="col-md-10 main-img">
+                                <img src="./images/recipe/<?= $r['img'] ?>/<?= $r['img'] ?>.jpeg" alt="" />
+                            </div>
+                            <div class="author">
+                                <div class="author-img">
+                                    <img src="./images/mug_shot_04.png" alt="" />
+                                </div>
+                                <h4>史萊姆</h4>
+                            </div>
+                        </div>
+                        <div class="txt">
+                            <h3>
+                            <?= $r['introduction'] ?>
+                            </h3>
                         </div>
                     </div>
-                    <div class="txt">
-                        <h3>
-                            清甜的什錦蔬菜，吃得到滿滿營養！
-                            一道菜包含多樣蔬菜和口感，豐富的色彩讓便當看起來更美味可口讓人食慾大開。
-                            適合全家大小食用,唯痛風患者要避食黑木耳。
-                        </h3>
-                    </div>
-                </div>
+                <?php endforeach ?>
 
                 <div class="recipe-detail-ingredients">
-                    <div class="ingredients-box">
-                        <div class="quantity-time">
-                            <div class="col quantity">
-                                <h3>份量</h3>
-                                <h3>3 人份</h3>
+                    <?php foreach ($recipe as $r) : ?>
+                        <div class="ingredients-box">
+                            <div class="quantity-time">
+                                <div class="col quantity">
+                                    <h3>份量</h3>
+                                    <h3><?= $r['quantity'] ?> 人份</h3>
+                                </div>
+                                <div class="col time">
+                                    <h3>時間</h3>
+                                    <h3><?= $r['time'] ?> 分鐘</h3>
+                                </div>
                             </div>
-                            <div class="col time">
-                                <h3>時間</h3>
-                                <h3>10分鐘</h3>
-                            </div>
-                        </div>
-                        <div class="ingredients-group">
-                            <div class="col-12 title">
-                                <h3>食材</h3>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>甜豌豆/荷蘭豆</h4>
-                                <h4>一包</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>胡蘿蔔</h4>
-                                <h4>5片</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>蒜頭</h4>
-                                <h4>4瓣</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>鹽</h4>
-                                <h4>適量</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>香菇素蠔油</h4>
-                                <h4>1/2茶匙</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>白胡椒粉</h4>
-                                <h4>少許</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>太白粉</h4>
-                                <h4>3/4茶匙</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>乾木耳/鮮木耳</h4>
-                                <h4>3片</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>杏鮑菇</h4>
-                                <h4>半根</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>辣椒</h4>
-                                <h4>4片</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>熱水</h4>
-                                <h4>1/2米杯</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>香菇粉</h4>
-                                <h4>少許</h4>
-                            </div>
-                            <div class="col-12 col-lg-6 ingredients">
-                                <h4>香油</h4>
-                                <h4>少許</h4>
+                            <div class="ingredients-group">
+                                <div class="col-12 title">
+                                    <h3>食材</h3>
+                                </div>
+                                <?php foreach ($cates as $c) : ?>
+                                    <div class="col-12 col-lg-6 ingredients">
+                                        <h4><?= $c['ingredients_name'] ?></h4>
+                                        <h4><?= $c['quantity'] ?></h4>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
+                    <?php foreach ($recipe as $r) : ?>
                         <div class="step">
                             <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_01.jpg" alt="" />
+                                <img src="./images/" alt="" />
                             </div>
                             <div class="step-txt">
                                 <h2>1</h2>
-                                <p>甜豆剝去纖維</p>
+                                <p><?= $r[''] ?></p>
                             </div>
                         </div>
-                        <div class="step">
+                    <?php endforeach ?>
+                        <!-- <div class="step">
                             <div class="col-md-5 step-img">
                                 <img src="./images/recipe_01/recipe_01_02.jpg" alt="" />
                             </div>
@@ -194,7 +222,7 @@ require __DIR__ . '/kc_parts/connect_db.php';
                                 <h2>9</h2>
                                 <p>勾薄芡，撒上香油</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
