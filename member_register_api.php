@@ -21,28 +21,15 @@ if(isset($_POST['email'])) {
         exit;  // 程式結束
     }
 
-    $hash = sha1( $_POST['email']. uniqid() );
+    $hash = sha1( $_POST['email'].uniqid() );
 
-    $sql = "INSERT INTO `members`(
-                      `email`, `password`, `mobile`,
-                      `address`, `birthday`, `hash`,  
-                      `nickname`, `created_at`
-                      ) VALUES (
-                                ?, ?, ?,
-                                ?, ?, ?,
-                                ?, NOW()
-                      )";
+    $sql = "INSERT INTO `members` (`email`, `password`,  `name`, `create_at`) VALUES (?, ? , ?, NOW())";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         $_POST['email'],
         password_hash($_POST['password'], PASSWORD_DEFAULT),
-        $_POST['mobile'],
-
-        $_POST['address'],
-        $_POST['birthday'],
-        $hash,
-        $_POST['nickname']
+        $_POST['name']
     ]);
 
     if($stmt->rowCount()){

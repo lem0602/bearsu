@@ -431,6 +431,10 @@ body {
     width: 100%;
 }
 
+.recipe_content{
+    width: 100%;
+}
+
 .recipe_content .tittle h2 {
     font-size: 1.5rem;
     margin-bottom: 0px;

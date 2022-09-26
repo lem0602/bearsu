@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php
+session_start();
+// 如果已經登入會員
+if (!empty($_SESSION['user'])) {
+    header('Location: ./');
+    exit;
+}
+?>
+
 <?php include __DIR__ . '/parts/member_login_head.php'; ?>
 
 <?php include __DIR__ . '/parts/navbar_lem.php'; ?>
@@ -17,19 +25,21 @@
         <div class="col-12 col-md-4 col-lg-4 d-flex align-items-center">
             <div class="login_box w-100">
                 <h1>登入</h1>
-                <div class="input_box">
-                    <div class="email_box d-flex">
-                        <h4>Email</h4>
-                        <input type="text">
+                <form name="form1" method="post" onsubmit="checkForm(); return false;">
+                    <div class="input_box">
+                        <div class="email_box d-flex">
+                            <h4>Email</h4>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="password_box d-flex">
+                            <h4>密碼</h4>
+                            <input type="password" id="password" name="password" required>
+                        </div>
                     </div>
-                    <div class="password_box d-flex">
-                        <h4>密碼</h4>
-                        <input type="password">
+                    <div class="d-flex justify-content-center">
+                        <button class="login_btn" type="submit">登入</button>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button class="login_btn">登入</button>
-                </div>
+                </form>
                 <div class="register_wrap d-flex justify-content-center">
                     <p>還不是會員嗎？</p> <a href="member_register.php">立即註冊</a>
                 </div>
@@ -52,5 +62,32 @@
 </footer>
 
 <?php include __DIR__ . '/parts/member_login_scripts.php'; ?>
+<script>
+    console.log($);
+    function checkForm() {
+        // TODO: 欄位檢查
+        if (!$('#email').val()) {
+            alert('請填寫帳號');
+            return;
+        }
+        if (!$('#password').val()) {
+            alert('請填寫密碼');
+            return;
+        }
+        $.post(
+            'member_login_api.php',
+            $(document.form1).serialize(),
+            function(data) {
+                if (data.success) {
+                    location.href = './';
+                } else {
+                    alert(data.error);
+                }
+            },
+            'json'
+        );
+
+    }
+</script>
 
 <?php include __DIR__ . '/parts/foot.php'; ?>

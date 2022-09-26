@@ -7,7 +7,7 @@ $perPage = 5;  // 每頁最多有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $vege = isset($_GET['vege']) ? intval($_GET['vege']) : 0;
 $time = isset($_GET['time']) ? intval($_GET['time']) : 0;
-// $season = isset($_GET['season']) ? intval($_GET['season']) : 0;
+$season = isset($_GET['season']) ? intval($_GET['season']) : 0;
 $qsp = []; // query string parameters
 
 // ----------------------商品
@@ -21,10 +21,10 @@ if ($time) {
     $where .= " AND time=$time";
     $qsp['time'] = $time;
 }
-// if ($season) {
-//     $where .= " AND season=$season";
-//     $qsp['season'] = $season;
-// }
+if ($season) {
+    $where .= " AND seasons_sid=$season";
+    $qsp['season'] = $season;
+}
 
 // 取得資料的總筆數
 $t_sql = "SELECT COUNT(1) FROM solarterms_recipe $where ";
@@ -186,7 +186,7 @@ if ($totalRows > 0) {
         <div class="col-12 order-2 filter_section d-flex justify-content-between justify-content-md-start justify-content-lg-start">
             <select class="season_filter filter" onchange="seasonRange(value)">
                 <option>季節分類</option>
-                <option value='' <?php if (!(strcmp("0", $season))) {
+                <option value='' <?php if (!(strcmp("", $season))) {
                                         echo "selected=\"selected\"";
                                     } ?>>全部</option>
                 <option value='1' <?php if (!(strcmp("1", $season))) {
@@ -367,14 +367,14 @@ if ($totalRows > 0) {
         location.href = '?' + usp.toString();
     }
 
-    // function seasonRange(season = 0) {
-    //     if (season) {
-    //         usp.set('season', season);
-    //     } else {
-    //         usp.delete('season')
-    //     }
-    //     location.href = '?' + usp.toString();
-    // }
+    function seasonRange(season = 0) {
+        if (season) {
+            usp.set('season', season);
+        } else {
+            usp.delete('season')
+        }
+        location.href = '?' + usp.toString();
+    }
 
     //     // 產出第一層
     //     var colleges = ['季節分類', '春季', '夏季', '秋季', '冬季'];

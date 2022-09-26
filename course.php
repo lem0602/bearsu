@@ -93,72 +93,52 @@ if ($totalRows > 0) {
             <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
-                        <div class="course_menu d-flex justify-content-center align-items-center">
-                            <div class="course_menu_wrap">
+                        <div class="course_menu d-flex justify-content-center align-items-center w-100">
+                            <div class="course_menu_wrap w-100">
                                 <h2>篩選條件</h2>
                                 <select class="course_filter filter">
                                     <option>價格排序</option>
                                     <option>價格由低至高</option>
                                     <option>價格由高至低</option>
                                 </select>
-                                <select class="date_filter filter">
+                                <!-- <select class="date_filter filter">
                                     <option>選擇課程日期</option>
                                     <option>10月21日(五) 19:00-21:00</option>
                                     <option>11月18日(五) 19:00-21:00</option>
                                     <option>10月22日(六) 10:30-12:30</option>
                                     <option>11月19日(六) 10:30-12:30</option>
-                                </select>
+                                </select> -->
                                 <p>素食分類</p>
-                <input type="radio" name="su" class="radio"
-                <?= empty($_GET['vege']) ? 'checked' : '' ?>
-                id="totalsu" onclick="vegeRange(0)">
-                <label for="totalsu">全部</label><br>
+                                <input type="radio" name="su" class="radio" <?= empty($_GET['vege']) ? 'checked' : '' ?> id="totalsu" onclick="vegeRange(0)">
+                                <label for="totalsu">全部</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==3 ? 'checked' : '' ?>
-                id="allsu" onclick="vegeRange(3)">
-                <label for="allsu">全素</label><br>
+                                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 3 ? 'checked' : '' ?> id="allsu" onclick="vegeRange(3)">
+                                <label for="allsu">全素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==2 ? 'checked' : '' ?>
-                id="eggsu" onclick="vegeRange(2)">
-                <label for="eggsu">蛋素</label><br>
+                                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 2 ? 'checked' : '' ?> id="eggsu" onclick="vegeRange(2)">
+                                <label for="eggsu">蛋素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==1 ? 'checked' : '' ?>
-                id="fivesu" onclick="vegeRange(1)">
-                <label for="fivesu">五辛素</label><br>
+                                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 1 ? 'checked' : '' ?> id="fivesu" onclick="vegeRange(1)">
+                                <label for="fivesu">五辛素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==4 ? 'checked' : '' ?>
-                id="milksu" onclick="vegeRange(4)">
-                <label for="milksu">奶素</label><br>
+                                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 4 ? 'checked' : '' ?> id="milksu" onclick="vegeRange(4)">
+                                <label for="milksu">奶素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==5 ? 'checked' : '' ?> 
-                id="emsu" onclick="vegeRange(5)">
-                <label for="emsu">蛋奶素</label>
+                                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 5 ? 'checked' : '' ?> id="emsu" onclick="vegeRange(5)">
+                                <label for="emsu">蛋奶素</label>
 
-                <p>價格</p>
-                <input type="radio" name="price" class="radio"
-                <?= empty($_GET['lowp']) && empty($_GET['highp']) ? 'checked' : '' ?> 
-                id="allprice" onclick="priceRange(0)">
-                <label for="allprice">全部</label><br>
+                                <p>價格</p>
+                                <input type="radio" name="price" class="radio" <?= empty($_GET['lowp']) && empty($_GET['highp']) ? 'checked' : '' ?> id="allprice" onclick="priceRange(0)">
+                                <label for="allprice">全部</label><br>
 
-                <input type="radio" name="price" class="radio"
-                <?= $_GET['lowp']==0 && $_GET['highp']==800 ? 'checked' : '' ?> 
-                id="price8" onclick="priceRange(0,800)">
-                <label for="price8">$800 以下</label><br>
+                                <input type="radio" name="price" class="radio" <?= $_GET['lowp'] == 0 && $_GET['highp'] == 800 ? 'checked' : '' ?> id="price8" onclick="priceRange(0,800)">
+                                <label for="price8">$800 以下</label><br>
 
-                <input type="radio" name="price" class="radio" 
-                <?= $_GET['lowp']==800 && $_GET['highp']==1500 ? 'checked' : '' ?>
-                id="price815" onclick="priceRange(800,1500)">
-                <label for="price815">$800 ~ $1,500</label><br>
+                                <input type="radio" name="price" class="radio" <?= $_GET['lowp'] == 800 && $_GET['highp'] == 1500 ? 'checked' : '' ?> id="price815" onclick="priceRange(800,1500)">
+                                <label for="price815">$800 ~ $1,500</label><br>
 
-                <input type="radio" name="price" class="radio" 
-                <?= $_GET['lowp']==1500 && empty($_GET['highp']) ? 'checked' : '' ?>
-                id="price15" onclick="priceRange(1500, 0)">
-                <label for="price15" class="mb-0">$1,500 以上</label>
+                                <input type="radio" name="price" class="radio" <?= $_GET['lowp'] == 1500 && empty($_GET['highp']) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
+                                <label for="price15" class="mb-0">$1,500 以上</label>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary mobile_close_btn" data-dismiss="modal">關閉</button>
                                 </div>
@@ -219,63 +199,43 @@ if ($totalRows > 0) {
                     <option>價格由低至高</option>
                     <option>價格由高至低</option>
                 </select>
-                <select class="date_filter filter">
+                <!-- <select class="date_filter filter">
                     <option>選擇課程日期</option>
                     <option>10月21日(五) 19:00-21:00</option>
                     <option>11月18日(五) 19:00-21:00</option>
                     <option>10月22日(六) 10:30-12:30</option>
                     <option>11月19日(六) 10:30-12:30</option>
-                </select>
+                </select> -->
                 <p>素食分類</p>
-                <input type="radio" name="su" class="radio"
-                <?= empty($_GET['vege']) ? 'checked' : '' ?>
-                id="totalsu" onclick="vegeRange(0)">
+                <input type="radio" name="su" class="radio" <?= empty($_GET['vege']) ? 'checked' : '' ?> id="totalsu" onclick="vegeRange(0)">
                 <label for="totalsu">全部</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==3 ? 'checked' : '' ?>
-                id="allsu" onclick="vegeRange(3)">
+                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 3 ? 'checked' : '' ?> id="allsu" onclick="vegeRange(3)">
                 <label for="allsu">全素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==2 ? 'checked' : '' ?>
-                id="eggsu" onclick="vegeRange(2)">
+                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 2 ? 'checked' : '' ?> id="eggsu" onclick="vegeRange(2)">
                 <label for="eggsu">蛋素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==1 ? 'checked' : '' ?>
-                id="fivesu" onclick="vegeRange(1)">
+                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 1 ? 'checked' : '' ?> id="fivesu" onclick="vegeRange(1)">
                 <label for="fivesu">五辛素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==4 ? 'checked' : '' ?>
-                id="milksu" onclick="vegeRange(4)">
+                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 4 ? 'checked' : '' ?> id="milksu" onclick="vegeRange(4)">
                 <label for="milksu">奶素</label><br>
 
-                <input type="radio" name="su" class="radio"
-                <?= $_GET['vege']==5 ? 'checked' : '' ?> 
-                id="emsu" onclick="vegeRange(5)">
+                <input type="radio" name="su" class="radio" <?= $_GET['vege'] == 5 ? 'checked' : '' ?> id="emsu" onclick="vegeRange(5)">
                 <label for="emsu">蛋奶素</label>
 
                 <p>價格</p>
-                <input type="radio" name="price" class="radio"
-                <?= empty($_GET['lowp']) && empty($_GET['highp']) ? 'checked' : '' ?> 
-                id="allprice" onclick="priceRange(0)">
+                <input type="radio" name="price" class="radio" <?= empty($_GET['lowp']) && empty($_GET['highp']) ? 'checked' : '' ?> id="allprice" onclick="priceRange(0)">
                 <label for="allprice">全部</label><br>
 
-                <input type="radio" name="price" class="radio"
-                <?= $_GET['lowp']==0 && $_GET['highp']==800 ? 'checked' : '' ?> 
-                id="price8" onclick="priceRange(0,800)">
+                <input type="radio" name="price" class="radio" <?= $_GET['lowp'] == 0 && $_GET['highp'] == 800 ? 'checked' : '' ?> id="price8" onclick="priceRange(0,800)">
                 <label for="price8">$800 以下</label><br>
 
-                <input type="radio" name="price" class="radio" 
-                <?= $_GET['lowp']==800 && $_GET['highp']==1500 ? 'checked' : '' ?>
-                id="price815" onclick="priceRange(800,1500)">
+                <input type="radio" name="price" class="radio" <?= $_GET['lowp'] == 800 && $_GET['highp'] == 1500 ? 'checked' : '' ?> id="price815" onclick="priceRange(800,1500)">
                 <label for="price815">$800 ~ $1,500</label><br>
 
-                <input type="radio" name="price" class="radio" 
-                <?= $_GET['lowp']==1500 && empty($_GET['highp']) ? 'checked' : '' ?>
-                id="price15" onclick="priceRange(1500, 0)">
+                <input type="radio" name="price" class="radio" <?= $_GET['lowp'] == 1500 && empty($_GET['highp']) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
                 <label for="price15" class="mb-0">$1,500 以上</label>
 
             </div>
@@ -319,13 +279,13 @@ if ($totalRows > 0) {
 <script>
     const usp = new URLSearchParams(location.search);
 
-    function priceRange(lowp=0, highp=0){
-        if(lowp){
+    function priceRange(lowp = 0, highp = 0) {
+        if (lowp) {
             usp.set('lowp', lowp);
         } else {
             usp.delete('lowp')
         }
-        if(highp){
+        if (highp) {
             usp.set('highp', highp);
         } else {
             usp.delete('highp')
@@ -333,8 +293,8 @@ if ($totalRows > 0) {
         location.href = '?' + usp.toString();
     }
 
-    function vegeRange(vege=0){
-        if(vege){
+    function vegeRange(vege = 0) {
+        if (vege) {
             usp.set('vege', vege);
         } else {
             usp.delete('vege')

@@ -92,7 +92,7 @@
        }
 
        /* ------------mobile start------------ */
-       .mobile_course_filter_wrap {
+.mobile_course_filter_wrap {
            position: sticky;
            top: 90px;
            z-index: 10000;
