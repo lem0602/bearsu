@@ -41,25 +41,22 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf(
-        "SELECT * FROM `recipe` ORDER BY `sid` LIMIT %s, %s",
-        ($page - 1) * $perPage,
-        $perPage
+    $sql = sprintf("SELECT r.* FROM recipe AS r"
     );
 
     $rows = $pdo->query($sql)->fetchAll();
-
 }
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $rows,
-    
-]);
-exit;
+
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+
+// ]);
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -145,14 +142,12 @@ exit;
                             </div>
                             <div class="contant">
                                 <div class="title">
-                                    
+
                                     <h2>
-                                        <?= $r['name'] ?> 
-                                        <?php foreach ($cates as $c) : ?>
-                                        ( <?= $c['classification'] ?> )
-                                        <?php endforeach ?>
+                                        <?= $r['name'] ?>
+                                        ( <?= $r['classification'] ?> )
                                     </h2>
-                                    
+
                                     <p class="d-lg-none">by 史萊姆</p>
                                     <div class="time-bookmark">
                                         <div class="time">
@@ -167,41 +162,41 @@ exit;
                                 <p class="d-none d-lg-block">by 史萊姆</p>
                                 <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
                                 <h4 class="ingredients">
-                                    食材：
+                                    食材：<?= $r['ingredients_name'] ?>
                                 </h4>
 
                                 <div class="recipe-btn">
-                                    <a class="darkbutton" href="#0">
+                                    <a class="darkbutton" onclick="post();"">
                                         <h4>了解更多</h4>
                                     </a>
-                                    <div class="bookmark d-lg-none">
+                                    <div class=" bookmark d-lg-none">
                                         <i class="fa-regular fa-bookmark"></i>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach ?>
                 </div>
-            </section>
-
-            <section id="pagination">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link">
-                            <i class="fa-solid fa-angle-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link">
-                            <i class="fa-solid fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </section>
+            <?php endforeach ?>
         </div>
+        </section>
+
+        <section id="pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
     </div>
 </main>
 
@@ -212,4 +207,15 @@ exit;
 </footer>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
+<script>
+    function post() {
+        $.post('test.php', {
+                name: $('#name').val(),
+                password: $('#password').val()
+            },
+            function(data) {
+                $('#result').html(data);
+            });
+    }
+</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>

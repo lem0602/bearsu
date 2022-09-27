@@ -9,15 +9,24 @@ $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $qsp = []; // query string parameters
 
 // 取得分類資料
+// 第一個素食食材
 $cates = $pdo->query("SELECT * FROM `recipe_ingredients` WHERE `recipe_sid`=1")
     ->fetchAll();
 
-$recipe = $pdo->query("SELECT * FROM `recipe` WHERE `sid`=1")
+// 素食食譜
+$recipe = $pdo->query("SELECT recipe, vegetarian  FROM `recipe` JOIN  `vegetarian` ON recipe.vegetarian_sid = vegetarian.classification")
     ->fetchAll();
 
+// 素食種類
 $vegetarian = $pdo->query("SELECT * FROM vegetarian WHERE sid=1")
     ->fetchAll();
 
+// 每一個步驟
+$step = $pdo->query("SELECT `recipe`.*, `recipe_step`.`number`, `recipe_step`.`step_introduction` 
+FROM `recipe`
+JOIN `recipe_step` 
+ON recipe.step_sid = recipe_step.sid ")
+    ->fetchAll();
 
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
@@ -56,16 +65,15 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-// echo json_encode([
-//     'totalRows' => $totalRows,
-//     'totalPages' => $totalPages,
-//     'perPage' => $perPage,
-//     'page' => $page,
-//     'recipe' => $recipe,
-
-// ]);
-// exit;
-?>
+echo json_encode([
+    'totalRows' => $totalRows,
+    'totalPages' => $totalPages,
+    'perPage' => $perPage,
+    'page' => $page,
+    'recipe' => $recipe
+]);
+exit;
+// ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
 <link rel="stylesheet" href="./css/recipe_detail.css" />
@@ -138,91 +146,18 @@ if ($totalRows > 0) {
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                    <?php foreach ($recipe as $r) : ?>
+                    <?php foreach ($step as $s) : ?>
                         <div class="step">
                             <div class="col-md-5 step-img">
-                                <img src="./images/" alt="" />
+                                <img src="./images/recipe/recipe_01/recipe_01_01.jpeg" alt="" />
                             </div>
                             <div class="step-txt">
-                                <h2>1</h2>
-                                <p><?= $r[''] ?></p>
+                                <h2><?= $s['number'] ?></h2>
+                                <p><?= $s['introduction']?></p>
                             </div>
+                            
                         </div>
                     <?php endforeach ?>
-                        <!-- <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_02.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>2</h2>
-                                <p>木耳泡發後切小塊</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_03.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>3</h2>
-                                <p>胡蘿蔔、杏鮑菇切薄片，太白粉水調勻</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_04.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>4</h2>
-                                <p>熱鍋，蒜頭、胡蘿蔔、杏鮑菇依序爆香</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_05.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>5</h2>
-                                <p>木耳下鍋拌炒</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_06.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>6</h2>
-                                <p>甜豆下鍋拌炒</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_07.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>7</h2>
-                                <p>嗆入熱水、素蠔油，小火燜煮3~5分鐘</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_08.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>8</h2>
-                                <p>
-                                    下辣椒、鹽、胡椒粉、香菇粉調味，加適量熱水燒開
-                                </p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe_01/recipe_01_09.jpg" alt="" />
-                            </div>
-                            <div class="step-txt">
-                                <h2>9</h2>
-                                <p>勾薄芡，撒上香油</p>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </section>
