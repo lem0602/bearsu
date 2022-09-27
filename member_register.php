@@ -18,18 +18,22 @@
             <form name="form1" method="post" novalidate onsubmit="checkForm(event); return false;" class="register_box w-100">
                 <h1>註冊</h1>
                 <div class="input_box">
+                    <div class="error error1"></div>
                     <div class="name_box d-flex">
                         <h4>姓名</h4>
                         <input type="text" id="name" id="name" name="name" required>
                     </div>
+                    <div class="error error2"></div>
                     <div class="email_box d-flex">
                         <h4>Email</h4>
                         <input type="text" id="email" name="email" required>
                     </div>
+                    <div class="error error3"></div>
                     <div class="password_box d-flex">
                         <h4>密碼</h4>
                         <input type="password" id="password" name="password" required>
                     </div>
+                    <div class="error error4"></div>
                     <div class="repeat_password_box d-flex">
                         <h4>確認密碼</h4>
                         <input type="password" id="password2" name="password2" required>
@@ -63,7 +67,11 @@
     const $name = $('#name'),
         $email = $('#email'),
         $pwd1 = $('#password'),
-        $pwd2 = $('#password2');
+        $pwd2 = $('#password2'),
+        $error1 = $('.error1'),
+        $error2 = $('.error2'),
+        $error3 = $('.error3'),
+        $error4 = $('.error4');
     const fileds = [$name, $email, $pwd1, $pwd2];
 
     function checkForm(e) {
@@ -71,7 +79,10 @@
         // 回復原來的狀態
         fileds.forEach(el => {
             el.css('border', 'none');
-            el.next().text('');
+            $error1.text('');
+            $error2.text('');
+            $error3.text('');
+            $error4.text('');
         });
 
         let isPass = true;
@@ -80,23 +91,25 @@
             isPass = false;
             $name.css('border', '1px solid red')
                 .css('borderRadius', '5px');
-            $name.next().text('請輸入正確的姓名');
+            // $name.next().text('請輸入正確的姓名');
+            $error1.text('請輸入正確的姓名');
         }
 
         if (!email_re.test($email.val())) {
             isPass = false;
             $email.css('border', '1px solid red')
                 .css('borderRadius', '5px');
-            $email.pleaseholder('請輸入正確的email');
+            $error2.text('請輸入正確的email');
         }
 
-        if ($pwd1 != $pwd2) {
+        if ($pwd1.val() != $pwd2.val()) {
             isPass = false;
             $pwd1.css('border', '1px solid red')
                 .css('borderRadius', '5px');
             $pwd2.css('border', '1px solid red')
                 .css('borderRadius', '5px');
-            $pwd1.next().text('請輸入正確的密碼');
+            $error3.text('密碼不一樣');
+            $error4.text('密碼不一樣');
         }
 
         // console.log('isPass',isPass);

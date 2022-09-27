@@ -33,9 +33,8 @@ if( password_verify($_POST['password'], $row['password']) ){
     // 密碼是正確的
     $output['success'] = true;
     $_SESSION['user'] = [
-        'id' => $row['id'],
+        'sid' => $row['sid'],
         'email' => $row['email'],
-        'nickname' => $row['nickname'],
     ];
 
 } else {

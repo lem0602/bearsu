@@ -1,24 +1,27 @@
 <?php session_start(); ?>
 <?php
 require __DIR__ . '/parts/connect_db.php';
+// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $sql = "SELECT * FROM course WHERE sid=$sid";
+
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-$sql = "SELECT * FROM course WHERE sid=$sid";
+$sql = "SELECT s.*, v.classification FROM course s
+JOIN vegetarian v ON s.vegetarian_sid=v.sid
+WHERE s.sid=$sid";
 
-$rows = $pdo->query($sql)->fetchAll();
+$r = $pdo->query($sql)->fetch();
 
-$veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
-$veges_ar = [];
-foreach($veges as $v){
-    $veges_ar[$v['sid']] = $v['classification'];
-    echo $v['classification'];
-}
+// $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
+// $veges_ar = [];
+// foreach($veges as $v){
+//     $veges_ar[$v['sid']] = $v['classification'];
+// }
 ?>
 
 <?php include __DIR__ . '/parts/course_detail_head.php'; ?>
 
 <?php include __DIR__ . '/parts/navbar_lem.php'; ?>
 
-<?php foreach ($rows as $r) : ?>
     <div class="container">
         <div class="row course_innerwrap">
             <div class="col-12 col-md-9 col-lg-9 course_cards order-1 order-md-0 order-lg-0">
@@ -85,7 +88,6 @@ foreach($veges as $v){
             </div>
         </div>
     </div>
-<?php endforeach; ?>
 
 <footer>
     <p>Copyright © 2022 BearSu. All rights reserved.</p>
