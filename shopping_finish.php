@@ -11,7 +11,7 @@ $pageName = 'cart'; // 頁面名稱
 // 應該由資料表的資料計算總價
 $total = 0;
 foreach($_SESSION['cart'] as $k=>$v){
-    $total += $v['price']*$v['qty'];
+    $total += $v['price'];
 }
 
 
@@ -29,10 +29,9 @@ $stmt = $pdo->prepare($od_sql);
 
 foreach($_SESSION['cart'] as $k=>$v){
     $stmt->execute([
-        $order_sid,
         $v['sid'],
+        $order_sid,
         $v['price'],
-        $v['qty'],
     ]);
 }
 

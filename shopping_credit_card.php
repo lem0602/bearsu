@@ -39,7 +39,7 @@ $pageName = 'cart'; // 頁面名稱
                 $total += $v['price'];  // 計算總價格
             ?>
                 <div class="course_card d-flex align-items-center w-100">
-                    <img src="images/course_01.jpg" alt="">
+                    <img src="images/course/<?= $v['img'] ?>.jpg" alt="">
                     <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
                         <div class="tittle">
                             <h2><?= $v['name'] ?></h2>
