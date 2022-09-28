@@ -222,17 +222,15 @@ body {
     border: 2px solid #333333;
     background-color: #FFF6E9;
     box-shadow: 3px 3px #333333;
-    margin-bottom: 48px;
     overflow: hidden;
     height: 100%;
 }
 
 .order_man_card .left {
     background-color: #005F5F;
-    height: 100%;
 }
 
-.order_man_card .right {
+.order_man_card_wrap .right {
     padding: 48px 0px;
 }
 
