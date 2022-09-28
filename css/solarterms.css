@@ -362,10 +362,6 @@ body {
         margin-right: 0px;
     }
 
-    .solarterms_circle img {
-        margin-bottom: 0px;
-    }
-
     .solarterms_introduce_card .down {
         padding: 20px;
     }
@@ -383,6 +379,12 @@ body {
     margin-bottom: 16px;
     border-radius: 50%;
     border: 2px solid #333333;
+}
+
+@media screen and (min-width:768px) {
+    .solarterms_circle img {
+        margin-bottom: 0px;
+    }
 }
 
 .filter_section {

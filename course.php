@@ -178,7 +178,7 @@ if ($totalRows > 0) {
                             </div>
                             <div class="time">
                                 <h5>開課時間</h5>
-                                <h4><?= $r['date_1'] ?><br><?= $r['date_2'] ?></h4>
+                                <h4><?= $r['date_1'] ?></h4>
                             </div>
                             <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
                                 <a href="course_detail.php?sid=<?= $r['courseID'] ?>" class="btn_wrap mr-md-0 mr-lg-0">
