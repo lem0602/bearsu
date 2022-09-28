@@ -10,13 +10,13 @@ $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $qsp = []; // query string parameters
 
 // 取得分類資料
-$cates = $pdo->query("SELECT * FROM `article_classification` WHERE `sid`")
+$cates = $pdo->query("SELECT * FROM `article_classification`")
     ->fetchAll();
 
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
-    $where .= " AND article_classification_sid=$cate ";
+    $where .= " AND article_classification_sid = $cate ";
     $qsp['cate'] = $cate;
 }
 
@@ -56,8 +56,10 @@ if ($totalRows > 0) {
 //     'totalPages' => $totalPages,
 //     'perPage' => $perPage,
 //     'page' => $page,
-//     'rows' => $rows,
+//     'cates' => $cates,
 // ]);
+
+// exit;
 ?>
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
 <link rel="stylesheet" href="./css/article_list.css" />
@@ -96,11 +98,12 @@ if ($totalRows > 0) {
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="?">
+                        <a href="?<?php $tmp = $qsp; // 複製
+                                    unset($tmp['cate']); ?>">
                             <h5>全部</h5>
                         </a>
                         <?php foreach ($cates as $c) : ?>
-                            <a href="?cate= <?= $c['sid'] ?>">
+                            <a href="?cate=<?php $c['sid']; ?>">
                                 <h5><?= $c['classification'] ?></h5>
                             </a>
                         <?php endforeach ?>

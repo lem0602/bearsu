@@ -8,25 +8,26 @@ $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
 $qsp = []; // query string parameters
 
-// 取得分類資料
-// 第一個素食食材
-$cates = $pdo->query("SELECT * FROM `recipe_ingredients` WHERE `recipe_sid`=1")
+// 取得資料
+$tmain = $pdo->query("SELECT r.*, v.*
+FROM recipe AS r
+JOIN vegetarian AS v
+ON r.vegetarian_sid = v.sid
+WHERE r.sid=1
+")
     ->fetchAll();
 
-// 素食食譜
-$recipe = $pdo->query("SELECT recipe, vegetarian  FROM `recipe` JOIN  `vegetarian` ON recipe.vegetarian_sid = vegetarian.classification")
+// 素食食材
+$recipe = $pdo->query("SELECT r.* , i.*  
+FROM recipe AS r
+JOIN recipe_ingredients AS i
+ON r.ingredients_sid = i.sid
+WHERE r.sid=1
+")
     ->fetchAll();
 
-// 素食種類
-$vegetarian = $pdo->query("SELECT * FROM vegetarian WHERE sid=1")
-    ->fetchAll();
+// 步驟
 
-// 每一個步驟
-$step = $pdo->query("SELECT `recipe`.*, `recipe_step`.`number`, `recipe_step`.`step_introduction` 
-FROM `recipe`
-JOIN `recipe_step` 
-ON recipe.step_sid = recipe_step.sid ")
-    ->fetchAll();
 
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
@@ -70,10 +71,12 @@ echo json_encode([
     'totalPages' => $totalPages,
     'perPage' => $perPage,
     'page' => $page,
-    'recipe' => $recipe
+    'cates' => $cates,
+    'vegetarian' => $vegetarian
 ]);
 exit;
-// ?>
+// 
+?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
 <link rel="stylesheet" href="./css/recipe_detail.css" />
@@ -84,14 +87,12 @@ exit;
         <div class="row">
 
             <section id="recipe-detail-content">
-                <?php foreach ($recipe as $r) : ?>
+                <?php foreach ($tmain as $t) : ?>
                     <div class=" recipe-detail-main">
                         <div class="title">
                             <h1>
-                                <?= $r['name'] ?>
-                                <?php foreach ($vegetarian as $v) : ?>
-                                ( <?= $v['classification'] ?> )
-                                <?php endforeach ?>
+                                <?= $t['name'] ?>
+                                ( <?= $t['classification'] ?> )
                             </h1>
                             <div class="bookmark">
                                 <i class="fa-regular fa-bookmark"></i>
@@ -99,7 +100,7 @@ exit;
                         </div>
                         <div class="img-author">
                             <div class="col-md-10 main-img">
-                                <img src="./images/recipe/<?= $r['img'] ?>/<?= $r['img'] ?>.jpeg" alt="" />
+                                <img src="./images/recipe/<?= $t['img'] ?>/<?= $t['img'] ?>.jpeg" alt="" />
                             </div>
                             <div class="author">
                                 <div class="author-img">
@@ -110,7 +111,7 @@ exit;
                         </div>
                         <div class="txt">
                             <h3>
-                            <?= $r['introduction'] ?>
+                                <?= $t['introduction'] ?>
                             </h3>
                         </div>
                     </div>
@@ -133,12 +134,10 @@ exit;
                                 <div class="col-12 title">
                                     <h3>食材</h3>
                                 </div>
-                                <?php foreach ($cates as $c) : ?>
-                                    <div class="col-12 col-lg-6 ingredients">
-                                        <h4><?= $c['ingredients_name'] ?></h4>
-                                        <h4><?= $c['quantity'] ?></h4>
-                                    </div>
-                                <?php endforeach ?>
+                                <div class="col-12 col-lg-6 ingredients">
+                                    <h4><?= $r['ingredients_name'] ?></h4>
+                                    <h4><?= $r['quantity'] ?></h4>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach ?>
@@ -146,18 +145,18 @@ exit;
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                    <?php foreach ($step as $s) : ?>
-                        <div class="step">
-                            <div class="col-md-5 step-img">
-                                <img src="./images/recipe/recipe_01/recipe_01_01.jpeg" alt="" />
+                        <?php foreach ($step as $s) : ?>
+                            <div class="step">
+                                <div class="col-md-5 step-img">
+                                    <img src="./images/recipe/recipe_01/recipe_01_01.jpeg" alt="" />
+                                </div>
+                                <div class="step-txt">
+                                    <h2><?= $s['number'] ?></h2>
+                                    <p><?= $s['introduction'] ?></p>
+                                </div>
+
                             </div>
-                            <div class="step-txt">
-                                <h2><?= $s['number'] ?></h2>
-                                <p><?= $s['introduction']?></p>
-                            </div>
-                            
-                        </div>
-                    <?php endforeach ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </section>

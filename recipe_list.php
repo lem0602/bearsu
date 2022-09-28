@@ -13,6 +13,7 @@ $cates = $pdo->query("SELECT * FROM vegetarian WHERE sid")
     ->fetchAll();
 
 
+
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
@@ -41,22 +42,24 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT r.* FROM recipe AS r"
-    );
+    $sql = sprintf("SELECT r.*, v.* 
+    FROM recipe AS r
+    JOIN vegetarian AS v 
+    ON r.vegetarian_sid = v.sid
+    ");
 
     $rows = $pdo->query($sql)->fetchAll();
 }
 
 
-// echo json_encode([
-//     'totalRows' => $totalRows,
-//     'totalPages' => $totalPages,
-//     'perPage' => $perPage,
-//     'page' => $page,
-//     'rows' => $rows,
-
-// ]);
-// exit;
+echo json_encode([
+    'totalRows' => $totalRows,
+    'totalPages' => $totalPages,
+    'perPage' => $perPage,
+    'page' => $page,
+    'rows' => $rows,
+]);
+exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -103,7 +106,7 @@ if ($totalRows > 0) {
                                     <h5>全部</h5>
                                 </a>
                                 <?php foreach ($cates as $c) : ?>
-                                    <a href="?cate= <?= $c['sid'] ?>">
+                                    <a href="?<?php $tmp['cate']=$c['sid']; ?>">
                                         <h5><?= $c['classification'] ?></h5>
                                     </a>
                                 <?php endforeach ?>
@@ -162,11 +165,11 @@ if ($totalRows > 0) {
                                 <p class="d-none d-lg-block">by 史萊姆</p>
                                 <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
                                 <h4 class="ingredients">
-                                    食材：<?= $r['ingredients_name'] ?>
+                                    食材：
                                 </h4>
 
                                 <div class="recipe-btn">
-                                    <a class="darkbutton" onclick="post();"">
+                                    <a href="recipe_detail.php" class="darkbutton" onclick="post();"">
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class=" bookmark d-lg-none">
