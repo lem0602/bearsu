@@ -77,7 +77,7 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
 
                 <div class="course_menu_people d-flex justify-content-between">
                     <p>剩餘人數</p>
-                    <p class="number"><?= $r['count'] ?>人</p>
+                    <p class="number"><?= $r['qty'] ?>人</p>
                 </div>
 
                 <div class="course_menu_price d-flex justify-content-between">
@@ -106,18 +106,28 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
 <script>
     function addToCart(event) {
         const btn = $(event.currentTarget);
+        const qty = 1;
         const sid = btn.attr('data-sid');
 
-        console.log({sid});
+        console.log({sid, qty});
 
         $.get(
             'handle_cart.php',
-            {sid}, 
+            {sid,qty},
             function(data){
                 console.log(data);
-                showCartCount(data);
+                alert('已加入購物車');
             },
-            'json');
+        'json');
+
+        // $.get(
+        //     'handle_cart.php',
+        //     {sid}, 
+        //     function(data){
+        //         console.log(data);
+        //         showCartCount(data);
+        //     },
+        //     'json');
     }
 </script>
 <?php include __DIR__ . '/parts/foot.php'; ?>

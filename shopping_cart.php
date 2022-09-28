@@ -40,23 +40,26 @@ $pageName = 'cart'; // 頁面名稱
                         <p>確認結帳</p>
                     </div>
                 </div>
+
                 <?php
                 $total = 0;
                 foreach ($_SESSION['cart'] as $k => $v) :
                     $total += $v['price'];  // 計算總價格
                 ?>
-                    <div class="course_card d-flex align-items-center w-100">
-                        <img src="images/course_01.jpg" alt="">
+                    <div class="course_card d-flex align-items-center w-100" data-sid="<?= $k ?>">
+                        <img src="images/course/<?= $v['img'] ?>.jpg" alt="">
                         <div class="d-md-flex w-100 justify-content-between align-items-center">
-                            <i class="fa-solid fa-xmark d-md-none d-lg-none"></i>
+                        <a href="javascript:" onclick="removeItem(event)">
+                            <i class="fa-solid fa-xmark d-md-none d-lg-none"></i></a>
                             <div class="tittle">
-                                <h2><?= $v['name'] ?></h2>
+                                <h2><?= $v['name'] ?>
+                                </h2>
                                 <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
-                                <p>10月21日(五) 19:00-21:00</p>
+                                <p><?= $v['date_1'] ?></p>
                             </div>
-                            <div class="price d-flex justify-content-between align-items-end d-md-block d-lg-block">
+                            <div class="d-flex justify-content-between align-items-end d-md-block d-lg-block">
                                 <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                                <h4 class="mb-0">$1,200</h4>
+                                <h4 class="mb-0 price" data-val="<?=$v['price']?>"></h4>
                                 <i class="fa-solid fa-bookmark d-block d-md-none"></i>
                             </div>
                             <a href="javascript:" onclick="removeItem(event)">
@@ -72,7 +75,7 @@ $pageName = 'cart'; // 頁面名稱
             </div>
             <div class="col-12 total d-flex justify-content-center justify-content-md-end justify-content-lg-end align-items-center">
                 <div class="line d-none d-md-block d-lg-block"></div>
-                <h2>訂單總計 $3,600</h2>
+                <h2 id="total-price"></h2>
             </div>
             <div class="col-12 btn_section d-flex justify-content-center">
                 <a href="course.php" class="btn_left">繼續購物</a>
@@ -95,7 +98,7 @@ $pageName = 'cart'; // 頁面名稱
     };
 
     function removeItem(event) {
-        const tr = $(event.currentTarget).closest('tr');
+        const tr = $(event.currentTarget).parents('.course_card');
         const sid = tr.attr('data-sid');
 
         $.get(
@@ -104,7 +107,7 @@ $pageName = 'cart'; // 頁面名稱
             },
             function(data) {
                 console.log(data);
-                showCartCount(data); // 總數量
+                // showCartCount(data); // 總數量
                 tr.remove();
 
                 // TODO: 總計, 
@@ -119,11 +122,12 @@ $pageName = 'cart'; // 頁面名稱
 
         $.get(
             'handle_cart.php', {
-                sid
+                sid,
+                qty
             },
             function(data) {
                 console.log(data);
-                showCartCount(data); // 總數量
+                // showCartCount(data); // 總數量
                 // TODO: 更新小計, 總計
                 updatePrices();
             },
@@ -133,20 +137,19 @@ $pageName = 'cart'; // 頁面名稱
     function updatePrices() {
         let total = 0; // 總價
 
-        $('.cart-item').each(function() {
+        $('.course_card').each(function() {
             const tr = $(this);
             const td_price = tr.find('.price');
-            const td_sub = tr.find('.sub-total');
 
             const price = +td_price.attr('data-val');
-            const qty = +tr.find('.qty').val();
+            const qty = 1;
 
             td_price.html('$ ' + dollarCommas(price));
-            td_sub.html('$ ' + dollarCommas(price));
-            total += price;
+            // td_sub.html('$ ' + dollarCommas(price * qty));
+            total += price * qty;
 
         });
-        $('#total-price').html('$ ' + dollarCommas(total));
+        $('#total-price').html('訂單總計 $' + dollarCommas(total));
 
 
     }
