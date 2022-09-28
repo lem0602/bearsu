@@ -43,7 +43,7 @@ foreach($veges as $v){
                 </div>
                 <div class="right text-center">
                     <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i><br>
-                    <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="">
+                    <img src="images/solarterms_card_<?= $r['solarterm_sid']-5 ?>.png" alt="">
                 </div>
             </div>
             <div class="down">

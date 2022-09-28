@@ -74,7 +74,6 @@ if ($totalRows > 0) {
             <h1>節氣食補</h1>
         </div>
         <div class="col-12 solarterms_circle d-flex d-md-none d-lg-none justify-content-center">
-            <img src="" alt="">
             <img src="images/solarterms_circle.png" alt="" width="345" height="345" usemap="#Map_solarterms_mobile">
             <map name="Map_solarterms_mobile">
                 <area shape="poly" coords="207,134,292,48,275,34,258,23,198,127" href="javascript:void(0);" class="solarterms_card_0 circle">
@@ -154,7 +153,7 @@ if ($totalRows > 0) {
         </div>
 
         <div class="col-9 solarterms_circle d-md-flex d-lg-flex justify-content-center d-none">
-            <img src="images/solarterms_circle.png" alt="" width="720" height="720" usemap="#Map_solarterms">
+            <img src="images/solarterms_circle.png" alt="" width="720" height="720" usemap="#Map_solarterms" class="d-none d-md-block d-lg-block">
             <map name="Map_solarterms">
                 <area shape="poly" coords="432,280,608,101,592,84,567,65,538,49,415,265" href="javascript:void(0);" class="solarterms_card_0 circle">
                 <area shape="poly" coords="491,24,455,13,388,254,414,265,538,48" href="javascript:void(0);" class="solarterms_card_1 circle">

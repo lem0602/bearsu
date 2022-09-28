@@ -1,4 +1,3 @@
-
 <?php
 require __DIR__ . '/parts/connect_db.php';
 // $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
@@ -61,7 +60,7 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
                 </div>
 
                 <div class="solarterms_card d-flex justify-content-center">
-                    <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="" class=" m-auto">
+                    <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="" class="m-auto">
                 </div>
 
                 <!-- <select class="date_filter">
