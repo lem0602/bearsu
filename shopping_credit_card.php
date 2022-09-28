@@ -78,20 +78,22 @@
             <div class="line d-none d-md-block d-lg-block"></div>
             <h2>訂單總計 $3,600</h2>
         </div>
-        <div class="col-12 order_man_card d-md-flex d-lg-flex align-items-center p-0">
-            <div class="left d-flex justify-content-center align-items-center">
-                <h2>訂購人</h2>
-            </div>
-            <div class="right d-flex justify-content-center align-items-center">
-                <div class="list_tittle text-right">
-                    <h4>姓名</h4>
-                    <h4>聯絡電話</h4>
-                    <h4 class="mb-0">Email</h4>
+        <div class="col-12 order_man_card">
+            <div class="order_man_card_wrap d-md-flex d-lg-flex align-items-center">
+                <div class="left d-flex justify-content-center align-items-center">
+                    <h2>訂購人</h2>
                 </div>
-                <div class="list_info">
-                    <h4>自動填入會員姓名</h4>
-                    <h4>自動填入會員電話號碼</h4>
-                    <h4 class="mb-0">自動填入會員Email</h4>
+                <div class="right d-flex justify-content-center align-items-center">
+                    <div class="list_tittle text-right">
+                        <h4>姓名</h4>
+                        <h4>聯絡電話</h4>
+                        <h4 class="mb-0">Email</h4>
+                    </div>
+                    <div class="list_info">
+                        <h4>自動填入會員姓名</h4>
+                        <h4>自動填入會員電話號碼</h4>
+                        <h4 class="mb-0">自動填入會員Email</h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,84 +102,86 @@
             <h1>信用卡一次付清</h1>
         </div>
 
-        <div class="creadit_card_info w-100">
-            <div class="card_input_wrap d-flex flex-column align-items-center">
-                <div class="card_input">
-                    <div class="card_number">
-                        <label for="card_number" class="mb-0">
-                            <h3>信用卡卡號</h3>
-                        </label><br>
-                        <div class="input_wrap d-flex align-items-center w-100">
-                            <input type="text" maxlength="4" name="card_number_1" id="card_number_1" class="autotab">
-                            <i class="fa-solid fa-minus"></i>
-                            <input type="text" maxlength="4" name="card_number_2" id="card_number_2" class="autotab">
-                            <i class="fa-solid fa-minus"></i>
-                            <input type="text" maxlength="4" name="card_number_3" id="card_number_3" class="autotab">
-                            <i class="fa-solid fa-minus"></i>
-                            <input type="text" maxlength="4" name="card_number_4" id="card_number_4" class="autotab">
+        <div class="col-12 creadit_card_info">
+            <div class="creadit_card_info_wrap">
+                <div class="card_input_wrap d-flex flex-column align-items-center">
+                    <div class="card_input">
+                        <div class="card_number">
+                            <label for="card_number" class="mb-0">
+                                <h3>信用卡卡號</h3>
+                            </label><br>
+                            <div class="input_wrap d-flex align-items-center w-100">
+                                <input type="text" maxlength="4" name="card_number_1" id="card_number_1" class="autotab">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="text" maxlength="4" name="card_number_2" id="card_number_2" class="autotab">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="text" maxlength="4" name="card_number_3" id="card_number_3" class="autotab">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="text" maxlength="4" name="card_number_4" id="card_number_4" class="autotab">
+                            </div>
                         </div>
-                    </div>
-                    <div class="effective_date">
-                        <h3>有效月/年</h3>
-                        <div class="filter_section d-flex align-items-center">
-                            <select name="month" id="month">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                            <h3 class="mb-0 mr-3">月</h3>
-                            <select name="year" id="year">
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                                <option value="2028">2028</option>
-                                <option value="2029">2029</option>
-                                <option value="2030">2030</option>
-                                <option value="2031">2031</option>
-                                <option value="2032">2032</option>
-                                <option value="2033">2033</option>
-                                <option value="2034">2034</option>
-                                <option value="2035">2035</option>
-                                <option value="2036">2036</option>
-                            </select>
-                            <h3 class="mb-0">年</h3>
+                        <div class="effective_date">
+                            <h3>有效月/年</h3>
+                            <div class="filter_section d-flex align-items-center">
+                                <select name="month" id="month">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <h3 class="mb-0 mr-3">月</h3>
+                                <select name="year" id="year">
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
+                                    <option value="2031">2031</option>
+                                    <option value="2032">2032</option>
+                                    <option value="2033">2033</option>
+                                    <option value="2034">2034</option>
+                                    <option value="2035">2035</option>
+                                    <option value="2036">2036</option>
+                                </select>
+                                <h3 class="mb-0">年</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="last_number">
-                        <h3>背面末三碼</h3>
-                        <input type="text" id="last_number" size="4" maxlength="3" name="last_number">
+                        <div class="last_number">
+                            <h3>背面末三碼</h3>
+                            <input type="text" id="last_number" size="4" maxlength="3" name="last_number">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="camera_wrap d-flex justify-content-center">
-                <div class="camera">
-                    <div class="card_wrap">
-                        <div class="card_front card">
-                            <img src="images/mascot_03.png" alt="">
-                            <div class="auto_card_numbe_wrap">
-                                <input id="auto_card_number_1" maxlength="3" type="text" />
-                                <input id="auto_card_number_2" maxlength="3" type="text" />
-                                <input id="auto_card_number_3" maxlength="3" type="text" />
-                                <input id="auto_card_number_4" maxlength="3" type="text" />
+                <div class="camera_wrap d-flex justify-content-center">
+                    <div class="camera">
+                        <div class="card_wrap">
+                            <div class="card_front card">
+                                <img src="images/mascot_03.png" alt="">
+                                <div class="auto_card_numbe_wrap">
+                                    <input id="auto_card_number_1" maxlength="3" type="text" />
+                                    <input id="auto_card_number_2" maxlength="3" type="text" />
+                                    <input id="auto_card_number_3" maxlength="3" type="text" />
+                                    <input id="auto_card_number_4" maxlength="3" type="text" />
+                                </div>
+                                <div class="auto_effective_date_wrap">
+                                    <input id="auto_month" type="text" />
+                                    <input id="auto_year" type="text" />
+                                </div>
                             </div>
-                            <div class="auto_effective_date_wrap">
-                                <input id="auto_month" type="text" />
-                                <input id="auto_year" type="text" />
-                            </div>
-                        </div>
-                        <div class="card_back card">
-                            <img src="images/mascot_08.png" alt="" class="">
-                            <div class="auto_last_number_wrap">
-                                <input id="auto_last_number" type="text" />
+                            <div class="card_back card">
+                                <img src="images/mascot_08.png" alt="" class="">
+                                <div class="auto_last_number_wrap">
+                                    <input id="auto_last_number" type="text" />
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -34,24 +34,24 @@ $pageName = 'cart'; // 頁面名稱
             </div>
 
             <?php
-                $total = 0;
-                foreach ($_SESSION['cart'] as $k => $v) :
-                    $total += $v['price'];  // 計算總價格
-                ?>
-            <div class="course_card d-flex align-items-center w-100">
-                <img src="images/course_01.jpg" alt="">
-                <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
-                    <div class="tittle">
-                        <h2><?= $v['name'] ?></h2>
-                        <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
-                        <p><?= $v['date_1'] ?></p>
-                    </div>
-                    <div>
-                        <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                        <h4 class="mb-0 price" data-val="<?=$v['price']?>"></h4>
+            $total = 0;
+            foreach ($_SESSION['cart'] as $k => $v) :
+                $total += $v['price'];  // 計算總價格
+            ?>
+                <div class="course_card d-flex align-items-center w-100">
+                    <img src="images/course_01.jpg" alt="">
+                    <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
+                        <div class="tittle">
+                            <h2><?= $v['name'] ?></h2>
+                            <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
+                            <p><?= $v['date_1'] ?></p>
+                        </div>
+                        <div>
+                            <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                            <h4 class="mb-0 price" data-val="<?= $v['price'] ?>"></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach; ?>
 
         </div>
@@ -59,35 +59,39 @@ $pageName = 'cart'; // 頁面名稱
             <div class="line d-none d-md-block d-lg-block"></div>
             <h2 id="total-price"></h2>
         </div>
-        <div class="col-12 d-md-flex d-lg-flex order_man_card  align-items-center p-0">
-            <div class="left d-flex justify-content-center align-items-center">
-                <h2>訂購人</h2>
-            </div>
-            <div class="right d-flex justify-content-center align-items-center">
-                <div class="list_tittle text-right">
-                    <h4>姓名</h4>
-                    <h4>聯絡電話</h4>
-                    <h4 class="mb-0">Email</h4>
+        <div class="col-12 order_man_card">
+            <div class="order_man_card_wrap d-md-flex d-lg-flex align-items-center">
+                <div class="left d-flex justify-content-center align-items-center">
+                    <h2>訂購人</h2>
                 </div>
-                <div class="list_info">
-                    <h4>自動填入會員姓名</h4>
-                    <h4>自動填入會員電話號碼</h4>
-                    <h4 class="mb-0">自動填入會員Email</h4>
+                <div class="right d-flex justify-content-center align-items-center">
+                    <div class="list_tittle text-right">
+                        <h4>姓名</h4>
+                        <h4>聯絡電話</h4>
+                        <h4 class="mb-0">Email</h4>
+                    </div>
+                    <div class="list_info">
+                        <h4>自動填入會員姓名</h4>
+                        <h4>自動填入會員電話號碼</h4>
+                        <h4 class="mb-0">自動填入會員Email</h4>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 d-md-flex d-lg-flex pay_method_card align-items-center p-0">
-            <div class="left d-flex justify-content-center align-items-center">
-                <h2>付款方式</h2>
-            </div>
-            <div class="right d-flex justify-content-center align-items-center">
-                <div class="right_wrap">
-                    <input type="radio" name="pay" class="radio" id="card">
-                    <label for="card">信用卡一次付清</label><br>
-                    <input type="radio" name="pay" class="radio" id="atm">
-                    <label for="atm">ATM轉帳</label><br>
-                    <input type="radio" name="pay" class="radio" id="market">
-                    <label for="market" class="mb-0">超商代碼繳費</label>
+        <div class="col-12 pay_method_card">
+            <div class="pay_method_card_wrap d-md-flex d-lg-flex align-items-center">
+                <div class="left d-flex justify-content-center align-items-center">
+                    <h2>付款方式</h2>
+                </div>
+                <div class="right d-flex justify-content-center align-items-center">
+                    <div class="right_wrap">
+                        <input type="radio" name="pay" class="radio" id="card">
+                        <label for="card">信用卡一次付清</label><br>
+                        <input type="radio" name="pay" class="radio" id="atm">
+                        <label for="atm">ATM轉帳</label><br>
+                        <input type="radio" name="pay" class="radio" id="market">
+                        <label for="market" class="mb-0">超商代碼繳費</label>
+                    </div>
                 </div>
             </div>
         </div>

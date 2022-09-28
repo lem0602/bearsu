@@ -214,18 +214,24 @@ body {
 }
 
 .order_man_card,
-.pay_method_card {
+.pay_method_card{
+    margin-bottom: 48px;
+}
+
+.order_man_card_wrap,
+.pay_method_card_wrap {
     border-radius: 20px;
     border: 2px solid #333333;
     background-color: #FFF6E9;
     box-shadow: 3px 3px #333333;
-    margin-bottom: 48px;
     overflow: hidden;
+    height: 100%;
 }
 
 .order_man_card .left,
 .pay_method_card .left {
     background-color: #005F5F;
+    height: 100%;
 }
 
 .order_man_card .right,
