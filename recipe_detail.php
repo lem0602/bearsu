@@ -66,15 +66,14 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'cates' => $cates,
-    'vegetarian' => $vegetarian
-]);
-exit;
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+
+// ]);
+// exit;
 // 
 ?>
 
@@ -154,7 +153,6 @@ exit;
                                     <h2><?= $s['number'] ?></h2>
                                     <p><?= $s['introduction'] ?></p>
                                 </div>
-
                             </div>
                         <?php endforeach ?>
                     </div>
@@ -183,12 +181,6 @@ exit;
                                 <h5>發表留言</h5>
                             </a>
                         </div>
-                    </div>
-                    <div class="message">
-                        <div class="message-author-img">
-                            <img src="./images/mug_shot_04.png" alt="" />
-                        </div>
-                        <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
                     </div>
                     <div class="message">
                         <div class="message-author-img">

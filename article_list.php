@@ -98,12 +98,16 @@ if ($totalRows > 0) {
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="?<?php $tmp = $qsp; // 複製
-                                    unset($tmp['cate']); ?>">
+                        <a href="?<?php
+                                    $tmp = $qsp; // 複製
+                                    unset($tmp['cate']);
+                                    echo http_build_query($tmp); ?>">
                             <h5>全部</h5>
                         </a>
                         <?php foreach ($cates as $c) : ?>
-                            <a href="?cate=<?php $c['sid']; ?>">
+                            <a href="?<?php
+                                        $tmp['cate'] = $c['sid'];
+                                        echo http_build_query($tmp); ?>">
                                 <h5><?= $c['classification'] ?></h5>
                             </a>
                         <?php endforeach ?>
@@ -135,7 +139,7 @@ if ($totalRows > 0) {
                                     <?= $r['introduction'] ?>
                                 </h4>
                                 <div class="article-btn">
-                                    <a class="darkbutton" data-sid="<?php $r = ['sid'] ?>" onclick="seemore(event)">
+                                    <a href="article_detail.php" class="darkbutton" data-sid="<?php $r = ['sid'] ?>" onclick="seemore(event)">
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none">

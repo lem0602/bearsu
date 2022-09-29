@@ -17,7 +17,7 @@ $cates = $pdo->query("SELECT * FROM vegetarian WHERE sid")
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
-    $where .= " AND vegetarian_sid = $cate ";
+    $where .= " AND vegetarian_sid=$cate ";
     $qsp['cate'] = $cate;
 }
 
@@ -42,24 +42,28 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT r.*, v.* 
+    $sql = sprintf("SELECT r.*, v.classification
     FROM recipe AS r
     JOIN vegetarian AS v 
     ON r.vegetarian_sid = v.sid
-    ");
+    %s ORDER BY SID LIMIT %s, %s",
+    $where,
+    ($page - 1) * $perPage, 
+    $perPage
+    );
 
     $rows = $pdo->query($sql)->fetchAll();
 }
 
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $rows,
-]);
-exit;
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+// ]);
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -101,18 +105,23 @@ exit;
                                 <h5>素食分類</h5>
                                 <i class="fa-solid fa-caret-down"></i>
                             </button>
-                            <div class="dropdown-content">
-                                <a href="?">
+                            <div type="button" class="dropdown-content">
+                                <a type="button" href="?<?php
+                                                        $tmp = $qsp; // 複製
+                                                        unset($tmp['cate']);
+                                                        ?>">
                                     <h5>全部</h5>
                                 </a>
                                 <?php foreach ($cates as $c) : ?>
-                                    <a href="?<?php $tmp['cate']=$c['sid']; ?>">
+                                    <a type="button" href="?<?php
+                                                            $tmp['cate'] = $c['sid'];
+                                                            echo http_build_query($tmp); ?>">
                                         <h5><?= $c['classification'] ?></h5>
                                     </a>
                                 <?php endforeach ?>
                             </div>
                         </div>
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <button class="dropbtn">
                                 <h5>烹飪時間</h5>
                                 <i class="fa-solid fa-caret-down"></i>
@@ -125,7 +134,7 @@ exit;
                                     <h5>5</h5>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <a href="./write_recipes.html" class="darkbutton">
@@ -145,12 +154,9 @@ exit;
                             </div>
                             <div class="contant">
                                 <div class="title">
-
                                     <h2>
-                                        <?= $r['name'] ?>
-                                        ( <?= $r['classification'] ?> )
+                                        <?= $r['name'] ?> ( <?= $r['classification'] ?> )
                                     </h2>
-
                                     <p class="d-lg-none">by 史萊姆</p>
                                     <div class="time-bookmark">
                                         <div class="time">
