@@ -101,7 +101,7 @@ if (!isset($page_name)) {
                 <a href="shopping_cart.php" class="cart-icon">
                     <i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i>
                 </a>
-                <a href="" class="member-icon">
+                <a href="./member_login.php" class="member-icon">
                     <i class="fa-solid fa-user pl-3 pr-5 pb-5"></i>
                 </a>
             </div>

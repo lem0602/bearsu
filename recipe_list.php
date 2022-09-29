@@ -12,7 +12,12 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM vegetarian WHERE sid")
     ->fetchAll();
 
-
+$vcates = $pdo->query("SELECT recipe.*, group_concat(ingredients_name, '、')
+FROM recipe
+JOIN recipe_ingredients
+ON recipe.sid = recipe_ingredients.recipe_sid
+")
+    ->fetchAll();
 
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
@@ -42,26 +47,26 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT r.*, v.classification
+    $sql = sprintf(
+        "SELECT r.*, v.classification
     FROM recipe AS r
     JOIN vegetarian AS v 
     ON r.vegetarian_sid = v.sid
     %s ORDER BY SID LIMIT %s, %s",
-    $where,
-    ($page - 1) * $perPage, 
-    $perPage
+        $where,
+        ($page - 1) * $perPage,
+        $perPage
     );
 
     $rows = $pdo->query($sql)->fetchAll();
 }
-
 
 // echo json_encode([
 //     'totalRows' => $totalRows,
 //     'totalPages' => $totalPages,
 //     'perPage' => $perPage,
 //     'page' => $page,
-//     'rows' => $rows,
+//     'vcates' => $vcates,
 // ]);
 // exit;
 ?>
@@ -173,7 +178,6 @@ if ($totalRows > 0) {
                                 <h4 class="ingredients">
                                     食材：
                                 </h4>
-
                                 <div class="recipe-btn">
                                     <a href="recipe_detail.php" class="darkbutton" onclick="post();"">
                                         <h4>了解更多</h4>
