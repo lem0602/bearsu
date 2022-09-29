@@ -13,7 +13,7 @@ $pageName = 'cart'; // 頁面名稱
         <div class="noitem d-flex justify-content-center align-items-center">
             <div class="noitem_wrap">
                 <h1>購物車內沒有商品</h1>
-                <img src="images/mascot_07.png" alt="">
+                <img src="images/mascot_07.gif" alt="">
             </div>
         </div>
     <?php else : ?>

@@ -97,7 +97,7 @@
 
         if ($name.val().length < 2) {
             isPass = false;
-            $name.css('border', '1px solid red')
+            $name.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
             // $name.next().text('請輸入正確的姓名');
             $error1.text('請輸入正確的姓名');
@@ -105,23 +105,23 @@
 
         if(!mobile_re.test($mobile.val())){
             isPass = false;
-            $mobile.css('border', '1px solid red')
+            $mobile.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
             $error2.text('請輸入正確的手機號碼');
         }
 
         if (!email_re.test($email.val())) {
             isPass = false;
-            $email.css('border', '1px solid red')
+            $email.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
             $error3.text('請輸入正確的email');
         }
 
         if ($pwd1.val() != $pwd2.val()) {
             isPass = false;
-            $pwd1.css('border', '1px solid red')
+            $pwd1.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
-            $pwd2.css('border', '1px solid red')
+            $pwd2.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
             $error4.text('密碼不一樣');
             $error5.text('密碼不一樣');
