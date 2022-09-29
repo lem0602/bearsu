@@ -24,16 +24,21 @@
                         <input type="text" id="name" id="name" name="name" required>
                     </div>
                     <div class="error error2"></div>
+                    <div class="mobile_box d-flex">
+                        <h4>手機號碼</h4>
+                        <input type="text" id="mobile" name="mobile" required pattern="09\d{2}-?\d{3}-?\d{3}">
+                    </div>
+                    <div class="error error3"></div>
                     <div class="email_box d-flex">
                         <h4>Email</h4>
                         <input type="text" id="email" name="email" required>
                     </div>
-                    <div class="error error3"></div>
+                    <div class="error error4"></div>
                     <div class="password_box d-flex">
                         <h4>密碼</h4>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <div class="error error4"></div>
+                    <div class="error error5"></div>
                     <div class="repeat_password_box d-flex">
                         <h4>確認密碼</h4>
                         <input type="password" id="password2" name="password2" required>
@@ -63,16 +68,18 @@
 <?php include __DIR__ . '/parts/member_register_scripts.php'; ?>
 <script>
     const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    // const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
+    const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
     const $name = $('#name'),
+        $mobile = $('#mobile'),
         $email = $('#email'),
         $pwd1 = $('#password'),
         $pwd2 = $('#password2'),
         $error1 = $('.error1'),
         $error2 = $('.error2'),
         $error3 = $('.error3'),
-        $error4 = $('.error4');
-    const fileds = [$name, $email, $pwd1, $pwd2];
+        $error4 = $('.error4'),
+        $error5 = $('.error5');
+    const fileds = [$name, $mobile ,$email, $pwd1, $pwd2];
 
     function checkForm(e) {
         e.preventDefault();
@@ -83,6 +90,7 @@
             $error2.text('');
             $error3.text('');
             $error4.text('');
+            $error5.text('');
         });
 
         let isPass = true;
@@ -95,11 +103,18 @@
             $error1.text('請輸入正確的姓名');
         }
 
+        if(!mobile_re.test($mobile.val())){
+            isPass = false;
+            $mobile.css('border', '1px solid red')
+                .css('borderRadius', '5px');
+            $error2.text('請輸入正確的手機號碼');
+        }
+
         if (!email_re.test($email.val())) {
             isPass = false;
             $email.css('border', '1px solid red')
                 .css('borderRadius', '5px');
-            $error2.text('請輸入正確的email');
+            $error3.text('請輸入正確的email');
         }
 
         if ($pwd1.val() != $pwd2.val()) {
@@ -108,8 +123,8 @@
                 .css('borderRadius', '5px');
             $pwd2.css('border', '1px solid red')
                 .css('borderRadius', '5px');
-            $error3.text('密碼不一樣');
             $error4.text('密碼不一樣');
+            $error5.text('密碼不一樣');
         }
 
         // console.log('isPass',isPass);

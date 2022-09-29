@@ -70,10 +70,14 @@ $pageName = 'cart'; // 頁面名稱
                         <h4>聯絡電話</h4>
                         <h4 class="mb-0">Email</h4>
                     </div>
+                    <?php 
+                    $sql= sprintf("SELECT * FROM `members` WHERE `sid`='%s'", $_SESSION['user']['id']);
+                    $r = $pdo->query($sql)->fetch();
+                    ?>
                     <div class="list_info">
-                        <h4>自動填入會員姓名</h4>
-                        <h4>自動填入會員電話號碼</h4>
-                        <h4 class="mb-0">自動填入會員Email</h4>
+                        <h4><?= $r['name'] ?></h4>
+                        <h4><?= $r['mobile'] ?></h4>
+                        <h4 class="mb-0"><?= $r['email'] ?></h4>
                     </div>
                 </div>
             </div>

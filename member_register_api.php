@@ -23,13 +23,14 @@ if(isset($_POST['email'])) {
 
     $hash = sha1( $_POST['email'].uniqid() );
 
-    $sql = "INSERT INTO `members` (`email`, `password`,  `name`, `create_at`) VALUES (?, ? , ?, NOW())";
+    $sql = "INSERT INTO `members` (`name`,`email`, `password`,`mobile`,`create_at`) VALUES (?, ? , ?, ?, NOW())";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
+        $_POST['name'],
         $_POST['email'],
         password_hash($_POST['password'], PASSWORD_DEFAULT),
-        $_POST['name']
+        $_POST['mobile'],
     ]);
 
     if($stmt->rowCount()){

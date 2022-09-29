@@ -119,6 +119,12 @@
             position: relative;
         }
 
+        .register_box .mobile_box {
+            margin-bottom: 32px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 16px;
+        }
+
         .register_box .email_box {
             margin-bottom: 32px;
             border-bottom: 1px solid #333333;
