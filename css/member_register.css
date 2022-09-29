@@ -70,11 +70,12 @@
             transform: scale(1.2);
         }
 
-        .container, .row {
+        .container,
+        .row {
             min-height: calc(100vh - 46px);
         }
 
-        .row{
+        .row {
             height: calc(100vh - 46px);
         }
 
@@ -91,6 +92,13 @@
             overflow: hidden;
         }
 
+        .register_box .error{
+            color: red;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
         .register_box h1 {
             font-size: 2rem;
             color: #FFF6E9;
@@ -104,10 +112,11 @@
             padding: 32px;
         }
 
-        .register_box .name_box{
+        .register_box .name_box {
             margin-bottom: 32px;
             border-bottom: 1px solid #333333;
             padding-bottom: 16px;
+            position: relative;
         }
 
         .register_box .email_box {
@@ -141,12 +150,20 @@
             border: none;
             padding: 0px 8px;
             width: 71%;
+            /* width: fit-content; */
         }
 
         .register_box .input_box input:focus,
         .register_box .password_box input:focus {
             outline: 1px solid #005F5F;
             border-radius: 5px;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #FFF6E9 inset !important;
         }
 
         .register_btn {
@@ -169,7 +186,7 @@
             transform: translate(3px, 3px);
         }
 
-        .register_btn:focus{
+        .register_btn:focus {
             outline: none;
         }
 
@@ -192,4 +209,4 @@
             footer p {
                 font-size: 1rem;
             }
-        } 
+        }

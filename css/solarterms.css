@@ -362,10 +362,6 @@ body {
         margin-right: 0px;
     }
 
-    .solarterms_circle img {
-        margin-bottom: 0px;
-    }
-
     .solarterms_introduce_card .down {
         padding: 20px;
     }
@@ -383,6 +379,12 @@ body {
     margin-bottom: 16px;
     border-radius: 50%;
     border: 2px solid #333333;
+}
+
+@media screen and (min-width:768px) {
+    .solarterms_circle img {
+        margin-bottom: 0px;
+    }
 }
 
 .filter_section {
@@ -428,6 +430,10 @@ body {
 .recipe_pic img {
     aspect-ratio: 4 / 3;
     border-radius: 20px;
+    width: 100%;
+}
+
+.recipe_content{
     width: 100%;
 }
 
@@ -518,9 +524,9 @@ body {
         margin-right: 24px;
     }
 
-    .season_filter {
+    /* .season_filter {
         margin-right: 6px;
-    }
+    } */
 
     .recipe_card {
         padding: 24px;
@@ -577,7 +583,6 @@ body {
     transition: .3s;
     font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1.4;
 }
 
 span {
@@ -595,6 +600,12 @@ span {
 
 .page-item:last-child .page-link {
     border-radius: 0px 8px 8px 0px;
+}
+
+.page-item.active .page-link{
+    color: #FFF6E9;
+    background-color: #005F5F;
+    border: none;
 }
 
 footer {

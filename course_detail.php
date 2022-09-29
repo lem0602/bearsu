@@ -1,18 +1,37 @@
-<?php session_start(); ?>
+<?php
+require __DIR__ . '/parts/connect_db.php';
+// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $sql = "SELECT * FROM course WHERE sid=$sid";
+
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+$sql = "SELECT s.*, v.classification FROM course s
+JOIN vegetarian v ON s.vegetarian_sid=v.sid
+WHERE s.sid=$sid";
+
+$r = $pdo->query($sql)->fetch();
+
+// $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
+// $veges_ar = [];
+// foreach($veges as $v){
+//     $veges_ar[$v['sid']] = $v['classification'];
+// }
+
+$veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
+?>
+
 <?php include __DIR__ . '/parts/course_detail_head.php'; ?>
 
 <?php include __DIR__ . '/parts/navbar_lem.php'; ?>
 
 <div class="container">
     <div class="row course_innerwrap">
-
         <div class="col-12 col-md-9 col-lg-9 course_cards order-1 order-md-0 order-lg-0">
-            <img src="images/course_01.jpg" alt="" class="course_recipe_pic">
-            <h3>超級食物「地瓜」含有豐富的膳食纖維、β-胡蘿蔔素、鎂、鉀等營養素。是世界衛生組織評選出來「十大最佳蔬菜」的冠軍，地瓜含有脫氫表雄酮，可以預防乳腺癌和結腸癌，地瓜屬於抗性澱粉，不易在小腸吸收利用，高纖、低GI，因此非常適合減重朋友食用，製作成地瓜餅當早餐或點心都很適合，老少咸宜喔!
+            <img src="images/course/<?= $r['img'] ?>.jpg" alt="" class="course_recipe_pic">
+            <h3><?= $r['introduction'] ?>
             </h3>
             <div class="classroom d-md-flex d-lg-flex justify-content-between">
-                <img src="images/course_00_01.jpg" alt="">
-                <img src="images/course_00_02.jpg" alt="">
+                <img src="images/course/course_00_01.jpg" alt="">
+                <img src="images/course/course_00_02.jpg" alt="">
             </div>
             <p>注意事項: <br>
                 1.因教室空間有限，並有爐火、刀具等需謹慎操作之用品，為安全起見，僅開放給報名學員進場。<br>
@@ -36,32 +55,39 @@
         <div class="col-12 col-md-3 col-lg-3 course_menu_wrap order-0 order-md-1 order-lg-1 mb-4 mb-md-0 mb-lg-0 px-0 pl-md-3 pl-lg-3">
             <div class="course_menu">
                 <div class="course_menu_tittle d-flex justify-content-between">
-                    <h2>地瓜餅 (奶素)</h2>
+                    <h2><?= $r['name'] ?> (<?= $r['classification'] ?>)</h2>
                     <i class="fa-regular fa-bookmark"></i>
                 </div>
 
                 <div class="solarterms_card d-flex justify-content-center">
-                    <img src="images/solarterms_card_14.png" alt="" class=" m-auto">
+                    <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="" class="m-auto">
                 </div>
 
-                <select class="date_filter">
-                    <option>選擇課程日期</option>
-                    <option>10月21日(五) 19:00-21:00</option>
-                    <option>11月18日(五) 19:00-21:00</option>
-                </select>
+                <!-- <select class="date_filter">
+                        <option>選擇課程日期</option>
+                        <option><?= $r['date_1'] ?></option>
+                        <option><?= $r['date_2'] ?></option>
+                    </select> -->
+
+                <div class="course_menu_date">
+                    <p class="date">課程日期</p>
+                    <p class="number"><?= $r['date_1'] ?></p>
+                </div>
 
                 <div class="course_menu_people d-flex justify-content-between">
                     <p>剩餘人數</p>
-                    <p class="number">10人</p>
+                    <p class="number"><?= $r['qty'] ?>人</p>
                 </div>
 
                 <div class="course_menu_price d-flex justify-content-between">
                     <p>課程價格</p>
-                    <p class="number">$1,200</p>
+                    <p class="number">$<?= number_format($r['price']) ?></p>
                 </div>
 
-                <div class="btn d-flex justify-content-center">
-                    <a href="">加入購物車</a>
+                <div class="d-flex justify-content-center">
+                    <button class="btn" data-sid="<?= $r['sid'] ?>" onclick="addToCart(event)">
+                        加入購物車
+                    </button>
                 </div>
                 <div class="course_menu_pic d-flex justify-content-center">
                     <img src="images/mascot_02.gif" alt="">
@@ -76,5 +102,31 @@
 </footer>
 
 <?php include __DIR__ . '/parts/course_detail_scripts.php'; ?>
+<script>
+    function addToCart(event) {
+        const btn = $(event.currentTarget);
+        const qty = 1;
+        const sid = btn.attr('data-sid');
 
+        console.log({sid, qty});
+
+        $.get(
+            'handle_cart.php',
+            {sid,qty},
+            function(data){
+                console.log(data);
+                alert('已加入購物車');
+            },
+        'json');
+
+        // $.get(
+        //     'handle_cart.php',
+        //     {sid}, 
+        //     function(data){
+        //         console.log(data);
+        //         showCartCount(data);
+        //     },
+        //     'json');
+    }
+</script>
 <?php include __DIR__ . '/parts/foot.php'; ?>

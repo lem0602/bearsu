@@ -92,7 +92,7 @@
        }
 
        /* ------------mobile start------------ */
-       .mobile_course_filter_wrap {
+.mobile_course_filter_wrap {
            position: sticky;
            top: 90px;
            z-index: 10000;
@@ -277,7 +277,7 @@
 
            .course_pic img {
                aspect-ratio: 4 / 3;
-               width: 100%;
+               width: 470px;
                border-radius: 20px;
                margin-bottom: 0px;
            }
@@ -383,6 +383,12 @@
            border-radius: 8px 0px 0px 8px;
        }
 
+       .page-item.active .page-link{
+        color: #FFF6E9;
+        background-color: #005F5F;
+        border: none;
+       }
+
        .page-item:last-child .page-link {
            border-radius: 0px 8px 8px 0px;
        }
@@ -404,7 +410,7 @@
 
        @media screen and (min-width:768px) {
            .course_menu {
-               height: 580px;
+               height: fit-content;
            }
 
            footer p {

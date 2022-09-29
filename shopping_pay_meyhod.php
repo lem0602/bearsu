@@ -1,4 +1,9 @@
 <?php session_start(); ?>
+<?php
+require __DIR__ . '/parts/connect_db.php';
+$pageName = 'cart'; // 頁面名稱
+?>
+
 <?php include __DIR__ . '/parts/shopping_pay_meyhod_head.php'; ?>
 
 <?php include __DIR__ . '/parts/navbar_lem.php'; ?>
@@ -27,85 +32,66 @@
                     <p>確認結帳</p>
                 </div>
             </div>
-            <div class="course_card d-flex align-items-center w-100">
-                <img src="images/course_01.jpg" alt="">
-                <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
-                    <div class="tittle">
-                        <h2>地瓜餅 (奶素)</h2>
-                        <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
-                        <p>10月21日(五) 19:00-21:00</p>
-                    </div>
-                    <div class="price">
-                        <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                        <h4 class="mb-0">$1,200</h4>
-                    </div>
-                </div>
-            </div>
 
-            <div class="course_card d-flex align-items-center w-100">
-                <img src="images/course_01.jpg" alt="">
-                <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
-                    <div class="tittle">
-                        <h2>地瓜餅 (奶素)</h2>
-                        <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
-                        <p>10月21日(五) 19:00-21:00</p>
-                    </div>
-                    <div class="price">
-                        <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                        <h4 class="mb-0">$1,200</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="course_card d-flex align-items-center w-100">
-                <img src="images/course_01.jpg" alt="">
-                <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
-                    <div class="tittle">
-                        <h2>地瓜餅 (奶素)</h2>
-                        <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
-                        <p>10月21日(五) 19:00-21:00</p>
-                    </div>
-                    <div class="price">
-                        <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                        <h4 class="mb-0">$1,200</h4>
+            <?php
+            $total = 0;
+            foreach ($_SESSION['cart'] as $k => $v) :
+                $total += $v['price'];  // 計算總價格
+            ?>
+                <div class="course_card d-flex align-items-center w-100">
+                <img src="images/course/<?= $v['img'] ?>.jpg" alt="">
+                    <div class="info d-md-flex d-lg-flex justify-content-between w-100 align-items-center">
+                        <div class="tittle">
+                            <h2><?= $v['name'] ?></h2>
+                            <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
+                            <p><?= $v['date_1'] ?></p>
+                        </div>
+                        <div>
+                            <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                            <h4 class="mb-0 price" data-val="<?= $v['price'] ?>"></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
 
         </div>
         <div class="col-12 total d-flex justify-content-center justify-content-md-end justify-content-lg-end align-items-center">
             <div class="line d-none d-md-block d-lg-block"></div>
-            <h2>訂單總計 $3,600</h2>
+            <h2 id="total-price"></h2>
         </div>
-        <div class="col-12 d-md-flex d-lg-flex order_man_card  align-items-center p-0">
-            <div class="left d-flex justify-content-center align-items-center">
-                <h2>訂購人</h2>
-            </div>
-            <div class="right d-flex justify-content-center align-items-center">
-                <div class="list_tittle text-right">
-                    <h4>姓名</h4>
-                    <h4>聯絡電話</h4>
-                    <h4 class="mb-0">Email</h4>
+        <div class="col-12 order_man_card">
+            <div class="order_man_card_wrap d-md-flex d-lg-flex align-items-center">
+                <div class="left d-flex justify-content-center align-items-center">
+                    <h2>訂購人</h2>
                 </div>
-                <div class="list_info">
-                    <h4>自動填入會員姓名</h4>
-                    <h4>自動填入會員電話號碼</h4>
-                    <h4 class="mb-0">自動填入會員Email</h4>
+                <div class="right d-flex justify-content-center align-items-center">
+                    <div class="list_tittle text-right">
+                        <h4>姓名</h4>
+                        <h4>聯絡電話</h4>
+                        <h4 class="mb-0">Email</h4>
+                    </div>
+                    <div class="list_info">
+                        <h4>自動填入會員姓名</h4>
+                        <h4>自動填入會員電話號碼</h4>
+                        <h4 class="mb-0">自動填入會員Email</h4>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 d-md-flex d-lg-flex pay_method_card align-items-center p-0">
-            <div class="left d-flex justify-content-center align-items-center">
-                <h2>付款方式</h2>
-            </div>
-            <div class="right d-flex justify-content-center align-items-center">
-                <div class="right_wrap">
-                    <input type="radio" name="pay" class="radio" id="card">
-                    <label for="card">信用卡一次付清</label><br>
-                    <input type="radio" name="pay" class="radio" id="atm">
-                    <label for="atm">ATM轉帳</label><br>
-                    <input type="radio" name="pay" class="radio" id="market">
-                    <label for="market" class="mb-0">超商代碼繳費</label>
+        <div class="col-12 pay_method_card">
+            <div class="pay_method_card_wrap d-md-flex d-lg-flex align-items-center">
+                <div class="left d-flex justify-content-center align-items-center">
+                    <h2>付款方式</h2>
+                </div>
+                <div class="right d-flex justify-content-center align-items-center">
+                    <div class="right_wrap">
+                        <input type="radio" name="pay" class="radio" id="card">
+                        <label for="card">信用卡一次付清</label><br>
+                        <input type="radio" name="pay" class="radio" id="atm">
+                        <label for="atm">ATM轉帳</label><br>
+                        <input type="radio" name="pay" class="radio" id="market">
+                        <label for="market" class="mb-0">超商代碼繳費</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,5 +107,68 @@
 </footer>
 
 <?php include __DIR__ . '/parts/shopping_pay_meyhod_scripts.php'; ?>
+<script>
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+    function removeItem(event) {
+        const tr = $(event.currentTarget).parents('.course_card');
+        const sid = tr.attr('data-sid');
+
+        $.get(
+            'handle_cart.php', {
+                sid
+            },
+            function(data) {
+                console.log(data);
+                // showCartCount(data); // 總數量
+                tr.remove();
+
+                // TODO: 總計, 
+                updatePrices();
+            },
+            'json');
+    }
+
+    function updateItem(event) {
+        const sid = $(event.currentTarget).closest('tr').attr('data-sid');
+        const qty = $(event.currentTarget).val();
+
+        $.get(
+            'handle_cart.php', {
+                sid,
+                qty
+            },
+            function(data) {
+                console.log(data);
+                // showCartCount(data); // 總數量
+                // TODO: 更新小計, 總計
+                updatePrices();
+            },
+            'json');
+    }
+
+    function updatePrices() {
+        let total = 0; // 總價
+
+        $('.course_card').each(function() {
+            const tr = $(this);
+            const td_price = tr.find('.price');
+
+            const price = +td_price.attr('data-val');
+            const qty = 1;
+
+            td_price.html('$ ' + dollarCommas(price));
+            // td_sub.html('$ ' + dollarCommas(price * qty));
+            total += price * qty;
+
+        });
+        $('#total-price').html('訂單總計 $' + dollarCommas(total));
+
+
+    }
+    updatePrices(); // 一進頁面就要執行一次
+</script>
 
 <?php include __DIR__ . '/parts/foot.php'; ?>
