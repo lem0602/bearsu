@@ -49,8 +49,8 @@ $pageName = 'cart'; // 頁面名稱
                     <div class="course_card d-flex align-items-center w-100" data-sid="<?= $k ?>">
                         <img src="images/course/<?= $v['img'] ?>.jpg" alt="">
                         <div class="d-md-flex w-100 justify-content-between align-items-center">
-                        <a href="javascript:" onclick="removeItem(event)">
-                            <i class="fa-solid fa-xmark d-md-none d-lg-none"></i></a>
+                            <a href="javascript:" onclick="removeItem(event)">
+                                <i class="fa-solid fa-xmark d-md-none d-lg-none"></i></a>
                             <div class="tittle">
                                 <h2><?= $v['name'] ?>
                                 </h2>
@@ -59,7 +59,7 @@ $pageName = 'cart'; // 頁面名稱
                             </div>
                             <div class="d-flex justify-content-between align-items-end d-md-block d-lg-block">
                                 <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                                <h4 class="mb-0 price" data-val="<?=$v['price']?>"></h4>
+                                <h4 class="mb-0 price" data-val="<?= $v['price'] ?>"></h4>
                                 <i class="fa-solid fa-bookmark d-block d-md-none"></i>
                             </div>
                             <a href="javascript:" onclick="removeItem(event)">
@@ -79,7 +79,12 @@ $pageName = 'cart'; // 頁面名稱
             </div>
             <div class="col-12 btn_section d-flex justify-content-center">
                 <a href="course.php" class="btn_left">繼續購物</a>
-                <a href="shopping_pay_meyhod.php" class="btn_right">確認訂單</a>
+                <?php if (empty($_SESSION['user'])) : ?>
+                    <a href="member_login.php" class="btn_right">請先登入會員, 再結帳</a>
+                    </div>
+                <?php else : ?>
+                    <a href="shopping_pay_meyhod.php" class="btn_right">確認訂單</a>
+                <?php endif; ?>
             </div>
         </div>
     <?php endif ?>
