@@ -45,9 +45,34 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="register_btn">註冊</button>
+                    <button type="submit" class="register_btn" >註冊</button>
+
+                    
                 </div>
             </form>
+
+            <button data-toggle="modal" data-target="#exampleModal" id="modalBtn" hidden></button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </div>
 
         <div class="col-md-3 col-lg-3 d-none d-md-block d-lg-block mascot h-100">
@@ -79,7 +104,7 @@
         $error3 = $('.error3'),
         $error4 = $('.error4'),
         $error5 = $('.error5');
-    const fileds = [$name, $mobile ,$email, $pwd1, $pwd2];
+    const fileds = [$name, $mobile, $email, $pwd1, $pwd2];
 
     function checkForm(e) {
         e.preventDefault();
@@ -103,7 +128,7 @@
             $error1.text('請輸入正確的姓名');
         }
 
-        if(!mobile_re.test($mobile.val())){
+        if (!mobile_re.test($mobile.val())) {
             isPass = false;
             $mobile.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
@@ -135,10 +160,19 @@
                 'member_register_api.php',
                 $(document.form1).serialize(),
                 function(data) {
+                    console.log('data',data);
                     if (data.success) {
-                        alert('註冊成功');
+                        console.log('success');
+                        // document.getElementById('modalBtn').disabled=false;
+                        // alert('註冊成功');
+                        document.querySelector('#modalBtn').click();
+
                     } else {
-                        alert(data.error);
+                        // document.getElementById('modalBtn').disabled=ture;
+                        // alert(data.error);
+                        
+                        // $('body').removeClass('modal-open');
+                        
                     }
                 },
                 'json'
