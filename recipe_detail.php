@@ -2,7 +2,11 @@
 require __DIR__ . '/kc_parts/connect_db.php';
 
 $perPage = 10;  // 每頁最多有幾筆
+if(! isset($_SESSION['sid'])){
+    $_SESSION['sid'] = [];
+}
 
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
@@ -16,6 +20,7 @@ ON r.vegetarian_sid = v.sid
 WHERE r.sid=1
 ")
     ->fetchAll();
+
 // 素食食材 
 $recipe_ingredients = $pdo->query("SELECT i.* 
 FROM recipe_ingredients AS i
@@ -81,8 +86,8 @@ echo json_encode([
     'totalPages' => $totalPages,
     'perPage' => $perPage,
     'page' => $page,
-    'rows' => $step
-
+    'rows' => $step,
+    'sid' => $step,
 ]);
 exit;
 ?>

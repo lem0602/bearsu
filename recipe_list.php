@@ -175,7 +175,7 @@ if ($totalRows > 0) {
                                     食材：<?= $r['ingredients'] ?>
                                 </h4>
                                 <div class="recipe-btn">
-                                    <a href="#0" class="darkbutton" onclick="post();"">
+                                    <a href="./recipe_detail.php" class="darkbutton" data-sid="<?= $r['sid'] ?>" onclick="seemore(event);">
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none"><i class="fa-regular fa-bookmark"></i></div>
@@ -215,14 +215,18 @@ if ($totalRows > 0) {
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
 <script>
-    function post() {
-        $.post('test.php', {
-                name: $('#name').val(),
-                password: $('#password').val()
+    function seemore(event) {
+        const btn = $(event.currentTarget);
+        const sid = btn.attr('data-sid')
+        console.log(sid);
+
+        $.get(
+            'recipe_detail.php',
+            {sid}, 
+            function(data){
+                console.log(data);
             },
-            function(data) {
-                $('#result').html(data);
-            });
+            'json');
     }
 </script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>
