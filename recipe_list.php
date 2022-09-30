@@ -12,12 +12,10 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM vegetarian WHERE sid")
     ->fetchAll();
 
-
-
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
-    $where .= " AND vegetarian_sid = $cate ";
+    $where .= " AND vegetarian_sid=$cate ";
     $qsp['cate'] = $cate;
 }
 
@@ -42,24 +40,31 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT r.*, v.* 
-    FROM recipe AS r
-    JOIN vegetarian AS v 
-    ON r.vegetarian_sid = v.sid
-    ");
+    $sql = sprintf(
+        "SELECT r.*, v.classification, group_concat(i.ingredients_name, '') AS ingredients 
+        FROM recipe AS r
+        JOIN vegetarian AS v 
+        ON r.vegetarian_sid = v.sid
+        JOIN recipe_ingredients AS i
+        ON r.sid = i.recipe_sid
+        %s GROUP BY r.sid ORDER BY SID LIMIT %s, %s",
+            $where,
+            ($page - 1) * $perPage,
+            $perPage 
+    );
 
     $rows = $pdo->query($sql)->fetchAll();
 }
 
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $rows,
-]);
-exit;
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+// ]);
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -101,18 +106,23 @@ exit;
                                 <h5>素食分類</h5>
                                 <i class="fa-solid fa-caret-down"></i>
                             </button>
-                            <div class="dropdown-content">
-                                <a href="?">
+                            <div type="button" class="dropdown-content">
+                                <a type="button" href="?<?php
+                                                        $tmp = $qsp; // 複製
+                                                        unset($tmp['cate']);
+                                                        ?>">
                                     <h5>全部</h5>
                                 </a>
                                 <?php foreach ($cates as $c) : ?>
-                                    <a href="?<?php $tmp['cate']=$c['sid']; ?>">
+                                    <a type="button" href="?<?php
+                                                            $tmp['cate'] = $c['sid'];
+                                                            echo http_build_query($tmp); ?>">
                                         <h5><?= $c['classification'] ?></h5>
                                     </a>
                                 <?php endforeach ?>
                             </div>
                         </div>
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <button class="dropbtn">
                                 <h5>烹飪時間</h5>
                                 <i class="fa-solid fa-caret-down"></i>
@@ -125,7 +135,7 @@ exit;
                                     <h5>5</h5>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <a href="./write_recipes.html" class="darkbutton">
@@ -145,12 +155,9 @@ exit;
                             </div>
                             <div class="contant">
                                 <div class="title">
-
                                     <h2>
-                                        <?= $r['name'] ?>
-                                        ( <?= $r['classification'] ?> )
+                                        <?= $r['name'] ?> ( <?= $r['classification'] ?> )
                                     </h2>
-
                                     <p class="d-lg-none">by 史萊姆</p>
                                     <div class="time-bookmark">
                                         <div class="time">
@@ -165,41 +172,38 @@ exit;
                                 <p class="d-none d-lg-block">by 史萊姆</p>
                                 <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
                                 <h4 class="ingredients">
-                                    食材：
+                                    食材：<?= $r['ingredients'] ?>
                                 </h4>
-
                                 <div class="recipe-btn">
-                                    <a href="recipe_detail.php" class="darkbutton" onclick="post();"">
+                                    <a href="./recipe_detail.php" class="darkbutton" data-sid="<?= $r['sid'] ?>" onclick="seemore(event);">
                                         <h4>了解更多</h4>
                                     </a>
-                                    <div class=" bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
+                                    <div class="bookmark d-lg-none"><i class="fa-regular fa-bookmark"></i></div>
                                 </div>
                             </div>
                         </div>
+                    <?php endforeach ?>
                 </div>
-            <?php endforeach ?>
-        </div>
-        </section>
+            </section>
 
-        <section id="pagination">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </div>
+            <section id="pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </div>
 </main>
 
@@ -211,14 +215,18 @@ exit;
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
 <script>
-    function post() {
-        $.post('test.php', {
-                name: $('#name').val(),
-                password: $('#password').val()
+    function seemore(event) {
+        const btn = $(event.currentTarget);
+        const sid = btn.attr('data-sid')
+        console.log(sid);
+
+        $.get(
+            'recipe_detail.php',
+            {sid}, 
+            function(data){
+                console.log(data);
             },
-            function(data) {
-                $('#result').html(data);
-            });
+            'json');
     }
 </script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>

@@ -2,7 +2,11 @@
 require __DIR__ . '/kc_parts/connect_db.php';
 
 $perPage = 10;  // 每頁最多有幾筆
+if(! isset($_SESSION['sid'])){
+    $_SESSION['sid'] = [];
+}
 
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
@@ -17,18 +21,29 @@ WHERE r.sid=1
 ")
     ->fetchAll();
 
-// 素食食材
-$recipe = $pdo->query("SELECT r.* , i.*  
+// 素食食材 
+$recipe_ingredients = $pdo->query("SELECT i.* 
+FROM recipe_ingredients AS i
+WHERE recipe_sid=1
+")
+    ->fetchAll();
+
+// todo 素食食材 合併
+$recipe = $pdo->query("SELECT r.* , i.* 
 FROM recipe AS r
 JOIN recipe_ingredients AS i
 ON r.ingredients_sid = i.sid
 WHERE r.sid=1
 ")
     ->fetchAll();
-
 // 步驟
-
-
+$step = $pdo->query("SELECT r.*, s.*
+FROM recipe_step AS s
+JOIN recipe AS r
+ON r.sid = s.recipe_sid
+WHERE s.recipe_sid=1
+")
+    ->fetchAll();
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
@@ -71,11 +86,10 @@ echo json_encode([
     'totalPages' => $totalPages,
     'perPage' => $perPage,
     'page' => $page,
-    'cates' => $cates,
-    'vegetarian' => $vegetarian
+    'rows' => $step,
+    'sid' => $step,
 ]);
 exit;
-// 
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -134,10 +148,12 @@ exit;
                                 <div class="col-12 title">
                                     <h3>食材</h3>
                                 </div>
-                                <div class="col-12 col-lg-6 ingredients">
-                                    <h4><?= $r['ingredients_name'] ?></h4>
-                                    <h4><?= $r['quantity'] ?></h4>
-                                </div>
+                                <?php foreach ($recipe_ingredients as $i) : ?>
+                                    <div class="col-12 col-lg-6 ingredients">
+                                        <h4><?= $i['ingredients_name'] ?></h4>
+                                        <h4><?= $i['quantity'] ?></h4>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     <?php endforeach ?>
@@ -148,13 +164,12 @@ exit;
                         <?php foreach ($step as $s) : ?>
                             <div class="step">
                                 <div class="col-md-5 step-img">
-                                    <img src="./images/recipe/recipe_01/recipe_01_01.jpeg" alt="" />
+                                    <img src="./images/recipe/<?= $s['img'] ?>/recipe_01_01.jpeg" alt="" />
                                 </div>
                                 <div class="step-txt">
                                     <h2><?= $s['number'] ?></h2>
-                                    <p><?= $s['introduction'] ?></p>
+                                    <p><?= $s['step_introduction'] ?></p>
                                 </div>
-
                             </div>
                         <?php endforeach ?>
                     </div>
@@ -183,12 +198,6 @@ exit;
                                 <h5>發表留言</h5>
                             </a>
                         </div>
-                    </div>
-                    <div class="message">
-                        <div class="message-author-img">
-                            <img src="./images/mug_shot_04.png" alt="" />
-                        </div>
-                        <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
                     </div>
                     <div class="message">
                         <div class="message-author-img">
