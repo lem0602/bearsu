@@ -12,13 +12,6 @@ $qsp = []; // query string parameters
 $cates = $pdo->query("SELECT * FROM vegetarian WHERE sid")
     ->fetchAll();
 
-$vcates = $pdo->query("SELECT recipe.*, group_concat(ingredients_name, '、')
-FROM recipe
-JOIN recipe_ingredients
-ON recipe.sid = recipe_ingredients.recipe_sid
-")
-    ->fetchAll();
-
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
@@ -48,25 +41,28 @@ if ($totalRows > 0) {
     }
     // 取得該頁面的資料
     $sql = sprintf(
-        "SELECT r.*, v.classification
-    FROM recipe AS r
-    JOIN vegetarian AS v 
-    ON r.vegetarian_sid = v.sid
-    %s ORDER BY SID LIMIT %s, %s",
-        $where,
-        ($page - 1) * $perPage,
-        $perPage
+        "SELECT r.*, v.classification, group_concat(i.ingredients_name, '') AS ingredients 
+        FROM recipe AS r
+        JOIN vegetarian AS v 
+        ON r.vegetarian_sid = v.sid
+        JOIN recipe_ingredients AS i
+        ON r.sid = i.recipe_sid
+        %s GROUP BY r.sid ORDER BY SID LIMIT %s, %s",
+            $where,
+            ($page - 1) * $perPage,
+            $perPage 
     );
 
     $rows = $pdo->query($sql)->fetchAll();
 }
+
 
 // echo json_encode([
 //     'totalRows' => $totalRows,
 //     'totalPages' => $totalPages,
 //     'perPage' => $perPage,
 //     'page' => $page,
-//     'vcates' => $vcates,
+//     'rows' => $rows,
 // ]);
 // exit;
 ?>
@@ -176,40 +172,38 @@ if ($totalRows > 0) {
                                 <p class="d-none d-lg-block">by 史萊姆</p>
                                 <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
                                 <h4 class="ingredients">
-                                    食材：
+                                    食材：<?= $r['ingredients'] ?>
                                 </h4>
                                 <div class="recipe-btn">
-                                    <a href="recipe_detail.php" class="darkbutton" onclick="post();"">
+                                    <a href="#0" class="darkbutton" onclick="post();"">
                                         <h4>了解更多</h4>
                                     </a>
-                                    <div class=" bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
+                                    <div class="bookmark d-lg-none"><i class="fa-regular fa-bookmark"></i></div>
                                 </div>
                             </div>
                         </div>
+                    <?php endforeach ?>
                 </div>
-            <?php endforeach ?>
-        </div>
-        </section>
+            </section>
 
-        <section id="pagination">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </div>
+            <section id="pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </div>
 </main>
 

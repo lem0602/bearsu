@@ -16,19 +16,29 @@ ON r.vegetarian_sid = v.sid
 WHERE r.sid=1
 ")
     ->fetchAll();
+// 素食食材 
+$recipe_ingredients = $pdo->query("SELECT i.* 
+FROM recipe_ingredients AS i
+WHERE recipe_sid=1
+")
+    ->fetchAll();
 
-// 素食食材
-$recipe = $pdo->query("SELECT r.* , i.*  
+// todo 素食食材 合併
+$recipe = $pdo->query("SELECT r.* , i.* 
 FROM recipe AS r
 JOIN recipe_ingredients AS i
 ON r.ingredients_sid = i.sid
 WHERE r.sid=1
 ")
     ->fetchAll();
-
 // 步驟
-
-
+$step = $pdo->query("SELECT r.*, s.*
+FROM recipe_step AS s
+JOIN recipe AS r
+ON r.sid = s.recipe_sid
+WHERE s.recipe_sid=1
+")
+    ->fetchAll();
 // ----------------------商品
 $where = ' WHERE 1 ';  // 起頭
 if ($cate) {
@@ -66,15 +76,15 @@ if ($totalRows > 0) {
     $rows = $pdo->query($sql)->fetchAll();
 }
 
-// echo json_encode([
-//     'totalRows' => $totalRows,
-//     'totalPages' => $totalPages,
-//     'perPage' => $perPage,
-//     'page' => $page,
+echo json_encode([
+    'totalRows' => $totalRows,
+    'totalPages' => $totalPages,
+    'perPage' => $perPage,
+    'page' => $page,
+    'rows' => $step
 
-// ]);
-// exit;
-// 
+]);
+exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -133,10 +143,12 @@ if ($totalRows > 0) {
                                 <div class="col-12 title">
                                     <h3>食材</h3>
                                 </div>
-                                <div class="col-12 col-lg-6 ingredients">
-                                    <h4><?= $r['ingredients_name'] ?></h4>
-                                    <h4><?= $r['quantity'] ?></h4>
-                                </div>
+                                <?php foreach ($recipe_ingredients as $i) : ?>
+                                    <div class="col-12 col-lg-6 ingredients">
+                                        <h4><?= $i['ingredients_name'] ?></h4>
+                                        <h4><?= $i['quantity'] ?></h4>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     <?php endforeach ?>
@@ -147,11 +159,11 @@ if ($totalRows > 0) {
                         <?php foreach ($step as $s) : ?>
                             <div class="step">
                                 <div class="col-md-5 step-img">
-                                    <img src="./images/recipe/recipe_01/recipe_01_01.jpeg" alt="" />
+                                    <img src="./images/recipe/<?= $s['img'] ?>/recipe_01_01.jpeg" alt="" />
                                 </div>
                                 <div class="step-txt">
                                     <h2><?= $s['number'] ?></h2>
-                                    <p><?= $s['introduction'] ?></p>
+                                    <p><?= $s['step_introduction'] ?></p>
                                 </div>
                             </div>
                         <?php endforeach ?>
