@@ -15,6 +15,8 @@ $output = [
     'password' => $_POST['password'],
     'newpassword' => $_POST['newpassword'],
     'ttt' => null,
+    'birthday' => $_POST['birthday'],
+    'gender' => $_POST['gender'],
 ];
 // 判斷密碼欄位有無內容
 if (!empty($_POST['password'])) {
@@ -25,14 +27,14 @@ if (!empty($_POST['password'])) {
     $row = $stmt->fetch();
     if (password_verify($_POST['password'], password_hash($row['password'], PASSWORD_DEFAULT))) {
         // 如果正確，修改密碼指令就會執行
-        $sql = "UPDATE member SET password='".$_POST['newpassword']."' ,email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
-    }else{
+        $sql = "UPDATE member SET gender='".$_POST['gender']."',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "',password='".$_POST['newpassword']."' where email='" . $_SESSION['user']['email'] . "'";
+    } else {
         $output['error'] = '密碼錯誤';
         echo json_encode($output, JSON_UNESCAPED_UNICODE);
         exit;
     }
 } else {
-    $sql = "UPDATE member SET email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
+    $sql = "UPDATE member SET gender='".$_POST['gender']."',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
 }
 
 // UPDATE `member` SET `sid`='',`name`='',`email`='',`password`='',`gender`='',`birthday`='',`mobile`='',`nickname`='',`address`='[value-10]' WHERE 1

@@ -33,7 +33,7 @@ if( password_verify($_POST['password'],password_hash($row['password'], PASSWORD_
     // 密碼是正確的
     $output['success'] = true;
     $_SESSION['user'] = [
-        'id' => $row['id'],
+        'id' => $row['sid'],
         'email' => $row['email'],
         'nickname' => $row['nickname'],
     ];
