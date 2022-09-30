@@ -302,6 +302,11 @@ a:hover {
     font-weight: 500;
 }
 
+.btn_section .btn_right_login{
+    background-color: #F2AD31;
+    color: #333333;
+}
+
 .btn_section .btn_left:hover,
 .btn_section .btn_right:hover {
     box-shadow: none;
