@@ -8,7 +8,13 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $vege = isset($_GET['vege']) ? intval($_GET['vege']) : 0;
 $lowp = isset($_GET['lowp']) ? intval($_GET['lowp']) : 0; // 低價
 $highp = isset($_GET['highp']) ? intval($_GET['highp']) : 0; // 高價
-
+$sort = isset($_GET['sort']) ? $_GET['sort'] : '';
+$orderBy = '';
+if ($sort == 'pricelow') {
+    $orderBy = " ORDER BY price ";
+} elseif ($sort == 'pricehigh') {
+    $orderBy = " ORDER BY price DESC ";
+}
 $qsp = []; // query string parameters
 
 // 取得分類資料
@@ -52,14 +58,15 @@ if ($totalRows > 0) {
     // 取得該頁面的資料
     // 
     $sql = sprintf(
-        "SELECT *, `course`.sid as courseID FROM `course` JOIN `vegetarian` ON course.vegetarian_sid = vegetarian.sid %s ORDER BY course.sid LIMIT %s, %s",
+        "SELECT *, `course`.sid as courseID FROM `course` JOIN `vegetarian` ON course.vegetarian_sid = vegetarian.sid %s %s LIMIT %s, %s",
         $where,
+        $orderBy,
         ($page - 1) * $perPage,
         $perPage
     );
     $rows = $pdo->query($sql)->fetchAll();
-    // var_dump($rows) ;
 }
+
 
 // $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
 // $veges_ar = [];
@@ -98,10 +105,10 @@ if ($totalRows > 0) {
                         <div class="course_menu d-flex justify-content-center align-items-center w-100">
                             <div class="course_menu_wrap w-100">
                                 <h2>篩選條件</h2>
-                                <select class="course_filter filter">
-                                    <option>價格排序</option>
-                                    <option>價格由低至高</option>
-                                    <option>價格由高至低</option>
+                                <select class="course_filter filter" onchange="doSort(event)">
+                                    <option value='' <?= empty($sort) ? 'selected' : '' ?>>時間由近到遠</option>
+                                    <option value='pricelow' <?= $sort == 'pricelow' ? 'selected' : '' ?>>價格由低至高</option>
+                                    <option value='pricehigh' <?= $sort == 'pricehigh' ? 'selected' : '' ?>>價格由高至低</option>
                                 </select>
                                 <!-- <select class="date_filter filter">
                                     <option>選擇課程日期</option>
@@ -142,7 +149,7 @@ if ($totalRows > 0) {
                                 <input type="radio" name="price" class="radio" <?= $lowp == 1500 && empty($highp) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
                                 <label for="price15" class="mb-0">$1,500 以上</label>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary mobile_close_btn" data-dismiss="modal">關閉</button>
+                                    <!-- <button type="button" class="btn btn-secondary mobile_close_btn" data-dismiss="modal">關閉</button> -->
                                 </div>
                             </div>
                         </div>
@@ -155,51 +162,51 @@ if ($totalRows > 0) {
 
         <div class="col-12 col-md-9 col-lg-9 course_cards">
             <?php foreach ($rows as $r) : ?>
-                    <div class="course_card d-md-flex d-lg-flex">
-                        <div class="course_pic d-flex justify-content-center align-items-center">
-                            <img src="images/course/<?= $r['img'] ?>.jpg" alt="">
+                <div class="course_card d-md-flex d-lg-flex">
+                    <div class="course_pic d-flex justify-content-center align-items-center">
+                        <img src="images/course/<?= $r['img'] ?>.jpg" alt="">
+                    </div>
+                    <div class="course_content d-flex flex-column justify-content-between">
+                        <div class="title d-flex justify-content-between align-items-center">
+                            <div class="left d-flex align-items-center">
+                                <h2><?= $r['name'] ?> (<?= $r['classification'] ?>)</h2> <br>
+                            </div>
+                            <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
                         </div>
-                        <div class="course_content d-flex flex-column justify-content-between">
-                            <div class="title d-flex justify-content-between align-items-center">
-                                <div class="left d-flex align-items-center">
-                                    <h2><?= $r['name'] ?> (<?= $r['classification'] ?>)</h2> <br>
+                        <div class="describe">
+                            <h4><?= $r['introduction'] ?>
+                            </h4>
+                        </div>
+                        <div class="price d-flex align-items-center">
+                            <h5>課程價格</h5>
+                            <h2>$<?= number_format($r['price']) ?></h2>
+                        </div>
+                        <div class="time">
+                            <h5>開課時間</h5>
+                            <h4><?= $r['date_1'] ?></h4>
+                        </div>
+                        <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
+                            <a href="course_detail.php?sid=<?= $r['courseID'] ?>" class="btn_wrap mr-md-0 mr-lg-0">
+                                <div class="btn p-0">
+                                    了解更多
                                 </div>
-                                <div class="right d-md-flex d-lg-flex align-items-center d-none d-md-block d-lg-block">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="describe">
-                                <h4><?= $r['introduction'] ?>
-                                </h4>
-                            </div>
-                            <div class="price d-flex align-items-center">
-                                <h5>課程價格</h5>
-                                <h2>$<?= number_format($r['price']) ?></h2>
-                            </div>
-                            <div class="time">
-                                <h5>開課時間</h5>
-                                <h4><?= $r['date_1'] ?></h4>
-                            </div>
-                            <div class="d-flex justify-content-md-end justify-content-lg-end align-items-center">
-                                <a href="course_detail.php?sid=<?= $r['courseID'] ?>" class="btn_wrap mr-md-0 mr-lg-0">
-                                    <div class="btn p-0">
-                                        了解更多
-                                    </div>
-                                </a>
-                                <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
-                            </div>
+                            </a>
+                            <i class="fa-regular fa-bookmark d-md-none d-lg-none"></i>
                         </div>
                     </div>
+                </div>
             <?php endforeach; ?>
         </div>
 
         <div class="col-md-3 col-lg-3 course_menu d-none d-md-block d-lg-block">
             <div class="course_menu_wrap">
                 <h2>篩選條件</h2>
-                <select class="course_filter filter">
-                    <option>價格排序</option>
-                    <option>價格由低至高</option>
-                    <option>價格由高至低</option>
+                <select class="course_filter filter" onchange="doSort(event)">
+                    <option value='' <?= empty($sort) ? 'selected' : '' ?>>時間由近到遠</option>
+                    <option value='pricelow' <?= $sort == 'pricelow' ? 'selected' : '' ?>>價格由低至高</option>
+                    <option value='pricehigh' <?= $sort == 'pricehigh' ? 'selected' : '' ?>>價格由高至低</option>
                 </select>
                 <!-- <select class="date_filter filter">
                     <option>選擇課程日期</option>
@@ -228,17 +235,17 @@ if ($totalRows > 0) {
                 <label for="emsu">蛋奶素</label>
 
                 <p>價格</p>
-                                <input type="radio" name="price" class="radio" <?= empty($lowp) && empty($highp) ? 'checked' : '' ?> id="allprice" onclick="priceRange(0)">
-                                <label for="allprice">全部</label><br>
+                <input type="radio" name="price" class="radio" <?= empty($lowp) && empty($highp) ? 'checked' : '' ?> id="allprice" onclick="priceRange(0)">
+                <label for="allprice">全部</label><br>
 
-                                <input type="radio" name="price" class="radio" <?= $lowp == 0 && $highp == 800 ? 'checked' : '' ?> id="price8" onclick="priceRange(0,800)">
-                                <label for="price8">$800 以下</label><br>
+                <input type="radio" name="price" class="radio" <?= $lowp == 0 && $highp == 800 ? 'checked' : '' ?> id="price8" onclick="priceRange(0,800)">
+                <label for="price8">$800 以下</label><br>
 
-                                <input type="radio" name="price" class="radio" <?= $lowp == 800 && $highp == 1500 ? 'checked' : '' ?> id="price815" onclick="priceRange(800,1500)">
-                                <label for="price815">$800 ~ $1,500</label><br>
+                <input type="radio" name="price" class="radio" <?= $lowp == 800 && $highp == 1500 ? 'checked' : '' ?> id="price815" onclick="priceRange(800,1500)">
+                <label for="price815">$800 ~ $1,500</label><br>
 
-                                <input type="radio" name="price" class="radio" <?= $lowp == 1500 && empty($highp) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
-                                <label for="price15" class="mb-0">$1,500 以上</label>
+                <input type="radio" name="price" class="radio" <?= $lowp == 1500 && empty($highp) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
+                <label for="price15" class="mb-0">$1,500 以上</label>
 
             </div>
         </div>
@@ -300,6 +307,17 @@ if ($totalRows > 0) {
             usp.set('vege', vege);
         } else {
             usp.delete('vege')
+        }
+        location.href = '?' + usp.toString();
+    }
+
+    function doSort(event) {
+        console.log('sort:', event)
+        const sort = event.currentTarget.value;
+        if (sort) {
+            usp.set('sort', sort);
+        } else {
+            usp.delete('sort')
         }
         location.href = '?' + usp.toString();
     }

@@ -70,10 +70,14 @@ $pageName = 'cart'; // 頁面名稱
                         <h4>聯絡電話</h4>
                         <h4 class="mb-0">Email</h4>
                     </div>
+                    <?php 
+                    $sql= sprintf("SELECT * FROM `members` WHERE `sid`='%s'", $_SESSION['user']['id']);
+                    $r = $pdo->query($sql)->fetch();
+                    ?>
                     <div class="list_info">
-                        <h4>自動填入會員姓名</h4>
-                        <h4>自動填入會員電話號碼</h4>
-                        <h4 class="mb-0">自動填入會員Email</h4>
+                        <h4><?= $r['name'] ?></h4>
+                        <h4><?= $r['mobile'] ?></h4>
+                        <h4 class="mb-0"><?= $r['email'] ?></h4>
                     </div>
                 </div>
             </div>
@@ -172,7 +176,7 @@ $pageName = 'cart'; // 頁面名稱
 
         <div class="col-12 btn_section d-flex justify-content-center">
             <a href="shopping_pay_meyhod.php" class="btn_left">回到上一步</a>
-            <a href="shopping_finish.php" class="btn_right">確認結帳</a>
+            <a href="shopping_load.php" class="btn_right">確認結帳</a>
         </div>
     </div>
 </div>

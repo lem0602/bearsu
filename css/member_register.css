@@ -75,13 +75,9 @@
             min-height: calc(100vh - 46px);
         }
 
-        .row {
-            height: calc(100vh - 46px);
-        }
-
         .mascot img {
             height: 300px;
-            transform: translateY(110px);
+            transform: translateY(145px);
         }
 
         .register_box {
@@ -90,13 +86,14 @@
             box-shadow: 3px 3px #333333;
             background-color: #FFF6E9;
             overflow: hidden;
+            margin:32px 0px;
         }
 
         .register_box .error{
-            color: red;
+            color: #005F5F;
             font-size: 0.9rem;
             font-weight: 500;
-            text-align: center;
+            text-align: right;
         }
 
         .register_box h1 {
@@ -117,6 +114,12 @@
             border-bottom: 1px solid #333333;
             padding-bottom: 16px;
             position: relative;
+        }
+
+        .register_box .mobile_box {
+            margin-bottom: 32px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 16px;
         }
 
         .register_box .email_box {
@@ -149,8 +152,7 @@
             background-color: transparent;
             border: none;
             padding: 0px 8px;
-            width: 71%;
-            /* width: fit-content; */
+            flex-grow: 1;
         }
 
         .register_box .input_box input:focus,
@@ -206,6 +208,10 @@
         }
 
         @media screen and (min-width:768px) {
+            .row {
+                height: calc(100vh - 46px);
+            }
+
             footer p {
                 font-size: 1rem;
             }

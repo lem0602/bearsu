@@ -8,7 +8,9 @@ WHERE s.sid=$sid";
 
 $r = $pdo->query($sql)->fetch();
 
-
+// 第一個素食食材
+$ingredients = $pdo->query("SELECT * FROM `solarterms_recipe_ingredients` WHERE `recipe_sid`=1")
+    ->fetchAll();
 
 // 每一個步驟
 // $step = $pdo->query("SELECT `recipe`.*, `recipe_step`.`number`, `recipe_step`.`step_introduction` 
@@ -41,7 +43,7 @@ foreach($veges as $v){
                 </div>
                 <div class="right text-center">
                     <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i><br>
-                    <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="">
+                    <img src="images/solarterms_card_<?= $r['solarterm_sid']-5 ?>.png" alt="">
                 </div>
             </div>
             <div class="down">
@@ -49,30 +51,30 @@ foreach($veges as $v){
             </div>
         </div>
         <div class="col-12 recipe_info">
-            
-                <div class="top d-flex">
-                    <div class="col-6 left text-center">
-                        <h3>份量</h3>
-                        <h3><?= $r['quantity'] ?> 人份</h3>
-                    </div>
-                    <div class="col-6 right text-center ">
-                        <h3>時間</h3>
-                        <h3><?= $r['time'] ?> 分鐘</h3>
-                    </div>
+            <div class="top d-flex">
+                <div class="col-6 left text-center">
+                    <h3>份量</h3>
+                    <h3><?= $r['quantity'] ?> 人份</h3>
                 </div>
-                <div class="middle">
-                    <h3>食材</h3>
+                <div class="col-6 right text-center ">
+                    <h3>時間</h3>
+                    <h3><?= $r['time'] ?> 分鐘</h3>
                 </div>
-                <div class="down w-100 d-md-flex d-lg-flex">
+            </div>
+            <div class="middle">
+                <h3>食材</h3>
+            </div>
+            <div class="down w-100 d-md-flex d-lg-flex">
+                <?php foreach ($ingredients as $i) : ?>
                     <div class="d-flex justify-content-between col-12 col-md-6 col-lg-6 ingredients">
-                        <h4></h4>
-                        <h4></h4>
+                        <h4><?= $i['name'] ?></h4>
+                        <h4><?= $i['quantity'] ?></h4>
                     </div>
-                </div>
-            
+                <?php endforeach ?>
+            </div>
         </div>
 
-
+        
         <div class="col-12 recipe_list">
             <div class="recipe_list_wrap d-md-flex d-lg-flex">
                 <div class="left">
@@ -84,7 +86,7 @@ foreach($veges as $v){
                 </div>
             </div>
         </div>
-
+        
 
         <div class="col-12 message_card">
             <h2>留言</h2>
