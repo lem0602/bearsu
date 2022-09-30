@@ -129,7 +129,7 @@ body {
     background-color: transparent;
     border: none;
     padding: 0px 8px;
-    width: 80%;
+    flex-grow: 1;
 }
 
 .login_box .input_box input:focus,

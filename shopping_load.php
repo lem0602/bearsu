@@ -9,7 +9,8 @@ $pageName = 'cart'; // 頁面名稱
 <div class="container shopping_load_wrap d-flex justify-content-center align-items-center">
     <div class="row shopping_load">
         <div class="col-12 text-center">
-            <img src="images/mascot_04.gif" alt="">
+            <h1>處理中...</h1>
+            <img src="images/mascot_09.gif" alt="">
         </div>
 
     </div>
@@ -21,6 +22,8 @@ $pageName = 'cart'; // 頁面名稱
 
 <?php include __DIR__ . '/parts/shopping_load_scripts.php'; ?>
 <script>
-    setTimeout(function(){location.href="/bearsu/shopping_finish.php"} , 5000);
+    setTimeout(function() {
+        location.href = "/bearsu/shopping_finish.php"
+    }, 3000);
 </script>
 <?php include __DIR__ . '/parts/foot.php'; ?>
