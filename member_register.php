@@ -45,34 +45,32 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="register_btn" >註冊</button>
-
-                    
+                    <button type="submit" class="register_btn">註冊</button>
                 </div>
             </form>
 
-            <button data-toggle="modal" data-target="#exampleModal" id="modalBtn" hidden></button>
+            <!-- Button trigger modal -->
+            <button data-toggle="modal" data-target="#exampleModalCenter" id="modalBtn" hidden></button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="sucess_card">
+                            <div class="modal-body">
+                                <h1>註冊成功</h1>
+                                <div class="img_wrap d-flex justify-content-center">
+                                    <img src="images/mascot_10.gif" alt="">
                                 </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                <div class="btn_wrap  d-flex justify-content-center">
+                                    <a href="member_login.php" class="btn">關閉</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="col-md-3 col-lg-3 d-none d-md-block d-lg-block mascot h-100">
@@ -160,7 +158,7 @@
                 'member_register_api.php',
                 $(document.form1).serialize(),
                 function(data) {
-                    console.log('data',data);
+                    console.log('data', data);
                     if (data.success) {
                         console.log('success');
                         // document.getElementById('modalBtn').disabled=false;
@@ -170,9 +168,9 @@
                     } else {
                         // document.getElementById('modalBtn').disabled=ture;
                         // alert(data.error);
-                        
+
                         // $('body').removeClass('modal-open');
-                        
+
                     }
                 },
                 'json'
