@@ -16,7 +16,7 @@
         }
 
         .pc_header {
-            z-index: 9999;
+            z-index: 999;
             position: sticky;
             top: 32px;
             height: 0px;

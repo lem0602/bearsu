@@ -20,7 +20,7 @@
 
         .shopping_load img {
             width: 150px;
-            animation: run 3s linear;
+            animation: run 5s linear;
         }
 
         @keyframes run {

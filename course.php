@@ -216,7 +216,7 @@ if ($totalRows > 0) {
                     <option>11月19日(六) 10:30-12:30</option>
                 </select> -->
                 <p>素食分類</p>
-                <input type="radio" name="su2" class="radio" <?= empty($vege) ? 'checked' : '' ?> id="totalsu" onclick="vegeRange()">
+                <input type="radio" name="su" class="radio" <?= empty($vege) ? 'checked' : '' ?> id="totalsu" onclick="vegeRange()">
                 <label for="totalsu">全部</label><br>
 
                 <input type="radio" name="su" class="radio" <?= $vege == 3 ? 'checked' : '' ?> id="allsu" onclick="vegeRange(3)">

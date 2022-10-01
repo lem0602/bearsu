@@ -16,7 +16,7 @@
         }
 
         .pc_header {
-            z-index: 9999;
+            z-index: 999;
             position: sticky;
             top: 32px;
             height: 0px;
@@ -236,9 +236,6 @@
             margin-top: 24px;
         }
 
-        .modal-backdrop {
-            position: unset !important;
-        }
 
         .modal-content {
             background-color: transparent;
@@ -246,7 +243,6 @@
         }
 
         .sucess_card {
-            z-index: 10000;
             height: auto;
             border-radius: 20px;
             border: 2px solid #333333;
@@ -266,6 +262,24 @@
         .sucess_card img {
             height: 250px;
             margin-bottom: 32px;
+        }
+
+        .sucess_card .btn{
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 8px 35px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .sucess_card .btn:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
         }
 
         footer {

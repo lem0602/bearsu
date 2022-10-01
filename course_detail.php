@@ -85,28 +85,9 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <button class="btn" data-sid="<?= $r['sid'] ?>" onclick="addToCart(event)" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button class="btn" data-sid="<?= $r['sid'] ?>" onclick="addToCart(event)">
                         加入購物車
                     </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="sucess_card">
-                                    <div class="modal-body">
-                                        <h1>已加入購物車</h1>
-                                        <div class="img_wrap d-flex justify-content-center">
-                                            <img src="images/mascot_11.png" alt="">
-                                        </div>
-                                        <div class="btn_wrap  d-flex justify-content-center">
-                                            <a href="#" class="btn" data-dismiss="modal">關閉</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="course_menu_pic d-flex justify-content-center">
@@ -115,6 +96,29 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
 
             </div>
         </div>
+
+        <!-- Button trigger modal -->
+        <button data-toggle="modal" data-target="#exampleModalCenter" id="modalBtn" hidden></button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="sucess_card">
+                        <div class="modal-body">
+                            <h1>已加入購物車</h1>
+                            <div class="img_wrap d-flex justify-content-center">
+                                <img src="images/mascot_11.gif" alt="">
+                            </div>
+                            <div class="btn_wrap  d-flex justify-content-center">
+                                <a href="#" class="btn" data-dismiss="modal">關閉</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -142,6 +146,7 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
             function(data) {
                 console.log(data);
                 // alert('已加入購物車');
+                document.querySelector('#modalBtn').click();
             },
             'json');
 

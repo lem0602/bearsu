@@ -48,29 +48,28 @@
                     <button type="submit" class="register_btn">註冊</button>
                 </div>
             </form>
+        </div>
 
-            <!-- Button trigger modal -->
-            <button data-toggle="modal" data-target="#exampleModalCenter" id="modalBtn" hidden></button>
+        <!-- Button trigger modal -->
+        <button data-toggle="modal" data-target="#exampleModalCenter" id="modalBtn" hidden></button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="sucess_card">
-                            <div class="modal-body">
-                                <h1>註冊成功</h1>
-                                <div class="img_wrap d-flex justify-content-center">
-                                    <img src="images/mascot_10.gif" alt="">
-                                </div>
-                                <div class="btn_wrap  d-flex justify-content-center">
-                                    <a href="member_login.php" class="btn">關閉</a>
-                                </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="sucess_card">
+                        <div class="modal-body">
+                            <h1>註冊成功</h1>
+                            <div class="img_wrap d-flex justify-content-center">
+                                <img src="images/mascot_10.gif" alt="">
+                            </div>
+                            <div class="btn_wrap  d-flex justify-content-center">
+                                <a href="member_login.php" class="btn">關閉</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="col-md-3 col-lg-3 d-none d-md-block d-lg-block mascot h-100">
