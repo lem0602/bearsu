@@ -159,6 +159,7 @@ if ($totalRows > 0) {
             </div>
         </div>
         <!-- ------------------mobile end----------- -->
+        <div class="col-12" id="position"></div>
 
         <div class="col-12 col-md-9 col-lg-9 course_cards">
             <?php foreach ($rows as $r) : ?>
@@ -299,7 +300,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('highp')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position');
     }
 
     function vegeRange(vege = 0) {
@@ -308,7 +309,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('vege')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString() + String('#position');
     }
 
     function doSort(event) {
@@ -319,7 +320,8 @@ if ($totalRows > 0) {
         } else {
             usp.delete('sort')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position'); 
     }
+
 </script>
 <?php include __DIR__ . '/parts/foot.php'; ?>

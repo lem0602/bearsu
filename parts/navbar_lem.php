@@ -8,7 +8,7 @@ if (!isset($page_name)) {
     <div class="page">
         <header tabindex="0">
             <div class="logo-img">
-                <img src="images/logo_horizontal.png" alt="">
+            <a href="index.php"><img src="images/logo_horizontal.png" alt=""></a>
             </div>
         </header>
         <div id="nav-container">
