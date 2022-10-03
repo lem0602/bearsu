@@ -30,8 +30,8 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
             <h3><?= $r['introduction'] ?>
             </h3>
             <div class="classroom d-md-flex d-lg-flex justify-content-between">
-                <img src="images/course/course_00_01.jpg" alt="">
-                <img src="images/course/course_00_02.jpg" alt="">
+                <img src="images/course/course_00_0<?php echo rand("1","4");?>.jpg" alt="">
+                <img src="images/course/course_00_0<?php echo rand("5","8");?>.jpg" alt="">
             </div>
             <p>注意事項: <br>
                 1.因教室空間有限，並有爐火、刀具等需謹慎操作之用品，為安全起見，僅開放給報名學員進場。<br>

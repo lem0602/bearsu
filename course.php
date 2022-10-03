@@ -159,9 +159,8 @@ if ($totalRows > 0) {
             </div>
         </div>
         <!-- ------------------mobile end----------- -->
-        <div class="col-12" id="position"></div>
-
-        <div class="col-12 col-md-9 col-lg-9 course_cards">
+        <!-- <div class="col-12" id="position"></div> -->
+        <div class="col-12 col-md-9 col-lg-9 course_cards" id="position">
             <?php foreach ($rows as $r) : ?>
                 <div class="course_card d-md-flex d-lg-flex">
                     <div class="course_pic d-flex justify-content-center align-items-center">
