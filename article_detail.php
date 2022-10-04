@@ -25,12 +25,12 @@ if(! empty($sid)) {
     }
 }
 
-echo json_encode($_SESSION['detail']);
+// echo json_encode($_SESSION['detail']);
 
 // echo json_encode([
 //     'row' => $row,
 // ]);
-exit;
+// exit;
 ?>
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
 <link rel="stylesheet" href="./css/article_detail.css" />

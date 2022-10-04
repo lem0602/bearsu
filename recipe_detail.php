@@ -20,7 +20,7 @@ if (!empty($sid)) {
         // 新增
         // TODO: 檢查資料表是不是有這個商品
 
-        $row = $pdo->query("SELECT r.*, v.*, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, group_concat(DISTINCT i.quantity) AS ingredients_quantity, group_concat(DISTINCT s.step_introduction) AS step_introduction, group_concat(DISTINCT s.number) AS step_number
+        $row = $pdo->query("SELECT r.*, v.*, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, group_concat( i.quantity) AS ingredients_quantity, group_concat(DISTINCT s.step_introduction) AS step_introduction, group_concat(DISTINCT s.number) AS step_number
         FROM recipe AS r  
         LEFT JOIN vegetarian AS v ON r.vegetarian_sid = v.sid 
         LEFT JOIN recipe_ingredients AS i ON r.sid = i.recipe_sid
@@ -33,55 +33,14 @@ if (!empty($sid)) {
             $_SESSION['detail'][$sid] = $row;
         }
     }
-
-    if (!empty($_SESSION['recipe'][$sid])) {
-    } else {
-        // 新增
-        // TODO: 檢查資料表是不是有這個商品
-
-        $recipe_ingredients = $pdo->query("SELECT i.* 
-        FROM recipe_ingredients AS i
-        WHERE recipe_sid=1
-        ")
-            ->fetchAll();
-
-
-        if (!empty($row)) {
-            $_SESSION['recipe'][$sid] = $row;
-        }
-    }
 }
+
 
 // print_r($_SESSION['detail']);
 
-echo json_encode($_SESSION['recipe']);
+// echo json_encode($_SESSION['detail']);
 
-exit;
-// 素食食材 
-$recipe_ingredients = $pdo->query("SELECT i.* 
-FROM recipe_ingredients AS i
-WHERE recipe_sid=1
-")
-    ->fetchAll();
-
-// todo 素食食材 合併
-$recipe = $pdo->query("SELECT r.* , i.* 
-FROM recipe AS r
-JOIN recipe_ingredients AS i
-ON r.ingredients_sid = i.sid
-WHERE r.sid=1
-")
-    ->fetchAll();
-// 步驟
-$step = $pdo->query("SELECT r.*, s.*
-FROM recipe_step AS s
-JOIN recipe AS r
-ON r.sid = s.recipe_sid
-WHERE s.recipe_sid=1
-")
-    ->fetchAll();
-
-
+// exit;
 $sql = sprintf(
     "SELECT r.*, v.classification, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, 
     group_concat(DISTINCT s.step_introduction) AS step_introduction, group_concat(DISTINCT s.number) AS step_number
@@ -159,14 +118,15 @@ $rows = $pdo->query($sql)->fetchAll();
                                 <div class="col-12 title">
                                     <h3>食材</h3>
                                 </div>
-                                <?php $name = explode(",", $r['ingredients_name']); 
-                                foreach ($name as $r) :
-                                ?>
-                                <div class="col-12 col-lg-6 ingredients">
-                                    <h4><?= $r['ingredients_name'] ?></h4>
-                                    <h4></h4>
-                                </div>
-                                <?php endforeach ?>
+                                <?php
+                                $n = explode(",", $r['ingredients_name']);
+                                $q = explode(",", $r['ingredients_quantity']);
+                                for ($i = 0; $i < sizeof($n); $i++) : ?>
+                                    <div class="col-12 col-lg-6 ingredients">
+                                        <h4><?= $n[$i] ?></h4>
+                                        <h4><?= $q[$i] ?></h4>
+                                    </div>
+                                <?php endfor ?>
                             </div>
                         </div>
                     <?php endforeach ?>
@@ -174,18 +134,22 @@ $rows = $pdo->query($sql)->fetchAll();
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                        <?php foreach ($_SESSION['detail'] as $r) : ?>
-                            <div class="step">
-                                <div class="col-md-5 step-img">
-                                    <img src="./images/recipe/<?= $r['img'] ?>/recipe_01_01.jpeg" alt="" />
+                        <?php foreach ($_SESSION['detail'] as $r) :
+                            $sn = explode(",", $r['step_number']);
+                            $si = explode(",", $r['step_introduction']);
+                            $sg = explode(",", $r['step_img']);
+
+                            for ($i = 0; $i < sizeof($sn); $i++) : ?>
+                                <div class="step">
+                                    <div class="col-md-5 step-img">
+                                        <img src="./images/recipe/<?= $r['img'] ?>/<?= $sg[$i] ?>.jpeg" alt="" />
+                                    </div>
+                                    <div class="step-txt">
+                                        <h2><?= $sn[$i] ?></h2>
+                                        <p><?= $si[$i] ?></p>
+                                    </div>
                                 </div>
-                                <?php foreach ($_SESSION['detail'] as $s) : ?>
-                                <div class="step-txt">
-                                    <h2><?= $s['step_number'] ?></h2>
-                                    <p><?= $s['step_introduction'] ?></p>
-                                </div>
-                                <?php endforeach ?>
-                            </div>
+                            <?php endfor ?>
                         <?php endforeach ?>
                     </div>
                 </div>
