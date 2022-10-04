@@ -1,14 +1,35 @@
 <?php session_start(); ?>
 <?php
 require __DIR__ . '/parts/connect_db.php';
+// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $sql = "SELECT s.*, v.classification FROM solarterms_recipe s
+// JOIN vegetarian v ON s.vegetarian_sid=v.sid
+// WHERE s.sid=$sid";
+
+// $r = $pdo->query($sql)->fetch();
+
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-$sql = "SELECT s.*, v.classification FROM solarterms_recipe s
-JOIN vegetarian v ON s.vegetarian_sid=v.sid
-WHERE s.sid=$sid";
+$sql = sprintf(
+    "SELECT s.*, v.classification, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, 
+group_concat(DISTINCT step.step_introduction) AS step_introduction, group_concat(DISTINCT step.step_number) AS step_number ,group_concat(DISTINCT i.quantity) AS ingredients_quantity
+FROM solarterms_recipe s
+LEFT JOIN vegetarian v 
+ON s.vegetarian_sid=v.sid
+LEFT JOIN solarterms_recipe_ingredients AS i
+ON s.sid = i.recipe_sid
+LEFT JOIN solarterms_recipe_step AS step
+ON s.sid = step.recipe_sid
+WHERE s.sid=$sid GROUP BY s.sid"
+);
 
-$r = $pdo->query($sql)->fetch();
+$rows = $pdo->query($sql)->fetchAll();
 
+// $rr = $pdo->query($sql)->fetch();
+// echo json_encode([
+//     'name' => $rows,
+// ]);
 
+// exit;
 
 // 每一個步驟
 // $step = $pdo->query("SELECT `recipe`.*, `recipe_step`.`number`, `recipe_step`.`step_introduction` 
@@ -33,23 +54,25 @@ foreach($veges as $v){
 
 <div class="container">
     <div class="row mx-0">
-        <div class="col-12 recipe_title">
-            <div class="top d-md-flex d-lg-flex justify-content-between">
-                <div class="left">
-                    <h1><?= $r['recipe_name'] ?> (<?= $r['classification'] ?>)</h1>
-                    <img src="images/solarterms/<?= $r['img'] ?>.jpg" alt="">
+        <?php foreach ($rows as $r) : ?>
+            <div class="col-12 recipe_title">
+                <div class="top d-md-flex d-lg-flex justify-content-between">
+                    <div class="left">
+                        <h1><?= $r['recipe_name'] ?> (<?= $r['classification'] ?>)</h1>
+                        <img src="images/solarterms/<?= $r['img'] ?>.jpg" alt="">
+                    </div>
+                    <div class="right text-center">
+                        <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i><br>
+                        <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="">
+                    </div>
                 </div>
-                <div class="right text-center">
-                    <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i><br>
-                    <img src="images/solarterms_card_<?= $r['solarterm_sid'] - 5 ?>.png" alt="">
+                <div class="down">
+                    <h2><?= $r['introduction'] ?></h2>
                 </div>
             </div>
-            <div class="down">
-                <h2><?= $r['introduction'] ?></h2>
-            </div>
-        </div>
-        <div class="col-12 recipe_info">
-            
+        <?php endforeach ?>
+        <?php foreach ($rows as $r) : ?>
+            <div class="col-12 recipe_info">
                 <div class="top d-flex">
                     <div class="col-6 left text-center">
                         <h3>份量</h3>
@@ -64,27 +87,37 @@ foreach($veges as $v){
                     <h3>食材</h3>
                 </div>
                 <div class="down w-100 d-md-flex d-lg-flex">
-                    <div class="d-flex justify-content-between col-12 col-md-6 col-lg-6 ingredients">
-                        <h4></h4>
-                        <h4></h4>
-                    </div>
-                </div>
-            
-        </div>
-
-
-        <div class="col-12 recipe_list">
-            <div class="recipe_list_wrap d-md-flex d-lg-flex">
-                <div class="left">
-                    <img src="images/solarterms/solarterms_01_01.jpg" alt="">
-                </div>
-                <div class="right">
-                    <h1></h1>
-                    <h3></h3>
+                    <?php
+                    $n = explode(",", $r['ingredients_name']);
+                    $q = explode(",", $r['ingredients_quantity']);
+                    for ($i = 0; $i < sizeof($n); $i++) : ?>
+                        <div class="d-flex justify-content-between col-12 col-md-6 col-lg-6 ingredients">
+                            <h4><?= $n[$i] ?></h4>
+                            <h4><?= $q[$i] ?></h4>
+                        </div>
+                    <?php endfor ?>
                 </div>
             </div>
-        </div>
+        <?php endforeach ?>
 
+        <?php foreach ($rows as $r) : $sn = explode(",", $r['step_number']);
+            $si = explode(",", $r['step_introduction']);
+            $sg = explode(",", $r['step_img']);
+
+            for ($i = 0; $i < sizeof($sn); $i++) : ?>
+                <div class="col-12 recipe_list">
+                    <div class="recipe_list_wrap d-md-flex d-lg-flex">
+                        <div class="left">
+                            <img src="images/solarterms/<?= $sg[$i] ?>.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <h1><?= $sn[$i] ?></h1>
+                            <h3><?= $si[$i] ?></h3>
+                        </div>
+                    </div>
+                </div>
+            <?php endfor ?>
+        <?php endforeach ?>
 
         <div class="col-12 message_card">
             <h2>留言</h2>
