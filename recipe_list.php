@@ -54,6 +54,21 @@ if ($totalRows > 0) {
     );
 
     $rows = $pdo->query($sql)->fetchAll();
+
+    $sq = sprintf(
+        "SELECT r.*, v.classification, group_concat(i.ingredients_name, '') AS ingredients 
+        FROM recipe AS r
+        JOIN vegetarian AS v 
+        ON r.vegetarian_sid = v.sid
+        JOIN recipe_ingredients AS i
+        ON r.sid = i.recipe_sid
+        %s GROUP BY r.sid ORDER BY SID LIMIT %s, %s",
+            $where,
+            ($page - 1) * $perPage,
+            $perPage 
+    );
+
+    $row = $pdo->query($sq)->fetchAll();
 }
 
 
@@ -62,7 +77,7 @@ if ($totalRows > 0) {
 //     'totalPages' => $totalPages,
 //     'perPage' => $perPage,
 //     'page' => $page,
-//     'rows' => $rows,
+//     'row' => $row,
 // ]);
 // exit;
 ?>
@@ -99,6 +114,7 @@ if ($totalRows > 0) {
 
             <section id="recipe-dropdown">
                 <!-- dropdown -->
+                <!-- todo fix top -->
                 <div class="veggie-category">
                     <div class="dropdown-box">
                         <div class="dropdown">
@@ -175,7 +191,7 @@ if ($totalRows > 0) {
                                     食材：<?= $r['ingredients'] ?>
                                 </h4>
                                 <div class="recipe-btn">
-                                    <a href="./recipe_detail.php" 
+                                    <a href="./recipe_detail.php?sid=<?= $r['sid'] ?>" 
                                     class="darkbutton" 
                                     data-sid="<?= $r['sid'] ?>" 
                                     onclick="seemore(event);">
