@@ -11,8 +11,12 @@
             height: 0px;
         }
 
+        #mobile-nav header {
+            z-index: 999;
+        }
+
         .pc_header {
-            z-index: 9999;
+            z-index: 999;
             position: sticky;
             top: 32px;
             height: 0px;
@@ -131,7 +135,6 @@
                 position: sticky;
                 top: 32px;
                 z-index: 999;
-
                 border-radius: 20px;
                 border: 2px solid #333333;
                 background-color: #FFF6E9;
@@ -176,7 +179,7 @@
             width: 150px;
         }
 
-        .course_menu_date .date{
+        .course_menu_date .date {
             margin-bottom: 0px;
         }
 
@@ -231,6 +234,52 @@
         .course_menu_pic img {
             height: 250px;
             margin-top: 24px;
+        }
+
+
+        .modal-content {
+            background-color: transparent;
+            border:none;
+        }
+
+        .sucess_card {
+            height: auto;
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            padding: 24px;
+        }
+
+        .sucess_card h1 {
+            font-size: 2rem;
+            color: #005F5F;
+            margin-bottom: 32px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .sucess_card img {
+            height: 250px;
+            margin-bottom: 32px;
+        }
+
+        .sucess_card .btn{
+            color: #FFF6E9;
+            background-color: #005F5F;
+            padding: 8px 35px;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .sucess_card .btn:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
         }
 
         footer {

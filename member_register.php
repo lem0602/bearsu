@@ -50,6 +50,28 @@
             </form>
         </div>
 
+        <!-- Button trigger modal -->
+        <button data-toggle="modal" data-target="#exampleModalCenter" id="modalBtn" hidden></button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="sucess_card">
+                        <div class="modal-body">
+                            <h1>註冊成功</h1>
+                            <div class="img_wrap d-flex justify-content-center">
+                                <img src="images/mascot_10.gif" alt="">
+                            </div>
+                            <div class="btn_wrap  d-flex justify-content-center">
+                                <a href="member_login.php" class="btn">關閉</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-md-3 col-lg-3 d-none d-md-block d-lg-block mascot h-100">
             <div class="mascot_wrap d-flex align-items-center justify-content-center h-100">
                 <img src="images/mascot_right.gif" alt="">
@@ -79,7 +101,7 @@
         $error3 = $('.error3'),
         $error4 = $('.error4'),
         $error5 = $('.error5');
-    const fileds = [$name, $mobile ,$email, $pwd1, $pwd2];
+    const fileds = [$name, $mobile, $email, $pwd1, $pwd2];
 
     function checkForm(e) {
         e.preventDefault();
@@ -103,7 +125,7 @@
             $error1.text('請輸入正確的姓名');
         }
 
-        if(!mobile_re.test($mobile.val())){
+        if (!mobile_re.test($mobile.val())) {
             isPass = false;
             $mobile.css('border', '1px solid #005F5F')
                 .css('borderRadius', '5px');
@@ -135,10 +157,19 @@
                 'member_register_api.php',
                 $(document.form1).serialize(),
                 function(data) {
+                    console.log('data', data);
                     if (data.success) {
-                        alert('註冊成功');
+                        console.log('success');
+                        // document.getElementById('modalBtn').disabled=false;
+                        // alert('註冊成功');
+                        document.querySelector('#modalBtn').click();
+
                     } else {
-                        alert(data.error);
+                        // document.getElementById('modalBtn').disabled=ture;
+                        // alert(data.error);
+
+                        // $('body').removeClass('modal-open');
+
                     }
                 },
                 'json'

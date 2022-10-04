@@ -90,7 +90,7 @@ foreach($veges as $v){
             <h2>留言</h2>
             <div class="message_card_innrwrap d-md-flex d-lg-flex align-items-center">
                 <div class="mug_shot d-flex flex-column align-items-center">
-                    <img src="images/mug_shot_01.png" alt="">
+                    <img src="images/mascot_12.png" alt="">
                 </div>
                 <div class="input_section w-100">
                     <textarea name="" id="" class="w-100" placeholder="加入討論 (最多可輸入 100 字)"></textarea>

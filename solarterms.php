@@ -182,7 +182,7 @@ if ($totalRows > 0) {
             </map>
         </div>
 
-        <div class="col-12 order-2 filter_section d-flex justify-content-between justify-content-md-start justify-content-lg-start">
+        <div class="col-12 order-2 filter_section d-flex justify-content-between justify-content-md-start justify-content-lg-start" id="position">
             <select class="season_filter filter" onchange="seasonRange(value)">
                 <option>季節分類</option>
                 <option value='' <?php if (!(strcmp("", $season))) {
@@ -354,7 +354,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('vege')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position'); 
     }
 
     function timeRange(time = 0) {
@@ -363,7 +363,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('time')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position'); 
     }
 
     function seasonRange(season = 0) {
@@ -372,7 +372,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('season')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position'); 
     }
 
     //     // 產出第一層

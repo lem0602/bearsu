@@ -118,35 +118,35 @@ if ($totalRows > 0) {
                                     <option>11月19日(六) 10:30-12:30</option>
                                 </select> -->
                                 <p>素食分類</p>
-                                <input type="radio" name="su" class="radio" <?= empty($vege) ? 'checked' : '' ?> id="totalsu" onclick="vegeRange(0)">
+                                <input type="radio" name="su2" class="radio" <?= empty($vege) ? 'checked' : '' ?> id="totalsu" onclick="vegeRange(0)">
                                 <label for="totalsu">全部</label><br>
 
-                                <input type="radio" name="su" class="radio" <?= $vege == 3 ? 'checked' : '' ?> id="allsu" onclick="vegeRange(3)">
+                                <input type="radio" name="su2" class="radio" <?= $vege == 3 ? 'checked' : '' ?> id="allsu" onclick="vegeRange(3)">
                                 <label for="allsu">全素</label><br>
 
-                                <input type="radio" name="su" class="radio" <?= $vege == 2 ? 'checked' : '' ?> id="eggsu" onclick="vegeRange(2)">
+                                <input type="radio" name="su2" class="radio" <?= $vege == 2 ? 'checked' : '' ?> id="eggsu" onclick="vegeRange(2)">
                                 <label for="eggsu">蛋素</label><br>
 
-                                <input type="radio" name="su" class="radio" <?= $vege == 1 ? 'checked' : '' ?> id="fivesu" onclick="vegeRange(1)">
+                                <input type="radio" name="su2" class="radio" <?= $vege == 1 ? 'checked' : '' ?> id="fivesu" onclick="vegeRange(1)">
                                 <label for="fivesu">五辛素</label><br>
 
-                                <input type="radio" name="su" class="radio" <?= $vege == 4 ? 'checked' : '' ?> id="milksu" onclick="vegeRange(4)">
+                                <input type="radio" name="su2" class="radio" <?= $vege == 4 ? 'checked' : '' ?> id="milksu" onclick="vegeRange(4)">
                                 <label for="milksu">奶素</label><br>
 
-                                <input type="radio" name="su" class="radio" <?= $vege == 5 ? 'checked' : '' ?> id="emsu" onclick="vegeRange(5)">
+                                <input type="radio" name="su2" class="radio" <?= $vege == 5 ? 'checked' : '' ?> id="emsu" onclick="vegeRange(5)">
                                 <label for="emsu">蛋奶素</label>
 
                                 <p>價格</p>
-                                <input type="radio" name="price" class="radio" <?= empty($lowp) && empty($highp) ? 'checked' : '' ?> id="allprice" onclick="priceRange(0)">
+                                <input type="radio" name="price2" class="radio" <?= empty($lowp) && empty($highp) ? 'checked' : '' ?> id="allprice" onclick="priceRange(0)">
                                 <label for="allprice">全部</label><br>
 
-                                <input type="radio" name="price" class="radio" <?= $lowp == 0 && $highp == 800 ? 'checked' : '' ?> id="price8" onclick="priceRange(0,800)">
+                                <input type="radio" name="price2" class="radio" <?= $lowp == 0 && $highp == 800 ? 'checked' : '' ?> id="price8" onclick="priceRange(0,800)">
                                 <label for="price8">$800 以下</label><br>
 
-                                <input type="radio" name="price" class="radio" <?= $lowp == 800 && $highp == 1500 ? 'checked' : '' ?> id="price815" onclick="priceRange(800,1500)">
+                                <input type="radio" name="price2" class="radio" <?= $lowp == 800 && $highp == 1500 ? 'checked' : '' ?> id="price815" onclick="priceRange(800,1500)">
                                 <label for="price815">$800 ~ $1,500</label><br>
 
-                                <input type="radio" name="price" class="radio" <?= $lowp == 1500 && empty($highp) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
+                                <input type="radio" name="price2" class="radio" <?= $lowp == 1500 && empty($highp) ? 'checked' : '' ?> id="price15" onclick="priceRange(1500, 0)">
                                 <label for="price15" class="mb-0">$1,500 以上</label>
                                 <div class="modal-footer">
                                     <!-- <button type="button" class="btn btn-secondary mobile_close_btn" data-dismiss="modal">關閉</button> -->
@@ -159,8 +159,8 @@ if ($totalRows > 0) {
             </div>
         </div>
         <!-- ------------------mobile end----------- -->
-
-        <div class="col-12 col-md-9 col-lg-9 course_cards">
+        <!-- <div class="col-12" id="position"></div> -->
+        <div class="col-12 col-md-9 col-lg-9 course_cards" id="position">
             <?php foreach ($rows as $r) : ?>
                 <div class="course_card d-md-flex d-lg-flex">
                     <div class="course_pic d-flex justify-content-center align-items-center">
@@ -299,7 +299,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('highp')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position');
     }
 
     function vegeRange(vege = 0) {
@@ -308,7 +308,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('vege')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString() + String('#position');
     }
 
     function doSort(event) {
@@ -319,7 +319,8 @@ if ($totalRows > 0) {
         } else {
             usp.delete('sort')
         }
-        location.href = '?' + usp.toString();
+        location.href = '?' + usp.toString()+ String('#position'); 
     }
+
 </script>
 <?php include __DIR__ . '/parts/foot.php'; ?>
