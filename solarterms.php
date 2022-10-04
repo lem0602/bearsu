@@ -53,9 +53,15 @@ if ($totalRows > 0) {
     // }
     // 取得該頁面的資料
     $sql = sprintf(
-        "SELECT *, `solarterms_recipe`.sid as solarID FROM `solarterms_recipe` JOIN `vegetarian` ON solarterms_recipe.vegetarian_sid = vegetarian.sid %s ORDER BY solarterms_recipe.sid LIMIT %s, %s",
+        // "SELECT *, `solarterms_recipe`.sid as solarID FROM `solarterms_recipe` JOIN `vegetarian` ON solarterms_recipe.vegetarian_sid = vegetarian.sid %s ORDER BY solarterms_recipe.sid LIMIT %s, %s",
 
-        // "SELECT * FROM `solarterms_recipe` JOIN `vegetarian` ON solarterms_recipe.vegetarian_sid = vegetarian.sid %s ORDER BY solarterms_recipe.sid LIMIT %s, %s",
+        "SELECT r.*, v.classification, group_concat(i.ingredients_name, '') AS ingredients 
+        FROM solarterms_recipe AS r
+        JOIN vegetarian AS v 
+        ON r.vegetarian_sid = v.sid
+        JOIN solarterms_recipe_ingredients AS i
+        ON r.sid = i.recipe_sid
+        %s GROUP BY r.sid ORDER BY SID LIMIT %s, %s",
         $where,
         ($page - 1) * $perPage,
         $perPage
@@ -297,11 +303,11 @@ if ($totalRows > 0) {
                     </div>
                     <div class="describe">
                         <h3><?= $r['introduction'] ?></h3>
-                        <h4>食材：、</h4>
+                        <h4>食材：<?= $r['ingredients'] ?></h4>
                     </div>
                     <div class="btn_wrap d-flex justify-content-md-end justify-content-lg-end p-0">
                         <div class="btn">
-                            <a href="solarterms_detail.php?sid=<?= $r['solarID'] ?>">了解更多</a>
+                            <a href="solarterms_detail.php?sid=<?= $r['sid'] ?>">了解更多</a>
                         </div>
                         <i class="fa-regular fa-bookmark pl-4 d-flex align-items-center d-md-none d-lg-none"></i>
                     </div>
