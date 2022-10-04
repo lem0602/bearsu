@@ -10,8 +10,8 @@ require __DIR__ . '/parts/connect_db.php';
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $sql = sprintf(
-    "SELECT s.*, v.classification, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, 
-group_concat(DISTINCT step.step_introduction) AS step_introduction, group_concat(DISTINCT step.step_number) AS step_number ,group_concat(DISTINCT i.quantity) AS ingredients_quantity
+    "SELECT s.*, v.classification, group_concat(DISTINCT i.ingredients_name ORDER BY i.sid) AS ingredients_name, 
+group_concat(DISTINCT step.step_introduction ORDER BY step.step_number) AS step_introduction, group_concat(DISTINCT step.step_number) AS step_number ,group_concat(DISTINCT i.quantity ORDER BY i.sid) AS ingredients_quantity
 FROM solarterms_recipe s
 LEFT JOIN vegetarian v 
 ON s.vegetarian_sid=v.sid
@@ -100,12 +100,13 @@ foreach($veges as $v){
             </div>
         <?php endforeach ?>
 
-        <?php foreach ($rows as $r) : $sn = explode(",", $r['step_number']);
-            $si = explode(",", $r['step_introduction']);
-            $sg = explode(",", $r['step_img']);
 
-            for ($i = 0; $i < sizeof($sn); $i++) : ?>
-                <div class="col-12 recipe_list">
+        <div class="col-12 recipe_list">
+            <?php foreach ($rows as $r) : $sn = explode(",", $r['step_number']);
+                $si = explode(",", $r['step_introduction']);
+                $sg = explode(",", $r['step_img']);
+
+                for ($i = 0; $i < sizeof($sn); $i++) : ?>
                     <div class="recipe_list_wrap d-md-flex d-lg-flex">
                         <div class="left">
                             <img src="images/solarterms/<?= $sg[$i] ?>.jpg" alt="">
@@ -115,9 +116,9 @@ foreach($veges as $v){
                             <h3><?= $si[$i] ?></h3>
                         </div>
                     </div>
-                </div>
-            <?php endfor ?>
-        <?php endforeach ?>
+                <?php endfor ?>
+            <?php endforeach ?>
+        </div>
 
         <div class="col-12 message_card">
             <h2>留言</h2>
