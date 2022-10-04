@@ -2,60 +2,33 @@
 require __DIR__ . '/kc_parts/connect_db.php';
 // pageName = '';
 
-$perPage = 10;  // 每頁最多有幾筆
 
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
-
-$qsp = []; // query string parameters
-
-// 取得分類資料
-$cates = $pdo->query("SELECT * FROM `article` WHERE `sid` = 1")
-    ->fetchAll();
-
-// ----------------------商品
-$where = ' WHERE 1 ';  // 起頭
-if ($cate) {
-    $where .= " AND article_classification_sid=$cate ";
-    $qsp['cate'] = $cate;
+if(! isset($_SESSION['detail'])){
+    $_SESSION['detail'] = [];
 }
 
-// 取得資料的總筆數
-$t_sql = "SELECT COUNT(1) FROM article $where ";
-$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
-// 計算總頁數
-$totalPages = ceil($totalRows / $perPage);
+if(! empty($sid)) {
 
-$rows = [];  // 預設值
+    if(! empty($_SESSION['cart'][$sid])){
 
-// 有資料才執行
-if ($totalRows > 0) {
-    if ($page < 1) {
-        header('Location: ?page=1');
-        exit;
+    } else {
+        // 新增
+        // TODO: 檢查資料表是不是有這個商品
+
+        $row = $pdo->query("SELECT * FROM article WHERE sid=$sid")->fetch();
+
+        if(! empty($row)){
+            $_SESSION['detail'][$sid] = $row;
+        }
     }
-
-    if ($page > $totalPages) {
-        header('Location: ?page=' . $totalPages);
-        exit;
-    }
-    // 取得該頁面的資料
-    $sql = sprintf("SELECT * FROM `article` %s ORDER BY `sid` LIMIT %s, %s",
-    $where,
-    ($page - 1) * $perPage,
-    $perPage);
-    
-    $rows = $pdo->query($sql)->fetchAll();
 }
+
+// echo json_encode($_SESSION['detail']);
 
 // echo json_encode([
-//     'totalRows' => $totalRows,
-//     'totalPages' => $totalPages,
-//     'perPage' => $perPage,
-//     'page' => $page,
-//     'rows' => $rows,
-//     'cates' => $cates
+//     'row' => $row,
 // ]);
 // exit;
 ?>
@@ -67,7 +40,7 @@ if ($totalRows > 0) {
     <div class="container">
         <div class="row">
             <section id="article-detail-main">
-                <?php foreach ($cates as $c) :?>
+                <?php foreach ($_SESSION['detail'] as $c) :?>
                 <div class="article-detail-box">
                     <div class="title">
                         <h1><?= $c['title'];?></h1>
@@ -82,19 +55,12 @@ if ($totalRows > 0) {
                         <p><?= $c['date']?></p>
                     </div>
                     <div class="txt">
-                        <h4>
-                            
-                        </h4>
                         <div class="img">
-                            <img class="w-100" src="./images/article_05_01.jpeg" alt="">
+                            <img class="w-100" src="./images/article/<?= $c['img']?>.jpeg">
                         </div>
                         <h4>
                         <?= $c['introduction']?>
                         </h4>
-                        <div class="img">
-                            <img class="w-100" src="./images/article_05_02.jpeg" alt="">
-                        </div>
-
                     </div>
                 </div>
                 <?php endforeach; ?>

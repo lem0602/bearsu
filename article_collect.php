@@ -31,15 +31,15 @@ if ($totalRows > 0) {
 }
 
 
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $rows,
-]);
+// echo json_encode([
+//     'totalRows' => $totalRows,
+//     'totalPages' => $totalPages,
+//     'perPage' => $perPage,
+//     'page' => $page,
+//     'rows' => $rows,
+// ]);
 
-exit;
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>

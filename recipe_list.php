@@ -175,7 +175,10 @@ if ($totalRows > 0) {
                                     食材：<?= $r['ingredients'] ?>
                                 </h4>
                                 <div class="recipe-btn">
-                                    <a href="./recipe_detail.php" class="darkbutton" data-sid="<?= $r['sid'] ?>" onclick="seemore(event);">
+                                    <a href="./recipe_detail.php" 
+                                    class="darkbutton" 
+                                    data-sid="<?= $r['sid'] ?>" 
+                                    onclick="seemore(event);">
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none"><i class="fa-regular fa-bookmark"></i></div>
@@ -212,20 +215,19 @@ if ($totalRows > 0) {
         <p>&copy;2022 BearSu. All rights reserved.</p>
     </section>
 </footer>
-
+<?php session_destroy(); ?> 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
 <script>
     function seemore(event) {
         const btn = $(event.currentTarget);
-        const sid = btn.attr('data-sid')
-        console.log(sid);
+        const sid = btn.attr('data-sid');
+
+        console.log('sid :', sid);
 
         $.get(
-            'recipe_detail.php',
-            {sid}, 
-            function(data){
-                console.log(data);
-            },
+            'recipe_detail.php', 
+            { sid },
+            function(data){},
             'json');
     }
 </script>

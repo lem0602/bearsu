@@ -1,95 +1,65 @@
 <?php
 require __DIR__ . '/kc_parts/connect_db.php';
+// pageName = '';
 
-$perPage = 10;  // 每頁最多有幾筆
-if(! isset($_SESSION['sid'])){
-    $_SESSION['sid'] = [];
+
+if (!isset($_SESSION['detail'])) {
+    $_SESSION['detail'] = [];
+}
+
+if (!isset($_SESSION['recipe'])) {
+    $_SESSION['recipe'] = [];
 }
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 
-$qsp = []; // query string parameters
+if (!empty($sid)) {
 
-// 取得資料
-$tmain = $pdo->query("SELECT r.*, v.*
+    if (!empty($_SESSION['detail'][$sid])) {
+    } else {
+        // 新增
+        // TODO: 檢查資料表是不是有這個商品
+
+        $row = $pdo->query("SELECT r.*, v.*, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, group_concat( i.quantity) AS ingredients_quantity, group_concat(DISTINCT s.step_introduction) AS step_introduction, group_concat(DISTINCT s.number) AS step_number
+        FROM recipe AS r  
+        LEFT JOIN vegetarian AS v ON r.vegetarian_sid = v.sid 
+        LEFT JOIN recipe_ingredients AS i ON r.sid = i.recipe_sid
+        LEFT JOIN recipe_step AS s ON r.sid = s.recipe_sid
+        WHERE r.sid=$sid
+        GROUP BY r.sid")->fetch();
+
+
+        if (!empty($row)) {
+            $_SESSION['detail'][$sid] = $row;
+        }
+    }
+}
+
+
+// print_r($_SESSION['detail']);
+
+// echo json_encode($_SESSION['detail']);
+
+// exit;
+$sql = sprintf(
+    "SELECT r.*, v.classification, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, 
+    group_concat(DISTINCT s.step_introduction) AS step_introduction, group_concat(DISTINCT s.number) AS step_number
 FROM recipe AS r
-JOIN vegetarian AS v
+LEFT JOIN vegetarian AS v 
 ON r.vegetarian_sid = v.sid
-WHERE r.sid=1
-")
-    ->fetchAll();
-
-// 素食食材 
-$recipe_ingredients = $pdo->query("SELECT i.* 
-FROM recipe_ingredients AS i
-WHERE recipe_sid=1
-")
-    ->fetchAll();
-
-// todo 素食食材 合併
-$recipe = $pdo->query("SELECT r.* , i.* 
-FROM recipe AS r
-JOIN recipe_ingredients AS i
-ON r.ingredients_sid = i.sid
-WHERE r.sid=1
-")
-    ->fetchAll();
-// 步驟
-$step = $pdo->query("SELECT r.*, s.*
-FROM recipe_step AS s
-JOIN recipe AS r
+LEFT JOIN recipe_ingredients AS i
+ON r.sid = i.recipe_sid
+LEFT JOIN recipe_step AS s
 ON r.sid = s.recipe_sid
-WHERE s.recipe_sid=1
-")
-    ->fetchAll();
-// ----------------------商品
-$where = ' WHERE 1 ';  // 起頭
-if ($cate) {
-    $where .= " AND vegetarian_sid = $cate ";
-    $qsp['cate'] = $cate;
-}
+WHERE 1  GROUP BY r.sid"
+);
 
-// 取得資料的總筆數
-$t_sql = "SELECT COUNT(1) FROM recipe $where ";
-$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+$rows = $pdo->query($sql)->fetchAll();
+// echo json_encode([
+//     'name' => $name,
+// ]);
 
-// 計算總頁數
-$totalPages = ceil($totalRows / $perPage);
-
-$rows = [];  // 預設值
-
-// 有資料才執行
-if ($totalRows > 0) {
-    if ($page < 1) {
-        header('Location: ?page=1');
-        exit;
-    }
-
-    if ($page > $totalPages) {
-        header('Location: ?page=' . $totalPages);
-        exit;
-    }
-    // 取得該頁面的資料
-    $sql = sprintf(
-        "SELECT * FROM `recipe` ORDER BY `sid` LIMIT %s, %s",
-        ($page - 1) * $perPage,
-        $perPage
-    );
-
-    $rows = $pdo->query($sql)->fetchAll();
-}
-
-echo json_encode([
-    'totalRows' => $totalRows,
-    'totalPages' => $totalPages,
-    'perPage' => $perPage,
-    'page' => $page,
-    'rows' => $step,
-    'sid' => $step,
-]);
-exit;
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -101,12 +71,12 @@ exit;
         <div class="row">
 
             <section id="recipe-detail-content">
-                <?php foreach ($tmain as $t) : ?>
+                <?php foreach ($_SESSION['detail'] as $r) : ?>
                     <div class=" recipe-detail-main">
                         <div class="title">
                             <h1>
-                                <?= $t['name'] ?>
-                                ( <?= $t['classification'] ?> )
+                                <?= $r['name'] ?>
+                                ( <?= $r['classification'] ?> )
                             </h1>
                             <div class="bookmark">
                                 <i class="fa-regular fa-bookmark"></i>
@@ -114,7 +84,7 @@ exit;
                         </div>
                         <div class="img-author">
                             <div class="col-md-10 main-img">
-                                <img src="./images/recipe/<?= $t['img'] ?>/<?= $t['img'] ?>.jpeg" alt="" />
+                                <img src="./images/recipe/<?= $r['img'] ?>/<?= $r['img'] ?>.jpeg" alt="" />
                             </div>
                             <div class="author">
                                 <div class="author-img">
@@ -125,14 +95,14 @@ exit;
                         </div>
                         <div class="txt">
                             <h3>
-                                <?= $t['introduction'] ?>
+                                <?= $r['introduction'] ?>
                             </h3>
                         </div>
                     </div>
                 <?php endforeach ?>
 
                 <div class="recipe-detail-ingredients">
-                    <?php foreach ($recipe as $r) : ?>
+                    <?php foreach ($_SESSION['detail'] as $r) : ?>
                         <div class="ingredients-box">
                             <div class="quantity-time">
                                 <div class="col quantity">
@@ -148,12 +118,15 @@ exit;
                                 <div class="col-12 title">
                                     <h3>食材</h3>
                                 </div>
-                                <?php foreach ($recipe_ingredients as $i) : ?>
+                                <?php
+                                $n = explode(",", $r['ingredients_name']);
+                                $q = explode(",", $r['ingredients_quantity']);
+                                for ($i = 0; $i < sizeof($n); $i++) : ?>
                                     <div class="col-12 col-lg-6 ingredients">
-                                        <h4><?= $i['ingredients_name'] ?></h4>
-                                        <h4><?= $i['quantity'] ?></h4>
+                                        <h4><?= $n[$i] ?></h4>
+                                        <h4><?= $q[$i] ?></h4>
                                     </div>
-                                <?php endforeach ?>
+                                <?php endfor ?>
                             </div>
                         </div>
                     <?php endforeach ?>
@@ -161,16 +134,22 @@ exit;
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                        <?php foreach ($step as $s) : ?>
-                            <div class="step">
-                                <div class="col-md-5 step-img">
-                                    <img src="./images/recipe/<?= $s['img'] ?>/recipe_01_01.jpeg" alt="" />
+                        <?php foreach ($_SESSION['detail'] as $r) :
+                            $sn = explode(",", $r['step_number']);
+                            $si = explode(",", $r['step_introduction']);
+                            $sg = explode(",", $r['step_img']);
+
+                            for ($i = 0; $i < sizeof($sn); $i++) : ?>
+                                <div class="step">
+                                    <div class="col-md-5 step-img">
+                                        <img src="./images/recipe/<?= $r['img'] ?>/<?= $sg[$i] ?>.jpeg" alt="" />
+                                    </div>
+                                    <div class="step-txt">
+                                        <h2><?= $sn[$i] ?></h2>
+                                        <p><?= $si[$i] ?></p>
+                                    </div>
                                 </div>
-                                <div class="step-txt">
-                                    <h2><?= $s['number'] ?></h2>
-                                    <p><?= $s['step_introduction'] ?></p>
-                                </div>
-                            </div>
+                            <?php endfor ?>
                         <?php endforeach ?>
                     </div>
                 </div>
