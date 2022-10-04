@@ -6,8 +6,12 @@ $pageName = 'cart'; // 頁面名稱
 // $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 // $sql = sprintf(
 //     "SELECT *, `course`.sid as courseID FROM `course` JOIN `vegetarian` ON course.vegetarian_sid = vegetarian.sid WHERE 1",
-    
+
 // );
+// $rows = $pdo->query($sql)->fetchAll();
+
+// $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $sql = sprintf("SELECT * FROM `course` JOIN `vegetarian` ON course.vegetarian_sid = vegetarian.sid ORDER BY course.sid WHERE `sid`=$sid");
 // $rows = $pdo->query($sql)->fetchAll();
 ?>
 
@@ -53,29 +57,29 @@ $pageName = 'cart'; // 頁面名稱
                 foreach ($_SESSION['cart'] as $k => $v) :
                     $total += $v['price'];  // 計算總價格
                 ?>
-                        <div class="course_card d-flex align-items-center w-100" data-sid="<?= $k ?>">
-                            <img src="images/course/<?= $v['img'] ?>.jpg" alt="">
-                            <div class="d-md-flex w-100 justify-content-between align-items-center">
-                                <a href="javascript:" onclick="removeItem(event)">
-                                    <i class="fa-solid fa-xmark d-md-none d-lg-none"></i></a>
-                                <div class="tittle">
+                    <div class="course_card d-flex align-items-center w-100" data-sid="<?= $k ?>">
+                        <img src="images/course/<?= $v['img'] ?>.jpg" alt="">
+                        <div class="d-md-flex w-100 justify-content-between align-items-center">
+                            <a href="javascript:" onclick="removeItem(event)">
+                                <i class="fa-solid fa-xmark d-md-none d-lg-none"></i></a>
+                            <div class="tittle">
                                     <h2><?= $v['name'] ?></h2>
-                                    <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
-                                    <p><?= $v['date_1'] ?></p>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-end d-md-block d-lg-block">
-                                    <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
-                                    <h4 class="mb-0 price" data-val="<?= $v['price'] ?>"></h4>
-                                    <i class="fa-regular fa-bookmark d-block d-md-none"></i>
-                                </div>
-                                <a href="javascript:" onclick="removeItem(event)">
-                                    <div class="btn d-none d-md-block d-lg-block">
-                                        取消品項
-                                    </div>
-                                </a>
-                                <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i>
+                                <h4 class="d-none d-md-block d-lg-block">課程時間</h4>
+                                <p><?= $v['date_1'] ?></p>
                             </div>
+                            <div class="d-flex justify-content-between align-items-end d-md-block d-lg-block">
+                                <h4 class="d-none d-md-block d-lg-block d-lg-block mb-0 mb-md-3">價格</h4>
+                                <h4 class="mb-0 price" data-val="<?= $v['price'] ?>"></h4>
+                                <i class="fa-regular fa-bookmark d-block d-md-none"></i>
+                            </div>
+                            <a href="javascript:" onclick="removeItem(event)">
+                                <div class="btn d-none d-md-block d-lg-block">
+                                    取消品項
+                                </div>
+                            </a>
+                            <i class="fa-regular fa-bookmark d-none d-md-block d-lg-block"></i>
                         </div>
+                    </div>
                 <?php endforeach; ?>
 
             </div>
