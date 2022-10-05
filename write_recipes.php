@@ -79,7 +79,7 @@ if ($totalRows > 0) {
                 <div class="write-recipes">
                     <div class="text-title-box">
                         <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" id="title-detail"></textarea>
-                        <p><span id="detail2-num">0</span>/<span>20</span></p>
+                        <p><span class="titleNum">0/20</span></p>
                     </div>
                     <!-- 素食分類 dropdown -->
                     <div class="veggie-category-dropdown">
@@ -106,21 +106,16 @@ if ($totalRows > 0) {
                                 <h2>點擊新增圖片</h2>
                                 <h3>比例建議 4:3 ，大小 1200x900 以上<br>
                                     內容以食譜為主<br>
-                                    (請勿上傳人像或動物圖片)</h3>
-                            </div>
-                            <div class="spinner-wrapper position-absolute" data-target="spinner">
-                                <div class="spinner-border text-secondary" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
+                                    (請勿上傳人像或動物圖片)
+                                </h3>
                             </div>
                         </label>
-
-                        <div class="col-12 col-md-6">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" data-target="file-uploader" id="file-uploader">
-                            </div>
-                        </div>
+                        <form id="file-uploader" action=" upload.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="file">
+                            <button type="submit" name="submit" value="上傳圖檔">上傳檔案</button>
+                        </form>
                     </div>
+
                     <!-- 簡介 -->
                     <div class="introduction">
                         <div class="introduction-box">
@@ -129,13 +124,13 @@ if ($totalRows > 0) {
                             </lable>
                             <div class="textarea-box">
                                 <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" id="introduction-detail"></textarea>
-                                <p><span id="detail2-num">0</span>/<span>200</span></p>
+                                <p><span class="wordsNum">0/200</span></p>
                             </div>
                         </div>
                     </div>
                     <!-- 時間與份量的下拉式選單和新增食材-->
                     <div class="ingredients">
-                        <div class="serving-time">
+                        <div class="ingredients-box">
                             <div class="serving-size">
                                 <h3>份量</h3>
                                 <h4>(人份)</h4>
@@ -149,7 +144,7 @@ if ($totalRows > 0) {
                                     <div type="button" class="dropdown-content">
                                         <?php for ($i = 1; $i <= 10; $i++) : ?>
                                             <a type="button" href="#0">
-                                            <h5><?= $i ?></h5>
+                                                <h5><?= $i ?></h5>
                                             </a>
                                         <?php endfor ?>
                                     </div>
@@ -168,7 +163,7 @@ if ($totalRows > 0) {
                                     </button>
 
                                     <div type="button" class="dropdown-content">
-                                        <?php for ($i = 15; $i <= 120; $i+=15) : ?>
+                                        <?php for ($i = 15; $i <= 120; $i += 15) : ?>
                                             <a type="button" href="#0">
                                                 <h5><?= $i ?></h5>
                                             </a>
@@ -253,7 +248,7 @@ if ($totalRows > 0) {
                                 </div>
                                 <div class="textarea-box">
                                     <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
-                                    <p><span id="detail2-num">0</span>/<span>150</span></p>
+                                    <p><span class="textNum1">0/150</span></p>
                                 </div>
                             </div>
                         </div>
@@ -270,7 +265,7 @@ if ($totalRows > 0) {
                                 </div>
                                 <div class="textarea-box">
                                     <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
-                                    <p><span id="detail2-num">0</span>/<span>150</span></p>
+                                    <p><span class="textNum2">0/150</span></p>
                                 </div>
                             </div>
                         </div>
@@ -287,7 +282,7 @@ if ($totalRows > 0) {
                                 </div>
                                 <div class="textarea-box">
                                     <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
-                                    <p><span id="detail2-num">0</span>/<span>150</span></p>
+                                    <p><span class="textNum3">0/150</span></p>
                                 </div>
                             </div>
                         </div>
@@ -322,4 +317,70 @@ if ($totalRows > 0) {
 </section>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
+<script>
+    //封裝一個限制字數方法
+    var checkStrLengths = function(str, maxLength) {
+        var maxLength = maxLength;
+        var result = 0;
+        if (str && str.length > maxLength) {
+            result = maxLength;
+        } else {
+            result = str.length;
+        }
+        return result;
+    }
+
+    //監聽輸入
+    $(".text-introduction").on('input propertychange', function() {
+
+        //獲取輸入內容
+        var userDesc = $(this).val();
+
+        //判斷字數
+        var len;
+        if (userDesc) {
+            len = checkStrLengths(userDesc, 200);
+        } else {
+            len = 0
+        }
+
+        //顯示字數
+        $(".wordsNum").html(len + '/200');
+    });
+
+    $(".text-title-textarea").on('input propertychange', function() {
+
+        //獲取輸入內容
+        var userDesc = $(this).val();
+
+        //判斷字數
+        var len;
+        if (userDesc) {
+            len = checkStrLengths(userDesc, 20);
+        } else {
+            len = 0
+        }
+
+        //顯示字數
+        $(".titleNum").html(len + '/20');
+    });
+    for (i = 1 ; i < 10; i++) {
+        $(".step-textarea").on('input propertychange', function() {
+
+            //獲取輸入內容
+            var userDesc = $(this).val();
+
+            //判斷字數
+            var len;
+            if (userDesc) {
+                len = checkStrLengths(userDesc, 150);
+            } else {
+                len = 0
+            }
+
+            //顯示字數
+            $(".textNum1").html(len + '/150');            
+        });
+    }
+</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>
