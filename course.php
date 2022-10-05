@@ -86,17 +86,37 @@ if ($totalRows > 0) {
 
 <div class="container">
     <div class="row">
-        <div class="col-12 course_title d-md-flex d-lg-flex justify-content-center align-items-center d-none">
-            <h1>廚藝教室</h1>
-            <img src="images/mascot_01.gif" alt="">
-        </div>
-        <!-- ------------------mobile start----------- -->
-        <div class="col-12 mobile_course_title  justify-content-center align-items-center d-block d-md-none d-lg-none text-center">
-            <img src="images/mascot_01.gif" alt="">
-            <h1>廚藝教室</h1>
+        <div class="order-2 order-md-1 col-12 col-md-6 col-lg-6 d-flex justify-content-center  justify-content-md-end justify-content-lg-end align-items-center">
+            <div class="course_title_left">
+                <h1>廚藝教室</h1>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <h2><i class="fa-solid fa-school mr-3"></i>素食小教室</h2>
+                </button>
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content su_class">
+                            <h1>五大素食介紹</h1>
+                            <p class="mb-0 text-justify">節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            <div class="modal-footer d-flex justify-content-end">
+                                <button type="button" class="close_btn" data-dismiss="modal">關閉</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="col-12 d-flex justify-content-end mobile_course_filter_wrap d-block d-md-none d-lg-none">
+        <!-- ---------mobile_course_filter start------- -->
+        <div class="order-2 col-12 d-flex justify-content-end mobile_course_filter_wrap d-block d-md-none d-lg-none">
             <button type="button" class="btn btn-primary mobile_course_filter  d-block d-md-none d-lg-none" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fa-solid fa-filter"></i></button>
 
             <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -158,9 +178,20 @@ if ($totalRows > 0) {
                 </div>
             </div>
         </div>
+        <!-- ---------mobile_course_filter end------ -->
+
+        <div class="order-1 order-md-2 col-12 col-md-6 col-lg-6 course_title d-flex justify-content-center justify-content-md-start justify-content-lg-start align-items-center">
+            <img src="images/mascot_01.gif" alt="">
+        </div>
+        <!-- ------------------mobile start----------- -->
+        <!-- <div class="col-12 mobile_course_title  justify-content-center align-items-center d-block d-md-none d-lg-none text-center">
+            <img src="images/mascot_01.gif" alt="">
+            <h1>廚藝教室</h1>
+        </div> -->
+
         <!-- ------------------mobile end----------- -->
         <!-- <div class="col-12" id="position"></div> -->
-        <div class="col-12 col-md-9 col-lg-9 course_cards" id="position">
+        <div class="order-3 col-12 col-md-9 col-lg-9 course_cards" id="position">
             <?php foreach ($rows as $r) : ?>
                 <div class="course_card d-md-flex d-lg-flex">
                     <div class="course_pic d-flex justify-content-center align-items-center">
@@ -200,7 +231,7 @@ if ($totalRows > 0) {
             <?php endforeach; ?>
         </div>
 
-        <div class="col-md-3 col-lg-3 course_menu d-none d-md-block d-lg-block">
+        <div class="order-3 col-md-3 col-lg-3 course_menu d-none d-md-block d-lg-block">
             <div class="course_menu_wrap">
                 <h2>篩選條件</h2>
                 <select class="course_filter filter" onchange="doSort(event)">
@@ -250,7 +281,7 @@ if ($totalRows > 0) {
             </div>
         </div>
 
-        <div class="col-12 col-md-9 ol-lg-9 d-flex justify-content-center page">
+        <div class="order-3 col-12 col-md-9 ol-lg-9 d-flex justify-content-center page">
             <nav aria-label="Page navigation example">
                 <ul class="pagination mb-0">
                     <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
@@ -299,7 +330,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('highp')
         }
-        location.href = '?' + usp.toString()+ String('#position');
+        location.href = '?' + usp.toString() + String('#position');
     }
 
     function vegeRange(vege = 0) {
@@ -319,8 +350,7 @@ if ($totalRows > 0) {
         } else {
             usp.delete('sort')
         }
-        location.href = '?' + usp.toString()+ String('#position'); 
+        location.href = '?' + usp.toString() + String('#position');
     }
-
 </script>
 <?php include __DIR__ . '/parts/foot.php'; ?>

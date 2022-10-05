@@ -259,7 +259,7 @@
 
         @media screen and (min-width:768px) {
             .row {
-                height: calc(100vh - 46px);
+                min-height: calc(100vh - 46px);
             }
 
             footer p {
