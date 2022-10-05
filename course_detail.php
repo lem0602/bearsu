@@ -30,8 +30,8 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
             <h3><?= $r['introduction'] ?>
             </h3>
             <div class="classroom d-md-flex d-lg-flex justify-content-between">
-                <img src="images/course/course_00_01.jpg" alt="">
-                <img src="images/course/course_00_02.jpg" alt="">
+                <img src="images/course/course_00_0<?php echo rand("1","4");?>.jpg" alt="">
+                <img src="images/course/course_00_0<?php echo rand("5","8");?>.jpg" alt="">
             </div>
             <p>注意事項: <br>
                 1.因教室空間有限，並有爐火、刀具等需謹慎操作之用品，為安全起見，僅開放給報名學員進場。<br>
@@ -89,11 +89,36 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
                         加入購物車
                     </button>
                 </div>
+
                 <div class="course_menu_pic d-flex justify-content-center">
                     <img src="images/mascot_02.gif" alt="">
                 </div>
+
             </div>
         </div>
+
+        <!-- Button trigger modal -->
+        <button data-toggle="modal" data-target="#exampleModalCenter" id="modalBtn" hidden></button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="sucess_card">
+                        <div class="modal-body">
+                            <h1>已加入購物車</h1>
+                            <div class="img_wrap d-flex justify-content-center">
+                                <img src="images/mascot_11.gif" alt="">
+                            </div>
+                            <div class="btn_wrap  d-flex justify-content-center">
+                                <a href="#" class="btn" data-dismiss="modal">關閉</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -108,16 +133,22 @@ $veges = $pdo->query("SELECT * FROM `vegetarian`")->fetchAll();
         const qty = 1;
         const sid = btn.attr('data-sid');
 
-        console.log({sid, qty});
+        console.log({
+            sid,
+            qty
+        });
 
         $.get(
-            'handle_cart.php',
-            {sid,qty},
-            function(data){
-                console.log(data);
-                alert('已加入購物車');
+            'handle_cart.php', {
+                sid,
+                qty
             },
-        'json');
+            function(data) {
+                console.log(data);
+                // alert('已加入購物車');
+                document.querySelector('#modalBtn').click();
+            },
+            'json');
 
         // $.get(
         //     'handle_cart.php',

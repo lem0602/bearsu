@@ -7,9 +7,9 @@ if (!isset($page_name)) {
 <section id="mobile-nav" class="d-block d-md-none d-lg-none">
     <div class="page">
         <header tabindex="0">
-            <div class="logo-img">
+        <a href="index.php"><div class="logo-img">
                 <img src="images/logo_horizontal.png" alt="">
-            </div>
+            </div></a>
         </header>
         <div id="nav-container">
             <div class="bg"></div>

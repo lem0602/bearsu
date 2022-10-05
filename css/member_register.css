@@ -11,8 +11,12 @@
             height: 0px;
         }
 
+        #mobile-nav header {
+            z-index: 999;
+        }
+
         .pc_header {
-            z-index: 9999;
+            z-index: 999;
             position: sticky;
             top: 32px;
             height: 0px;
@@ -75,13 +79,9 @@
             min-height: calc(100vh - 46px);
         }
 
-        .row {
-            height: calc(100vh - 46px);
-        }
-
         .mascot img {
             height: 300px;
-            transform: translateY(110px);
+            transform: translateY(145px);
         }
 
         .register_box {
@@ -90,13 +90,14 @@
             box-shadow: 3px 3px #333333;
             background-color: #FFF6E9;
             overflow: hidden;
+            margin: 32px 0px;
         }
 
-        .register_box .error{
-            color: red;
+        .register_box .error {
+            color: #005F5F;
             font-size: 0.9rem;
             font-weight: 500;
-            text-align: center;
+            text-align: right;
         }
 
         .register_box h1 {
@@ -117,6 +118,12 @@
             border-bottom: 1px solid #333333;
             padding-bottom: 16px;
             position: relative;
+        }
+
+        .register_box .mobile_box {
+            margin-bottom: 32px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 16px;
         }
 
         .register_box .email_box {
@@ -149,8 +156,7 @@
             background-color: transparent;
             border: none;
             padding: 0px 8px;
-            width: 71%;
-            /* width: fit-content; */
+            flex-grow: 1;
         }
 
         .register_box .input_box input:focus,
@@ -190,6 +196,52 @@
             outline: none;
         }
 
+        .modal-content {
+            background-color: transparent;
+            border:none;
+        }
+
+        .sucess_card {
+            z-index: 10000;
+            height: auto;
+            border-radius: 20px;
+            border: 2px solid #333333;
+            background-color: #FFF6E9;
+            box-shadow: 3px 3px #333333;
+            padding: 24px;
+        }
+
+        .sucess_card h1 {
+            font-size: 2rem;
+            color: #005F5F;
+            margin-bottom: 32px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .sucess_card img {
+            height: 250px;
+            margin-bottom: 32px;
+        }
+
+        .btn_wrap .btn {
+            padding: 8px 35px;
+            background-color: #005F5F;
+            color: #FFF6E9;
+            border-radius: 8px;
+            border: 2px solid #333333;
+            box-shadow: 3px 3px #333333;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn_wrap .btn:hover {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
         footer {
             background-color: #005F5F;
             box-shadow: 0px -3px 0px #333333;
@@ -206,6 +258,10 @@
         }
 
         @media screen and (min-width:768px) {
+            .row {
+                min-height: calc(100vh - 46px);
+            }
+
             footer p {
                 font-size: 1rem;
             }

@@ -1,441 +1,262 @@
 <?php
-header("Content-Type:text/html; charset=utf-8");
-require_once 'connectSql.php';
+$countryName = ["臺北市" => ["中正區", "大同區", "中山區", "松山區", "大安區", "萬華區", "信義區", "士林區", "北投區", "內湖區", "南港區", "文山區"], "新北市" => [],];
+require __DIR__ . '/mengParts/connect_db.php';
+$pageName = 'home'; // 頁面名稱
 
-
-if(isset($_GET['area'])){
-	$sql = "SELECT * FROM `map` WHERE `address` LIKE '%".$_GET['area']."%'";
-}else{
-	$sql = 'SELECT * FROM `map` WHERE 1 Limit 5';
+if (isset($_GET['area'])) {
+	$sql = "SELECT * FROM `map` WHERE `address` LIKE '%" . $_GET['area'] . "%' and `sort` LIKE '%" . $_GET['sort'] . "%'";
+} else {
+	$sql = 'SELECT * FROM `map` WHERE 1 Limit 10';
 }
-$result = mysqli_query($link, $sql);
+
+$stmt = $pdo->query($sql);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;
-user-scalable=0;">
-	<link rel="stylesheet" href="/css/all-setup.css">
-	<link rel="stylesheet" href="/css/mobile-nav.css">
-
-	<script src="https://kit.fontawesome.com/bfd7c1ee72.js" crossorigin="anonymous"></script>
-	<title>素食地圖</title>
-	<link rel="stylesheet" href="/css/map.css">
-</head>
-
-<body>
-	<!-- mobile-nav -->
-	<section id="mobile-nav" class="d-lg-none">
-		<div class="page">
-			<header tabindex="0">
-				<div class="logo-img">
-					<img src="/img/logo_horizontal.png" alt="">
-				</div>
-			</header>
-			<div id="nav-container">
-				<div class="bg"></div>
-				<!-- nav icon  -->
-				<div class="btn-box">
-					<div class="button" tabindex="0">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</div>
-				</div>
-
-				<!-- nav list -->
-				<div id="nav-content" tabindex="0">
-					<ul>
-						<li>
-							<a href="#0">
-								<h3>首頁</h3>
-							</a>
-						</li>
-						<li>
-							<a href="#0">
-								<h3>廚藝教室</h3>
-							</a>
-						</li>
-						<li>
-							<a href="#0">
-								<h3>節氣食補</h3>
-							</a>
-						</li>
-						<li>
-							<a href="#0">
-								<h3>素食地圖</h3>
-							</a>
-						</li>
-						<li>
-							<a href="#0">
-								<h3>相關文章</h3>
-							</a>
-						</li>
-						<li class="small">
-							<a href="#0">購物車</a>
-							<a href="#0">會員中心</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Button trigger modal -->
-
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">map name</h5>
-					<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-				</div>
-				<div class="modal-body">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.1957319357366!2d120.64357235080834!3d24.129763384327187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d47f94524dd%3A0x507861f9b78767f8!2z5Y-w5Lit5paH5b-D56eA5rOw5b2x5Z-O!5e0!3m2!1szh-TW!2stw!4v1663596533772!5m2!1szh-TW!2stw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- 熊齋logo -->
-	<div class="course_wrap d-none d-lg-flex justify-content-between  ">
-		<div class="nav_left">
-			<a href="index.html"><img src="/img/logo.png" alt=""></a>
-		</div>
-
-
-		<!-- 右側選單 -->
-		<div class="nav_right d-none d-md-block d-lg-block">
-			<ul class="d-flex flex-column">
-				<a href="index.html">
-					<li class="li_top">首頁</li>
-				</a>
-				<a href="course.html">
-					<li>廚藝教室</li>
-				</a>
-				<a href="solarterms.html">
-					<li>節氣食補</li>
-				</a>
-				<a href="map.html">
-					<li>素食地圖</li>
-				</a>
-				<a href="article.html">
-					<li>相關文章</li>
-				</a>
-				<div class="icon d-flex justify-content-center pt-3">
-					<a href="shopping_cart.html"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-					<a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
-				</div>
-			</ul>
-		</div>
-
-	</div>
-	<!-- 熊齋logo -->
-
+<?php include __DIR__ . '/mengParts/html-head.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
+<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<div class="my_wrap">
 	<div class="container">
-
 		<div class="course_title">
 			<h1>素食地圖</h1>
-			<img src="/img/mascot_05.png" alt="">
+			<img src="./img/mascot_05.png" alt="">
 		</div>
 
+		<!-- 選單列表 -->
+		<div class="formItem">
+			<label>
+				<div class="step">Step1</div>
+				<select class="formItem1_select city" name="county" id="county_select">
+					<option class="selet11" value="" <?php if (!isset($_GET['county'])) { ?> selected <?php } ?>>請選擇縣市</option>
+					<option value="基隆市" <?php if ($_GET['county'] == '基隆市') { ?> selected <?php } ?>>基隆市</option>
+					<option value="台北市" <?php if ($_GET['county'] == '台北市') { ?> selected <?php } ?>>台北市</option>
+					<option value="新北市">新北市</option>
+					<option value="桃園市">桃園市</option>
+					<option value="新竹縣">新竹縣</option>
+					<option value="新竹市">新竹市</option>
+					<option value="苗栗縣">苗栗縣</option>
+					<option value="彰化縣">彰化縣</option>
+					<option value="台中市">台中市</option>
+					<option value="南投縣">南投縣</option>
+					<option value="雲林縣">雲林縣</option>
+					<option value="嘉義縣">嘉義縣</option>
+					<option value="嘉義市">嘉義市</option>
+					<option value="台南市">台南市</option>
+					<option value="高雄市">高雄市</option>
+					<option value="屏東縣">屏東縣</option>
+					<option value="宜蘭縣">宜蘭縣</option>
+					<option value="花蓮縣">花蓮縣</option>
+					<option value="台東縣">台東縣</option>
+					<option value="澎湖縣">澎湖縣</option>
+					<option value="連江縣">連江縣</option>
+					<option value="金門縣">金門縣</option>
+				</select>
+			</label>
 
-	</div>
-	<!-- 選單列表 -->
-	<div class="formItem">
-
-		<label>
-			<div class="step">Step1</div>
-			<select class="formItem1_select city" name="county" id="county_select">
-				<option class="selet11" value="">請選擇縣市</option>
-				<option value="基隆市">基隆市</option>
-				<option value="台北市">台北市</option>
-				<option value="新北市">新北市</option>
-				<option value="桃園市">桃園市</option>
-				<option value="新竹縣">新竹縣</option>
-				<option value="新竹市">新竹市</option>
-				<option value="苗栗縣">苗栗縣</option>
-				<option value="彰化縣">彰化縣</option>
-				<option value="台中市">台中市</option>
-				<option value="南投縣">南投縣</option>
-				<option value="雲林縣">雲林縣</option>
-				<option value="嘉義縣">嘉義縣</option>
-				<option value="嘉義市">嘉義市</option>
-				<option value="台南市">台南市</option>
-				<option value="高雄市">高雄市</option>
-				<option value="屏東縣">屏東縣</option>
-				<option value="宜蘭縣">宜蘭縣</option>
-				<option value="花蓮縣">花蓮縣</option>
-				<option value="台東縣">台東縣</option>
-				<option value="澎湖縣">澎湖縣</option>
-				<option value="連江縣">連江縣</option>
-				<option value="金門縣">金門縣</option>
-			</select>
-		</label>
-
-		<label>
-			<div class="step">Step2</div>
-			<select class="formItem1_select area" name="district" id="district_select" onchange="area()">
-				<option class="selet11" value="" <?php if(!isset($_GET['area'])){ ?> selected <?php } ?>>請選擇地區</option>
-				<option value="中正區" <?php if($_GET['area'] == '中正區'){ ?> selected <?php } ?> >中正區</option>
-				<option value="大同區" <?php if($_GET['area'] == '大同區'){ ?> selected <?php } ?>>大同區</option>
-				<option value="中山區" <?php if($_GET['area'] == '中山區'){ ?> selected <?php } ?>>中山區</option>
-				<option value="松山區" <?php if($_GET['area'] == '松山區'){ ?> selected <?php } ?>>松山區</option>
-				<option value="大安區" <?php if($_GET['area'] == '大安區'){ ?> selected <?php } ?>>大安區</option>
-				<option value="信義區" <?php if($_GET['area'] == '信義區'){ ?> selected <?php } ?>>信義區</option>
-			</select>
-		</label>
-		<label>
-			<div class="step">Step3</div>
-			<select class="formItem1_select restType" name="restType" id="restType">
-				<option value="" class="selet11" selected="">請選素食分類</option>
-				<option value="0、e起復蔬">全素</option>
-				<option value="1、滴水坊">蛋素</option>
-				<option value="2、人氣小吃">五辛素</option>
-				<option value="3、自助餐">奶素</option>
-				<option value="4、麵食店">蛋奶素</option>
-			</select>
-		</label>
-	</div>
-
-	<!-- 地圖卡片 -->
-	<!-- 顯示地圖用Bootstrap的互動式窗modal做 -->
-	<?php
-	while ($row = mysqli_fetch_assoc($result)) {
-		
-	?>
-		<div class="mapcard">
-			<div class="mappic">
-				<img src="/img/map_41.jpeg" alt="">
-			</div>
-			<div class="mapcardp">
-				<div class="mapcardp1">
-					<h3>
-						<?php echo $row['name']; ?>
-					</h3>
-					<i class="fa-regular fa-bookmark"></i>
-				</div>
-				<div class="mapcardp2">
-					<h4>
-						<?php echo $row['address']; ?>
-					</h4>
-				</div>
-				<div class="mapcardp3">
-					<h4>
-					<?php echo $row['time']; ?>
-					</h4>
-				</div>
-				<div class="mapcardp4">
-					<h4><?php echo $row['mobile']; ?>
-				</h4>
-				</div>
-				<div class="mapcardp5">
-					<span>
-						<h4>全素</h4>
-						<h4>蛋素</h4>
-						<h4>奶素</h4>
-					</span>
-
-					<button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						查看地圖
-					</button>
-					<!-- <a href="" class="maplink">查看地圖</a> -->
-				</div>
-
-			</div>
+			<label>
+				<div class="step">Step2</div>
+				<select class="formItem1_select area" name="district" id="district_select" onchange="area()">
+					<option class="selet11" value="" <?php if (!isset($_GET['area'])) { ?> selected <?php } ?>>請選擇地區</option> <?php foreach ($countryName["臺北市"] as $key => $value) { ?> <option value="<?php echo $value ?>" <?php if ($_GET['area'] == $value) { ?> selected <?php } ?>><?php echo $value ?></option> <?php } ?>
+				</select>
+			</label>
+			<label>
+				<div class="step">Step3</div>
+				<select class="formItem1_select restType" name="restType" id="restType" onchange="sort()">
+					<option value="" class="selet11" selected="">請選素食分類</option>
+					<option value="全素" <?php if ($_GET['sort'] == '全素') {
+											echo 'selected';
+										} ?>>全素</option>
+					<option value="蛋素" <?php if ($_GET['sort'] == '蛋素') {
+											echo 'selected';
+										} ?>>蛋素</option>
+					<option value="五辛素" <?php if ($_GET['sort'] == '五辛素') {
+											echo 'selected';
+										} ?>>五辛素</option>
+					<option value="奶素" <?php if ($_GET['sort'] == '奶素') {
+											echo 'selected';
+										} ?>>奶素</option>
+					<option value="蛋奶素" <?php if ($_GET['sort'] == '蛋奶素') {
+											echo 'selected';
+										} ?>>蛋奶素</option>
+				</select>
+			</label>
 		</div>
+		<!-- 地圖卡片 -->
+		<!-- 顯示地圖用Bootstrap的互動式窗modal做 -->
+		<?php
+		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-	<?php
-	}
+		?>
+			<div class="mapcard">
+				<div class="mappic">
+					<img src="./img/map_img/<?php echo $row['img']; ?>.jpg" alt="">
+				</div>
+				<div class="mapcardp">
+					<div class="mapcardp1">
+						<h3>
+							<?php echo $row['name']; ?>
+						</h3>
+						<i id="collect_<?php echo $row['sid'] ?>" onclick="collectHandler(<?php echo $row['sid'] ?>)" class="icon_bookmark 
+						<?php
+						$map_id = $row['sid'];
+						if (empty($_SESSION['user']['id'])) {
+							echo '';
+						} else {
+							$member_id = $_SESSION['user']['id'];
+							$t_sql = "SELECT COUNT(1) FROM `map_collect` WHERE `member_id` = $member_id  AND `map_id` = $map_id";
+							$total_rows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+							if ($total_rows == 1) {
+								echo 'on';
+							}
+						}
+						?>">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="bookmark_off">
+								<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path d="M336 0h-288C21.49 0 0 21.49 0 48v431.9c0 24.7 26.79 40.08 48.12 27.64L192 423.6l143.9 83.93C357.2 519.1 384 504.6 384 479.9V48C384 21.49 362.5 0 336 0zM336 452L192 368l-144 84V54C48 50.63 50.63 48 53.1 48h276C333.4 48 336 50.63 336 54V452z" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="bookmark_on">
+								<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z" />
+							</svg>
+						</i>
+					</div>
+					<div class="mapcardp2">
+						<h4>
+							<?php echo $row['address']; ?>
+						</h4>
+					</div>
+					<div class="mapcardp3">
+						<h4>
+							<?php echo $row['time']; ?>
+						</h4>
+					</div>
+					<div class="mapcardp4">
+						<h4><?php echo $row['mobile']; ?>
+						</h4>
+					</div>
+					<div class="mapcardp5">
+						<span>
+							<?php
+							$sortArr = mb_split("/", $row['sort']);
+							for ($i = 0; $i < count($sortArr); $i++) {
+								echo "<h4>$sortArr[$i]</h4>";
+							}
+							?>
 
-	?>
-	<!-- <div class="mapcard">
-        <div class="mappic">
-            <img src="/img/map_41.jpeg" alt="">
-        </div>
-        <div class="mapcardp">
-            <div class="mapcardp1">
-                <h3>賢爸蔬食</h3>
-                <i class="fa-regular fa-bookmark"></i>
-            </div>
-            <div class="mapcardp2">
-                <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
-            </div>
-            <div class="mapcardp3">
-                <h4>營業時間：平日
-                    08:30–14:00
-                    17:00–20:00 週三休息</h4>
-            </div>
-            <div class="mapcardp4">
-                <h4>02-228988281</h4>
-            </div>
-            <div class="mapcardp5">
-                <span>
-                    <h4>全素</h4>
-                    <h4>蛋素</h4>
-                    <h4>奶素</h4>
-                </span>
-                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						</span>
+
+						<!-- <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     查看地圖
-                </button>
-            </div>
+                </button> -->
+						<a href="<?php echo $row['url']; ?>" target="_blank" class="maplink">查看地圖</a>
+						<!-- <a href="" class="maplink">查看地圖</a> -->
+					</div>
 
-        </div>
-    </div>
-    <div class="mapcard">
-        <div class="mappic">
-            <img src="/img/map_41.jpeg" alt="">
-        </div>
-        <div class="mapcardp">
-            <div class="mapcardp1">
-                <h3>賢爸蔬食</h3>
-                <i class="fa-regular fa-bookmark"></i>
-            </div>
-            <div class="mapcardp2">
-                <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
-            </div>
-            <div class="mapcardp3">
-                <h4>營業時間：平日
-                    08:30–14:00
-                    17:00–20:00 週三休息</h4>
-            </div>
-            <div class="mapcardp4">
-                <h4>02-228988281</h4>
-            </div>
-            <div class="mapcardp5">
-                <span>
-                    <h4>全素</h4>
-                    <h4>蛋素</h4>
-                    <h4>奶素</h4>
-                </span>
-
-                
-                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    查看地圖
-                </button>
-            </div>
-
-        </div>
-    </div>
-    <div class="mapcard">
-        <div class="mappic">
-            <img src="/img/map_41.jpeg" alt="">
-        </div>
-        <div class="mapcardp">
-            <div class="mapcardp1">
-                <h3>賢爸蔬食</h3>
-                <i class="fa-regular fa-bookmark"></i>
-            </div>
-            <div class="mapcardp2">
-                <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
-            </div>
-            <div class="mapcardp3">
-                <h4>營業時間：平日
-                    08:30–14:00
-                    17:00–20:00 週三休息</h4>
-            </div>
-            <div class="mapcardp4">
-                <h4>02-228988281</h4>
-            </div>
-            <div class="mapcardp5">
-                <span>
-                    <h4>全素</h4>
-                    <h4>蛋素</h4>
-                    <h4>奶素</h4>
-                </span>
-
-                
-                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    查看地圖
-                </button>
-            </div>
-
-        </div>
-    </div>
-    <div class="mapcard">
-        <div class="mappic">
-            <img src="/img/map_41.jpeg" alt="">
-        </div>
-        <div class="mapcardp">
-            <div class="mapcardp1">
-                <h3>賢爸蔬食</h3>
-                <i class="fa-regular fa-bookmark"></i>
-            </div>
-            <div class="mapcardp2">
-                <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
-            </div>
-            <div class="mapcardp3">
-                <h4>營業時間：平日
-                    08:30–14:00
-                    17:00–20:00 週三休息</h4>
-            </div>
-            <div class="mapcardp4">
-                <h4>02-228988281</h4>
-            </div>
-            <div class="mapcardp5">
-                <span>
-                    <h4>全素</h4>
-                    <h4>蛋素</h4>
-                    <h4>奶素</h4>
-                </span>
-
-                
-                <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    查看地圖
-                </button>
-            </div>
-
-        </div>
-    </div>  -->
-
-
-
-	<!-- 頁面選單 -->
-	<nav class="bigpageitem" aria-label="Page navigation example">
-		<ul class="pagination">
-			<li class="page-item">
-				<a class="page-link" href="#" aria-label="Previous">
-					<span aria-hidden="true"><i class="fa-solid fa-angle-left" aria-hidden="true"></i></span>
-				</a>
-			</li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">4</a></li>
-			<li class="page-item"><a class="page-link" href="#">5</a></li>
-			<li class="page-item">
-				<a class="page-link" href="#" aria-label="Next">
-					<span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-	</div>
-
-	<footer>
-		<p>Copyright © 2022 BearSu. All rights reserved.</p>
-	</footer>
-	<!-- JavaScript Bundle with Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-	<script>
-		function area(){
-			var district_select = document.getElementById('district_select');
-			console.log('area',district_select.value);
-			location='./index.php?area=' + district_select.value;
+				</div>
+			</div>
+		<?php
 		}
-	</script>
-</body>
 
-</html>
+		?>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">map name</h5>
+						<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+					</div>
+					<div class="modal-body">
+						<iframe src="https://g.page/ymspring03?share"></iframe>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- 頁面選單 -->
+		<nav class="bigpageitem" aria-label="Page navigation example">
+			<ul class="pagination">
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true"><i class="fa-solid fa-angle-left" aria-hidden="true"></i></span>
+					</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">4</a></li>
+				<li class="page-item"><a class="page-link" href="#">5</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+	</div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js' integrity='sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==' crossorigin='anonymous'></script>
+<script>
+	function collectHandler(id) {
+		console.log('collectHandler', id);
+
+		var collect = document.querySelector('#collect_' + id);
+		var collectAction = '';
+
+		var loginUser = <?php
+						if (empty($_SESSION['user']['id'])) {
+							echo 0;
+						} else {
+							echo 1;
+						}
+						?>;
+		console.log('loginUser', loginUser);
+		if (loginUser == 0) {
+			alert('請先登入才可以收藏唷!!!');
+			return;
+		}
+
+		if (collect.classList.contains('on')) {
+			// have class
+			collect.classList.remove('on');
+			collectAction = 'delect';
+		} else {
+			// no class
+			collect.classList.add('on');
+			collectAction = 'insert';
+		}
+		var mapId = {
+			mapId: id,
+			collectAction: collectAction,
+		}
+		// ajax json post get
+		// 把使用者輸入的帳號密碼丟到api
+		$.post(
+			"./mengParts/map-collect-api.php",
+			mapId,
+			// $(document.form1).serialize(),
+			// 接收回傳回來的資料還有動作
+			function(data) {
+				console.log(data);
+				if (data.success) {
+					// alert('succ');
+					// location.href = './member.php';
+				} else {
+					alert(data.error);
+				}
+			},
+			'json'
+		);
+	}
+</script>
+
+<?php include __DIR__ . '/mengParts/scripts.php'; ?>
+
+<?php include __DIR__ . '/mengParts/html-foot.php'; ?>

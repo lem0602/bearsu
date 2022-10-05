@@ -10,8 +10,8 @@ $pageName = 'cart'; // 頁面名稱
 
 // 應該由資料表的資料計算總價
 $total = 0;
-foreach($_SESSION['cart'] as $k=>$v){
-    $total += $v['price']*$v['qty'];
+foreach ($_SESSION['cart'] as $k => $v) {
+    $total += $v['price'];
 }
 
 
@@ -27,13 +27,19 @@ $order_sid = $pdo->lastInsertId(); // 訂單編號
 $od_sql = "INSERT INTO `order_details`(`course_sid`, `order_sid`, `price`) VALUES (?, ?, ?)";
 $stmt = $pdo->prepare($od_sql);
 
-foreach($_SESSION['cart'] as $k=>$v){
+foreach ($_SESSION['cart'] as $k => $v) {
     $stmt->execute([
-        $order_sid,
         $v['sid'],
+        $order_sid,
         $v['price'],
-        $v['qty'],
     ]);
+}
+
+
+// 扣掉課程人數
+foreach ($_SESSION['cart'] as $k => $v) {
+$qty_sql = sprintf("SELECT * FROM `course`; UPDATE `course` SET `qty`=`qty`-1 WHERE `sid`='%s'", $v['sid']);
+$stmt = $pdo->query($qty_sql)->fetchAll();
 }
 
 unset($_SESSION['cart']); // 清除購物車內容
