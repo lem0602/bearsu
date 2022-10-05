@@ -12,7 +12,7 @@
        }
 
        .pc_header {
-           z-index: 9999;
+           z-index: 999;
            position: sticky;
            top: 32px;
            height: 0px;
@@ -79,17 +79,145 @@
            margin-bottom: 12px;
        }
 
-       .course_title h1 {
-           font-size: 4rem;
+       .course_title_left h1 {
+           font-size: 3rem;
            color: #005F5F;
            margin-bottom: 0px;
-           margin-right: 48px;
            font-weight: 700;
        }
 
        .course_title img {
-           height: 350px;
+           height: 300px;
+           margin-bottom: 32px;
        }
+
+
+       .modal {
+           z-index: 10000;
+       }
+
+       .course_title_left .btn {
+           width: 100%;
+           border-radius: 20px;
+           border: 2px solid #333333;
+           background-color: #005F5F;
+           box-shadow: 3px 3px #333333;
+           padding: 24px 0px;
+           margin-top: 24px;
+           transition: .3s;
+       }
+
+       .course_title_left .btn:hover {
+           box-shadow: none;
+           transform: translate(3px, 3px);
+       }
+
+       .course_title_left .btn h2 {
+           color: #FFF6E9;
+           margin-bottom: 0px;
+           line-height: 1.4;
+           font-weight: 700;
+           text-align: center;
+       }
+
+       .btn-primary:not(:disabled):not(.disabled).active,
+       .btn-primary:not(:disabled):not(.disabled):active,
+       .show>.btn-primary.dropdown-toggle {
+           color: #FFF6E9;
+           background-color: #005F5F;
+           border: 2px solid #333333;
+       }
+
+       .btn-primary:hover {
+           color: #FFF6E9;
+           background-color: #005F5F;
+           border-color: #333333;
+       }
+
+       .btn-primary.focus,
+       .btn-primary:focus {
+           box-shadow: 3px 3px #333333;
+       }
+
+       .btn-primary:not(:disabled):not(.disabled).active:focus,
+       .btn-primary:not(:disabled):not(.disabled):active:focus,
+       .show>.btn-primary.dropdown-toggle:focus {
+           box-shadow: 3px 3px #333333;
+       }
+
+       .close_btn {
+        background-color: #005F5F;
+        border: 2px solid #333333;
+        box-shadow: 3px 3px #333333;
+        color: #FFF6E9;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 10px;
+        padding: 8px 16px;
+        transition: .3s;
+    }
+    
+    .close_btn:hover {
+        background-color: #005F5F;
+        box-shadow: none;
+        transform: translate(3px, 3px);
+    }
+
+    .close_btn:focus {
+        outline: none
+    }
+    
+
+       .su_class h1 {
+           font-size: 1.5rem;
+           color: #FFF6E9;
+           background-color: #005F5F;
+           border: 2px solid #333333;
+           box-shadow: 3px 3px #333333;
+           color: #FFF6E9;
+           font-size: 1.25rem;
+           font-weight: 700;
+           border-radius: 15px;
+           padding: 8px 16px;
+           margin-bottom: 24px;
+       }
+
+       .su_class img {
+           width: 300px;
+           margin:24px 0px;
+       }
+
+       @media screen and (min-width:768px) {
+        .course_title_left {
+            margin-right: 48px;
+        }
+
+        .course_title img {
+            height: 350px;
+        }
+
+        .course_title h1 {
+            font-size: 4rem;
+            color: #005F5F;
+            margin-bottom: 0px;
+            font-weight: 700;
+        }
+
+        .su_class h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .su_class p {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .su_class img {
+            width: 400px;
+            margin:24px 0px;
+        }
+    }
 
        /* ------------mobile start------------ */
        .mobile_course_filter_wrap {
@@ -117,6 +245,14 @@
        .modal-content {
            background-color: transparent;
            border: none;
+       }
+
+       .su_class {
+           border-radius: 20px;
+           border: 2px solid #333333;
+           background-color: #FFF6E9;
+           box-shadow: 3px 3px #333333;
+           padding: 24px;
        }
 
        .modal-footer {
@@ -159,18 +295,6 @@
        .btn-primary:not(:disabled):not(.disabled):active:focus,
        .show>.btn-primary.dropdown-toggle:focus {
            box-shadow: 3px 3px #333333;
-       }
-
-       .mobile_course_title img {
-           height: 300px;
-           margin-bottom: 32px;
-       }
-
-       .mobile_course_title h1 {
-           font-size: 3rem;
-           color: #005F5F;
-           margin-bottom: 0px;
-           font-weight: 700;
        }
 
        .course_card {
@@ -267,10 +391,6 @@
        }
 
        @media screen and (min-width:768px) {
-           .course_title {
-               margin-bottom: 48px;
-           }
-
            .course_pic {
                padding-right: 24px;
            }
