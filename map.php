@@ -1,23 +1,25 @@
 <?php
 $countryName = ["臺北市" => ["中正區", "大同區", "中山區", "松山區", "大安區", "萬華區", "信義區", "士林區", "北投區", "內湖區", "南港區", "文山區"], "新北市" => [],];
-require __DIR__ . '/parts/connect_db.php';
+require __DIR__ . '/mengParts/connect_db.php';
 $pageName = 'home'; // 頁面名稱
 
 if (isset($_GET['area'])) {
-	$sql = "SELECT * FROM `map` WHERE `address` LIKE '%" . $_GET['area'] . "%'";
+	$sql = "SELECT * FROM `map` WHERE `address` LIKE '%" . $_GET['area'] . "%' and `sort` LIKE '%" . $_GET['sort'] . "%'";
 } else {
 	$sql = 'SELECT * FROM `map` WHERE 1 Limit 10';
 }
 
 $stmt = $pdo->query($sql);
 ?>
-<?php include __DIR__ . '/parts/html-head.php'; ?>
-<?php include __DIR__ . '/parts/navbar.php'; ?>
+<?php include __DIR__ . '/mengParts/html-head.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
+<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
 <div class="my_wrap">
 	<div class="container">
 		<div class="course_title">
 			<h1>素食地圖</h1>
-			<img src="/img/mascot_05.png" alt="">
+			<img src="./img/mascot_05.png" alt="">
 		</div>
 
 		<!-- 選單列表 -->
@@ -59,13 +61,23 @@ $stmt = $pdo->query($sql);
 			</label>
 			<label>
 				<div class="step">Step3</div>
-				<select class="formItem1_select restType" name="restType" id="restType">
+				<select class="formItem1_select restType" name="restType" id="restType" onchange="sort()">
 					<option value="" class="selet11" selected="">請選素食分類</option>
-					<option value="0、e起復蔬">全素</option>
-					<option value="1、滴水坊">蛋素</option>
-					<option value="2、人氣小吃">五辛素</option>
-					<option value="3、自助餐">奶素</option>
-					<option value="4、麵食店">蛋奶素</option>
+					<option value="全素" <?php if ($_GET['sort'] == '全素') {
+											echo 'selected';
+										} ?>>全素</option>
+					<option value="蛋素" <?php if ($_GET['sort'] == '蛋素') {
+											echo 'selected';
+										} ?>>蛋素</option>
+					<option value="五辛素" <?php if ($_GET['sort'] == '五辛素') {
+											echo 'selected';
+										} ?>>五辛素</option>
+					<option value="奶素" <?php if ($_GET['sort'] == '奶素') {
+											echo 'selected';
+										} ?>>奶素</option>
+					<option value="蛋奶素" <?php if ($_GET['sort'] == '蛋奶素') {
+											echo 'selected';
+										} ?>>蛋奶素</option>
 				</select>
 			</label>
 		</div>
@@ -78,15 +90,35 @@ $stmt = $pdo->query($sql);
 			<div class="mapcard">
 				<div class="mappic">
 					<img src="./img/map_img/<?php echo $row['img']; ?>.jpg" alt="">
-
-					<!-- <img src="./img/map_img/<?php echo $row['img']; ?>.jpg" alt=""> -->
 				</div>
 				<div class="mapcardp">
 					<div class="mapcardp1">
 						<h3>
 							<?php echo $row['name']; ?>
 						</h3>
-						<i class="fa-regular fa-bookmark"></i>
+						<i id="collect_<?php echo $row['sid'] ?>" onclick="collectHandler(<?php echo $row['sid'] ?>)" class="icon_bookmark 
+						<?php
+						$map_id = $row['sid'];
+						if (empty($_SESSION['user']['id'])) {
+							echo '';
+						} else {
+							$member_id = $_SESSION['user']['id'];
+							$t_sql = "SELECT COUNT(1) FROM `map_collect` WHERE `member_id` = $member_id  AND `map_id` = $map_id";
+							$total_rows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+							if ($total_rows == 1) {
+								echo 'on';
+							}
+						}
+						?>">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="bookmark_off">
+								<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path d="M336 0h-288C21.49 0 0 21.49 0 48v431.9c0 24.7 26.79 40.08 48.12 27.64L192 423.6l143.9 83.93C357.2 519.1 384 504.6 384 479.9V48C384 21.49 362.5 0 336 0zM336 452L192 368l-144 84V54C48 50.63 50.63 48 53.1 48h276C333.4 48 336 50.63 336 54V452z" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="bookmark_on">
+								<!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z" />
+							</svg>
+						</i>
 					</div>
 					<div class="mapcardp2">
 						<h4>
@@ -104,9 +136,13 @@ $stmt = $pdo->query($sql);
 					</div>
 					<div class="mapcardp5">
 						<span>
-							<h4>全素</h4>
-							<h4>蛋素</h4>
-							<h4>奶素</h4>
+							<?php
+							$sortArr = mb_split("/", $row['sort']);
+							for ($i = 0; $i < count($sortArr); $i++) {
+								echo "<h4>$sortArr[$i]</h4>";
+							}
+							?>
+
 						</span>
 
 						<!-- <button type="button" class="maplink" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -166,7 +202,61 @@ $stmt = $pdo->query($sql);
 
 	</div>
 </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js' integrity='sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==' crossorigin='anonymous'></script>
+<script>
+	function collectHandler(id) {
+		console.log('collectHandler', id);
 
-<?php include __DIR__ . '/parts/scripts.php'; ?>
+		var collect = document.querySelector('#collect_' + id);
+		var collectAction = '';
 
-<?php include __DIR__ . '/parts/html-foot.php'; ?>
+		var loginUser = <?php
+						if (empty($_SESSION['user']['id'])) {
+							echo 0;
+						} else {
+							echo 1;
+						}
+						?>;
+		console.log('loginUser', loginUser);
+		if (loginUser == 0) {
+			alert('請先登入才可以收藏唷!!!');
+			return;
+		}
+
+		if (collect.classList.contains('on')) {
+			// have class
+			collect.classList.remove('on');
+			collectAction = 'delect';
+		} else {
+			// no class
+			collect.classList.add('on');
+			collectAction = 'insert';
+		}
+		var mapId = {
+			mapId: id,
+			collectAction: collectAction,
+		}
+		// ajax json post get
+		// 把使用者輸入的帳號密碼丟到api
+		$.post(
+			"./mengParts/map-collect-api.php",
+			mapId,
+			// $(document.form1).serialize(),
+			// 接收回傳回來的資料還有動作
+			function(data) {
+				console.log(data);
+				if (data.success) {
+					// alert('succ');
+					// location.href = './member.php';
+				} else {
+					alert(data.error);
+				}
+			},
+			'json'
+		);
+	}
+</script>
+
+<?php include __DIR__ . '/mengParts/scripts.php'; ?>
+
+<?php include __DIR__ . '/mengParts/html-foot.php'; ?>

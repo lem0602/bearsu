@@ -23,14 +23,7 @@ if(! isset($title)){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/css/mobile-nav.css">
-    <link rel="stylesheet" href="/css/all-setup.css">
-    <link rel="stylesheet" href="/css/member.css">
-    <link rel="stylesheet" href="/css/mobile-nav.css">
-    <link rel="stylesheet" href="/css/all-setup.css">
-    <link rel="stylesheet" href="/css/share.css">
-    <link rel="stylesheet" href="/css/map.css">
-    <link rel="stylesheet" href="/css/mamber_data.css">
+
     <!-- 網站faviconicon -->
     <link rel="icon" href="./favicon.png" type="image/x-icon" />
    

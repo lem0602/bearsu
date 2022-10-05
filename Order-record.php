@@ -1,25 +1,21 @@
 <?php
-require __DIR__ . '/parts/connect_db.php';
-$pageName = 'Order-record'; // 頁面名稱
-session_start();
-
-$sql = 'SELECT * FROM `map` WHERE 1';
+require __DIR__ . '/mengParts/connect_db.php';
+$pageName = 'order-record'; // 頁面名稱
+// session_start();
 
 ?>
-<?php include __DIR__ . '/parts/html-head.php'; ?>
-<?php include __DIR__ . '/parts/navbar.php'; ?>
-<?php include __DIR__ . '/parts/myStyle.php'; ?>
+<?php include __DIR__ . '/mengParts/html-head.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
 <?php
 $acc = $_SESSION['user']['id'];
-// SELECT * FROM `order_record` WHERE `member_id` = 1
-$sql = "SELECT * FROM `order_record` WHERE member_id=$acc";
+$sql = "SELECT * FROM `order_record` WHERE member_sid=$acc";
 $stmt = $pdo->query($sql);
-// $data = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
 <div class="member_wrap _order">
-    <div class="container1">
+    <div class="container">
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
@@ -30,15 +26,12 @@ $stmt = $pdo->query($sql);
                     <h3>已分享食譜0</h3>
                 </div>
                 <!-- 會員資料bar -->
-                <?php include __DIR__ . '/parts/navmember.php'; ?>
+                <?php include __DIR__ . '/mengParts/navmember.php'; ?>
             </div>
             <!-- 會員資料卡 -->
             <div class="member_info col-md-10">
                 <div class="member_title">
                     <h1>訂單記錄</h1>
-                    <!-- <div class="chang_member ">
-                            <p>修改會員資料</p>
-                        </div> -->
                 </div>
 
                 <div class="member_box">
@@ -114,6 +107,6 @@ $stmt = $pdo->query($sql);
         </div>
     </div>
 </div>
-<?php include __DIR__ . '/parts/scripts.php'; ?>
+<?php include __DIR__ . '/mengParts/scripts.php'; ?>
 
-<?php include __DIR__ . '/parts/html-foot.php'; ?>
+<?php include __DIR__ . '/mengParts/html-foot.php'; ?>
