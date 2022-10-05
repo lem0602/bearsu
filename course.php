@@ -255,7 +255,7 @@ if ($totalRows > 0) {
                 <ul class="pagination mb-0">
                     <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
                         <a class="page-link" href="?<?php $qsp['page'] = $page - 1;
-                                                    echo http_build_query($qsp); ?>" aria-label="Previous">
+                                                    echo http_build_query($qsp); ?>#position" aria-label="Previous">
                             <span aria-hidden="true"><i class="fa-solid fa-angle-left" aria-hidden="true"></i></span>
                         </a>
                     </li>
@@ -264,13 +264,13 @@ if ($totalRows > 0) {
                             $qsp['page'] = $i;
                     ?>
                             <li class="page-item <?= $page == $i ? 'active' : '' ?>">
-                                <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
+                                <a class="page-link" href="?<?= http_build_query($qsp); ?>#position"><?= $i ?></a>
                             </li>
                     <?php endif;
                     endfor; ?>
                     <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
                         <a class="page-link" href="?<?php $qsp['page'] = $page + 1;
-                                                    echo http_build_query($qsp); ?>" aria-label="Next">
+                                                    echo http_build_query($qsp); ?>#position" aria-label="Next">
                             <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
                         </a>
                     </li>
