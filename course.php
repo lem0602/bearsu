@@ -95,17 +95,10 @@ if ($totalRows > 0) {
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content su_class">
-                            <h1>五大素食介紹</h1>
-                            <p class="mb-0 text-justify">節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
-                            節氣指二十四時節和氣候，是中國古代用來指導農事之曆法曆注。
+                            <h1>五大素食分類介紹</h1>
+                            <div class="5su_wrap d-flex justify-content-center">
+                            <img src="images/5su.png" alt="">
+                            </div>
                             <div class="modal-footer d-flex justify-content-end">
                                 <button type="button" class="close_btn" data-dismiss="modal">關閉</button>
                             </div>
