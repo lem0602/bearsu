@@ -1,21 +1,21 @@
 <?php
-require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
-session_start();
+require __DIR__ . '/mengParts/connect_db.php';
+$pageName = 'member'; // 頁面名稱
+// session_start();
 ?>
-<?php include __DIR__ . '/parts/html-head.php'; ?>
-<?php include __DIR__ . '/parts/navbar.php'; ?>
+<?php include __DIR__ . '/mengParts/html-head.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<link rel="stylesheet" href="./mengParts/css/member.css">
 <?php
 // $acc = 'retaerg@gmail.com';
 // $acc = 'vzdvg@gmail.com';
-$acc= $_SESSION['user']['email'];
-$sql = "SELECT * FROM `member` WHERE `email`='" . $acc . "';";
+$acc = $_SESSION['user']['email'];
+$sql = "SELECT * FROM `member` WHERE `email`='$acc';";
 $stmt = $pdo->query($sql);
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
 ?>
-<div class="member_wrap">
+<div class="member_wrap member">
     <div class="container">
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
@@ -27,23 +27,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                     <h3>已分享食譜0</h3>
                 </div>
                 <!-- 會員資料bar -->
-                <div class="navmember ">
-                    <ul class="navmember1 d-flex d-md-block">
-                        <li class="navmember_item on m1">
-                            <a href="">會員資料 </a>
-                        </li>
-                        <li class="navmember_item m2">
-                            <a href="">訂單記錄</a>
-                        </li>
-                        <li class="navmember_item m2">
-                            <a href="">我的食譜 </a>
-                        </li>
-                        <li class="navmember_item m3">
-                            <a href="">收藏 </a>
-                        </li>
-                    </ul>
-                </div>
-
+                <?php include __DIR__ . '/mengParts/navmember.php'; ?>
             </div>
             <!-- 會員資料卡 -->
             <div class="member_info col-md-10">
@@ -136,6 +120,6 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
     }
     editBtn.addEventListener('click', editBtnHandler);
 </script>
-<?php include __DIR__ . '/parts/scripts.php'; ?>
+<?php include __DIR__ . '/mengParts/scripts.php'; ?>
 
-<?php include __DIR__ . '/parts/html-foot.php'; ?>
+<?php include __DIR__ . '/mengParts/html-foot.php'; ?>

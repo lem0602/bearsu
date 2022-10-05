@@ -1,22 +1,25 @@
 <?php
-require __DIR__ . '/parts/connect_db.php';
-$pageName = 'home'; // 頁面名稱
-session_start();
+require __DIR__ . '/mengParts/connect_db.php';
+$pageName = 'member'; // 頁面名稱
+// session_start();
 ?>
-<?php include __DIR__ . '/parts/html-head.php'; ?>
-<?php include __DIR__ . '/parts/navbar.php'; ?>
+<?php include __DIR__ . '/mengParts/html-head.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<link rel="stylesheet" href="./mengParts/css/mamber_data.css">
 <?php
-// 在還沒做login時候的測試
-// $acc = 'retaerg@gmail.com';
-// $acc = 'vzdvg@gmail.com';
-$acc = $_SESSION['user']['email'];
-// $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
-$sql = "SELECT * FROM `member` WHERE `email`='" . $acc . "';";
-// 把sql指令丟到資料庫
-$stmt = $pdo->query($sql);
-// 接收資料庫回傳的資料
-$data = $stmt->fetch(PDO::FETCH_ASSOC);
+    // 在還沒做login時候的測試
+    // $acc = 'retaerg@gmail.com';
+    // $acc = 'vzdvg@gmail.com';
+    $acc = $_SESSION['user']['email'];
+    // $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
+    $sql = "SELECT * FROM `member` WHERE `email`='$acc';";
+    // 把sql指令丟到資料庫
+    $stmt = $pdo->query($sql);
+    // 接收資料庫回傳的資料
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    
 
 ?>
 
@@ -32,22 +35,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                     <h3>已分享食譜0</h3>
                 </div>
                 <!-- 會員資料bar -->
-                <div class="navmember ">
-                    <ul class="navmember1 d-flex d-md-block">
-                        <li class="navmember_item on m1">
-                            <a href="">會員資料 </a>
-                        </li>
-                        <li class="navmember_item m2">
-                            <a href="">訂單記錄</a>
-                        </li>
-                        <li class="navmember_item m2">
-                            <a href="">我的食譜 </a>
-                        </li>
-                        <li class="navmember_item m3">
-                            <a href="">收藏 </a>
-                        </li>
-                    </ul>
-                </div>
+                <?php include __DIR__ . '/mengParts/navmember.php'; ?>
 
             </div>
             <!-- 會員資料卡 -->
@@ -90,13 +78,13 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td class="">
                                 <div class="member_box1b">
-                                    <input name="boxradio1" class="boxradio1" type="radio" <?php if ($data['gender'] == '男') {
-                                                                                                echo 'checked';
-                                                                                            } ?>>
+                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php if ($data['gender'] == '男') {
+                                                                                                        echo 'checked';
+                                                                                                    } ?>>
                                     <h3>男</h3>
-                                    <input name="boxradio1" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') {
-                                                                                                echo 'checked';
-                                                                                            } ?>>
+                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') {
+                                                                                                        echo 'checked';
+                                                                                                    } ?>>
                                     <h3>女</h3>
                                 </div>
 
@@ -136,6 +124,8 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                         // $bir)[1] = 10
                                         // $bir)[2 = 05
                                         if (!empty($bir)) {
+                                            $birY = mb_split("-", $bir)[0];
+                                            echo " <script>var birY = $birY </script>";
                                             $birM = mb_split("-", $bir)[1];
                                             $birD = mb_split("-", $bir)[2];
                                             // 如果生日的資料欄位是空的，為了怕程式出錯所以給他一個空值 ex如果沒有日期就會顯示1月1日
@@ -318,6 +308,10 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
         // console.log('updateHandler', $('#email').val()); //undefine
         // console.log('updateHandler', $('#mobile').val());
         // 沒填入資料會顯示需要填入的提示字
+        if (!$('#mobile').val()) {
+            alert('請填寫手機');
+            return;
+        }
         if (!$('#addresss').val()) {
             alert('請填寫地址');
             return;
@@ -326,10 +320,8 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             alert('請填寫email');
             return;
         }
-        if (!$('#mobile').val()) {
-            alert('請填寫手機');
-            return;
-        }
+
+
         // console.log('newpassword', $('#newpassword').val()); //undefine
         // console.log('checkpassword', $('#checkpassword').val());
 
@@ -344,6 +336,8 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             }
         }
 
+        console.log('gender', $("[name='gender']:checked").val());
+        // month_select
         // 把資料丟給api
         var updateObj = {
             address: $('#addresss').val(),
@@ -351,10 +345,14 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             mobile: $('#mobile').val(),
             password: $('#oldpassword').val(),
             newpassword: $('#newpassword').val(),
+            birthday: birY + "-" + $('#month_select').val() + "-" +
+                $('#day_select').val(),
+            gender: $("[name='gender']:checked").val(),
+            // month_select,
         }
         // 把資料丟給api
         $.post(
-            "update-api.php",
+            "./mengParts/update-api.php",
             updateObj,
             // $(document.form1).serialize(),
             function(data) {
@@ -362,7 +360,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 if (data.success) {
                     // 修改成功後可顯示資料或把畫面導向別對地方
                     alert('修改成功');
-                    // location.href = './member.php';
+                    location.href = './member.php';
                 } else {
                     // 輸入失敗會顯示的東西
                     alert(data.error);
@@ -374,6 +372,6 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
     update.addEventListener("click", updateHandler);
 </script>
 
-<?php include __DIR__ . '/parts/scripts.php'; ?>
+<?php include __DIR__ . '/mengParts/scripts.php'; ?>
 
-<?php include __DIR__ . '/parts/html-foot.php'; ?>
+<?php include __DIR__ . '/mengParts/html-foot.php'; ?>

@@ -2,10 +2,10 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
-body {
+/* body {
     background: url(images/all_bg.png) no-repeat center bottom / cover fixed;
     background-color: #6DD0CD;
-}
+} */
 
 .pc_header_wrap {
     height: 0px;

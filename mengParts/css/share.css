@@ -1,6 +1,7 @@
-.container{
+.container {
     min-height: calc(100% - 50px);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +14,7 @@ html,
 body {
     width: 100%;
     height: 100%;
-    background-image: url(/img/all_bg.png);
+    background-image: url(../../img/all_bg.png);
     background-color: #6DD0CD;
 }
 
@@ -21,10 +22,12 @@ body {
     /* height: auto; */
     min-height: 100%;
 }
-.my_wrap{
+
+.my_wrap {
     min-height: calc(100% - 50px);
-    padding: 48px 0; 
+    padding: 48px 0;
 }
+
 /* logo */
 .nav_left {
     position: sticky;
@@ -100,6 +103,7 @@ body {
     /* padding-top: 128px; */
     padding-bottom: 50px;
 }
+
 /* 右搜尋欄 */
 /* 選單列表 */
 .formItem {
@@ -129,6 +133,7 @@ body {
     color: #005F5F;
 
 }
+
 label {
     margin-bottom: 0;
 }
@@ -157,6 +162,7 @@ footer p {
     margin-bottom: 0px;
     text-align: center;
 }
+
 /* 會員資料bar */
 .navmember {
     overflow: hidden;
@@ -209,4 +215,21 @@ footer p {
     width: 100%;
     height: 100%;
     color: #333333;
+}
+
+.icon_bookmark {
+    display: block;
+    width: 24px;
+    fill: #333333;
+}
+
+.bookmark_on,
+.icon_bookmark.on .bookmark_off {
+    display: none;
+}
+
+.icon_bookmark .bookmark_off,
+.icon_bookmark.on .bookmark_on {
+    display: block;
+    fill: #005F5F;
 }

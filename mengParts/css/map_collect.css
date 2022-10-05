@@ -5,13 +5,13 @@
     box-sizing: border-box;
 }
 
-html,
+/* html,
 body {
     width: 100%;
     height: 100%;
     background: url(/img/all_bg.png) no-repeat center center / cover fixed;
     background-color: #6DD0CD;
-}
+} */
 
 /* logo */
 .nav_left {
@@ -213,11 +213,11 @@ body {
     line-height: 1.6rem;
 }
 
-.mappic img {
+.collect .mappic img {
     border-radius: 20px;
-
     width: 387px;
     height: 273px;
+    margin-right: 0;
 }
 
 .mapcard {
@@ -234,10 +234,6 @@ body {
 
 }
 
-.mapcardp1 {
-    display: flex;
-
-}
 
 .mapcardp1 h2 {
     font-size: 1.5rem;
@@ -259,9 +255,11 @@ body {
     margin-bottom: 0;
 }
 
-.mapcardp1 {
-    /* margin-top: 16px; */
+.collect .mapcardp1 {
+    margin-top: 0;
     justify-content: space-between;
+    display: flex;
+
 }
 
 .mapcardp2 {
