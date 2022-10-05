@@ -121,7 +121,7 @@ if ($totalRows > 0) {
                         <a href="./map.php" class="lightbutton">
                             <h4>地圖</h4>
                         </a>
-                        <a href="./article_collect.html" class="lightbutton">
+                        <a href="./article_collect.php" class="lightbutton">
                             <h4>文章</h4>
                         </a>
                     </div>

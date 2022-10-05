@@ -131,6 +131,7 @@ if ($totalRows > 0) {
                                     </h2>
                                     <div class="bookmark d-none d-lg-block">
                                         <i class="fa-regular fa-bookmark"></i>
+                                        <!-- <i class="fa-solid fa-bookmark"></i> -->
                                     </div>
                                     <p class="d-lg-none">by 史萊姆</p>
                                 </div>

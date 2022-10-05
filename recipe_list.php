@@ -114,7 +114,6 @@ if ($totalRows > 0) {
 
             <section id="recipe-dropdown">
                 <!-- dropdown -->
-                <!-- todo fix top -->
                 <div class="veggie-category">
                     <div class="dropdown-box">
                         <div class="dropdown">
@@ -138,23 +137,9 @@ if ($totalRows > 0) {
                                 <?php endforeach ?>
                             </div>
                         </div>
-                        <!-- <div class="dropdown">
-                            <button class="dropbtn">
-                                <h5>烹飪時間</h5>
-                                <i class="fa-solid fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="?">
-                                    <h5>全部</h5>
-                                </a>
-                                <a href="?">
-                                    <h5>5</h5>
-                                </a>
-                            </div>
-                        </div> -->
                     </div>
 
-                    <a href="./write_recipes.html" class="darkbutton">
+                    <a href="./write_recipes.php" class="darkbutton">
                         <i class="fa-solid fa-pencil"></i>
                         <h5>寫食譜</h5>
                     </a>
@@ -192,9 +177,7 @@ if ($totalRows > 0) {
                                 </h4>
                                 <div class="recipe-btn">
                                     <a href="./recipe_detail.php?sid=<?= $r['sid'] ?>" 
-                                    class="darkbutton" 
-                                    data-sid="<?= $r['sid'] ?>" 
-                                    onclick="seemore(event);">
+                                    class="darkbutton" >
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none"><i class="fa-regular fa-bookmark"></i></div>
@@ -231,20 +214,5 @@ if ($totalRows > 0) {
         <p>&copy;2022 BearSu. All rights reserved.</p>
     </section>
 </footer>
-<?php session_destroy(); ?> 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
-<script>
-    function seemore(event) {
-        const btn = $(event.currentTarget);
-        const sid = btn.attr('data-sid');
-
-        console.log('sid :', sid);
-
-        $.get(
-            'recipe_detail.php', 
-            { sid },
-            function(data){},
-            'json');
-    }
-</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>

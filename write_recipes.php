@@ -68,7 +68,7 @@ if ($totalRows > 0) {
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
-<link rel="stylesheet" href="./css/write_recipes.css" />
+<link rel="stylesheet" href="./css/write_recipes.css">
 <?php include __DIR__ . '/kc_parts/navbar.php'; ?>
 
 <main>
@@ -88,6 +88,7 @@ if ($totalRows > 0) {
                                 <h5>素食分類</h5>
                                 <i class="fa-solid fa-caret-down"></i>
                             </button>
+
                             <div type="button" class="dropdown-content">
                                 <a type="button" href="?<?php
                                                         $tmp = $qsp; // 複製
@@ -147,61 +148,40 @@ if ($totalRows > 0) {
                                 <h3>份量</h3>
                                 <h4>(人份)</h4>
                                 <!-- dropdown -->
-                                <div class="custom-select">
-                                    <select>
-                                        <option value="0">
-                                            <h5>份量</h5>
-                                        </option>
-                                        <option value="1">
-                                            <h5>1</h5>
-                                        </option>
-                                        <option value="2">
-                                            <H5>2</H5>
-                                        </option>
-                                        <option value="3">
-                                            <H5>3</H5>
-                                        </option>
-                                        <option value="4">
-                                            <H5>4</H5>
-                                        </option>
-                                        <option value="5">
-                                            <H5>5</H5>
-                                        </option>
-                                        <option value="6">
-                                            <H5>6</H5>
-                                        </option>
-                                        <option value="7">
-                                            <H5>7</H5>
-                                        </option>
-                                    </select>
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <h5>份量</h5>
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+
+                                    <div type="button" class="dropdown-content">
+                                        <?php for ($i = 1; $i <= 10; $i++) : ?>
+                                            <a type="button">
+                                                <h5><?= $i ?></h5>
+                                            </a>
+                                        <?php endfor ?>
+                                    </div>
                                 </div>
                                 <!-- dropdown end -->
                             </div>
+
                             <div class="time">
                                 <h3>烹調時間</h3>
                                 <h4>(分鐘)</h4>
                                 <!-- dropdown -->
-                                <div class="custom-select">
-                                    <select>
-                                        <option value="0">
-                                            <h5>烹調時間</h5>
-                                        </option>
-                                        <option value="1">
-                                            <h5>15</h5>
-                                        </option>
-                                        <option value="2">
-                                            <H5>30</H5>
-                                        </option>
-                                        <option value="3">
-                                            <H5>45</H5>
-                                        </option>
-                                        <option value="4">
-                                            <H5>60</H5>
-                                        </option>
-                                        <option value="5">
-                                            <H5>120</H5>
-                                        </option>
-                                    </select>
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <h5>烹調時間</h5>
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+
+                                    <div type="button" class="dropdown-content">
+                                        <?php for ($i = 15; $i <= 120; $i+=15) : ?>
+                                            <a type="button">
+                                                <h5><?= $i ?></h5>
+                                            </a>
+                                        <?php endfor ?>
+                                    </div>
                                 </div>
                                 <!-- dropdown end -->
                             </div>

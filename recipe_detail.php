@@ -34,13 +34,10 @@ $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
 // exit;
 $sql = sprintf(
-    "SELECT r.*, v.classification, group_concat(DISTINCT i.ingredients_name) AS ingredients_name, group_concat(DISTINCT i.quantity) AS ingredients_quantity,
-    group_concat(DISTINCT s.step_introduction) AS step_introduction, group_concat(DISTINCT s.step_number) AS step_number
+    "SELECT r.*, v.classification, group_concat(DISTINCT s.step_introduction ORDER BY s.step_number) AS step_introduction, group_concat(DISTINCT s.step_number) AS step_number
 FROM recipe AS r
 LEFT JOIN vegetarian AS v 
 ON r.vegetarian_sid = v.sid
-LEFT JOIN recipe_ingredients AS i
-ON r.sid = i.recipe_sid
 LEFT JOIN recipe_step AS s
 ON r.sid = s.recipe_sid
 WHERE r.sid=$sid  GROUP BY r.sid"
@@ -54,12 +51,12 @@ $ingredients = sprintf(
     LEFT JOIN recipe_ingredients AS i
     ON r.sid = i.recipe_sid
     WHERE r.sid=$sid  GROUP BY i.sid"
-    );
+);
 
-    $irows = $pdo->query($ingredients)->fetchAll();
+$irows = $pdo->query($ingredients)->fetchAll();
 
 // echo json_encode([
-//     'irows ' => $irows ,
+//     'rows ' => $rows,
 // ]);
 
 // exit;
@@ -121,14 +118,14 @@ $ingredients = sprintf(
                                 <div class="col-12 title">
                                     <h3>食材</h3>
                                 </div>
-                        
+
 
                                 <?php foreach ($irows as $r) : ?>
                                     <div class="col-12 col-lg-6 ingredients">
                                         <h4><?= $r['ingredients_name'] ?></h4>
                                         <h4><?= $r['quantity'] ?></h4>
                                     </div>
-                                    <?php endforeach ?>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     <?php endforeach ?>
