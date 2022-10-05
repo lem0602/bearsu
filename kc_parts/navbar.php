@@ -29,7 +29,7 @@ if (!isset($page_name)) {
                     <div id="nav-content" tabindex="0">
                         <ul>
                             <li>
-                                <a href="/index_.php">
+                                <a href="./index.php">
                                     <h3>首頁</h3>
                                 </a>
                             </li>
@@ -54,8 +54,8 @@ if (!isset($page_name)) {
                                 </a>
                             </li>
                             <li class="small">
-                                <a href="shopping_cart.php">購物車</a>
-                                <a href="#0">會員中心</a>
+                                <a href="./shopping_cart.php">購物車</a>
+                                <a href="./member.php">會員中心</a>
                             </li>
                         </ul>
                     </div>
@@ -72,7 +72,7 @@ if (!isset($page_name)) {
         <div class="pc-nav-right d-none d-md-block">
             <ul>
                 <li class="li-top">
-                    <a href="/index_.php">
+                    <a href="./index.php">
                         <h3>首頁</h3>
                     </a>
                 </li>

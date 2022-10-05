@@ -90,16 +90,8 @@ if ($totalRows > 0) {
                             </button>
 
                             <div type="button" class="dropdown-content">
-                                <a type="button" href="?<?php
-                                                        $tmp = $qsp; // 複製
-                                                        unset($tmp['cate']);
-                                                        ?>">
-                                    <h5>全部</h5>
-                                </a>
                                 <?php foreach ($cates as $c) : ?>
-                                    <a type="button" href="?<?php
-                                                            $tmp['cate'] = $c['sid'];
-                                                            echo http_build_query($tmp); ?>">
+                                    <a type="button" href="#0">
                                         <h5><?= $c['classification'] ?></h5>
                                     </a>
                                 <?php endforeach ?>
@@ -156,8 +148,8 @@ if ($totalRows > 0) {
 
                                     <div type="button" class="dropdown-content">
                                         <?php for ($i = 1; $i <= 10; $i++) : ?>
-                                            <a type="button">
-                                                <h5><?= $i ?></h5>
+                                            <a type="button" href="#0">
+                                            <h5><?= $i ?></h5>
                                             </a>
                                         <?php endfor ?>
                                     </div>
@@ -177,7 +169,7 @@ if ($totalRows > 0) {
 
                                     <div type="button" class="dropdown-content">
                                         <?php for ($i = 15; $i <= 120; $i+=15) : ?>
-                                            <a type="button">
+                                            <a type="button" href="#0">
                                                 <h5><?= $i ?></h5>
                                             </a>
                                         <?php endfor ?>
@@ -207,6 +199,7 @@ if ($totalRows > 0) {
                                             </button>
                                         </div>
                                     </div>
+
                                     <div class="row allDetail-box">
                                         <div class="detail-box col p-0">
                                             <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
@@ -220,6 +213,7 @@ if ($totalRows > 0) {
                                             </button>
                                         </div>
                                     </div>
+
                                     <div class="row allDetail-box">
                                         <div class="detail-box col p-0">
                                             <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
@@ -309,10 +303,10 @@ if ($totalRows > 0) {
             <!-- 發布雨取消按鈕 -->
             <section id="postcancel" class="col-md-2">
                 <div class="postcancel-box">
-                    <a class="lightbutton" href="./recipe_list.html">
+                    <a class="lightbutton" href="./recipe_list.php">
                         <h2>取消</h2>
                     </a>
-                    <a class="darkbutton">
+                    <a class="darkbutton" href="./recipe_list.php">
                         <h2>發布</h2>
                     </a>
                 </div>
