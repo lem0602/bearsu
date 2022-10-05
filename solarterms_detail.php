@@ -10,19 +10,40 @@ require __DIR__ . '/parts/connect_db.php';
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 $sql = sprintf(
-    "SELECT s.*, v.classification, group_concat(DISTINCT i.ingredients_name ORDER BY i.sid) AS ingredients_name, 
-group_concat(DISTINCT step.step_introduction ORDER BY step.step_number) AS step_introduction, group_concat(DISTINCT step.step_number) AS step_number ,group_concat(DISTINCT i.quantity ORDER BY i.sid) AS ingredients_quantity
+//     "SELECT s.*, v.classification, group_concat(DISTINCT i.ingredients_name ORDER BY i.sid) AS ingredients_name, 
+// group_concat(DISTINCT step.step_introduction ORDER BY step.step_number) AS step_introduction, group_concat(DISTINCT step.step_number) AS step_number ,group_concat(DISTINCT i.quantity ORDER BY i.sid) AS ingredients_quantity
+// FROM solarterms_recipe s
+// LEFT JOIN vegetarian v 
+// ON s.vegetarian_sid=v.sid
+// LEFT JOIN solarterms_recipe_ingredients AS i
+// ON s.sid = i.recipe_sid
+// LEFT JOIN solarterms_recipe_step AS step
+// ON s.sid = step.recipe_sid
+// WHERE s.sid=$sid GROUP BY s.sid"
+// );
+
+"SELECT s.*, v.classification,  
+group_concat(DISTINCT step.step_introduction ORDER BY step.step_number) AS step_introduction, 
+group_concat(DISTINCT step.step_number) AS step_number 
 FROM solarterms_recipe s
 LEFT JOIN vegetarian v 
 ON s.vegetarian_sid=v.sid
-LEFT JOIN solarterms_recipe_ingredients AS i
-ON s.sid = i.recipe_sid
 LEFT JOIN solarterms_recipe_step AS step
 ON s.sid = step.recipe_sid
 WHERE s.sid=$sid GROUP BY s.sid"
 );
 
 $rows = $pdo->query($sql)->fetchAll();
+
+$ingredients = sprintf(
+    "SELECT r.sid, i.ingredients_name, i.quantity
+    FROM solarterms_recipe AS r
+    LEFT JOIN solarterms_recipe_ingredients AS i
+    ON r.sid = i.recipe_sid
+    WHERE r.sid=$sid  GROUP BY i.sid"
+);
+
+$irows = $pdo->query($ingredients)->fetchAll();
 
 // $rr = $pdo->query($sql)->fetch();
 // echo json_encode([
@@ -87,15 +108,12 @@ foreach($veges as $v){
                     <h3>食材</h3>
                 </div>
                 <div class="down w-100 d-md-flex d-lg-flex">
-                    <?php
-                    $n = explode(",", $r['ingredients_name']);
-                    $q = explode(",", $r['ingredients_quantity']);
-                    for ($i = 0; $i < sizeof($n); $i++) : ?>
+                <?php foreach ($irows as $r) : ?>
                         <div class="d-flex justify-content-between col-12 col-md-6 col-lg-6 ingredients">
-                            <h4><?= $n[$i] ?></h4>
-                            <h4><?= $q[$i] ?></h4>
+                            <h4><?= $r['ingredients_name'] ?></h4>
+                            <h4><?= $r['quantity'] ?></h4>
                         </div>
-                    <?php endfor ?>
+                    <?php endforeach ?>
                 </div>
             </div>
         <?php endforeach ?>
