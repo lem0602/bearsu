@@ -11,7 +11,7 @@ $pageName = 'member'; // 頁面名稱
 // $acc = 'retaerg@gmail.com';
 // $acc = 'vzdvg@gmail.com';
 $acc = $_SESSION['user']['email'];
-$sql = "SELECT * FROM `member` WHERE `email`='$acc';";
+$sql = "SELECT * FROM `members` WHERE `email`='$acc';";
 $stmt = $pdo->query($sql);
 $data = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>

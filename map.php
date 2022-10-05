@@ -15,6 +15,7 @@ $stmt = $pdo->query($sql);
 <?php include __DIR__ . '/mengParts/navbar.php'; ?>
 <!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<link rel="stylesheet" href="./mengParts/css/map.css">
 <div class="my_wrap">
 	<div class="container">
 		<div class="course_title">
@@ -28,8 +29,16 @@ $stmt = $pdo->query($sql);
 				<div class="step">Step1</div>
 				<select class="formItem1_select city" name="county" id="county_select">
 					<option class="selet11" value="" <?php if (!isset($_GET['county'])) { ?> selected <?php } ?>>請選擇縣市</option>
-					<option value="基隆市" <?php if ($_GET['county'] == '基隆市') { ?> selected <?php } ?>>基隆市</option>
-					<option value="台北市" <?php if ($_GET['county'] == '台北市') { ?> selected <?php } ?>>台北市</option>
+					<option value="基隆市" <?php if (!isset($_GET['county'])) {
+											echo '';
+										} else if ($_GET['county'] == '基隆市') {
+											echo 'selected';
+										} ?>>基隆市</option>
+					<option value="台北市" <?php if (!isset($_GET['county'])) {
+											echo '';
+										} else if ($_GET['county'] == '台北市') {
+											echo 'selected';
+										} ?>>台北市</option>
 					<option value="新北市">新北市</option>
 					<option value="桃園市">桃園市</option>
 					<option value="新竹縣">新竹縣</option>
@@ -56,26 +65,43 @@ $stmt = $pdo->query($sql);
 			<label>
 				<div class="step">Step2</div>
 				<select class="formItem1_select area" name="district" id="district_select" onchange="area()">
-					<option class="selet11" value="" <?php if (!isset($_GET['area'])) { ?> selected <?php } ?>>請選擇地區</option> <?php foreach ($countryName["臺北市"] as $key => $value) { ?> <option value="<?php echo $value ?>" <?php if ($_GET['area'] == $value) { ?> selected <?php } ?>><?php echo $value ?></option> <?php } ?>
+					<option class="selet11" value="" <?php if (!isset($_GET['area'])) { ?> selected <?php } ?>>
+						請選擇地區
+					</option>
+					<?php foreach ($countryName["臺北市"] as $key => $value) { ?> <option value="<?php echo $value ?>" <?php if (!isset($_GET['area'])) {
+																														echo '';
+																													} else if ($_GET['area'] == $value) {
+																														echo 'selected';
+																													} ?>><?php echo $value ?></option> <?php } ?>
 				</select>
 			</label>
 			<label>
 				<div class="step">Step3</div>
 				<select class="formItem1_select restType" name="restType" id="restType" onchange="sort()">
 					<option value="" class="selet11" selected="">請選素食分類</option>
-					<option value="全素" <?php if ($_GET['sort'] == '全素') {
+					<option value="全素" <?php if (!isset($_GET['sort'])) {
+											echo '';
+										} else if ($_GET['sort'] == '全素') {
 											echo 'selected';
 										} ?>>全素</option>
-					<option value="蛋素" <?php if ($_GET['sort'] == '蛋素') {
+					<option value="蛋素" <?php if (!isset($_GET['sort'])) {
+											echo '';
+										} else if ($_GET['sort'] == '蛋素') {
 											echo 'selected';
 										} ?>>蛋素</option>
-					<option value="五辛素" <?php if ($_GET['sort'] == '五辛素') {
+					<option value="五辛素" <?php if (!isset($_GET['sort'])) {
+											echo '';
+										} else if ($_GET['sort'] == '五辛素') {
 											echo 'selected';
 										} ?>>五辛素</option>
-					<option value="奶素" <?php if ($_GET['sort'] == '奶素') {
+					<option value="奶素" <?php if (!isset($_GET['sort'])) {
+											echo '';
+										} else if ($_GET['sort'] == '奶素') {
 											echo 'selected';
 										} ?>>奶素</option>
-					<option value="蛋奶素" <?php if ($_GET['sort'] == '蛋奶素') {
+					<option value="蛋奶素" <?php if (!isset($_GET['sort'])) {
+											echo '';
+										} else if ($_GET['sort'] == '蛋奶素') {
 											echo 'selected';
 										} ?>>蛋奶素</option>
 				</select>
@@ -156,9 +182,7 @@ $stmt = $pdo->query($sql);
 			</div>
 		<?php
 		}
-
 		?>
-
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -176,9 +200,6 @@ $stmt = $pdo->query($sql);
 				</div>
 			</div>
 		</div>
-
-
-
 		<!-- 頁面選單 -->
 		<nav class="bigpageitem" aria-label="Page navigation example">
 			<ul class="pagination">

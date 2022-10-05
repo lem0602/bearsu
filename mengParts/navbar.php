@@ -64,19 +64,19 @@
      <!-- 右側選單 -->
      <div class="nav_right d-none d-md-block d-lg-block">
          <ul class="d-flex flex-column">
-             <a href="index.php">
+             <a href="./index.php">
                  <li class="li_top">首頁</li>
              </a>
-             <a href="course.php">
+             <a href="./course.php">
                  <li>廚藝教室</li>
              </a>
              <a href="solarterms.php">
                  <li>節氣食補</li>
              </a>
-             <a href="map.php">
+             <a href="./map.php">
                  <li>素食地圖</li>
              </a>
-             <a href="article.php">
+             <a href="./recipe_list.php">
                  <li>相關文章</li>
              </a>
              <div class="icon d-flex justify-content-center pt-3">

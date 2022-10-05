@@ -7,6 +7,7 @@ $pageName = 'order-record'; // 頁面名稱
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
 <?php include __DIR__ . '/mengParts/navbar.php'; ?>
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<link rel="stylesheet" href="./mengParts/css/order-record.css">
 <?php
 $acc = $_SESSION['user']['id'];
 $sql = "SELECT * FROM `order_record` WHERE member_sid=$acc";
