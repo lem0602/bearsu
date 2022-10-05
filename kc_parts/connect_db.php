@@ -4,6 +4,7 @@ $db_user = 'admin';
 $db_pass = 'admin';
 $db_name = 'bearsu';
 
+
 $dsn = "mysql:host={$db_host};dbname={$db_name};charset=utf8";
 
 $pdo_options = [

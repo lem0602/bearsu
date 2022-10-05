@@ -13,7 +13,7 @@ $pageName = 'member'; // 頁面名稱
     // $acc = 'vzdvg@gmail.com';
     $acc = $_SESSION['user']['email'];
     // $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
-    $sql = "SELECT * FROM `member` WHERE `email`='$acc';";
+    $sql = "SELECT * FROM `members` WHERE `email`='$acc';";
     // 把sql指令丟到資料庫
     $stmt = $pdo->query($sql);
     // 接收資料庫回傳的資料
