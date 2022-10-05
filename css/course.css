@@ -92,12 +92,16 @@
        }
 
        /* ------------mobile start------------ */
-.mobile_course_filter_wrap {
+       .mobile_course_filter_wrap {
            position: sticky;
            top: 90px;
-           z-index: 10000;
+           z-index: 9998;
            margin-top: 48px;
            margin-bottom: 12px;
+       }
+
+       #mobile-nav header {
+           z-index: 9998;
        }
 
        .mobile_course_filter {
@@ -383,10 +387,10 @@
            border-radius: 8px 0px 0px 8px;
        }
 
-       .page-item.active .page-link{
-        color: #FFF6E9;
-        background-color: #005F5F;
-        border: none;
+       .page-item.active .page-link {
+           color: #FFF6E9;
+           background-color: #005F5F;
+           border: none;
        }
 
        .page-item:last-child .page-link {

@@ -131,6 +131,7 @@ if ($totalRows > 0) {
                                     </h2>
                                     <div class="bookmark d-none d-lg-block">
                                         <i class="fa-regular fa-bookmark"></i>
+                                        <!-- <i class="fa-solid fa-bookmark"></i> -->
                                     </div>
                                     <p class="d-lg-none">by 史萊姆</p>
                                 </div>
@@ -139,9 +140,7 @@ if ($totalRows > 0) {
                                     <?= $r['introduction'] ?>
                                 </h4>
                                 <div class="article-btn">
-                                    <a href="./article_detail.php" class="darkbutton" 
-                                    data-sid="<?= $r['sid'] ?>" 
-                                    onclick="seemore(event)">
+                                    <a href="./article_detail.php?sid=<?= $r['sid'] ?>" class="darkbutton">
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none">
@@ -155,7 +154,7 @@ if ($totalRows > 0) {
             </section>
 
             <section id="pagination">
-                <ul class="pagination justify-content-center">
+                <!-- <ul class="pagination justify-content-center">
                     <li class="page-item disabled <?= $page == 1 ? 'disabled' : '' ?>">
                         <a class="page-link" href="?<?php $qsp['page'] = $page - 1; ?>">
                             <i class="fa-solid fa-angle-left"></i>
@@ -177,8 +176,34 @@ if ($totalRows > 0) {
                             <i class="fa-solid fa-angle-right"></i>
                         </a>
                     </li>
-                </ul>
-
+                </ul> -->
+                <div class="col-12 col-md-9 ol-lg-9 d-flex justify-content-center page">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination mb-0">
+                            <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?<?php $qsp['page'] = $page - 1;
+                                                            echo http_build_query($qsp); ?>" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa-solid fa-angle-left" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
+                                if ($i >= 1 and $i <= $totalPages) :
+                                    $qsp['page'] = $i;
+                            ?>
+                                    <li class="page-item <?= $page == $i ? 'active' : '' ?>">
+                                        <a class="page-link" href="?<?= http_build_query($qsp); ?>"><?= $i ?></a>
+                                    </li>
+                            <?php endif;
+                            endfor; ?>
+                            <li class="page-item <?= $page == $totalPages ? 'disabled' : '' ?>">
+                                <a class="page-link" href="?<?php $qsp['page'] = $page + 1;
+                                                            echo http_build_query($qsp); ?>" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </section>
         </div>
     </div>
@@ -189,20 +214,5 @@ if ($totalRows > 0) {
         <p>&copy;2022 BearSu. All rights reserved.</p>
     </section>
 </footer>
-<?php session_destroy(); ?> 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
-<script>
-    function seemore(event) {
-        const btn = $(event.currentTarget);
-        const sid = btn.attr('data-sid');
-
-        console.log('sid :', sid);
-
-        $.get(
-            'article_detail.php', 
-            { sid },
-            function(data){},
-            'json');
-    }
-</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>

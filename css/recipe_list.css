@@ -90,7 +90,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 48px;
 }
 
 .dropdown-box {
@@ -115,7 +114,7 @@ body {
 }
 
 /* 下拉是選單外觀設定 */
-#article-dropdown {
+#recipe-dropdown {
     margin-bottom: 48px;
 }
 /* 下拉是選單外觀設定 */

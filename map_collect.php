@@ -3,6 +3,7 @@ $countryName = ["臺北市" => ["中正區", "大同區", "中山區", "松山�
 require __DIR__ . '/mengParts/connect_db.php';
 $pageName = 'map_collect'; // 頁面名稱
 
+
 $acc = $_SESSION['user']['id'];
 // SELECT * FROM `order_record` WHERE `member_id` = 1
 $sql = "SELECT * FROM `map_collect` WHERE member_id=$acc";
@@ -135,6 +136,166 @@ $stmt = $pdo->query($sql);
 
                     ?>
 
+                    <!-- <div class="mapcard">
+                            <div class="mappic">
+                                <img src="/img/map_41.jpeg" alt="">
+                            </div>
+                            <div class="mapcardp">
+                                <div class="mapcardp1">
+                                    <h3>賢爸蔬食</h3>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                                <div class="mapcardp2">
+                                    <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
+                                </div>
+                                <div class="mapcardp3">
+                                    <h4>營業時間：平日
+                                        08:30–14:00
+                                        17:00–20:00 週三休息</h4>
+                                </div>
+                                <div class="mapcardp4">
+                                    <h4>02-228988281</h4>
+                                </div>
+                                <div class="mapcardp5">
+                                    <span>
+                                        <p>全素</p>
+                                        <p>蛋素</p>
+                                        <p>奶素</p>
+                                    </span>
+
+                                    <a href="" class="maplink">查看地圖</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mapcard">
+                            <div class="mappic">
+                                <img src="/img/map_41.jpeg" alt="">
+                            </div>
+                            <div class="mapcardp">
+                                <div class="mapcardp1">
+                                    <h3>賢爸蔬食</h3>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                                <div class="mapcardp2">
+                                    <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
+                                </div>
+                                <div class="mapcardp3">
+                                    <h4>營業時間：平日
+                                        08:30–14:00
+                                        17:00–20:00 週三休息</h4>
+                                </div>
+                                <div class="mapcardp4">
+                                    <h4>02-228988281</h4>
+                                </div>
+                                <div class="mapcardp5">
+                                    <span>
+                                        <p>全素</p>
+                                        <p>蛋素</p>
+                                        <p>奶素</p>
+                                    </span>
+
+                                    <a href="" class="maplink">查看地圖</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mapcard">
+                            <div class="mappic">
+                                <img src="/img/map_41.jpeg" alt="">
+                            </div>
+                            <div class="mapcardp">
+                                <div class="mapcardp1">
+                                    <h3>賢爸蔬食</h3>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                                <div class="mapcardp2">
+                                    <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
+                                </div>
+                                <div class="mapcardp3">
+                                    <h4>營業時間：平日
+                                        08:30–14:00
+                                        17:00–20:00 週三休息</h4>
+                                </div>
+                                <div class="mapcardp4">
+                                    <h4>02-228988281</h4>
+                                </div>
+                                <div class="mapcardp5">
+                                    <span>
+                                        <p>全素</p>
+                                        <p>蛋素</p>
+                                        <p>奶素</p>
+                                    </span>
+
+                                    <a href="" class="maplink">查看地圖</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mapcard">
+                            <div class="mappic">
+                                <img src="/img/map_41.jpeg" alt="">
+                            </div>
+                            <div class="mapcardp">
+                                <div class="mapcardp1">
+                                    <h3>賢爸蔬食</h3>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                                <div class="mapcardp2">
+                                    <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
+                                </div>
+                                <div class="mapcardp3">
+                                    <h4>營業時間：平日
+                                        08:30–14:00
+                                        17:00–20:00 週三休息</h4>
+                                </div>
+                                <div class="mapcardp4">
+                                    <h4>02-228988281</h4>
+                                </div>
+                                <div class="mapcardp5">
+                                    <span>
+                                        <p>全素</p>
+                                        <p>蛋素</p>
+                                        <p>奶素</p>
+                                    </span>
+
+                                    <a href="" class="maplink">查看地圖</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mapcard">
+                            <div class="mappic">
+                                <img src="/img/map_41.jpeg" alt="">
+                            </div>
+                            <div class="mapcardp">
+                                <div class="mapcardp1">
+                                    <h3>賢爸蔬食</h3>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                                <div class="mapcardp2">
+                                    <h4>地址：台北市北投區中央南一路一段25巷5號</h4>
+                                </div>
+                                <div class="mapcardp3">
+                                    <h4>營業時間：平日
+                                        08:30–14:00
+                                        17:00–20:00 週三休息</h4>
+                                </div>
+                                <div class="mapcardp4">
+                                    <h4>02-228988281</h4>
+                                </div>
+                                <div class="mapcardp5">
+                                    <span>
+                                        <p>全素</p>
+                                        <p>蛋素</p>
+                                        <p>奶素</p>
+                                    </span>
+
+                                    <a href="" class="maplink">查看地圖</a>
+                                </div>
+
+                            </div>
+                        </div> -->
 
                 </div>
                 <!-- 頁面選單 -->
@@ -158,6 +319,7 @@ $stmt = $pdo->query($sql);
                     </ul>
                 </nav>
             </div>
+
         </div>
     </div>
 </div>
@@ -218,3 +380,4 @@ $stmt = $pdo->query($sql);
 <?php include __DIR__ . '/mengParts/scripts.php'; ?>
 
 <?php include __DIR__ . '/mengParts/html-foot.php'; ?>
+

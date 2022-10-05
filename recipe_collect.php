@@ -109,19 +109,19 @@ if ($totalRows > 0) {
             <div class="main-container col-md-9 offset-md-1">
                 <section id="collection-menu">
                     <div class="collection-nav">
-                        <a href="#0" class="lightbutton">
+                        <a href="./course.php" class="lightbutton">
                             <h4>廚藝教室</h4>
                         </a>
-                        <a href="#0" class="lightbutton">
+                        <a href="./solarterms.php" class="lightbutton">
                             <h4>節氣食譜</h4>
                         </a>
-                        <a href="./recipe_collect.html" class="darkbutton">
+                        <a href="./recipe_collect.php" class="darkbutton">
                             <h4>食譜</h4>
                         </a>
-                        <a href="#0" class="lightbutton">
+                        <a href="./map.php" class="lightbutton">
                             <h4>地圖</h4>
                         </a>
-                        <a href="./article_collect.html" class="lightbutton">
+                        <a href="./article_collect.php" class="lightbutton">
                             <h4>文章</h4>
                         </a>
                     </div>
