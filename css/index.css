@@ -542,7 +542,8 @@
         .line {
             /* width: 2px; */
             height: 150px;
-            border: 3px solid #333333;
+            border: 2px solid #333333;
+            background-color: #333333;
             margin: 0px;
         }
 
