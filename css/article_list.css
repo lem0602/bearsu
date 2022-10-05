@@ -278,10 +278,14 @@ body {
 
 .bookmark {
     margin-left: 24px;
+
 }
 
-.article-content .bookmark i {
-    font-size: 1.8rem;
+.article-content .fa-bookmark {
+    font-size: 2rem;
+    color: var(--mydarkgreen);
+    cursor: pointer;
+    
 }
 
 /* pagination */

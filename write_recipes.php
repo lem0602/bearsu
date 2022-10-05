@@ -148,35 +148,40 @@ if ($totalRows > 0) {
                                 <h3>份量</h3>
                                 <h4>(人份)</h4>
                                 <!-- dropdown -->
-                                <div class="custom-select">
-                                    <select>
-                                        <option value="0">
-                                            <h5>份量</h5>
-                                        </option>
-                                        <?php for ($i=1 ; $i<=10 ; $i++) : ?>
-                                        <option value="1">
-                                            <h5><?= $i ?></h5>
-                                        </option>
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <h5>份量</h5>
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+
+                                    <div type="button" class="dropdown-content">
+                                        <?php for ($i = 1; $i <= 10; $i++) : ?>
+                                            <a type="button">
+                                                <h5><?= $i ?></h5>
+                                            </a>
                                         <?php endfor ?>
-                                    </select>
+                                    </div>
                                 </div>
                                 <!-- dropdown end -->
                             </div>
+
                             <div class="time">
                                 <h3>烹調時間</h3>
                                 <h4>(分鐘)</h4>
                                 <!-- dropdown -->
-                                <div class="custom-select">
-                                    <select>
-                                        <option value="0">
-                                            <h5>烹調時間</h5>
-                                        </option>
-                                        <?php for ($i=15 ; $i<=120 ; $i+=15) : ?>
-                                        <option value="1">
-                                            <h5><?= $i ?></h5>
-                                        </option>
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        <h5>烹調時間</h5>
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+
+                                    <div type="button" class="dropdown-content">
+                                        <?php for ($i = 15; $i <= 120; $i+=15) : ?>
+                                            <a type="button">
+                                                <h5><?= $i ?></h5>
+                                            </a>
                                         <?php endfor ?>
-                                    </select>
+                                    </div>
                                 </div>
                                 <!-- dropdown end -->
                             </div>
