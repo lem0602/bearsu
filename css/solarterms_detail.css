@@ -217,6 +217,7 @@ body {
 
 .message_card .mug_shot {
     margin-bottom: 24px;
+    margin-right: 12px
 }
 
 .message_card .mug_shot img {
@@ -256,6 +257,37 @@ body {
 .message_card .btn_section button:hover {
     box-shadow: none;
     transform: translate(3px, 3px);
+}
+
+.message_card .btn_section button:focus{
+    outline: none;
+}
+
+.message_card .message_card_innrwrap_down{
+    border-top: 1px solid #333333;
+    padding-top: 24px;
+}
+
+.message_card .message_card_innrwrap_down .mug_shot{
+    margin-bottom: 0px;
+}
+
+.message_card h3{
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #333333;
+}
+
+.message_card h4{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333333;
+}
+
+.message_card h4{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333333;
 }
 
 @media screen and (min-width:768px) {
