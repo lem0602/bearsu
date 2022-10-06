@@ -3,6 +3,11 @@ body {
     background-color: var(--mygreen);
 }
 
+button {
+    background-color: none;
+    border: none;
+}
+
 /* write-recipes */
 #write-recipes {
     padding: 48px 24px;
@@ -96,7 +101,6 @@ body {
 .veggie-category-dropdown {
     margin-bottom: 48px;
     display: flex;
-    
 }
 /* 下拉是選單外觀設定 */
 .dropbtn {
@@ -289,7 +293,7 @@ body {
 }
 
 @media screen and (min-width: 570px) {
-    .ingredients-box{
+    .ingredients-box {
         margin-bottom: 48px;
         flex-direction: row;
     }
@@ -349,6 +353,37 @@ body {
     margin-bottom: 24px;
 }
 
+/* list holder   */
+.listHolder li {
+    counter-increment: step-counter;
+    overflow: hidden;
+    padding: 0 0 20px 30px;
+    position: relative;
+}
+
+.listHolder li:before {
+    content: counter(step-counter);
+    background: #4ac7be;
+    color: #fff;
+    font-size: 14px;
+    padding: 0px 6px;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.listHolder .listName {
+    float: left;
+}
+
+.listHolder .btn-icon {
+    float: right;
+    margin: 0 0 0 20px;
+}
+
+/* ------------------- */
+
 .text-addIngredients {
     width: 100%;
     height: 48px;
@@ -384,6 +419,20 @@ body {
     }
 }
 
+.listHolderLi {
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 570px) {
+    .listHolderLi {
+        margin-bottom: 48px;
+    }
+}
+
+.addIngBtn h3 {
+    width: 100%;
+}
+
 .detail-box {
     margin-right: 12px;
 }
@@ -411,6 +460,11 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 14px;
+}
+
+.step .header h2{
+    counter-reset: chapter 99 section -1 money 200000000 nobody
+
 }
 
 .step button {

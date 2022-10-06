@@ -72,242 +72,213 @@ if ($totalRows > 0) {
 <?php include __DIR__ . '/kc_parts/navbar.php'; ?>
 
 <main>
-    <div class="container">
-        <div class="row">
-            <!-- 寫食譜 -->
-            <section id="write-recipes" class="col-md-10">
-                <div class="write-recipes">
-                    <div class="text-title-box">
-                        <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" id="title-detail"></textarea>
-                        <p><span class="titleNum">0/20</span></p>
-                    </div>
-                    <!-- 素食分類 dropdown -->
-                    <div class="veggie-category-dropdown">
-                        <div class="dropdown">
-                            <button class="dropbtn">
-                                <h5>素食分類</h5>
-                                <i class="fa-solid fa-caret-down"></i>
-                            </button>
-
-                            <div type="button" class="dropdown-content">
-                                <?php foreach ($cates as $c) : ?>
-                                    <a type="button" href="#0">
-                                        <h5><?= $c['classification'] ?></h5>
-                                    </a>
-                                <?php endforeach ?>
-                            </div>
+    <form id="file-uploader" action=" upload.php" method="POST" enctype="multipart/form-data">
+        <div class="container">
+            <div class="row">
+                <!-- 寫食譜 -->
+                <section id="write-recipes" class="col-md-10">
+                    <div class="write-recipes">
+                        <div class="text-title-box">
+                            <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" id="title-detail"></textarea>
+                            <p><span class="titleNum">0/20</span></p>
                         </div>
-                    </div>
-                    <!-- 上傳圖片 -->
-                    <div class="upload">
-                        <label class="text-center image-preview-wrapper" for="file-uploader">
-                            <div class="detall">
-                                <i class="fa-solid fa-cloud-arrow-up"></i>
-                                <h2>點擊新增圖片</h2>
-                                <h3>比例建議 4:3 ，大小 1200x900 以上<br>
-                                    內容以食譜為主<br>
-                                    (請勿上傳人像或動物圖片)
-                                </h3>
-                            </div>
-                        </label>
-                        <form id="file-uploader" action=" upload.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="file">
-                            <button type="submit" name="submit" value="上傳圖檔">上傳檔案</button>
-                        </form>
-                    </div>
+                        <!-- 素食分類 dropdown -->
+                        <div class="veggie-category-dropdown">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <h5>素食分類</h5>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </button>
 
-                    <!-- 簡介 -->
-                    <div class="introduction">
-                        <div class="introduction-box">
-                            <lable for="subject">
-                                <h2>簡介</h2>
-                            </lable>
-                            <div class="textarea-box">
-                                <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" id="introduction-detail"></textarea>
-                                <p><span class="wordsNum">0/200</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 時間與份量的下拉式選單和新增食材-->
-                    <div class="ingredients">
-                        <div class="ingredients-box">
-                            <div class="serving-size">
-                                <h3>份量</h3>
-                                <h4>(人份)</h4>
-                                <!-- dropdown -->
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        <h5>份量</h5>
-                                        <i class="fa-solid fa-caret-down"></i>
-                                    </button>
-
-                                    <div type="button" class="dropdown-content">
-                                        <?php for ($i = 1; $i <= 10; $i++) : ?>
-                                            <a type="button" href="#0">
-                                                <h5><?= $i ?></h5>
-                                            </a>
-                                        <?php endfor ?>
-                                    </div>
+                                <div type="button" class="dropdown-content">
+                                    <?php foreach ($cates as $c) : ?>
+                                        <a type="button" href="">
+                                            <h5><?= $c['classification'] ?></h5>
+                                        </a>
+                                    <?php endforeach ?>
                                 </div>
-                                <!-- dropdown end -->
-                            </div>
-
-                            <div class="time">
-                                <h3>烹調時間</h3>
-                                <h4>(分鐘)</h4>
-                                <!-- dropdown -->
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        <h5>烹調時間</h5>
-                                        <i class="fa-solid fa-caret-down"></i>
-                                    </button>
-
-                                    <div type="button" class="dropdown-content">
-                                        <?php for ($i = 15; $i <= 120; $i += 15) : ?>
-                                            <a type="button" href="#0">
-                                                <h5><?= $i ?></h5>
-                                            </a>
-                                        <?php endfor ?>
-                                    </div>
-                                </div>
-                                <!-- dropdown end -->
                             </div>
                         </div>
-                        <!-- 新增食材 -->
-                        <div class="addIngredients">
+                        <!-- 上傳圖片 -->
+                        <div class="upload">
+                            <label class="text-center image-preview-wrapper" for="file-uploader">
+                                <div class="detall">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <h2>點擊新增圖片</h2>
+                                    <h3>比例建議 4:3 ，大小 1200x900 以上<br>
+                                        內容以食譜為主<br>
+                                        (請勿上傳人像或動物圖片)
+                                    </h3>
+                                </div>
+                            </label>
+                            <form id="file-uploader" action=" upload.php" method="POST" enctype="multipart/form-data">
+                                <input type="file" name="file">
+                                <button type="submit" name="submit" value="上傳圖檔">上傳檔案</button>
+                            </form>
+                        </div>
+
+                        <!-- 簡介 -->
+                        <div class="introduction">
                             <div class="introduction-box">
                                 <lable for="subject">
-                                    <h2>食材</h2>
+                                    <h2>簡介</h2>
                                 </lable>
-                                <div class="container">
-                                    <!-- 新增食材列表 -->
-                                    <div class="row allDetail-box">
-                                        <div class="detail-box col p-0">
-                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                        </div>
-                                        <div class="detail-box col-3 p-0">
-                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                        </div>
-                                        <div class="col-1 p-0">
-                                            <button class="del-introduction" type="button" aria-label="刪除食材">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                <div class="textarea-box">
+                                    <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" id="introduction-detail"></textarea>
+                                    <p><span class="wordsNum">0/200</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 時間與份量的下拉式選單和新增食材-->
+                        <div class="ingredients">
+                            <div class="ingredients-box">
+                                <div class="serving-size">
+                                    <h3>份量</h3>
+                                    <h4>(人份)</h4>
+                                    <!-- dropdown -->
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <h5>份量</h5>
+                                            <i class="fa-solid fa-caret-down"></i>
+                                        </button>
 
-                                    <div class="row allDetail-box">
-                                        <div class="detail-box col p-0">
-                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                        </div>
-                                        <div class="detail-box col-3 p-0">
-                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                        </div>
-                                        <div class="col-1 p-0">
-                                            <button class="del-introduction" type="button" aria-label="刪除食材">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
+                                        <div type="button" class="dropdown-content">
+                                            <?php for ($i = 1; $i <= 10; $i++) : ?>
+                                                <a type="button" href="#0">
+                                                    <h5><?= $i ?></h5>
+                                                </a>
+                                            <?php endfor ?>
                                         </div>
                                     </div>
+                                    <!-- dropdown end -->
+                                </div>
 
-                                    <div class="row allDetail-box">
-                                        <div class="detail-box col p-0">
-                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                        </div>
-                                        <div class="detail-box col-3 p-0">
-                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                        </div>
-                                        <div class="col-1 p-0">
-                                            <button class="del-introduction" type="button" aria-label="刪除食材">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
+                                <div class="time">
+                                    <h3>烹調時間</h3>
+                                    <h4>(分鐘)</h4>
+                                    <!-- dropdown -->
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <h5>烹調時間</h5>
+                                            <i class="fa-solid fa-caret-down"></i>
+                                        </button>
+
+                                        <div type="button" class="dropdown-content">
+                                            <?php for ($i = 15; $i <= 120; $i += 15) : ?>
+                                                <a type="button" href="#0">
+                                                    <h5><?= $i ?></h5>
+                                                </a>
+                                            <?php endfor ?>
                                         </div>
                                     </div>
-                                    <!-- 新增食材btn -->
-                                    <div class="row addbtn">
-                                        <a class=darkbutton>
-                                            <h3>新增食材</h3>
-                                        </a>
+                                    <!-- dropdown end -->
+                                </div>
+                            </div>
+                            <!-- 新增食材 -->
+                            <div class="addIngredients">
+                                <div class="introduction-box">
+                                    <lable for="subject">
+                                        <h2>食材</h2>
+                                    </lable>
+                                    <div class="container">
+                                        <div class="row allDetail-box">
+                                            <!-- list holder -->
+                                            <div class="listHolder">
+                                                <ul class="list">
+                                                    <li class="row listHolderLi">
+                                                        <div class="detail-box col-7 col-md-7 p-0">
+                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                        <div class="detail-box col-3 col-md-3 p-0">
+                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="row listHolderLi">
+                                                        <div class="detail-box col-7 col-md-7 p-0">
+                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                        <div class="detail-box col-3 col-md-3 p-0">
+                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="row listHolderLi">
+                                                        <div class="detail-box col-7 col-md-7 p-0">
+                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                        <div class="detail-box col-3 col-md-3 p-0">
+                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <!-- form holder -->
+                                            <div class="formHolder">
+                                                <button type="button" id="addBtn" class="darkbutton">
+                                                    <h3 class="addIng">新增食材</h3>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- 步驟 -->
+                        <div class="step">
+                            <h2 class="title">步驟</h2>
+
+                            <div class="step-box">
+                                <ul class="step-list">
+                                    <?php for ($i = 1; $i <= 3; $i++) : ?>
+                                        <li class="list-li">
+                                            <div class="addimg">
+                                                <!-- to do 點擊新增圖片 -->
+                                            </div>
+                                            <div class="textarea">
+                                                <div class="header">
+                                                    <h2>1</h2>
+                                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.list-li').remove()">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="textarea-box">
+                                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
+                                                    <p><span class="textNum1">0/150</span></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <?php endfor ?>
+                                </ul>
+                            </div>
+                            <!-- 新增步驟btn -->
+                            <div class="addbtn">
+                                <a type="button" class="darkbutton" id="addBtn">
+                                    <h3>新增步驟</h3>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
-                    <!-- 步驟 -->
-                    <div class="step">
-                        <h2 class="title">步驟</h2>
-                        <div class="step-box">
-                            <div class="addimg">
-                                <!-- to do 點擊新增圖片 -->
-                            </div>
-                            <div class="textarea">
-                                <div class="header">
-                                    <h2>1</h2>
-                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </div>
-                                <div class="textarea-box">
-                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
-                                    <p><span class="textNum1">0/150</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-box">
-                            <div class="addimg">
-                                <!-- to do 點擊新增圖片 -->
-                            </div>
-                            <div class="textarea">
-                                <div class="header">
-                                    <h2>2</h2>
-                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </div>
-                                <div class="textarea-box">
-                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
-                                    <p><span class="textNum2">0/150</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-box">
-                            <div class="addimg">
-                                <!-- to do 點擊新增圖片 -->
-                            </div>
-                            <div class="textarea">
-                                <div class="header">
-                                    <h2>3</h2>
-                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </div>
-                                <div class="textarea-box">
-                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
-                                    <p><span class="textNum3">0/150</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 新增步驟btn -->
-                        <div class="addbtn">
-                            <a class="darkbutton">
-                                <h3>新增步驟</h3>
-                            </a>
-                        </div>
+
+                </section>
+                <!-- 發布雨取消按鈕 -->
+                <section id="postcancel" class="col-md-2">
+                    <div class="postcancel-box">
+                        <a class="lightbutton" href="./recipe_list.php">
+                            <h2>取消</h2>
+                        </a>
+                        <a class="darkbutton" href="javascript:document.form1.submit();" name="submit">
+                            <h2>發布</h2>
+                        </a>
+                        <button type="submit" name="submit">上傳檔案</button>
                     </div>
-                </div>
-            </section>
-            <!-- 發布雨取消按鈕 -->
-            <section id="postcancel" class="col-md-2">
-                <div class="postcancel-box">
-                    <a class="lightbutton" href="./recipe_list.php">
-                        <h2>取消</h2>
-                    </a>
-                    <a class="darkbutton" href="./recipe_list.php">
-                        <h2>發布</h2>
-                    </a>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
+    </form>
 </main>
 
 <section id="footer">
@@ -317,6 +288,7 @@ if ($totalRows > 0) {
 </section>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
+<!-- 自數偵測 -->
 <script>
     //封裝一個限制字數方法
     var checkStrLengths = function(str, maxLength) {
@@ -364,7 +336,7 @@ if ($totalRows > 0) {
         //顯示字數
         $(".titleNum").html(len + '/20');
     });
-    for (i = 1 ; i < 10; i++) {
+    for (i = 1; i < 10; i++) {
         $(".step-textarea").on('input propertychange', function() {
 
             //獲取輸入內容
@@ -379,8 +351,23 @@ if ($totalRows > 0) {
             }
 
             //顯示字數
-            $(".textNum1").html(len + '/150');            
+            $(".textNum" + i).html(len + '/150');
         });
     }
 </script>
+<!-- add the new list -->
+<script>
+    const divList = document.querySelector('.step-box');
+
+    const addInput = document.querySelector('#addInput');
+    const addBtn = document.querySelector('#addBtn');
+
+    addBtn.addEventListener('click', () => {
+        const ul = divList.querySelector('ul');
+        const li = document.createElement('li');
+        console.log("li", li);
+        ul.appendChild(li);
+    });
+</script>
+
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>
