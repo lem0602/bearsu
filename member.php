@@ -4,8 +4,9 @@ $pageName = 'member'; // 頁面名稱
 // session_start();
 ?>
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
-<?php include __DIR__ . '/mengParts/navbar.php'; ?>
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+
 <link rel="stylesheet" href="./mengParts/css/member.css">
 <?php
 // $acc = 'retaerg@gmail.com';
@@ -20,7 +21,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="" alt="大頭貼">
+                    <img src="./images/mascot_12.png" alt="大頭貼">
                 </div>
                 <span class="headnew">更新頭像</span>
                 <div class="share">
@@ -33,10 +34,19 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="member_info col-md-10">
                 <div class="member_title">
                     <h1>會員資料</h1>
-                    <div id="editBtn" class="chang_member ">
-                        <i class="fa-solid fa-pen"></i>
-                        <p>修改會員資料</p>
+                    <div class="member_func_box">
+                        <div name="editBtn" class="chang_member ">
+                            <i class="fa-solid fa-pen"></i>
+                            <p>修改會員資料</p>
+                        </div>
+                        <div id="" class="chang_member ">
+                            <!-- <i class="fa-solid fa-pen"></i> -->
+                            <a href="./logout.php">
+                                <p>會員登出</p>
+                            </a>
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="member_box">
@@ -102,9 +112,17 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <!-- mobile-changbar -->
-            <div class="chang_member1 ">
-                <i class="fa-solid fa-pen"></i>
-                <p>修改會員資料</p>
+            <div class="member_func_box">
+                <div name="editBtn" class="chang_member1 ">
+                    <i class="fa-solid fa-pen"></i>
+                    <p>修改會員資料</p>
+                </div>
+                <div id="" class="chang_member1 ">
+                    <!-- <i class="fa-solid fa-pen"></i> -->
+                    <a href="./logout.php">
+                        <p>會員登出</p>
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -112,13 +130,15 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
 </div>
 <script>
     // 修改會員資料換頁按鈕事件
-    var editBtn = document.querySelector("#editBtn");
+    var editBtn = document.querySelectorAll("[name='editBtn']");
 
-    function editBtnHandler() {
-        console.log('editBtnHandler');
-        location.href = 'member_data.php';
+    for (let i = 0; i < editBtn.length; i++) {
+        const element = editBtn[i];
+        element.onclick = function() {
+            console.log('editBtnHandler');
+            location.href = 'member_data.php';
+        }
     }
-    editBtn.addEventListener('click', editBtnHandler);
 </script>
 <?php include __DIR__ . '/mengParts/scripts.php'; ?>
 

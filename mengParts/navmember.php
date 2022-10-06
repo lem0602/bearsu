@@ -7,7 +7,7 @@
             <a href="./Order-record.php">訂單記錄</a>
         </li>
         <li class="navmember_item m2 <?php if($pageName == '') {echo 'on' ;} ?>">
-            <a href="">我的食譜 </a>
+            <a href="./recipe_collect.php">我的食譜 </a>
         </li>
         <li class="navmember_item m3 <?php if($pageName == 'map_collect') {echo 'on' ;} ?>">
             <a href="./map_collect.php">收藏 </a>

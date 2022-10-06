@@ -18,7 +18,10 @@
     --mygray: #808080;
     --box-shadow: 4px 4px 0 var(--myblack)
 }
-
+.member_main .head img{
+    width: 100%;
+    
+}
 
 /* html,
 body {
@@ -149,7 +152,7 @@ position: absolute;
     justify-content: center; */ */
 
 
-}
+/* } */
 
 .container1 {
     max-width: 1140px;
@@ -162,7 +165,7 @@ position: absolute;
     width: 150px;
     height: 150px;
     margin: auto;
-    background: #EEEEEE;
+   
     /* padding: 0 19px; */
 }
 
@@ -314,7 +317,7 @@ position: absolute;
 
 }
 
-.boxradio1 {}
+/* .boxradio1 {} */
 
 .footer {
     background-color: #005F5F;
@@ -610,7 +613,7 @@ footer p {
         padding: 0 15px 0 15px;
     }
 
-    .member_box {}
+    /* .member_box {} */
 
     .member_box1 h3 {
         display: flex;

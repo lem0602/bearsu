@@ -4,6 +4,10 @@
     font-family: 'Noto Sans TC', sans-serif;
     box-sizing: border-box;
 }
+.member_main .head img {
+    width: 100%;
+
+}
 
 /* html,
 body {
@@ -126,7 +130,7 @@ body {
     width: 150px;
     height: 150px;
     margin: auto;
-    background: #EEEEEE;
+ 
     /* padding: 0 19px; */
 }
 
@@ -490,7 +494,7 @@ footer p {
     }
 
     .member_info {
-        padding: 0 27.5px;
+        padding: 0px;
     }
 
     .order_box1 th {

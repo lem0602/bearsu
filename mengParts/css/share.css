@@ -205,9 +205,9 @@ footer p {
 }
 
 
-.navmember_item+.navmember_item {
+/* .navmember_item+.navmember_item {
     border-top: 1px solid #333333;
-}
+} */
 
 .navmember_item.on {
     background-color: #005F5F;
@@ -281,5 +281,10 @@ a:hover {
     .member_title h1 {
         margin: auto;
         padding-top: 48px;
+    }
+
+    .navmember_item {
+        padding: 14px;
+        height: 88px;
     }
 }

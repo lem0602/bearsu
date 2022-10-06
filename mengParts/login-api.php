@@ -6,7 +6,7 @@ $output = [
     'success' => false,
     'error' => '',
     'code' => 0,
-    // 'showPass' => password_hash('1234', PASSWORD_DEFAULT),
+    'showPass' => password_hash('a1234', PASSWORD_DEFAULT),
 ];
 
 // 1. 先欄位資料是否足夠

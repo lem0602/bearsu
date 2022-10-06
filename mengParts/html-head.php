@@ -28,6 +28,8 @@ if(! isset($title)){
     <link rel="icon" href="./favicon.png" type="image/x-icon" />
    
     <title>會員資料</title>
+    <link rel="stylesheet" href="./css/mobile-nav.css">
+    <link rel="stylesheet" href="./css/pc-nav.css">
 </head>
 
 <body>
