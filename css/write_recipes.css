@@ -95,6 +95,8 @@ body {
 /* 下拉是選單外觀設定 */
 .veggie-category-dropdown {
     margin-bottom: 48px;
+    display: flex;
+    
 }
 /* 下拉是選單外觀設定 */
 .dropbtn {
