@@ -1,34 +1,18 @@
-<?php
+ <?php
 require __DIR__ . '/kc_parts/connect_db.php';
 // pageName = '';
-
-
-if(! isset($_SESSION['detail'])){
-    $_SESSION['detail'] = [];
-}
-
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
-if(! empty($sid)) {
+$sql = sprintf(
+    "SELECT r.*
+FROM article AS r
+WHERE r.sid=$sid  "
+);
 
-    if(! empty($_SESSION['cart'][$sid])){
-
-    } else {
-        // 新增
-        // TODO: 檢查資料表是不是有這個商品
-
-        $row = $pdo->query("SELECT * FROM article WHERE sid=$sid")->fetch();
-
-        if(! empty($row)){
-            $_SESSION['detail'][$sid] = $row;
-        }
-    }
-}
-
-// echo json_encode($_SESSION['detail']);
+$rows = $pdo->query("SELECT r.* FROM article AS r WHERE r.sid=$sid  ")->fetchAll();
 
 // echo json_encode([
-//     'row' => $row,
+//     'rows' => $rows,
 // ]);
 // exit;
 ?>
@@ -40,7 +24,7 @@ if(! empty($sid)) {
     <div class="container">
         <div class="row">
             <section id="article-detail-main">
-                <?php foreach ($_SESSION['detail'] as $c) :?>
+                <?php foreach ($rows as $c) :?>
                 <div class="article-detail-box">
                     <div class="title">
                         <h1><?= $c['title'];?></h1>
@@ -78,9 +62,7 @@ if(! empty($sid)) {
                             </div>
                             <div class="textareabox">
                                 <textarea placeholder="加入討論(最多可輸入100字)" rows="3" maxlength="100" class="editDetail" id="detail2"></textarea>
-                                <p>
-                                    <span id="detail2-num">0</span>/<span>100</span>
-                                </p>
+                                <p><span class="textNum">0/100</span></p>
                             </div>
                         </div>
                         <div class="button-box">
@@ -109,5 +91,35 @@ if(! empty($sid)) {
 </footer>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
+<script>
+        //封裝一個限制字數方法
+        var checkStrLengths = function(str, maxLength) {
+        var maxLength = maxLength;
+        var result = 0;
+        if (str && str.length > maxLength) {
+            result = maxLength;
+        } else {
+            result = str.length;
+        }
+        return result;
+    }
 
+    //監聽輸入
+    $(".editDetail").on('input propertychange', function() {
+
+        //獲取輸入內容
+        var userDesc = $(this).val();
+
+        //判斷字數
+        var len;
+        if (userDesc) {
+            len = checkStrLengths(userDesc, 100);
+        } else {
+            len = 0
+        }
+
+        //顯示字數
+        $(".textNum").html(len + '/100');
+    });
+</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>
