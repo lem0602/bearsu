@@ -237,6 +237,14 @@ body {
     margin-bottom: 24px;
 }
 
+@media screen and (min-width: 570px) {
+    .step-txt h2, .step-txt p {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.6rem;
+    }
+}
+
 /* message */
 #message {
     padding: 0 24px;

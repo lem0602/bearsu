@@ -353,36 +353,7 @@ button {
     margin-bottom: 24px;
 }
 
-/* list holder   */
-.listHolder li {
-    counter-increment: step-counter;
-    overflow: hidden;
-    padding: 0 0 20px 30px;
-    position: relative;
-}
 
-.listHolder li:before {
-    content: counter(step-counter);
-    background: #4ac7be;
-    color: #fff;
-    font-size: 14px;
-    padding: 0px 6px;
-    border-radius: 3px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.listHolder .listName {
-    float: left;
-}
-
-.listHolder .btn-icon {
-    float: right;
-    margin: 0 0 0 20px;
-}
-
-/* ------------------- */
 
 .text-addIngredients {
     width: 100%;
@@ -462,9 +433,8 @@ button {
     margin-bottom: 14px;
 }
 
-.step .header h2{
-    counter-reset: chapter 99 section -1 money 200000000 nobody
-
+.step .header h2 {
+    counter-reset: chapter 99 section -1 money 200000000 nobody;
 }
 
 .step button {

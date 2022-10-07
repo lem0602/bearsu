@@ -162,7 +162,7 @@ $irows = $pdo->query($ingredients)->fetchAll();
                     <div class="content">
                         <div class="img-text-box">
                             <div class="author-img">
-                                <img src="./images/mug_shot_04.png" alt="" />
+                                <img src="./images/mascot_12.png" alt="" />
                             </div>
                             <div class="textareabox">
                                 <textarea placeholder="加入討論(最多可輸入100字)" rows="3" maxlength="100" class="editdetail" id="detail2"></textarea>
@@ -177,9 +177,9 @@ $irows = $pdo->query($ingredients)->fetchAll();
                     </div>
                     <div class="message">
                         <div class="message-author-img">
-                            <img src="./images/mug_shot_04.png" alt="" />
+                            <img src="./images/mug_shot_01.png" alt="" />
                         </div>
-                        <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
+                        <p>試著做讚讚讚</p>
                     </div>
                 </div>
             </section>

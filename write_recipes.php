@@ -184,15 +184,7 @@ if ($totalRows > 0) {
                                         <div class="row allDetail-box">
                                             <!-- list holder -->
                                             <div class="listHolder">
-                                                <ul class="list">
-                                                    <li class="row listHolderLi">
-                                                        <div class="detail-box col-7 col-md-7 p-0">
-                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                        <div class="detail-box col-3 col-md-3 p-0">
-                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                    </li>
+                                                <ul class="list" id="listHolder">
 
                                                     <li class="row listHolderLi">
                                                         <div class="detail-box col-7 col-md-7 p-0">
@@ -212,13 +204,21 @@ if ($totalRows > 0) {
                                                         </div>
                                                     </li>
 
+                                                    <li class="row listHolderLi">
+                                                        <div class="detail-box col-7 col-md-7 p-0">
+                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                        <div class="detail-box col-3 col-md-3 p-0">
+                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
+                                                        </div>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <!-- form holder -->
                                             <div class="formHolder">
-                                                <button type="button" id="addBtn" class="darkbutton">
+                                                <a type="button" id="addBtn" class="darkbutton">
                                                     <h3 class="addIng">新增食材</h3>
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@ if ($totalRows > 0) {
 </section>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
-<!-- 自數偵測 -->
+<!-- 自數偵測字數-->
 <script>
     //封裝一個限制字數方法
     var checkStrLengths = function(str, maxLength) {
@@ -355,19 +355,7 @@ if ($totalRows > 0) {
         });
     }
 </script>
+
 <!-- add the new list -->
-<script>
-    const divList = document.querySelector('.step-box');
-
-    const addInput = document.querySelector('#addInput');
-    const addBtn = document.querySelector('#addBtn');
-
-    addBtn.addEventListener('click', () => {
-        const ul = divList.querySelector('ul');
-        const li = document.createElement('li');
-        console.log("li", li);
-        ul.appendChild(li);
-    });
-</script>
-
+<script type="text/javascript" src="js/add_list.js"></script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>
