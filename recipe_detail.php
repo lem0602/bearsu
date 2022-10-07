@@ -162,13 +162,11 @@ $irows = $pdo->query($ingredients)->fetchAll();
                     <div class="content">
                         <div class="img-text-box">
                             <div class="author-img">
-                                <img src="./images/mug_shot_04.png" alt="" />
+                                <img src="./images/mascot_12.png" alt="" />
                             </div>
                             <div class="textareabox">
                                 <textarea placeholder="加入討論(最多可輸入100字)" rows="3" maxlength="100" class="editdetail" id="detail2"></textarea>
-                                <p>
-                                    <span id="detail2-num">0</span>/<span>100</span>
-                                </p>
+                                <p><span class="textNum">0/100</span></p>
                             </div>
                         </div>
                         <div class="button-box">
@@ -179,9 +177,9 @@ $irows = $pdo->query($ingredients)->fetchAll();
                     </div>
                     <div class="message">
                         <div class="message-author-img">
-                            <img src="./images/mug_shot_04.png" alt="" />
+                            <img src="./images/mug_shot_01.png" alt="" />
                         </div>
-                        <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
+                        <p>試著做讚讚讚</p>
                     </div>
                 </div>
             </section>
@@ -196,4 +194,35 @@ $irows = $pdo->query($ingredients)->fetchAll();
 </footer>
 
 <?php include __DIR__ . '/kc_parts/scripts.php'; ?>
+<script>
+    //封裝一個限制字數方法
+    var checkStrLengths = function(str, maxLength) {
+        var maxLength = maxLength;
+        var result = 0;
+        if (str && str.length > maxLength) {
+            result = maxLength;
+        } else {
+            result = str.length;
+        }
+        return result;
+    }
+
+    //監聽輸入
+    $(".editdetail").on('input propertychange', function() {
+
+        //獲取輸入內容
+        var userDesc = $(this).val();
+
+        //判斷字數
+        var len;
+        if (userDesc) {
+            len = checkStrLengths(userDesc, 100);
+        } else {
+            len = 0
+        }
+
+        //顯示字數
+        $(".textNum").html(len + '/100');
+    });
+</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>
