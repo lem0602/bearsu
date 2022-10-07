@@ -151,6 +151,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                                             $birD = mb_split("-", $bir)[2];
                                             // 如果生日的資料欄位是空的，為了怕程式出錯所以給他一個空值 ex如果沒有日期就會顯示1月1日
                                         } else {
+                                            echo " <script>var birY = 1990; </script>";
                                             $birM = '';
                                             $birD = '';
                                         }
@@ -220,8 +221,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="mobile" type="text" name="name" placeholder="" value="
-                                    <?php
+                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php
                                     if (!empty($data['mobile'])) {
                                         echo $data['mobile'];
                                     } else {
@@ -238,8 +238,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="addresss" type="text" name="name" placeholder="" value="
-                                    <?php
+                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php
                                     if (!empty($data['address'])) {
                                         echo $data['address'];
                                     } else {
@@ -255,8 +254,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="email" type="text" name="name" placeholder="" value="
-                                    <?php
+                                    <input id="email" type="text" name="name" placeholder="" value="<?php
                                     if (!empty($data['email'])) {
                                         echo $data['email'];
                                     } else {
@@ -416,5 +414,8 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
 </script>
 
 <?php include __DIR__ . '/mengParts/scripts.php'; ?>
+<script>
+    const userData = <?= json_encode($data, JSON_UNESCAPED_UNICODE) ?>;
 
+</script>
 <?php include __DIR__ . '/mengParts/html-foot.php'; ?>
