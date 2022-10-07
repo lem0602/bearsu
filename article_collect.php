@@ -59,12 +59,12 @@ if ($totalRows > 0) {
                     </div>
                     <ul class="membermenulist">
                         <li class="col membermenu">
-                            <a href="#0">
+                            <a href="./member.php">
                                 <h3>會員資料</h3>
                             </a>
                         </li>
                         <li class="col membermenu">
-                            <a href="#0">
+                            <a href="./Order-record.php">
                                 <h3>訂單記錄</h3>
                             </a>
                         </li>
@@ -85,16 +85,16 @@ if ($totalRows > 0) {
             <div class="main-container col-md-9 offset-md-1">
                 <section id="menu">
                     <div class="collection-nav">
-                        <a href="#0" class="lightbutton">
+                        <a href="./course_detail.php" class="lightbutton">
                             <h4>廚藝教室</h4>
                         </a>
-                        <a href="#0" class="lightbutton">
+                        <a href="./solarterms_collect.php" class="lightbutton">
                             <h4>節氣食譜</h4>
                         </a>
                         <a href="./recipe_collect.html" class="lightbutton">
                             <h4>食譜</h4>
                         </a>
-                        <a href="#0" class="lightbutton">
+                        <a href="./map_collect.php" class="lightbutton">
                             <h4>地圖</h4>
                         </a>
                         <a href="./article_collect.html" class="darkbutton">

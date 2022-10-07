@@ -64,12 +64,11 @@ body {
 }
 
 /* Dropdown */
-/* dropdown */
 .veggie-category {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 48px;
+    margin-bottom: 48p x;
 }
 
 .dropdown-box {
@@ -282,6 +281,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 24px;
+    width: 100%;
 }
 
 @media screen and (min-width: 570px) {
