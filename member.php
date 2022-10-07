@@ -78,7 +78,12 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                             <td>
                                 <h3 class="member_box123">
                                     <?php
-                                    echo mb_split("-", $data['birthday'])[1] . "月" . mb_split("-", $data['birthday'])[2] . "日";
+                                    if (!empty($data['birthday'])) {
+                                        echo mb_split("-", $data['birthday'])[1] . "月" . mb_split("-", $data['birthday'])[2] . "日";
+                                    }else{
+                                        echo "1月1日";
+                                    }
+
                                     ?>
                                 </h3>
                             </td>
