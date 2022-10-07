@@ -26,7 +26,7 @@ if ($totalRows > 0) {
         exit;
     }
     // 取得該頁面的資料
-    $sql = sprintf("SELECT * FROM `article` ORDER BY `sid` LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `article` ORDER BY members_sid = 1 LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
     $rows = $pdo->query($sql)->fetchAll();
 }
 
@@ -53,7 +53,7 @@ if ($totalRows > 0) {
                 <div class="avatar-menu-box">
                     <div class="avatar-box">
                         <div class="avatar">
-                            <img src="./images/mug_shot_04.png" alt="">
+                            <img src="./images/mascot_12.png" alt="">
                         </div>
                         <h3>已分享食譜 0</h3>
                     </div>
@@ -85,19 +85,19 @@ if ($totalRows > 0) {
             <div class="main-container col-md-9 offset-md-1">
                 <section id="menu">
                     <div class="collection-nav">
-                        <a href="./course_detail.php" class="lightbutton">
+                        <a href="./course_collect.php" class="lightbutton">
                             <h4>廚藝教室</h4>
                         </a>
                         <a href="./solarterms_collect.php" class="lightbutton">
                             <h4>節氣食譜</h4>
                         </a>
-                        <a href="./recipe_collect.html" class="lightbutton">
+                        <a href="./recipe_collect.php" class="lightbutton">
                             <h4>食譜</h4>
                         </a>
                         <a href="./map_collect.php" class="lightbutton">
                             <h4>地圖</h4>
                         </a>
-                        <a href="./article_collect.html" class="darkbutton">
+                        <a href="./article_collect.php" class="darkbutton">
                             <h4>文章</h4>
                         </a>
                     </div>
@@ -105,15 +105,16 @@ if ($totalRows > 0) {
 
                 <section id="collection-main">
                     <div class="collection-list">
+                        <?php foreach ($rows as $r) : ?>
                         <div class="article-content">
                             <div class="article-img col-md">
-                                <img src="./images/article_05_01.jpeg" alt="" />
+                                <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
                             </div>
 
                             <div class="contant col-md">
                                 <div class="title">
                                     <h2>
-                                        植物肉有益健康 可望取代動物製
+                                        <?= $r['title'] ?>
                                     </h2>
                                     <div class="bookmark d-none d-lg-block">
                                         <i class="fa-regular fa-bookmark"></i>
@@ -121,13 +122,9 @@ if ($totalRows > 0) {
                                     <p class="d-lg-none">by 史萊姆</p>
                                 </div>
                                 <p class="d-none d-lg-block">by 史萊姆</p>
-                                <h4 class="introduction">
-                                    發表在科學雜誌《未來食品》( Future Foods
-                                    )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                    植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                                </h4>
+                                <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
                                 <div class="article-btn">
-                                    <a class="darkbutton" href="#0">
+                                    <a class="darkbutton" href="./article_detail.php?sid=<?= $r['sid'] ?>">
                                         <h4>了解更多</h4>
                                     </a>
                                     <div class="bookmark d-lg-none">
@@ -136,136 +133,7 @@ if ($totalRows > 0) {
                                 </div>
                             </div>
                         </div>
-
-                        <div class="article-content">
-                            <div class="article-img col-md">
-                                <img src="./images/article_05_01.jpeg" alt="" />
-                            </div>
-
-                            <div class="contant col-md">
-                                <div class="title">
-                                    <h2>
-                                        植物肉有益健康 可望取代動物製
-                                    </h2>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                    <p class="d-lg-none">by 史萊姆</p>
-                                </div>
-                                <p class="d-none d-lg-block">by 史萊姆</p>
-                                <h4 class="introduction">
-                                    發表在科學雜誌《未來食品》( Future Foods
-                                    )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                    植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                                </h4>
-                                <div class="article-btn">
-                                    <a class="darkbutton" href="#0">
-                                        <h4>了解更多</h4>
-                                    </a>
-                                    <div class="bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="article-content">
-                            <div class="article-img col-md">
-                                <img src="./images/article_05_01.jpeg" alt="" />
-                            </div>
-
-                            <div class="contant col-md">
-                                <div class="title">
-                                    <h2>
-                                        植物肉有益健康 可望取代動物製
-                                    </h2>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                    <p class="d-lg-none">by 史萊姆</p>
-                                </div>
-                                <p class="d-none d-lg-block">by 史萊姆</p>
-                                <h4 class="introduction">
-                                    發表在科學雜誌《未來食品》( Future Foods
-                                    )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                    植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                                </h4>
-                                <div class="article-btn">
-                                    <a class="darkbutton" href="#0">
-                                        <h4>了解更多</h4>
-                                    </a>
-                                    <div class="bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="article-content">
-                            <div class="article-img col-md">
-                                <img src="./images/article_05_01.jpeg" alt="" />
-                            </div>
-
-                            <div class="contant col-md">
-                                <div class="title">
-                                    <h2>
-                                        植物肉有益健康 可望取代動物製
-                                    </h2>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                    <p class="d-lg-none">by 史萊姆</p>
-                                </div>
-                                <p class="d-none d-lg-block">by 史萊姆</p>
-                                <h4 class="introduction">
-                                    發表在科學雜誌《未來食品》( Future Foods
-                                    )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                    植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                                </h4>
-                                <div class="article-btn">
-                                    <a class="darkbutton" href="#0">
-                                        <h4>了解更多</h4>
-                                    </a>
-                                    <div class="bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="article-content">
-                            <div class="article-img col-md">
-                                <img src="./images/article_05_01.jpeg" alt="" />
-                            </div>
-
-                            <div class="contant col-md">
-                                <div class="detall">
-                                    <div class="title">
-                                        <h2>
-                                            植物肉有益健康 可望取代動物製
-                                        </h2>
-                                        <div class="bookmark d-none d-lg-block">
-                                            <i class="fa-regular fa-bookmark"></i>
-                                        </div>
-                                        <p class="d-lg-none">by 史萊姆</p>
-                                    </div>
-                                    <p class="d-none d-lg-block">by 史萊姆</p>
-                                    <h4 class="introduction">
-                                        發表在科學雜誌《未來食品》( Future Foods
-                                        )上的一項新研究指出，植物肉具有良好的營養成分，且其味道、質地和口感，是參考動物肉複製而成，因此植物肉有機會取代動物製品，提供消費者環境永續的選擇。若未來加工和成分更加創新，增進植物肉營養價值指日可待。
-                                        植物肉對健康的益處康」，植物肉僅占 14%，且植物肉和奶製品有助於減重和增肌，並可用於幫助患有特定健康狀況的人，每天食用植物肉可使髖部骨折風險降低49%。
-                                    </h4>
-                                </div>
-                                <div class="article-btn">
-                                    <a class="darkbutton" href="#0">
-                                        <h4>了解更多</h4>
-                                    </a>
-                                    <div class="bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach ?>
                     </div>
                 </section>
             </div>

@@ -144,7 +144,7 @@ if ($totalRows > 0) {
 
                                         <div type="button" class="dropdown-content">
                                             <?php for ($i = 1; $i <= 10; $i++) : ?>
-                                                <a type="button" href="#0">
+                                                <a type="button" href="javascript:document.form1.submit(<?= $i ?>);">
                                                     <h5><?= $i ?></h5>
                                                 </a>
                                             <?php endfor ?>
