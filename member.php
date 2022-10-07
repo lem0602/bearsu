@@ -21,7 +21,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="./images/mascot_12.png" alt="大頭貼">
+                    <img class="w-100" src="./images/mascot_12.png" alt="大頭貼">
                 </div>
                 <span class="headnew">更新頭像</span>
                 <div class="share">
@@ -34,7 +34,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="member_info col-md-10">
                 <div class="member_title">
                     <h1>會員資料</h1>
-                    <div class="member_func_box">
+                    <div class="member_func_box ">
                         <div name="editBtn" class="chang_member ">
                             <i class="fa-solid fa-pen"></i>
                             <p>修改會員資料</p>
@@ -112,7 +112,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <!-- mobile-changbar -->
-            <div class="member_func_box">
+            <div class="member_mobile_func_box">
                 <div name="editBtn" class="chang_member1 ">
                     <i class="fa-solid fa-pen"></i>
                     <p>修改會員資料</p>

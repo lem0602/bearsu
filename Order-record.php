@@ -21,7 +21,7 @@ $stmt = $pdo->query($sql);
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="./images/mascot_12.png" alt="大頭貼">
+                    <img class="w-100" src="./images/mascot_12.png" alt="大頭貼">
                 </div>
 
                 <div class="share">

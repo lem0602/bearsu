@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Noto Sans TC', sans-serif;
     box-sizing: border-box;
+    
 }
 
 :root {
@@ -21,14 +22,20 @@
 
 .member_main .head img {
     width: 100%;
-    
-
 }
 
 .member_func_box{
     display: flex;
 }
 .member_func_box .chang_member +.chang_member{
+    margin-left: 20px;
+}
+
+.member_mobile_func_box{
+    display: flex;
+}
+
+.member_mobile_func_box .chang_member +.chang_member{
     margin-left: 20px;
 }
 
@@ -456,11 +463,23 @@ footer p {
     .member_func_box .chang_member1 +.chang_member1{
         margin-left: 20px;
     }
+
     .member_func_box{
         margin: auto;
         padding-bottom: 20px;
-
+        display: none;
     }
+
+    .member_mobile_func_box .chang_member1 +.chang_member1{
+        margin-left: 20px;
+    }
+
+    .member_mobile_func_box{
+        margin: auto;
+        padding-bottom: 20px;
+        
+    }
+
     .container {
         padding: 0;
     }
