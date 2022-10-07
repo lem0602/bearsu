@@ -5,13 +5,14 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-1 col-lg-1 d-none d-md-block d-lg-block"></div>
         <div class="col-md-3 col-lg-3 d-none d-md-flex d-lg-flex mascot align-items-center">
             <div class="mascot_wrap">
                 <img src="images/mascot_left.gif" alt="">
             </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+        <div class="col-12 col-md-4 col-lg-4 d-flex align-items-center">
             <form name="form1" method="post" novalidate onsubmit="checkForm(event); return false;" class="register_box w-100">
                 <h1>註冊</h1>
                 <div class="input_box">
@@ -74,6 +75,8 @@
                 <img src="images/mascot_right.gif" alt="">
             </div>
         </div>
+
+        <div class="col-md-1 col-lg-1 d-none d-md-block d-lg-block"></div>
 
     </div>
 </div>
