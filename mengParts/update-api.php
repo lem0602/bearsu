@@ -18,7 +18,6 @@ $output = [
     'birthday' => $_POST['birthday'],
     'gender' => $_POST['gender'],
 ];
-$mobile = $_POST['mobile'];
 // 判斷密碼欄位有無內容
 if (!empty($_POST['password'])) {
     // 密碼欄位有內容及去跟資料庫確認密碼是否正確
