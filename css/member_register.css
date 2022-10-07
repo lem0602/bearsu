@@ -53,7 +53,7 @@
         }
 
         .nav_right .li_top {
-            padding-top: 35px;
+            padding-top: 30px;
         }
 
         .nav_right li:hover {
@@ -110,7 +110,13 @@
         }
 
         .register_box .input_box {
-            padding: 32px;
+            padding: 32px 21px;
+        }
+
+        @media screen and (min-width:768px) {
+            .register_box .input_box {
+                padding: 32px 16px;
+            }
         }
 
         .register_box .name_box {
@@ -155,8 +161,14 @@
         .register_box .password_box input {
             background-color: transparent;
             border: none;
-            padding: 0px 8px;
             flex-grow: 1;
+        }
+
+        @media screen and (min-width:768px) {
+            .register_box .input_box input,
+        .register_box .password_box input {
+            padding: 0px 8px;
+        }
         }
 
         .register_box .input_box input:focus,

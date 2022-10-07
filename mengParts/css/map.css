@@ -15,7 +15,7 @@ body {
 } */
 
 body {
-    /* height: auto; */
+    height: auto;
     min-height: 100%;
 }
 
@@ -44,7 +44,7 @@ body {
     /* position: sticky; */
     position: absolute;
     top: 0px;
-    left: 50px;
+    left: 0px;
     /* height: 0px; */
     /* margin-left: 50px; */
     /* margin-top: 48px; */
@@ -246,14 +246,7 @@ label {
     align-items: center;
 }
 
-.mapcardp5 h4 {
-    border: 2px solid #005F5F;
-    padding: 0 2px;
-    margin-right: 12px;
-    border-radius: 5px;
-    height: 30px;
 
-}
 
 .mapcardp5 span {
     display: flex;

@@ -5,6 +5,7 @@ $pageName = 'map_collect'; // 頁面名稱
 
 
 $acc = $_SESSION['user']['id'];
+// echo 'adf' . $_SESSION['user']['email'];
 // SELECT * FROM `order_record` WHERE `member_id` = 1
 $sql = "SELECT * FROM `map_collect` WHERE member_id=$acc";
 $stmt = $pdo->query($sql);
@@ -12,19 +13,20 @@ $stmt = $pdo->query($sql);
 
 ?>
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
-<?php include __DIR__ . '/mengParts/navbar.php'; ?>
-<!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
-<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
 <link rel="stylesheet" href="./mengParts/css/map_collect.css">
 
 <link rel="stylesheet" href="/css/map_collect.css">
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
+<?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+
 
 <div class="member_wrap collect">
     <div class="container">
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="" alt="大頭貼">
+                    <img class="w-100" src="./images/mascot_12.png" alt="大頭貼">
                 </div>
 
                 <div class="share">
@@ -117,17 +119,17 @@ $stmt = $pdo->query($sql);
 
                                     </span>
                                     <a href="   <?php
-                                    $map_id = $data["map_id"];
-                                    if (empty($_SESSION["user"]["id"])) {
-                                        echo "";
-                                    } else {
-                                        $member_id = $_SESSION['user']['id'];
-                                        $showUrlSql = "SELECT `url` FROM `map_collect` WHERE `member_id` = $member_id  AND `map_id` = $map_id";
-                                        $stmtUrl = $pdo->query($showUrlSql);
-                                        $rowUrl = $stmtUrl->fetch(PDO::FETCH_ASSOC);
-                                        echo $rowUrl["url"];
-                                    }
-                                    ?>" class="maplink"  target="_blank">查看地圖</a>
+                                                $map_id = $data["map_id"];
+                                                if (empty($_SESSION["user"]["id"])) {
+                                                    echo "";
+                                                } else {
+                                                    $member_id = $_SESSION['user']['id'];
+                                                    $showUrlSql = "SELECT `url` FROM `map_collect` WHERE `member_id` = $member_id  AND `map_id` = $map_id";
+                                                    $stmtUrl = $pdo->query($showUrlSql);
+                                                    $rowUrl = $stmtUrl->fetch(PDO::FETCH_ASSOC);
+                                                    echo $rowUrl["url"];
+                                                }
+                                                ?>" class="maplink" target="_blank">查看地圖</a>
                                 </div>
                             </div>
                         </div>
@@ -380,4 +382,3 @@ $stmt = $pdo->query($sql);
 <?php include __DIR__ . '/mengParts/scripts.php'; ?>
 
 <?php include __DIR__ . '/mengParts/html-foot.php'; ?>
-

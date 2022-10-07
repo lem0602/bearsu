@@ -18,7 +18,6 @@ $output = [
     'birthday' => $_POST['birthday'],
     'gender' => $_POST['gender'],
 ];
-$mobile = $_POST['mobile'];
 // 判斷密碼欄位有無內容
 if (!empty($_POST['password'])) {
     // 密碼欄位有內容及去跟資料庫確認密碼是否正確
@@ -28,14 +27,14 @@ if (!empty($_POST['password'])) {
     $row = $stmt->fetch();
     if (password_verify($_POST['password'], password_hash($row['password'], PASSWORD_DEFAULT))) {
         // 如果正確，修改密碼指令就會執行
-        $sql = "UPDATE members SET mobile = '$mobile',gender='" . $_POST['gender'] . "',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "',password='" . $_POST['newpassword'] . "' where email='" . $_SESSION['user']['email'] . "'";
+        $sql = "UPDATE members SET gender='".$_POST['gender']."',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "',password='".$_POST['newpassword']."' where email='" . $_SESSION['user']['email'] . "'";
     } else {
         $output['error'] = '密碼錯誤';
         echo json_encode($output, JSON_UNESCAPED_UNICODE);
         exit;
     }
 } else {
-    $sql = "UPDATE members SET mobile = '$mobile',gender='" . $_POST['gender'] . "',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
+    $sql = "UPDATE members SET gender='".$_POST['gender']."',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
 }
 
 // UPDATE `member` SET `sid`='',`name`='',`email`='',`password`='',`gender`='',`birthday`='',`mobile`='',`nickname`='',`address`='[value-10]' WHERE 1
@@ -46,9 +45,10 @@ $stmt = $pdo->query($sql);
 
 // 這行指的是暫存 
 $_SESSION['user'] = [
-    'id' =>  $_SESSION['user']['id'],
+    'id' => $_SESSION['user']['id'],
     'email' => $_POST['email'],
 ];
 $output['success'] = true;
+
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);

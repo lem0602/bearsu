@@ -4,22 +4,23 @@ $pageName = 'member'; // 頁面名稱
 // session_start();
 ?>
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
-<?php include __DIR__ . '/mengParts/navbar.php'; ?>
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+
 <link rel="stylesheet" href="./mengParts/css/mamber_data.css">
 <?php
-    // 在還沒做login時候的測試
-    // $acc = 'retaerg@gmail.com';
-    // $acc = 'vzdvg@gmail.com';
-    $acc = $_SESSION['user']['email'];
-    // $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
-    $sql = "SELECT * FROM `members` WHERE `email`='$acc';";
-    // 把sql指令丟到資料庫
-    $stmt = $pdo->query($sql);
-    // 接收資料庫回傳的資料
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+// 在還沒做login時候的測試
+// $acc = 'retaerg@gmail.com';
+// $acc = 'vzdvg@gmail.com';
+$acc = $_SESSION['user']['email'];
+// $acc 代表帳號的變數，因為帳號是隨機的，所以無法固定寫在sql裡面
+$sql = "SELECT * FROM `members` WHERE `email`='$acc';";
+// 把sql指令丟到資料庫
+$stmt = $pdo->query($sql);
+// 接收資料庫回傳的資料
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
+
 
 ?>
 
@@ -28,7 +29,7 @@ $pageName = 'member'; // 頁面名稱
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="" alt="大頭貼">
+                    <img src="./images/mascot_12.png" alt="">
                 </div>
                 <span class="headnew">更新頭像</span>
                 <div class="share">
@@ -55,9 +56,14 @@ $pageName = 'member'; // 頁面名稱
                                 <h2>姓名</h2>
                             </td>
                             <td>
-
-                                <h3 class="bottom_bd">
-                                    <?php echo $data['name']; ?>
+                                <h3 class="bottom_bd23">
+                                    <?php
+                                    if (!empty($data['name'])) {
+                                        echo $data['name'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
                                 </h3>
                             </td>
 
@@ -68,7 +74,13 @@ $pageName = 'member'; // 頁面名稱
                             </td>
                             <td>
                                 <h3>
-                                    <?php echo $data['nickname']; ?>
+                                    <?php
+                                    if (!empty($data['nickname'])) {
+                                        echo $data['nickname'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
                                 </h3>
                             <td>
                         </tr>
@@ -78,17 +90,27 @@ $pageName = 'member'; // 頁面名稱
                             </td>
                             <td class="">
                                 <div class="member_box1b">
-                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php if ($data['gender'] == '男') {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>>
+                                    <input value="男" name="gender" class="boxradio1" type="radio" <?php
+                                                                                                    if (!empty($data['gender'])) {
+                                                                                                        if ($data['gender'] == '男') {
+                                                                                                            echo 'checked';
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo '';
+                                                                                                    }
+                                                                                                    ?>>
                                     <h3>男</h3>
-                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php if ($data['gender'] == '女') {
-                                                                                                        echo 'checked';
-                                                                                                    } ?>>
+                                    <input value="女" name="gender" class="boxradio2" type="radio" <?php
+                                                                                                    if (!empty($data['gender'])) {
+                                                                                                        if ($data['gender'] == '女') {
+                                                                                                            echo 'checked';
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        echo '';
+                                                                                                    }
+                                                                                                    ?>>
                                     <h3>女</h3>
                                 </div>
-
-
                             <td>
                         </tr>
                         <tr class="member_box1">
@@ -110,7 +132,6 @@ $pageName = 'member'; // 頁面名稱
                                         <option value="10">10</option>
                                         <option value="11">11</option>
                                         <option value="12">12</option>
-
                                     </select> -->
                                     <select class="select_month" name="month" id="month_select">
                                         <?php $bir = $data['birthday'];;
@@ -130,6 +151,7 @@ $pageName = 'member'; // 頁面名稱
                                             $birD = mb_split("-", $bir)[2];
                                             // 如果生日的資料欄位是空的，為了怕程式出錯所以給他一個空值 ex如果沒有日期就會顯示1月1日
                                         } else {
+                                            echo " <script>var birY = 1990; </script>";
                                             $birM = '';
                                             $birD = '';
                                         }
@@ -199,7 +221,13 @@ $pageName = 'member'; // 頁面名稱
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php echo $data['mobile']; ?>">
+                                    <input id="mobile" type="text" name="name" placeholder="" value="<?php
+                                    if (!empty($data['mobile'])) {
+                                        echo $data['mobile'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>">
                                 </h3>
                             </td>
                         </tr>
@@ -210,7 +238,13 @@ $pageName = 'member'; // 頁面名稱
                             </td>
                             <td>
                                 <h3 class="bottom_bd">
-                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php echo $data['address']; ?> ">
+                                    <input id="addresss" type="text" name="name" placeholder="" value="<?php
+                                    if (!empty($data['address'])) {
+                                        echo $data['address'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>">
                                 </h3>
                             </td>
                         </tr>
@@ -219,9 +253,16 @@ $pageName = 'member'; // 頁面名稱
                                 <h2>Email</h2>
                             </td>
                             <td>
-
                                 <h3 class="bottom_bd">
-                                    <input id="email" type="text" name="name" placeholder="" value="<?php echo $data['email']; ?>">
+                                    <input id="email" type="text" name="name" placeholder="" value="<?php
+                                    if (!empty($data['email'])) {
+                                        echo $data['email'];
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
+                                    
+                                    ">
                                 </h3>
                             </td>
                         </tr>
@@ -373,5 +414,8 @@ $pageName = 'member'; // 頁面名稱
 </script>
 
 <?php include __DIR__ . '/mengParts/scripts.php'; ?>
+<script>
+    const userData = <?= json_encode($data, JSON_UNESCAPED_UNICODE) ?>;
 
+</script>
 <?php include __DIR__ . '/mengParts/html-foot.php'; ?>
