@@ -72,7 +72,7 @@ if ($totalRows > 0) {
 <?php include __DIR__ . '/kc_parts/navbar.php'; ?>
 
 <main>
-    <form id="file-uploader" action="upload.php" method="POST" enctype="multipart/form-data">
+    <form id="file-uploader" action="write_recipes_detail.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="row">
                 <!-- 寫食譜 -->
