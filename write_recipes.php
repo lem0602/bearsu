@@ -72,19 +72,29 @@ if ($totalRows > 0) {
 <?php include __DIR__ . '/kc_parts/navbar.php'; ?>
 
 <main>
-    <form id="file-uploader" action=" upload.php" method="POST" enctype="multipart/form-data">
+    <form id="file-uploader" action="upload.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="row">
                 <!-- 寫食譜 -->
                 <section id="write-recipes" class="col-md-10">
                     <div class="write-recipes">
                         <div class="text-title-box">
-                            <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" id="title-detail"></textarea>
+                            <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" name="title-detail" id="title-detail"></textarea>
                             <p><span class="titleNum">0/20</span></p>
                         </div>
                         <!-- 素食分類 dropdown -->
                         <div class="veggie-category-dropdown">
-                            <div class="dropdown">
+
+
+                            <select name="vegetarianDp" id="vegetarianDp">
+                            <?php foreach ($cates as $c) : ?>
+                                    <option value="<?= $c['classification'] ?>">
+                                    <h5><?= $c['classification'] ?></h5>
+                                    </option>
+                                    <?php endforeach ?>
+                            </select>
+
+                            <!-- <div class="dropdown">
                                 <button class="dropbtn">
                                     <h5>素食分類</h5>
                                     <i class="fa-solid fa-caret-down"></i>
@@ -92,12 +102,12 @@ if ($totalRows > 0) {
 
                                 <div type="button" class="dropdown-content">
                                     <?php foreach ($cates as $c) : ?>
-                                        <a type="button" href="">
+                                        <a id="classificationdp" type="button" href="javascript:void(0)">
                                             <h5><?= $c['classification'] ?></h5>
                                         </a>
                                     <?php endforeach ?>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- 上傳圖片 -->
                         <div class="upload">
@@ -124,7 +134,7 @@ if ($totalRows > 0) {
                                     <h2>簡介</h2>
                                 </lable>
                                 <div class="textarea-box">
-                                    <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" id="introduction-detail"></textarea>
+                                    <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" name="introduction-detail" id="introduction-detail"></textarea>
                                     <p><span class="wordsNum">0/200</span></p>
                                 </div>
                             </div>
@@ -165,7 +175,7 @@ if ($totalRows > 0) {
 
                                         <div type="button" class="dropdown-content">
                                             <?php for ($i = 15; $i <= 120; $i += 15) : ?>
-                                                <a type="button" href="#0">
+                                                <a type="button" href="#0" value="<?= $i ?>">
                                                     <h5><?= $i ?></h5>
                                                 </a>
                                             <?php endfor ?>
@@ -212,6 +222,7 @@ if ($totalRows > 0) {
                                                             <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
                                                         </div>
                                                     </li>
+
                                                 </ul>
                                             </div>
                                             <!-- form holder -->
@@ -273,7 +284,6 @@ if ($totalRows > 0) {
                         <a class="darkbutton" href="javascript:document.form1.submit();" name="submit">
                             <h2>發布</h2>
                         </a>
-                        <button type="submit" name="submit">上傳檔案</button>
                     </div>
                 </section>
             </div>
@@ -353,6 +363,20 @@ if ($totalRows > 0) {
             //顯示字數
             $(".textNum" + i).html(len + '/150');
         });
+    }
+</script>
+
+<script>
+    function onFormData() {
+        var formData = readFormData();
+
+    }
+
+    function readFormData() {
+        const formData = {};
+        formData['title-detail'] = document.getElementById("title-detail").value;
+
+        return formData;
     }
 </script>
 

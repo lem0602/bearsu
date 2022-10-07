@@ -102,6 +102,38 @@ button {
     margin-bottom: 48px;
     display: flex;
 }
+
+select#vegetarianDp {
+    background-color: var(--mybeige);
+    color: var(--mydarkgreen);
+    border: 2px solid var(--myblack);
+    /* border-bottom: none; */
+    border-radius: 8px;
+    padding: 4px 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select#vegetarianDp .dropbtn h5 {
+    margin-right: 12px;
+}
+
+@media screen and (min-width: 570px) {
+    select#vegetarianDp .dropbtn h5 {
+        margin-right: 48px;
+    }
+}
+
+select#vegetarianDp option {
+    width: 100%;
+    border: 2px solid var(--myblack);
+    border-radius: 0 0 8px 8px;
+    background-color: var(--mybeige);
+}
+
+
 /* 下拉是選單外觀設定 */
 .dropbtn {
     background-color: var(--mybeige);
