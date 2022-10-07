@@ -1769,10 +1769,68 @@ require __DIR__ . '/parts/connect_db.php'; ?>
     </div>
 </div>
 
+<div class="container d-none d-md-block d-lg-block">
+    <div class="row">
+        <div class="flipbook-viewport col-12">
+            <div class="container_wrap">
+                <div class="flipbook">
+                    <div style="background-image:url(flip/pages/1.jpg)"></div>
+                    <div style="background-image:url(flip/pages/2.jpg)"></div>
+                    <div style="background-image:url(flip/pages/3.jpg)"></div>
+                    <div style="background-image:url(flip/pages/4.jpg)"></div>
+                    <div style="background-image:url(flip/pages/5.jpg)"></div>
+                    <div style="background-image:url(flip/pages/6.jpg)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <p>Copyright © 2022 BearSu. All rights reserved.</p>
 </footer>
 
 <?php include __DIR__ . '/parts/index_scripts.php'; ?>
+<script type="text/javascript" src="flip/extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="flip/extras/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript">
+    function loadApp() {
 
+        // Create the flipbook
+
+        $('.flipbook').turn({
+            // Width
+
+            width: 1110,
+
+            // Height
+
+            height: 700,
+
+            // Elevation
+
+            elevation: 50,
+
+            // Enable gradients
+
+            gradients: true,
+
+            // Auto center this flipbook
+
+            autoCenter: true
+
+        });
+        
+    }
+
+    // Load the HTML4 version if there's not CSS transform
+
+    yepnope({
+        test: Modernizr.csstransforms,
+        yep: ['flip/lib/turn.js'],
+        nope: ['flip/lib/turn.html4.min.js'],
+        both: ['flip/css/basic.css'],
+        complete: loadApp
+    });
+</script>
 <?php include __DIR__ . '/parts/foot.php'; ?>

@@ -151,6 +151,16 @@ foreach($veges as $v){
             <div class="btn_section d-flex justify-content-center justify-content-md-end justify-content-lg-end">
                 <button type="submit">發表留言</button>
             </div>
+            <div class="message_card_innrwrap message_card_innrwrap_down d-flex">
+                <div class="mug_shot d-flex flex-column align-items-center">
+                    <img src="images/mascot_12.png" alt="">
+                </div>
+                <div class="input_section w-100">
+                    <h3>LEM</h3>
+                    <h4>謝謝分享，改天來試試看。</h4>
+                    <p><?php $datetime = date ("Y-m-d H:i:s" , mktime(date('H')+6, date('i'), date('s'), date('m'), date('d'), date('Y'))) ;echo $datetime ; ?></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
