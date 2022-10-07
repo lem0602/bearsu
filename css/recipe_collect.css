@@ -21,12 +21,6 @@ body {
     margin: 48px 0;
 }
 
-.avatar {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 32px;
-}
-
 .avatar img {
     width: 100%;
 }

@@ -49,37 +49,36 @@ if ($totalRows > 0) {
 <main>
     <div class="container">
         <div class="row">
-            <section id="avatar-menu" class="avatar col-md-2">
-                <div class="avatar-menu-box">
-                    <div class="avatar-box">
-                        <div class="avatar">
-                            <img src="./images/mascot_12.png" alt="">
-                        </div>
-                        <h3>已分享食譜 0</h3>
+
+            <section id="avatar-menu" class="col-md-2">
+                <div class="avatar-box">
+                    <div class="avatar">
+                        <img src="./images/mascot_12.png" alt="">
                     </div>
-                    <ul class="membermenulist">
-                        <li class="col membermenu">
-                            <a href="./member.php">
-                                <h3>會員資料</h3>
-                            </a>
-                        </li>
-                        <li class="col membermenu">
-                            <a href="./Order-record.php">
-                                <h3>訂單記錄</h3>
-                            </a>
-                        </li>
-                        <li class="col membermenu">
-                            <a href="#0">
-                                <h3>我的食譜</h3>
-                            </a>
-                        </li>
-                        <li class="col membermenu">
-                            <a href="#0">
-                                <h3>收藏</h3>
-                            </a>
-                        </li>
-                    </ul>
+                    <h3>已分享食譜 0</h3>
                 </div>
+                <ul class="membermenulist">
+                    <li class="col membermenu">
+                        <a href="./member.php">
+                            <h3>會員資料</h3>
+                        </a>
+                    </li>
+                    <li class="col membermenu">
+                        <a href="./Order-record.php">
+                            <h3>訂單記錄</h3>
+                        </a>
+                    </li>
+                    <li class="col membermenu">
+                        <a href="#0">
+                            <h3>我的食譜</h3>
+                        </a>
+                    </li>
+                    <li class="col membermenu">
+                        <a href="#0">
+                            <h3>收藏</h3>
+                        </a>
+                    </li>
+                </ul>
             </section>
 
             <div class="main-container col-md-9 offset-md-1">
@@ -106,33 +105,33 @@ if ($totalRows > 0) {
                 <section id="collection-main">
                     <div class="collection-list">
                         <?php foreach ($rows as $r) : ?>
-                        <div class="article-content">
-                            <div class="article-img col-md">
-                                <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
-                            </div>
+                            <div class="article-content">
+                                <div class="article-img col-md">
+                                    <img src="./images/article/<?= $r['img'] ?>.jpeg" alt="" />
+                                </div>
 
-                            <div class="contant col-md">
-                                <div class="title">
-                                    <h2>
-                                        <?= $r['title'] ?>
-                                    </h2>
-                                    <div class="bookmark d-none d-lg-block">
-                                        <i class="fa-regular fa-bookmark"></i>
+                                <div class="contant col-md">
+                                    <div class="title">
+                                        <h2>
+                                            <?= $r['title'] ?>
+                                        </h2>
+                                        <div class="bookmark d-none d-lg-block">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
+                                        <p class="d-lg-none">by 史萊姆</p>
                                     </div>
-                                    <p class="d-lg-none">by 史萊姆</p>
-                                </div>
-                                <p class="d-none d-lg-block">by 史萊姆</p>
-                                <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
-                                <div class="article-btn">
-                                    <a class="darkbutton" href="./article_detail.php?sid=<?= $r['sid'] ?>">
-                                        <h4>了解更多</h4>
-                                    </a>
-                                    <div class="bookmark d-lg-none">
-                                        <i class="fa-regular fa-bookmark"></i>
+                                    <p class="d-none d-lg-block">by 史萊姆</p>
+                                    <h4 class="introduction"> <?= $r['introduction'] ?> </h4>
+                                    <div class="article-btn">
+                                        <a class="darkbutton" href="./article_detail.php?sid=<?= $r['sid'] ?>">
+                                            <h4>了解更多</h4>
+                                        </a>
+                                        <div class="bookmark d-lg-none">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <?php endforeach ?>
                     </div>
                 </section>
