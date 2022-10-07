@@ -155,8 +155,14 @@
         .register_box .password_box input {
             background-color: transparent;
             border: none;
-            padding: 0px 8px;
             flex-grow: 1;
+        }
+
+        @media screen and (min-width:768px) {
+            .register_box .input_box input,
+        .register_box .password_box input {
+            padding: 0px 8px;
+        }
         }
 
         .register_box .input_box input:focus,
