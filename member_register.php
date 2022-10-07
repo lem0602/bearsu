@@ -164,7 +164,12 @@
 
                     } else {
                         // document.getElementById('modalBtn').disabled=ture;
+                        
                         // alert(data.error);
+
+                        $email.css('border', '1px solid #005F5F')
+                .css('borderRadius', '5px');
+            $error3.text('此Email已經註冊過');
 
                         // $('body').removeClass('modal-open');
 
