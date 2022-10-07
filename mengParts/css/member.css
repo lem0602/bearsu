@@ -19,6 +19,18 @@
     --box-shadow: 4px 4px 0 var(--myblack)
 }
 
+.member_main .head img {
+    width: 100%;
+    
+
+}
+
+.member_func_box{
+    display: flex;
+}
+.member_func_box .chang_member +.chang_member{
+    margin-left: 20px;
+}
 
 /* html,
 body {
@@ -43,40 +55,19 @@ body {
     width: 120px;
 }
 
-.course_wrap {
-    display: flex;
-    /* position: absolute; */
 
-    position: sticky;
-    top: 32px;
-    width: 100%;
-    z-index: 999;
-}
 
-.nav_left {
-    /* position: sticky; */
-    position: absolute;
-    top: 48px;
-    left: 50px;
-    /* height: 0px; */
-    /* margin-left: 50px; */
-    /* margin-top: 48px; */
-}
-
+.nav_left,
 .nav_right {
     position: absolute;
     top: 48px;
-    /* z-index: 999; */
-    /* margin-right: 30px; */
-    width: 150px;
-    /* height: 10px; */
-    right: 50px;
-    border-radius: 100px;
-    border: 2px solid #FFF6E9;
-    background-color: #005F5F;
-    /* overflow: hidden; */
-    /* position: relative; */
-
+    /* position: sticky; */
+    /* position: absolute;
+    top: 48px;
+    left: 50px; */
+    /* height: 0px; */
+    /* margin-left: 50px; */
+    /* margin-top: 48px; */
 }
 
 .nav_right ul {
@@ -98,7 +89,7 @@ body {
 
 .nav_right .li_top {
     padding-top: 35px;
-    border-radius: 200px 200px 0 0 ;
+    border-radius: 200px 200px 0 0;
 }
 
 .nav_right li:hover {
@@ -118,7 +109,6 @@ body {
 .nav_right .icon a:hover {
     transform: scale(1.2);
 }
-.member_wrap{}
 
 /* .nav_right {
     display: inline-block;
@@ -149,29 +139,11 @@ body {
     border-top: 1px dashed #333333;
 }
 
-
 /* 主標 */
 .member_info {
     padding: 0 48px;
 
     /* background-color: #ccc; */
-}
-
-.member_title {
-    display: flex;
-    justify-content: space-between;
-}
-
-.member_title h1 {
-    font-size: 2rem;
-    color: #005F5F;
-    /* display: flex;
-    justify-content: center;
-    margin-right: 48px; */
-    padding-bottom: 48px;
-    font-weight: 700;
-
-
 }
 
 .container1 {
@@ -185,7 +157,7 @@ body {
     width: 150px;
     height: 150px;
     margin: auto;
-    background: #EEEEEE;
+
     /* padding: 0 19px; */
 }
 
@@ -209,7 +181,7 @@ body {
 }
 
 /* 會員資料bar */
-.navmember {
+/*.navmember {
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
@@ -217,13 +189,13 @@ body {
     align-items: center;
     padding: 0px;
     width: 188px;
-    /* height: 384px; */
+   height: 384px; 
     background: #FFF6E9;
     border: 2px solid #333333;
     box-shadow: 4px 4px 0px #333333;
     border-radius: 20px;
     margin-top: 48px;
-}
+}*/
 
 .navmember1 {
     width: 100%;
@@ -318,7 +290,7 @@ footer {
 
 .bottom_bd {
     border-bottom: 1px solid #333333;
-    width: 422px;
+    /* width: 422px; */
 }
 
 /* 修改會員資料按鈕 */
@@ -340,19 +312,15 @@ footer {
     font-weight: 600;
     color: #FFF6E9;
 }
+
 .chang_member:hover {
     transform: translate(3px, 3px);
     box-shadow: none;
     color: #333333;
 }
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
 
 .fa-solid {
     margin-right: 7px;
-
     color: #FFF6E9;
 }
 
@@ -368,17 +336,26 @@ footer p {
     display: none;
 }
 
+@media only screen and (max-width:991px) {
+    .member_box1 h2 {
+        margin-right: 0;
+        /* padding: 10px; */
+    }
+}
+
 @media only screen and (max-width:768px) {
+    
     .navmember_item+.navmember_item {
         border-top: none;
         border-left: 1px solid #333333;
     }
-    .navmember_item{
+
+    .navmember_item {
         padding: 12px;
         height: 88px;
     }
-    
-    
+
+
     .member_wrap {
         padding: 48px 0 10.82px;
         overflow: hidden;
@@ -407,24 +384,22 @@ footer p {
         margin: 0 auto;
     }
 
-    .member_title h1 {
-        margin: auto;
-        padding-top: 48px;
-    }
+
 
     .chang_member {
         display: none;
     }
 
     .chang_member1 {
-        background: #005F5F;
+       background: #005F5F;
         border-radius: 5px;
         width: 162px;
         height: 41px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
+        box-shadow: 4px 4px 0px #333333;
+        transition-duration: .3s;
 
     }
 
@@ -436,7 +411,11 @@ footer p {
     }
 
     .chang_member1 {
-        margin-top: 48px;
+        margin-top: 48px 20px;
+    }
+
+    .member_box123 {
+        letter-spacing: 20px;
     }
 
     /* .member_info{
@@ -474,6 +453,18 @@ footer p {
 }
 
 @media only screen and (max-width:576px) {
+    .member_func_box .chang_member1 +.chang_member1{
+        margin-left: 20px;
+    }
+    .member_func_box{
+        margin: auto;
+        padding-bottom: 20px;
+
+    }
+    .container {
+        padding: 0;
+    }
+
     .member_wrap {
         padding: 48px 0 10.82px;
         overflow: hidden;
@@ -502,6 +493,16 @@ footer p {
     }
 
     .navmember {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--mybeige);
+    border: 2px solid var(--myblack);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 48px; */
         width: 324px;
         height: 88px;
         margin: 0 auto;
@@ -546,20 +547,22 @@ footer p {
     }
 
     .member_box {
-        padding: 0 16px;
+        padding: 16px;
     }
 
     .member_box12 {
-        text-align: left;
-        margin-top: 16px;
-        margin-bottom: 16px;
         width: 100%;
+        text-align: left;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .member_box12 tr {
         display: flex;
         flex-direction: column;
     }
+
+
 
     .member_box1 h2 {
         padding: 0;

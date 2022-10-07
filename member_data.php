@@ -4,8 +4,9 @@ $pageName = 'member'; // 頁面名稱
 // session_start();
 ?>
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
-<?php include __DIR__ . '/mengParts/navbar.php'; ?>
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+
 <link rel="stylesheet" href="./mengParts/css/mamber_data.css">
 <?php
     // 在還沒做login時候的測試
@@ -28,7 +29,7 @@ $pageName = 'member'; // 頁面名稱
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="" alt="大頭貼">
+                    <img src="./images/mascot_12.png"alt="" >
                 </div>
                 <span class="headnew">更新頭像</span>
                 <div class="share">
@@ -56,7 +57,7 @@ $pageName = 'member'; // 頁面名稱
                             </td>
                             <td>
 
-                                <h3 class="bottom_bd">
+                                <h3 class="bottom_bd23">
                                     <?php echo $data['name']; ?>
                                 </h3>
                             </td>
@@ -87,8 +88,6 @@ $pageName = 'member'; // 頁面名稱
                                                                                                     } ?>>
                                     <h3>女</h3>
                                 </div>
-
-
                             <td>
                         </tr>
                         <tr class="member_box1">
@@ -110,7 +109,6 @@ $pageName = 'member'; // 頁面名稱
                                         <option value="10">10</option>
                                         <option value="11">11</option>
                                         <option value="12">12</option>
-
                                     </select> -->
                                     <select class="select_month" name="month" id="month_select">
                                         <?php $bir = $data['birthday'];;

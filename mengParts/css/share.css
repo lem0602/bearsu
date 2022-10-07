@@ -23,19 +23,28 @@ body {
     min-height: 100%;
 }
 
+
+
 .my_wrap {
     min-height: calc(100% - 50px);
     padding: 48px 0;
 }
 
 /* logo */
+.course_wrap {
+    position: sticky;
+    top: 48px;
+    display: flex;
+    width: 100%;
+    z-index: 999;
+}
+
 .nav_left {
     position: sticky;
     top: 32px;
     height: 0px;
     z-index: 999;
     margin-left: 50px;
-    margin-top: 48px;
 }
 
 .nav_left img {
@@ -44,7 +53,7 @@ body {
 
 .nav_right {
     position: absolute;
-    top: 48px;
+    /* top: 48px; */
     z-index: 999;
     /* margin-right: 30px; */
     width: 150px;
@@ -171,7 +180,7 @@ footer p {
     flex-direction: column;
     align-items: center;
     padding: 0px;
-    width: 188px;
+    /* width: 188px; */
     /* height: 384px; */
     background: #FFF6E9;
     border: 2px solid #333333;
@@ -196,9 +205,9 @@ footer p {
 }
 
 
-.navmember_item+.navmember_item {
+/* .navmember_item+.navmember_item {
     border-top: 1px solid #333333;
-}
+} */
 
 .navmember_item.on {
     background-color: #005F5F;
@@ -232,4 +241,50 @@ footer p {
 .icon_bookmark.on .bookmark_on {
     display: block;
     fill: #005F5F;
+}
+
+.member_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.member_title h1 {
+    font-size: 2rem;
+    color: #005F5F;
+    padding-bottom: 48px;
+    font-weight: 700;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navmember_item a {
+    transition-duration: .3s;
+}
+
+.navmember_item a:hover {
+    color: #0056b3;
+}
+
+.mapcardp5 h4 {
+    border: 2px solid #005F5F;
+    padding: 0 2px;
+    margin-right: 12px;
+    border-radius: 5px;
+    height: 30px;
+}
+
+@media only screen and (max-width:768px) {
+    .member_title h1 {
+        margin: auto;
+        padding-top: 48px;
+    }
+
+    .navmember_item {
+        padding: 14px;
+        height: 88px;
+    }
 }

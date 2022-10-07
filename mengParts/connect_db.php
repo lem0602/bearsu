@@ -20,6 +20,7 @@ $pdo_options = [
 
 try {
     $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
+    // echo 'test sql';
 } catch (PDOException $ex) {
     echo "Exceprion: " . $ex->getMessage();
 }

@@ -5,8 +5,10 @@ $pageName = 'order-record'; // 頁面名稱
 
 ?>
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
-<?php include __DIR__ . '/mengParts/navbar.php'; ?>
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+
+<link rel="stylesheet" href="./mengParts/css/order-record.css">
 <?php
 $acc = $_SESSION['user']['id'];
 $sql = "SELECT * FROM `order_record` WHERE member_sid=$acc";
@@ -19,7 +21,7 @@ $stmt = $pdo->query($sql);
         <div class="row">
             <div class="member_main col-md-2 p-0  text-center">
                 <div class="head">
-                    <img src="" alt="大頭貼">
+                    <img src="./images/mascot_12.png" alt="大頭貼">
                 </div>
 
                 <div class="share">

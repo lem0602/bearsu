@@ -26,28 +26,28 @@
                          </a>
                      </li>
                      <li>
-                         <a href="course.php">
+                         <a href="./course.php">
                              <h3>廚藝教室</h3>
                          </a>
                      </li>
                      <li>
-                         <a href="solarterms.php">
+                         <a href="./solarterms.php">
                              <h3>節氣食補</h3>
                          </a>
                      </li>
                      <li>
-                         <a href="map.php">
+                         <a href="./map.php">
                              <h3>素食地圖</h3>
                          </a>
                      </li>
                      <li>
-                         <a href="article.php">
+                         <a href="./recipe_list.php">
                              <h3>相關文章</h3>
                          </a>
                      </li>
                      <li class="small">
-                         <a href="#0">購物車</a>
-                         <a href="#0">會員中心</a>
+                         <a href="./shopping_cart.php">購物車</a>
+                         <a href="./member.php">會員中心</a>
                      </li>
                  </ul>
              </div>
@@ -64,24 +64,24 @@
      <!-- 右側選單 -->
      <div class="nav_right d-none d-md-block d-lg-block">
          <ul class="d-flex flex-column">
-             <a href="index.php">
+             <a href="./index.php">
                  <li class="li_top">首頁</li>
              </a>
-             <a href="course.php">
+             <a href="./course.php">
                  <li>廚藝教室</li>
              </a>
-             <a href="solarterms.php">
+             <a href="./solarterms.php">
                  <li>節氣食補</li>
              </a>
-             <a href="map.php">
+             <a href="./map.php">
                  <li>素食地圖</li>
              </a>
-             <a href="article.php">
+             <a href="./recipe_list.php">
                  <li>相關文章</li>
              </a>
              <div class="icon d-flex justify-content-center pt-3">
-                 <a href="shopping_cart.php"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
-                 <a href=""><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
+                 <a href="./shopping_cart.php"><i class="fa-solid fa-cart-shopping pr-3 pl-5 pb-5"></i></a>
+                 <a href="./member_login.php"><i class="fa-solid fa-user pl-3 pr-5 pb-5"></i></a>
              </div>
          </ul>
      </div>
