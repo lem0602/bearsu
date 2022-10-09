@@ -230,7 +230,7 @@ select#vegetarianDp option {
 
 @media screen and (min-width: 570px) {
     .upload {
-        margin-bottom: 48px;
+        margin-bottom: 20px;
     }
 }
 
@@ -329,6 +329,19 @@ select#vegetarianDp option {
         margin-bottom: 48px;
         flex-direction: row;
     }
+}
+
+select#ingredientsSize, select#ingredientsTime {
+    background-color: var(--mybeige);
+    color: var(--mydarkgreen);
+    border: 2px solid var(--myblack);
+    /* border-bottom: none; */
+    border-radius: 8px;
+    padding: 4px 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ingredients .serving-size {
@@ -474,6 +487,23 @@ select#vegetarianDp option {
     background-color: rgba(255, 255, 255, 0);
 }
 
+.li_list {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 570px) {
+    .li_list {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: normal;
+    }
+
+    .addimg {
+        margin-right: 24px;
+    }
+}
+
 .step .textarea-box {
     display: flex;
     flex-direction: column;
@@ -528,6 +558,23 @@ select#vegetarianDp option {
 
 @media screen and (min-width: 570px) {
     #postcancel h2 {
+        padding: 45px 50px;
+    }
+}
+
+#postcancel input[type=submit] {
+    padding: 12px 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+    color: var(--mybeige);
+    background-color: var(--mydarkgreen);
+    border: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 570px) {
+    #postcancel input {
         padding: 45px 50px;
     }
 }

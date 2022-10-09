@@ -55,11 +55,11 @@ $ingredients = sprintf(
 
 $irows = $pdo->query($ingredients)->fetchAll();
 
-// echo json_encode([
-//     'rows ' => $rows,
-// ]);
+echo json_encode([
+    'rows ' => $rows,
+]);
 
-// exit;
+exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
