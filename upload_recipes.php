@@ -25,7 +25,11 @@ foreach ($files as $fileInfo) {
     }
 }
 
-// print_r($uploadFiles);
+
+$ingredientscount = count($_POST['recipes']['Ingredients']);
+$stepcount = count($_POST['recipes']['step']);
+
+// print_r($stepcount);
 
 
 // $_POST[] = array(
@@ -35,11 +39,10 @@ foreach ($files as $fileInfo) {
 
 
 // echo json_encode([
-//     'uploadFiles' => $uploadFiles[0]
+//     'uploadFiles' => $_POST['recipes']
 // ]);
 
-// exit;
-// 
+// exit; 
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -94,7 +97,7 @@ foreach ($files as $fileInfo) {
                                 <h3>食材</h3>
                             </div>
 
-                            <?php for ($i = 1; $i <= 3; $i++) : ?>
+                            <?php for ($i = 1; $i <=$ingredientscount; $i++) : ?>
                                 <div class="col-12 col-lg-6 ingredients">
                                     <h4><?= $_POST['recipes']['Ingredients'][$i] ?></h4>
                                     <h4><?= $_POST['recipes']['servingSize'][$i] ?></h4>
@@ -106,7 +109,7 @@ foreach ($files as $fileInfo) {
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                        <?php for ($i=1; $i < 5 ; $i++) :?>
+                        <?php for ($i=0; $i < $stepcount ; $i++) :?>
                         <div class="step">
                             <div class="col-md-5 step-img">
                                 <img src="<?= $uploadFiles[$i] ?>" alt="" />

@@ -200,7 +200,7 @@ if ($totalRows > 0) {
                                         <li class="li_list">
                                             <div class="addimg col-12 col-md-4">
                                                 <div class="upload">
-                                                    <label class="text-center image-preview-wrapper" for="stepImgFile<?= $i ?>">
+                                                    <label class="text-center image-preview-wrapper" for="stepImgFile">
                                                         <div class="detall">
                                                             <i class="fa-solid fa-cloud-arrow-up"></i>
                                                             <h2>點擊新增圖片</h2>
@@ -208,18 +208,18 @@ if ($totalRows > 0) {
                                                             <img id="stepImg" class="w-100" src="" alt="">
                                                         </div>
                                                     </label>
-                                                    <input type="file" name="imgFile[]" id="stepImgFile<?= $i ?>" accept="image/jpeg,image/jpg" multiple>
+                                                    <input type="file" name="imgFile[]" id="stepImgFile" accept="image/jpeg,image/jpg" multiple>
                                                 </div>
                                             </div>
                                             <div class="textarea col-12 col-md">
                                                 <div class="header">
-                                                    <h2> <?= $i ?> </h2>
+
                                                     <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.li_list').remove()">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </div>
                                                 <div class="textarea-box">
-                                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" name="recipes[step][<?= $i ?>]" id="introduction-detail"></textarea>
+                                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" name="recipes[step][]" id="introduction-detail"></textarea>
                                                     <p><span class="textNum1">0/150</span></p>
                                                 </div>
                                             </div>
@@ -427,7 +427,7 @@ if ($totalRows > 0) {
         htm += `    <li class="li_list">`;
         htm += `    <div class="addimg col-12 col-md-4">`;
         htm += `    <div class="upload">`;
-        htm += `    <label class="text-center image-preview-wrapper" for="stepImgFile<?= $i ?>">>`;
+        htm += `    <label class="text-center image-preview-wrapper" for="stepImgFile">>`;
         htm += `    <div class="detall">`;
         htm += `    <i class="fa-solid fa-cloud-arrow-up"></i>`;
         htm += `    <h2>點擊新增圖片</h2>`;
@@ -435,18 +435,17 @@ if ($totalRows > 0) {
         htm += `    <img id="stepImg" class="w-100" src="" alt="">`;
         htm += `    </div>`;
         htm += `    </label>`;
-        htm += `    <input type="file" name="imgFile[]" id="stepImgFile<?= $i ?>" accept="image/jpeg,image/jpg" multiple>`;
+        htm += `    <input type="file" name="imgFile[]" id="stepImgFile" accept="image/jpeg,image/jpg" multiple>`;
         htm += `    </div>`;
         htm += `    </div>`;
         htm += `    <div class="textarea col-12 col-md">`;
         htm += `    <div class="header">`;
-        htm += `    <h2><?= $i ?></h2>`;
         htm += `    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.li_list').remove()">`;
         htm += `    <i class="fa-solid fa-trash-can"></i>`;
         htm += `    </button>`;
         htm += `    </div>`;
         htm += `    <div class="textarea-box">`;
-        htm += `    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" name="recipes[step][<?= $i ?>]" id="introduction-detail"></textarea>`;
+        htm += `    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" name="recipes[step][]" id="introduction-detail"></textarea>`;
         htm += `    <p><span class="textNum1">0/150</span></p>`;
         htm += `    </div>`;
         htm += `    </div>`;
