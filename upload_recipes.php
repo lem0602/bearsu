@@ -1,98 +1,41 @@
 <?php
 require __DIR__ . '/kc_parts/connect_db.php';
-// if (isset($_POST['submit'])) {
-//     $file = $_FILES['file'];
-//     // print_r($file);
+/**
+ * 表單接收頁面
+ */
 
-//     $fileName = $_FILES['file']['name'];
-//     $fileTmpName = $_FILES['file']['tmp_name'];
-//     $fileSize = $_FILES['file']['size'];
-//     $fileError = $_FILES['file']['error'];
-//     $fileType = $_FILES['file']['type'];
+// 網頁編碼宣告（防止產生亂碼）
+header('content-type:text/html;charset=utf-8');
+// 封裝好的單一及多檔案上傳 function
+include_once 'upload.func.php';
+// 重新建構上傳檔案 array 格式
+$files = getFiles();
 
-//     $fileExt = explode('.', $fileName);
-//     $fileActualExt = strtolower(end($fileExt));
+// 依上傳檔案數執行
+foreach ($files as $fileInfo) {
+    // 呼叫封裝好的 function
+    $res = uploadFile($fileInfo);
 
-//     $allowed = array('jpg');
+    // 顯示檔案上傳訊息
+    // echo $res['mes'] . '<br>';
 
-//     if (in_array($fileActualExt, $allowed)) {
-//         if ($fileError === 0) {
-//             if ($fileSize < 1000000) {
-//                 $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-//                 $fileDestination = 'uploads/' . $fileNameNew;
-//                 move_uploaded_file($fileTmpName, $fileDestination);
-//                 header("Location: write_recipes.php?uploadsuccess");
-//             } else {
-//                 echo " 上傳檔案太大 ";
-//             }
-//         } else {
-//             echo " 上傳失敗請重新上傳 ";
-//         }
-//     } else {
-//         echo " 無法上傳此照片 ";
-//     }
-// }
-
-// 上傳檔將存入此路徑裡的 uploads 資料夾
-$upload_dir = "uploads/";
-// 上傳檔總數
-$total_uploads = 10;
-// 上傳檔大小限制，此處限制為400KB
-$size_bytes = 400 * 1024;
-// 副檔名限制
-$limitedext = array(".jpg", ".jpeg");
-echo "<h3>上傳結果</h3>";
-// 用迴圈讀取上傳欄位資料
-for ($i = 0; $i < $total_uploads; $i++) {
-    $new_file = $_FILES['file' . $i];
-    // 讀取上傳檔名
-    $file_name = $new_file['name'];
-    // 把檔名中的空格替換成 "_"
-    $file_name = str_replace(' ', '_', $file_name);
-    // 存入暫存區的檔名
-    $file_tmp = $new_file['tmp_name'];
-    // 檔案大小
-    $file_size = $new_file['size'];
-    // 判斷欄位是否指定上傳檔案…
-    if (!is_uploaded_file($file_tmp)) {
-        // 沒有上傳檔，顯示訊息。
-        echo "欄位 $i: 沒有選取上傳檔案。<br />";
-    } else {
-        // 若有上傳檔，則取出該檔案的副檔名
-        $ext = strrchr($file_name, '.');
-        // 判斷副檔名是否符合預期
-        if (!in_array(strtolower($ext), $limitedext)) {
-            // 不符合預期，顯示錯誤訊息。
-            echo "欄位 $i: ($file_name) 的檔案副檔名有誤
-			（只允許GIF和JPEG檔） <br />";
-        } else {
-            // 檢查檔案是否太大
-            if ($file_size > $size_bytes) {
-                echo "欄位 $i: ($file_name) 無法上傳，請檢查檔案是否小於 " . $size_bytes / 1024 .
-                    " KB。<br />";
-            } else {
-                if (move_uploaded_file(
-                    $file_tmp,
-                    $upload_dir . $file_name
-                )) {
-                    echo "欄位 $i: ($file_name) 上傳成功！<br />";
-                } else {
-                    echo "欄位 $i: 無法上傳。<br />";
-                }
-            }
-        }
+    // 上傳成功，將實際儲存檔名存入 array（以便存入資料庫）
+    if (!empty($res['dest'])) {
+        $uploadFiles[] = $res['dest'];
     }
 }
 
+// print_r($uploadFiles);
 
-$_POST[] = array(
-    'title-detail' => 'value',
-    'vegetarianDp' => 'value',
-);
+
+// $_POST[] = array(
+//     'title-detail' => 'value',
+//     'vegetarianDp' => 'value',
+// );
 
 
 // echo json_encode([
-//     'recipes' => $_POST['recipes']
+//     'uploadFiles' => $uploadFiles[0]
 // ]);
 
 // exit;
@@ -119,7 +62,7 @@ $_POST[] = array(
                     </div>
                     <div class="img-author">
                         <div class="col-md-10 main-img">
-                            <img src="" alt="" />
+                            <img src="<?= $uploadFiles[0] ?>" alt="" />
                         </div>
                         <div class="author">
                             <div class="author-img">
@@ -163,15 +106,17 @@ $_POST[] = array(
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
+                        <?php for ($i=1; $i < 5 ; $i++) :?>
                         <div class="step">
                             <div class="col-md-5 step-img">
-                                <img src="" alt="" />
+                                <img src="<?= $uploadFiles[$i] ?>" alt="" />
                             </div>
                             <div class="step-txt">
                                 <h2></h2>
                                 <p> <?= $_POST['recipes']['step'] ?> </p>
                             </div>
                         </div>
+                        <?php endfor ?>
                     </div>
                 </div>
             </section>

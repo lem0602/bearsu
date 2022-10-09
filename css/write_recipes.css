@@ -398,8 +398,6 @@ select#ingredientsSize, select#ingredientsTime {
     margin-bottom: 24px;
 }
 
-
-
 .text-addIngredients {
     width: 100%;
     height: 48px;
@@ -437,12 +435,19 @@ select#ingredientsSize, select#ingredientsTime {
 
 .listHolderLi {
     margin-bottom: 24px;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (min-width: 570px) {
     .listHolderLi {
         margin-bottom: 48px;
     }
+}
+
+.delIngredients {
+    background-color: var(--mybeige);
+    width: auto;
 }
 
 .addIngBtn h3 {
