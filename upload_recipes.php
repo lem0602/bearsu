@@ -113,7 +113,7 @@ foreach ($files as $fileInfo) {
                             </div>
                             <div class="step-txt">
                                 <h2></h2>
-                                <p> <?= $_POST['recipes']['step'] ?> </p>
+                                <p> <?= $_POST['recipes']['step'][$i] ?> </p>
                             </div>
                         </div>
                         <?php endfor ?>
