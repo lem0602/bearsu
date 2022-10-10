@@ -72,46 +72,29 @@ if ($totalRows > 0) {
 <?php include __DIR__ . '/kc_parts/navbar.php'; ?>
 
 <main>
-    <form id="file-uploader" action="write_recipes_detail.php" method="POST" enctype="multipart/form-data">
+    <form id="writeRecipes" name="writeRecipes" action="upload_recipes.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="row">
                 <!-- 寫食譜 -->
                 <section id="write-recipes" class="col-md-10">
                     <div class="write-recipes">
                         <div class="text-title-box">
-                            <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" name="title-detail" id="title-detail"></textarea>
+                            <textarea placeholder="請填寫食譜標題" rows="3" maxlength="20" class="text-title-textarea" name="recipes[title]" id="title-detail"></textarea>
                             <p><span class="titleNum">0/20</span></p>
                         </div>
                         <!-- 素食分類 dropdown -->
                         <div class="veggie-category-dropdown">
-
-
-                            <select name="vegetarianDp" id="vegetarianDp">
-                            <?php foreach ($cates as $c) : ?>
+                            <select name="recipes[vegetarian]" id="vegetarianDp">
+                                <?php foreach ($cates as $c) : ?>
                                     <option value="<?= $c['classification'] ?>">
-                                    <h5><?= $c['classification'] ?></h5>
+                                        <h5><?= $c['classification'] ?></h5>
                                     </option>
-                                    <?php endforeach ?>
+                                <?php endforeach ?>
                             </select>
-
-                            <!-- <div class="dropdown">
-                                <button class="dropbtn">
-                                    <h5>素食分類</h5>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </button>
-
-                                <div type="button" class="dropdown-content">
-                                    <?php foreach ($cates as $c) : ?>
-                                        <a id="classificationdp" type="button" href="javascript:void(0)">
-                                            <h5><?= $c['classification'] ?></h5>
-                                        </a>
-                                    <?php endforeach ?>
-                                </div>
-                            </div> -->
                         </div>
                         <!-- 上傳圖片 -->
                         <div class="upload">
-                            <label class="text-center image-preview-wrapper" for="file-uploader">
+                            <label class="text-center image-preview-wrapper" for="titleImgFile">
                                 <div class="detall">
                                     <i class="fa-solid fa-cloud-arrow-up"></i>
                                     <h2>點擊新增圖片</h2>
@@ -119,12 +102,10 @@ if ($totalRows > 0) {
                                         內容以食譜為主<br>
                                         (請勿上傳人像或動物圖片)
                                     </h3>
+                                    <img id="titleImg" class="w-100" src="" alt="">
                                 </div>
                             </label>
-                            <form id="file-uploader" action=" upload.php" method="POST" enctype="multipart/form-data">
-                                <input type="file" name="file">
-                                <button type="submit" name="submit" value="上傳圖檔">上傳檔案</button>
-                            </form>
+                            <input type="file" name="imgFile[]" id="titleImgFile" accept="image/jpeg,image/jpg" multiple>
                         </div>
 
                         <!-- 簡介 -->
@@ -134,7 +115,7 @@ if ($totalRows > 0) {
                                     <h2>簡介</h2>
                                 </lable>
                                 <div class="textarea-box">
-                                    <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" name="introduction-detail" id="introduction-detail"></textarea>
+                                    <textarea placeholder="輸入食譜描述(最多200字)" rows="5" maxlength="200" class="text-introduction" name="recipes[introduction]" id="introduction-detail"></textarea>
                                     <p><span class="wordsNum">0/200</span></p>
                                 </div>
                             </div>
@@ -146,20 +127,13 @@ if ($totalRows > 0) {
                                     <h3>份量</h3>
                                     <h4>(人份)</h4>
                                     <!-- dropdown -->
-                                    <div class="dropdown">
-                                        <button class="dropbtn">
-                                            <h5>份量</h5>
-                                            <i class="fa-solid fa-caret-down"></i>
-                                        </button>
-
-                                        <div type="button" class="dropdown-content">
-                                            <?php for ($i = 1; $i <= 10; $i++) : ?>
-                                                <a type="button" href="javascript:document.form1.submit(<?= $i ?>);">
-                                                    <h5><?= $i ?></h5>
-                                                </a>
-                                            <?php endfor ?>
-                                        </div>
-                                    </div>
+                                    <select name="recipes[ingredientsSize]" id="ingredientsSize">
+                                        <?php for ($i = 1; $i <= 10; $i++) : ?>
+                                            <option value="<?= $i ?>">
+                                                <h5><?= $i ?></h5>
+                                            </option>
+                                        <?php endfor ?>
+                                    </select>
                                     <!-- dropdown end -->
                                 </div>
 
@@ -167,20 +141,13 @@ if ($totalRows > 0) {
                                     <h3>烹調時間</h3>
                                     <h4>(分鐘)</h4>
                                     <!-- dropdown -->
-                                    <div class="dropdown">
-                                        <button class="dropbtn">
-                                            <h5>烹調時間</h5>
-                                            <i class="fa-solid fa-caret-down"></i>
-                                        </button>
-
-                                        <div type="button" class="dropdown-content">
-                                            <?php for ($i = 15; $i <= 120; $i += 15) : ?>
-                                                <a type="button" href="#0" value="<?= $i ?>">
-                                                    <h5><?= $i ?></h5>
-                                                </a>
-                                            <?php endfor ?>
-                                        </div>
-                                    </div>
+                                    <select name="recipes[ingredientsTime]" id="ingredientsTime">
+                                        <?php for ($i = 15; $i <= 120; $i += 15) : ?>
+                                            <option value="<?= $i ?>">
+                                                <h5><?= $i ?></h5>
+                                            </option>
+                                        <?php endfor ?>
+                                    </select>
                                     <!-- dropdown end -->
                                 </div>
                             </div>
@@ -196,38 +163,24 @@ if ($totalRows > 0) {
                                             <div class="listHolder">
                                                 <ul class="list" id="listHolder">
 
-                                                    <li class="row listHolderLi">
-                                                        <div class="detail-box col-7 col-md-7 p-0">
-                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                        <div class="detail-box col-3 col-md-3 p-0">
-                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="row listHolderLi">
-                                                        <div class="detail-box col-7 col-md-7 p-0">
-                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                        <div class="detail-box col-3 col-md-3 p-0">
-                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="row listHolderLi">
-                                                        <div class="detail-box col-7 col-md-7 p-0">
-                                                            <textarea placeholder="食材" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                        <div class="detail-box col-3 col-md-3 p-0">
-                                                            <textarea placeholder="份量" rows="5" maxlength="200" class="text-addIngredients" id="addIngredients-detail"></textarea>
-                                                        </div>
-                                                    </li>
-
+                                                    <?php for ($i = 1; $i <= 3; $i++) : ?>
+                                                        <li class="row listHolderLi">
+                                                            <div class="detail-box col-6 col-md-7 p-0">
+                                                                <textarea placeholder="食材" rows="5" maxlength="200" name="recipes[Ingredients][<?= $i ?>]" class="text-addIngredients" id="ingredients"></textarea>
+                                                            </div>
+                                                            <div class="detail-box col-3 col-md p-0">
+                                                                <textarea placeholder="份量" rows="5" maxlength="200" name="recipes[servingSize][<?= $i ?>]" class="text-addIngredients" id="servingSize"></textarea>
+                                                            </div>
+                                                            <button class="delIngredients" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.listHolderLi').remove()">
+                                                                <i class="fa-solid fa-trash-can"></i>
+                                                            </button>
+                                                        </li>
+                                                    <?php endfor ?>
                                                 </ul>
                                             </div>
                                             <!-- form holder -->
                                             <div class="formHolder">
-                                                <a type="button" id="addBtn" class="darkbutton">
+                                                <a type="button" id="addIngredientsBtn" class="darkbutton">
                                                     <h3 class="addIng">新增食材</h3>
                                                 </a>
                                             </div>
@@ -244,19 +197,29 @@ if ($totalRows > 0) {
                             <div class="step-box">
                                 <ul class="step-list">
                                     <?php for ($i = 1; $i <= 3; $i++) : ?>
-                                        <li class="list-li">
-                                            <div class="addimg">
-                                                <!-- to do 點擊新增圖片 -->
+                                        <li class="li_list">
+                                            <div class="addimg col-12 col-md-4">
+                                                <div class="upload">
+                                                    <label class="text-center image-preview-wrapper" for="stepImgFile">
+                                                        <div class="detall">
+                                                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                                                            <h2>點擊新增圖片</h2>
+                                                            <h3>比例建議 4:3</h3>
+                                                            <img id="stepImg" class="w-100" src="" alt="">
+                                                        </div>
+                                                    </label>
+                                                    <input type="file" name="imgFile[]" id="stepImgFile" accept="image/jpeg,image/jpg" multiple>
+                                                </div>
                                             </div>
-                                            <div class="textarea">
+                                            <div class="textarea col-12 col-md">
                                                 <div class="header">
-                                                    <h2>1</h2>
-                                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.list-li').remove()">
+
+                                                    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.li_list').remove()">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </div>
                                                 <div class="textarea-box">
-                                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" id="introduction-detail"></textarea>
+                                                    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" name="recipes[step][]" id="introduction-detail"></textarea>
                                                     <p><span class="textNum1">0/150</span></p>
                                                 </div>
                                             </div>
@@ -266,7 +229,7 @@ if ($totalRows > 0) {
                             </div>
                             <!-- 新增步驟btn -->
                             <div class="addbtn">
-                                <a type="button" class="darkbutton" id="addBtn">
+                                <a type="button" class="darkbutton" id="addintroductionBtn">
                                     <h3>新增步驟</h3>
                                 </a>
                             </div>
@@ -281,8 +244,8 @@ if ($totalRows > 0) {
                         <a class="lightbutton" href="./recipe_list.php">
                             <h2>取消</h2>
                         </a>
-                        <a class="darkbutton" href="javascript:document.form1.submit();" name="submit">
-                            <h2>發布</h2>
+                        <a for="submit" class="darkbutton" name="submit">
+                            <h2><input type="submit" value="發布"></h2>
                         </a>
                     </div>
                 </section>
@@ -380,6 +343,116 @@ if ($totalRows > 0) {
     }
 </script>
 
+
+<script>
+    var hasUploadedOne = false; // 已上傳過1張圖片
+    var hasUploadedTwo = false; // 已上傳過2張圖片
+
+    //獲取到預覽框
+    var imgObjPreview1 = document.getElementById("titleImg");
+    var imgObjPreview2 = document.getElementById("stepImg");
+
+    document.getElementById('file').onchange = function() {
+        // 若還沒完成2張圖片的上傳
+        if (!hasUploadedTwo) {
+            //獲取到file的檔案
+            var docObj = this;
+
+            //獲取到檔名和型別（非IE，可一次上傳1張或多張）
+            if (docObj.files && docObj.files[0]) {
+                // 一次上傳了>=2張圖片（只有前兩張會真的上傳上去）
+                if (docObj.files.length >= 2) {
+                    imgObjPreview1.src = window.URL.createObjectURL(docObj.files[0]);
+                    imgObjPreview2.src = window.URL.createObjectURL(docObj.files[1]);
+                    hasUploadedTwo = true;
+                }
+                //一次只上傳了1張照片
+                else {
+                    // 這是上傳的第一張照片
+                    if (!hasUploadedOne) {
+                        imgObjPreview1.src = window.URL.createObjectURL(docObj.files[0]);
+                        hasUploadedOne = true;
+                    }
+                    // 這是上傳的第二張照片
+                    else {
+                        imgObjPreview2.src = window.URL.createObjectURL(docObj.files[0]);
+                        hasUploadedTwo = true;
+                    }
+                }
+
+            }
+            //IE（只能一次上傳1張）
+            else {
+                //使用濾鏡
+                docObj.select();
+                var imgSrc = document.selection.createRange().text;
+                // 這是上傳的第一張照片
+                if (!hasUploadedOne) {
+                    imgObjPreview1.src = imgSrc;
+                    hasUploadedOne = true;
+                }
+                // 這是上傳的第二張照片
+                else {
+                    imgObjPreview2.src = imgSrc;
+                    hasUploadedTwo = true;
+                }
+                document.selection.empty();
+            }
+            return true;
+        }
+    }
+</script>
+
 <!-- add the new list -->
-<script type="text/javascript" src="js/add_list.js"></script>
+<script>
+    $("#addIngredientsBtn").click(function() {
+        var htm = "";
+        htm += "    <li class='row listHolderLi'>";
+        htm += "    <div class='detail-box col-6 col-md-7 p-0'>";
+        htm += "    <textarea placeholder='食材' rows='5' maxlength='200' name='recipes[Ingredients][]' class='text-addIngredients' id='ingredients'></textarea>";
+        htm += "    </div>";
+        htm += "    <div class='detail-box col-3 col-md p-0'>";
+        htm += "    <textarea placeholder='份量' rows='5' maxlength='200' name='recipes[servingSize][]' class='text-addIngredients' id='servingSize'></textarea>";
+        htm += "    </div>";
+        htm += `    <button class='delIngredients' type='button' aria-label='刪除步驟說明' onclick="event.currentTarget.closest('.listHolderLi').remove()">`;
+        htm += "    <i class='col col-md-1 fa-solid fa-trash-can'></i>";
+        htm += "    </button>";
+        htm += "    </li>";
+
+        $('#listHolder').append(htm);
+    });
+
+    $("#addintroductionBtn").click(function() {
+        var htm = "";
+        htm += `    <li class="li_list">`;
+        htm += `    <div class="addimg col-12 col-md-4">`;
+        htm += `    <div class="upload">`;
+        htm += `    <label class="text-center image-preview-wrapper" for="stepImgFile">>`;
+        htm += `    <div class="detall">`;
+        htm += `    <i class="fa-solid fa-cloud-arrow-up"></i>`;
+        htm += `    <h2>點擊新增圖片</h2>`;
+        htm += `    <h3>比例建議 4:3</h3>`;
+        htm += `    <img id="stepImg" class="w-100" src="" alt="">`;
+        htm += `    </div>`;
+        htm += `    </label>`;
+        htm += `    <input type="file" name="imgFile[]" id="stepImgFile" accept="image/jpeg,image/jpg" multiple>`;
+        htm += `    </div>`;
+        htm += `    </div>`;
+        htm += `    <div class="textarea col-12 col-md">`;
+        htm += `    <div class="header">`;
+        htm += `    <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.li_list').remove()">`;
+        htm += `    <i class="fa-solid fa-trash-can"></i>`;
+        htm += `    </button>`;
+        htm += `    </div>`;
+        htm += `    <div class="textarea-box">`;
+        htm += `    <textarea placeholder="步驟說明(最多150字)" rows="5" maxlength="150" class="step-textarea" name="recipes[step][]" id="introduction-detail"></textarea>`;
+        htm += `    <p><span class="textNum1">0/150</span></p>`;
+        htm += `    </div>`;
+        htm += `    </div>`;
+        htm += `    </li>`;
+
+
+        $('.step-list').append(htm);
+    });
+</script>
 <?php include __DIR__ . '/kc_parts/html-foot.php'; ?>

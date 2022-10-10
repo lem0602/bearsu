@@ -222,6 +222,18 @@ body {
     }
 }
 
+.list-li {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 570px) {
+    .list-li {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
 .step-img {
     border-radius: 10px;
     margin-bottom: 24px;

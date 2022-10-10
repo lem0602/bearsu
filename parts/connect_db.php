@@ -5,10 +5,10 @@
 // $db_pass = '';
 // $db_name = 'bearsu';
 
-// $db_host = '127.0.0.1';
-// $db_user = 'root';
-// $db_pass = '';
-// $db_name = 'bearsu';
+$db_host = '127.0.0.1';
+$db_user = 'admin';
+$db_pass = 'admin';
+$db_name = 'bearsu';
 
 // $db_host = '192.168.33.111';
 // $db_user = 'admin';
