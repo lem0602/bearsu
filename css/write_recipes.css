@@ -450,8 +450,12 @@ select#ingredientsSize, select#ingredientsTime {
     width: auto;
 }
 
-.addIngBtn h3 {
-    width: 100%;
+.formHolder {
+    padding: 0;
+}
+
+#addIngredientsBtn h3 {
+    margin: 20px auto;
 }
 
 .detail-box {
@@ -478,7 +482,8 @@ select#ingredientsSize, select#ingredientsTime {
 .step .header {
     height: 38px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: flex-end;
     align-items: center;
     margin-bottom: 14px;
 }
