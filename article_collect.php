@@ -74,7 +74,7 @@ if ($totalRows > 0) {
                         </a>
                     </li>
                     <li class="col membermenu">
-                        <a href="#0">
+                        <a href="./article_collect.php">
                             <h3>收藏</h3>
                         </a>
                     </li>
