@@ -426,7 +426,7 @@ if ($totalRows > 0) {
         htm += `    <li class="li_list">`;
         htm += `    <div class="addimg col-12 col-md-4">`;
         htm += `    <div class="upload">`;
-        htm += `    <label class="text-center image-preview-wrapper" for="stepImgFile">>`;
+        htm += `    <label class="text-center image-preview-wrapper" for="stepImgFile">`;
         htm += `    <div class="detall">`;
         htm += `    <i class="fa-solid fa-cloud-arrow-up"></i>`;
         htm += `    <h2>點擊新增圖片</h2>`;
