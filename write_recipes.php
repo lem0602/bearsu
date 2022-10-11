@@ -84,6 +84,7 @@ if ($totalRows > 0) {
                         </div>
                         <!-- 素食分類 dropdown -->
                         <div class="veggie-category-dropdown">
+                            <h2>素食分類</h2>
                             <select name="recipes[vegetarian]" id="vegetarianDp">
                                 <?php foreach ($cates as $c) : ?>
                                     <option value="<?= $c['classification'] ?>">

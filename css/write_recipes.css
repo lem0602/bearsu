@@ -101,6 +101,11 @@ button {
 .veggie-category-dropdown {
     margin-bottom: 48px;
     display: flex;
+    align-items: center;
+}
+
+.veggie-category-dropdown h2 {
+    margin-right: 24px;
 }
 
 select#vegetarianDp {
