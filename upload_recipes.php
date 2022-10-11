@@ -29,7 +29,7 @@ foreach ($files as $fileInfo) {
 $ingredientscount = count($_POST['recipes']['Ingredients']);
 $stepcount = count($_POST['recipes']['step']);
 
-// print_r($stepcount);
+// print_r($ingredientscount);
 
 
 // $_POST[] = array(
@@ -97,10 +97,10 @@ $stepcount = count($_POST['recipes']['step']);
                                 <h3>食材</h3>
                             </div>
 
-                            <?php for ($i = 1; $i <=$ingredientscount; $i++) : ?>
+                            <?php for ($i = 1 ; $i <= $ingredientscount ; $i++) : ?>
                                 <div class="col-12 col-lg-6 ingredients">
                                     <h4><?= $_POST['recipes']['Ingredients'][$i] ?></h4>
-                                    <h4><?= $_POST['recipes']['servingSize'][$i] ?></h4>
+                                    <h4><?= $_POST['recipes']['servingSize'][$i] ?></h4> 
                                 </div>
                             <?php endfor ?>
                         </div>
@@ -109,14 +109,14 @@ $stepcount = count($_POST['recipes']['step']);
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                        <?php for ($i=0; $i < $stepcount ; $i++) :?>
+                        <?php for ($i=1 ; $i <= $stepcount ; $i++) :?>
                         <div class="step">
                             <div class="col-md-5 step-img">
-                                <img src="<?= $uploadFiles[$i] ?>" alt="" />
+                                <img src="<?= $uploadFiles[$i]?>" alt="" />
                             </div>
                             <div class="step-txt">
                                 <h2></h2>
-                                <p> <?= $_POST['recipes']['step'][$i] ?> </p>
+                                <p> <?= $_POST['recipes']['step'][$i-1] ?> </p>
                             </div>
                         </div>
                         <?php endfor ?>
