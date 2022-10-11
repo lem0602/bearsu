@@ -109,7 +109,7 @@ $stepcount = count($_POST['recipes']['step']);
 
                 <div class="recipe-detail-step">
                     <div class="step-box">
-                        <?php for ($i=0; $i < $stepcount ; $i++) :?>
+                        <?php for ($i=1; $i < $stepcount ; $i++) :?>
                         <div class="step">
                             <div class="col-md-5 step-img">
                                 <img src="<?= $uploadFiles[$i] ?>" alt="" />
