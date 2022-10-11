@@ -12,15 +12,16 @@ if (isset($_GET['area'])) {
 $stmt = $pdo->query($sql);
 ?>
 <?php include __DIR__ . '/mengParts/html-head.php'; ?>
-<?php include __DIR__ . '/mengParts/navbar.php'; ?>
-<!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
 <?php include __DIR__ . '/mengParts/myStyle.php'; ?>
 <link rel="stylesheet" href="./mengParts/css/map.css">
+<?php include __DIR__ . '/mengParts/navbar.php'; ?>
+<!-- 怕推上去會被吃掉就再建一個php檔例如mystyle -->
+
 <div class="my_wrap">
 	<div class="container">
 		<div class="course_title">
 			<h1>素食地圖</h1>
-			<img src="./img/mascot_05.png" alt="">
+			<img src="./images/mascot_05.gif" alt="">
 		</div>
 
 		<!-- 選單列表 -->

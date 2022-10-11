@@ -66,7 +66,7 @@ $stmt = $pdo->query($sql);
                     ?>
                         <div class="mapcard">
                             <div class="mappic">
-                                <img src="./img/map_41.jpeg" alt="">
+                                <img src="./img/map_img/<?php echo $data['img'] ?>.jpg" alt="">
                             </div>
                             <div class="mapcardp">
                                 <div class="mapcardp1">
