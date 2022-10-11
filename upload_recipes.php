@@ -115,7 +115,7 @@ $stepcount = count($_POST['recipes']['step']);
                                 <img src="<?= $uploadFiles[$i]?>" alt="" />
                             </div>
                             <div class="step-txt">
-                                <h2></h2>
+                                <h2> <?= $i ?> </h2>
                                 <p> <?= $_POST['recipes']['step'][$i-1] ?> </p>
                             </div>
                         </div>
