@@ -99,22 +99,22 @@ if ($totalRows > 0) {
                 </div>
                 <ul class="membermenulist">
                     <li class="col membermenu">
-                        <a href="#0">
+                        <a href="./member.php">
                             <h3>會員資料</h3>
                         </a>
                     </li>
                     <li class="col membermenu">
-                        <a href="#0">
+                        <a href="./Order-record.php">
                             <h3>訂單記錄</h3>
                         </a>
                     </li>
                     <li class="col membermenu">
-                        <a href="#0">
+                        <a href="./recipe_collect.php">
                             <h3>我的食譜</h3>
                         </a>
                     </li>
                     <li class="col membermenu">
-                        <a href="#0">
+                        <a href="./recipe_collect.php">
                             <h3>收藏</h3>
                         </a>
                     </li>
