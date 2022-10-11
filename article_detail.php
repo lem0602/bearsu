@@ -74,7 +74,7 @@ $rows = $pdo->query("SELECT r.* FROM article AS r WHERE r.sid=$sid  ")->fetchAll
                             <div class="message-author-img">
                                 <img src="./images/mug_shot_04.png" alt="" />
                             </div>
-                            <p>發表留言發表留言發表留言發表留言發表留言發表留言</p>
+                            <p>好文章讚讚讚</p>
                         </div>
 
                     </div>

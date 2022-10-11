@@ -55,11 +55,11 @@ $ingredients = sprintf(
 
 $irows = $pdo->query($ingredients)->fetchAll();
 
-echo json_encode([
-    'rows ' => $rows,
-]);
+// echo json_encode([
+//     'rows ' => $rows,
+// ]);
 
-exit;
+// exit;
 ?>
 
 <?php include __DIR__ . '/kc_parts/html-head.php'; ?>
@@ -179,7 +179,7 @@ exit;
                         <div class="message-author-img">
                             <img src="./images/mug_shot_01.png" alt="" />
                         </div>
-                        <p>試著做讚讚讚</p>
+                        <p>謝謝分享，改天來試著做讚讚讚</p>
                     </div>
                 </div>
             </section>
