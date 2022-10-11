@@ -213,7 +213,6 @@ if ($totalRows > 0) {
                                             </div>
                                             <div class="textarea col-12 col-md">
                                                 <div class="header">
-
                                                     <button class="del-step-instructions" type="button" aria-label="刪除步驟說明" onclick="event.currentTarget.closest('.li_list').remove()">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </button>
