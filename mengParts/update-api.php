@@ -17,6 +17,10 @@ $output = [
     'ttt' => null,
     'birthday' => $_POST['birthday'],
     'gender' => $_POST['gender'],
+    'oldPwd' => $_POST['password'],
+    'oldPwdS' =>password_hash($_POST['password'], PASSWORD_DEFAULT),
+    'newPwd' => null,
+
 ];
 // 判斷密碼欄位有無內容
 if (!empty($_POST['password'])) {
@@ -25,16 +29,18 @@ if (!empty($_POST['password'])) {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$_POST['email']]);
     $row = $stmt->fetch();
-    if (password_verify($_POST['password'], password_hash($row['password'], PASSWORD_DEFAULT))) {
+    // $pwd = password_verify($_POST['newpassword']);
+    $output['newPwd'] = $row['password'];
+    if (password_verify($_POST['password'], $row['password'])) {
         // 如果正確，修改密碼指令就會執行
-        $sql = "UPDATE members SET gender='".$_POST['gender']."',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "',password='".$_POST['newpassword']."' where email='" . $_SESSION['user']['email'] . "'";
+        $sql = "UPDATE members SET gender='" . $_POST['gender'] . "',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "',password='" .   password_hash($_POST['newpassword'], PASSWORD_DEFAULT) . "' where email='" . $_SESSION['user']['email'] . "'";
     } else {
         $output['error'] = '密碼錯誤';
         echo json_encode($output, JSON_UNESCAPED_UNICODE);
         exit;
     }
 } else {
-    $sql = "UPDATE members SET gender='".$_POST['gender']."',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
+    $sql = "UPDATE members SET gender='" . $_POST['gender'] . "',birthday='" . $_POST['birthday'] . "',email='" . $_POST['email'] . "', address='" . $_POST['address'] . "' where email='" . $_SESSION['user']['email'] . "'";
 }
 
 // UPDATE `member` SET `sid`='',`name`='',`email`='',`password`='',`gender`='',`birthday`='',`mobile`='',`nickname`='',`address`='[value-10]' WHERE 1

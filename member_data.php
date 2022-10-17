@@ -391,6 +391,7 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             gender: $("[name='gender']:checked").val(),
             // month_select,
         }
+        console.log('updateObj',updateObj);
         // 把資料丟給api
         $.post(
             "./mengParts/update-api.php",
